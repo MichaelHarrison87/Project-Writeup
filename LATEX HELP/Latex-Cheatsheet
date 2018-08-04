@@ -24,24 +24,25 @@ INSERT IMAGES
   \caption{Example X-Ray Image}
   \label{fig:xray1}
   \includegraphics[width=\textwidth, height=8cm]{image1}
-  \centering
-\end{figure}
-
-\begin{figure}[!ht]
   \caption{Another example X-Ray Image}
   \label{fig:xray2}
   \includegraphics[width=\textwidth, height=8cm]{image2}
   \centering
 \end{figure}
-
+\clearpage
+\noindent
 As can be seen in \textbf{Figure \ref{fig:xray1}}, the x-ray is of a hand. A side-profile of the hand from the same study can be seen in \textbf{Figure \ref{fig:xray2}}.
 [End Example]
 
 Note {image1} & {image2} in the \includegraphics lines are the filenames of .png files in my ./images/ subdirectory. This directory is referenced in the graphicspath at the top of the document: 
 \graphicspath{ {./images/} }
 
-(Note: having difficulty ensuring both the above images appear consecutively; 2nd figure seems to start at the top of the next page, with the subsequent text "As can be seen..." actually appearing between the 2 figures)
+Both \includegraphics statements are included within the same figure statement; this keeps both images together in the rendered version.
 
+The \clearpage after closing the figure will put the figures onto a new, separate page.
+
+The [!ht] at the opening of the figure tells Latex to put the images close to their position in the text, rather than leave them "floating" (when their default position seems to be at the end of the document). The "!" makes this a "strong" suggestion. See:
+https://tex.stackexchange.com/questions/16207/image-from-includegraphics-showing-up-in-wrong-location
 
 BIBLIOGRAPHY
 May need to create the .bbl file - which should match the filename of the main doc (e.g. dissertation.tex -> dissertation.bbl); although think can change this if needed.

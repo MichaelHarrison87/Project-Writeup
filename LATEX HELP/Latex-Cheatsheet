@@ -1,0 +1,71 @@
+CREATE PDF
+To create the pdf, seems best to run the pdflatex command twice: pdflatex template;pdflatex template
+This allows auxiliary files etc to be created so that, e.g., the table of contents is updated properly
+
+DECLARATION
+Note the Decalarion - with name, word count,  date of subsmission is defined in: BigDataStyle.txt (inside the \newcommand{\declaration})
+
+REFERENCES
+Put references info into the bibliography.bib file, then cite in the main template.tex file e.g. by: \cite{hastie/etal:2009}
+Where in the bibliography.bib we have:
+@book{hastie/etal:2009,
+  author = 	{Trevor Hastie and Robert Tibshirani and Jerome Friedman},
+  title = 	{The Elements of Statistical Learning: Data Mining, Inference, and Prediction},
+  publisher = 	{Springer},
+  address = 	{New York},
+  edition =	{Second},
+  year = 	2009}
+}
+
+
+INSERT IMAGES
+[Example]
+\begin{figure}[!ht]
+  \caption{Example X-Ray Image}
+  \label{fig:xray1}
+  \includegraphics[width=\textwidth, height=8cm]{image1}
+  \centering
+\end{figure}
+
+\begin{figure}[!ht]
+  \caption{Another example X-Ray Image}
+  \label{fig:xray2}
+  \includegraphics[width=\textwidth, height=8cm]{image2}
+  \centering
+\end{figure}
+
+As can be seen in \textbf{Figure \ref{fig:xray1}}, the x-ray is of a hand. A side-profile of the hand from the same study can be seen in \textbf{Figure \ref{fig:xray2}}.
+[End Example]
+
+Note {image1} & {image2} in the \includegraphics lines are the filenames of .png files in my ./images/ subdirectory. This directory is referenced in the graphicspath at the top of the document: 
+\graphicspath{ {./images/} }
+
+(Note: having difficulty ensuring both the above images appear consecutively; 2nd figure seems to start at the top of the next page, with the subsequent text "As can be seen..." actually appearing between the 2 figures)
+
+
+BIBLIOGRAPHY
+May need to create the .bbl file - which should match the filename of the main doc (e.g. dissertation.tex -> dissertation.bbl); although think can change this if needed.
+
+StackOverflow answer here: https://tex.stackexchange.com/questions/74266/not-generating-the-aux-for-the-bibliography-to-run
+Says to run following sequence: latex main -> bibtex main -> latex main
+
+
+TABLE OF CONTENTS
+Similarly, may need to create the pdf a couple of times (pdflatex -> pdflatex) for the Table of Contents & other auxiliary files to be re-generated and used properly. This will allow the Table of Contents to update properly.
+
+
+ESCAPE CHARACTERS
+Note: need the escape character \ before the following, for them to appear correctly in the text:
+& -> \&
+$ -> \$
+(and probably several more)
+
+
+PARAGRAPHS
+Starting a new paragraph (by leaving a whitespace line between two blocks of text in the .tex file) does not leave whitespace between the two blocks in the rendered text. Instead the first line of the new paragraph is indented, but the new paragraph continues immediately below the first.
+
+Can insert two \newline's between paragraphs to get a space between them in the rendered document
+
+Note the first line of the first paragraph in a Section (or sub-, subsub-Sections) is not indented.
+
+The command \noindent will not indent the paragraph

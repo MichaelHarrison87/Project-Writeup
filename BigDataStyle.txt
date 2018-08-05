@@ -54,8 +54,10 @@
   \global\let\author\relax
   \global\let\date\relax
   \global\let\and\relax
+  \pagenumbering{gobble}
 }
 
+% DECLARATION
 \newcommand{\declaration}{%
   \titlepage
   \null
@@ -71,8 +73,10 @@
   \item[Date of Submission:]
   \item[Signature:]
   \end{description}
+  \newpage
 }
 
+% ABSTRACT
 \renewenvironment{abstract}{%
   \titlepage
   \null
@@ -81,8 +85,21 @@
     \Large \bfseries \abstractname
     \@endparpenalty\@M
   \end{center}}%
-  {\newpage\par\vfill\tableofcontents\endtitlepage}
-
+  {\newpage\par\vfill\tableofcontents\listoffigures\endtitlepage}
+  
+  
+% ACKNOWLEDGEMENT
+\newenvironment{acknowledgement}{%
+  \titlepage
+  \null
+  \@beginparpenalty\@lowpenalty
+  \begin{center}%
+    \Large \bfseries Acknowledgement
+    \@endparpenalty\@M
+  \end{center}}%
+  \newpage
+  
+   
 \renewenvironment{thebibliography}[1]
   {\section*{\refname}%
   \addcontentsline{toc}{section}{\refname}%

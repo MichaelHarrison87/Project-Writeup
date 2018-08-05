@@ -30,18 +30,22 @@
 
 \declaration
 
-\begin{abstract}
-  ABSTRACT TBD
-\end{abstract}
+\begin{acknowledgement}
+I would like to thank...
+\end{acknowledgement}
 
-\listoffigures
+% NB: The abstract environment also inserts the Table of Contents
+\begin{abstract}
+ABSTRACT TBD
+\end{abstract}
 
 
 % BEGIN INTRODUCTION
 \newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
 \section{Introduction}
-
-This is a sample section.
+The aim of this project is to explore the use of Deep Learning models in a practical situation. In particular, we have focused on using neural networks to classify x-ray images as normal or abnormal.
 
 % END INTRODUCTION
 
@@ -184,4 +188,13 @@ Alter NN to accept multiple images simultaneously and so predict based on severa
 \clearpage
 \bibliographystyle{plain}
 \bibliography{bibliography}
+
+\clearpage
+\appendix
+\section{Pretrained Model Architechtures}
+Below we describe the architechtures of the various pre-trained neural network models mentioned in the text.
+\subsection{VGG16}
+This is the VGG16 model.
+
+
 \end{document}

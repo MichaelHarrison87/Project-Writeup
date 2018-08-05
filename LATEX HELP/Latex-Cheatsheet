@@ -2,8 +2,11 @@ CREATE PDF
 To create the pdf, seems best to run the pdflatex command twice: pdflatex template;pdflatex template
 This allows auxiliary files etc to be created so that, e.g., the table of contents is updated properly
 
+WORDCOUNT
+Run "texcount doc.tex" in the command line to get a breakdown of wordcounts
+
 DECLARATION
-Note the Decalarion - with name, word count,  date of subsmission is defined in: BigDataStyle.txt (inside the \newcommand{\declaration})
+Note the Declaration - with name, word count,  date of submission is defined in: BigDataStyle.txt (inside the \newcommand{\declaration})
 
 REFERENCES
 Put references info into the bibliography.bib file, then cite in the main template.tex file e.g. by: \cite{hastie/etal:2009}

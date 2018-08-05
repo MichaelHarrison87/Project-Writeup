@@ -1,11 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{hastie/etal:2009}
-Trevor Hastie, Robert Tibshirani, and Jerome Friedman.
-\newblock {\em The Elements of Statistical Learning: Data Mining, Inference,
-  and Prediction}.
-\newblock Springer, New York, second edition, 2009.
-
 \bibitem{MURA2017}
 P.~{Rajpurkar}, J.~{Irvin}, A.~{Bagul}, D.~{Ding}, T.~{Duan}, H.~{Mehta},
   B.~{Yang}, K.~{Zhu}, D.~{Laird}, R.~L. {Ball}, C.~{Langlotz},
@@ -13,5 +7,11 @@ P.~{Rajpurkar}, J.~{Irvin}, A.~{Bagul}, D.~{Ding}, T.~{Duan}, H.~{Mehta},
 \newblock {MURA: Large Dataset for Abnormality Detection in Musculoskeletal
   Radiographs}.
 \newblock {\em ArXiv e-prints}, December 2017.
+
+\bibitem{wiki:simple_ann}
+{Wikipedia contributors}.
+\newblock Artificial neural network --- {Wikipedia}{,} the free encyclopedia.
+\newblock \url{https://en.wikipedia.org/wiki/Artificial_neural_network}, 2018.
+\newblock [Online; accessed 5-August-2018].
 
 \end{thebibliography}

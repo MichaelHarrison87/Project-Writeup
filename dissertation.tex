@@ -50,7 +50,7 @@ The aim of this project is to explore the use of Deep Learning in a practical si
 \\
 \\
 \noindent
-This project focuses on image recognition, as this is one of the areas where Deep Learning has seen its biggest successes. In particular, we will be applying Deep Learning to the MURA (\textbf{mu}sculoskeletal \textbf{ra}diographs) dataset, published by the Machine Learning Group at Stanford University \cite{MURA2017}. This is a collection of 40,005 X-ray images of a part of the upper extremity - comprising the arm, shoulder, wrist, hand etc. Each image is from one of 14,656 studies of an individual patient, performed at a particular point in time on one of these parts of the upper extremity. Each study was labelled as normal or abnormal at the time of clinical interpretation by a radiologist from Stanford Hospital - and these labels have been published alongside the images themselves. Therefore the aim of this project is to use Deep Learning to perform binary image classification on this set of X-rays - classifying them as either normal or abnormal.
+This project focuses on image recognition, as this is one of the areas where Deep Learning has seen its biggest successes. In particular, we will be applying Deep Learning to the MURA (\textbf{mu}sculoskeletal \textbf{ra}diographs) dataset, published by the Machine Learning Group at Stanford University \cite{MURA2017}. This is a collection of 40,005 X-ray images of a part of the upper extremity - comprising the arm, shoulder, wrist, hand etc. Each image is from one of 14,656 studies of an individual patient, performed at a particular point in time on one of these parts of the upper extremity. Each study was labelled as normal or abnormal at the time of clinical interpretation by a radiologist from Stanford Hospital - and these labels have been published alongside the images themselves. Therefore the aim of this project is to use Deep Learning to perform binary image classification on this set of X-rays - classifying them as either normal or abnormal. This will be a supervised learning task, since we have clear labels for our data, and our aim is to predict them. 
 \\
 \\
 \noindent
@@ -105,7 +105,7 @@ where:
   \item \(b' = \mathbf{W_2^{\top}}b_1 + b_2\) is an \({n_2}\times{1}\) vector
   \item Equation \((4)\) uses the matrix transpose rule \((AB)^{\top} = B^{\top}A^{\top}\)
 \end{itemize}
-Hence both \(a_1\) and \(a_2\) are linear functions of \(a_0\). This argument can be repeated for any number of hidden layers, and so the output of the whole network (regardless of its size) is simply a linear function of the input. This is undesirable since such a network cannot learn more complicated, non-linear features of the data. Training the network is effectively equivalent to just performing linear regression.
+Hence both \(a_1\) and \(a_2\) are linear functions of \(a_0\). This argument can be extended to any number of hidden layers, and so the output of the whole network (regardless of its size) is simply a linear function of the input. This is undesirable since such a network cannot learn more complicated, non-linear features of the data. Training the network is effectively equivalent to just performing linear regression.
 \\
 \\
 \noindent
@@ -143,11 +143,20 @@ This is extremely useful for classification, since we can set the final layer of
 \noindent
 More concretely, for our purposes we set the final layer to have 2 neurons - corresponding to normal or abnormal respectively.
 
+\subsection{Training}
+After choosing the structure of the ANN - i.e. the numbers of layers, numbers of neurons, and activation functions for each layer/neuron - it remains to train the network. The act of training the network boils down to setting appropriate values for all the weights and biases across the whole network. While this could be done by hand - this would be very difficult and, for larger networks, the numbers of weights and biases can be several million and hence infeasible to set by hand anyway. Instead, the weights\footnote{We'll use "weights" as a shorthand for "weights and biases" - i.e. the set of model parameters - from now on.} are initialised to random values and then automatically updated through a process called \textit{Backpropagation}. This involves the following steps:
+\begin{itemize}
+  \item \textbf{Forward Pass:} data items are input into the network (via the input layer). The activations of each of the subsequent layers are then calculated based on this input, up to the final output layer. Then (since our problem is supervised learning) the output is compared to known, true label for the given data item. This comparison is quantified by a loss function, some chosen function that measures how close the prediction is to the true label.   
+  \item \textbf{Backward Pass:} Since the value of the loss function depends on the network's weights (via the predicted label), the gradient of the loss function with respect to each of the weights can be calculated. These gradients then tell us how to adjust (in what direction, by how much) each of the weights in order to reduce the loss - and hence make the prediction closer to the true label.
+  \item \textbf{Weight Update:} It remains to make these changes to the weights. Typically we only make a small change vs that indicated by the gradient - since the gradients themselves will be subject to a lot of random variation from data item-to-data item. So making the full change will result in noisy, erratic weight changes, and hence also erratic changes in the predictions with each weight update. So instead we multiply all of the gradients by some small number \(\epsilon\) (e.g. \(\epsilon\approx0.001\)) called the \textit{learning rate}. This has the effect of slowing down the weight updates, and hence allowing a more gradual progression towards a minimum of the loss function. 
+\end{itemize}
+There are in fact a number of different training algorithms, which vary in the details, but all of the ones we consider follow this basic pattern.
+
+\subsection{Loss Functions}
+We use the cross-entropy loss.
+
 \subsection{Convolutional Neural Networks}
 Write about conv nets, their performance, history etc
-
-\subsection{Training}
-Write about training nets, loss functions, optimisers etc
 
 \subsection{Prediction}
 Write about generating predictions from the networks

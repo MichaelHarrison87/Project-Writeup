@@ -79,33 +79,33 @@ More specifically, these Deep Learning systems tend to be artificial neural netw
 \\
 \\
 \noindent
-The connections between the neurons from one layer to the next represent the network's weights, each weight again usually just a real number. In addition to these weights between layers, each neuron (aside from the input layer) has an associated bias, once again usually just a real number. Taken across the whole network, these weights and biases form the set of parameters that define the model. They dictate how the activations from neurons in the previous layer should be used to calculate the activations of neurons in the next layer. For instance, let the activations of the neurons in layer \(i\) be given by the vector \(a_i\), and the weights connecting neurons in layer \(i\) to those in layer \(i+1\) be given by the matrix \(\mathbf{W_{i+1}}\). So if the numbers of neurons in layers \(i\) and \(i+1\) respectively are \(n_i\) and \(n_{i+1}\), then \(a_i\) will have dimension \((n_i,1)\), and \(\mathbf{W_{i+1}}\) dimension \((n_i,n_{i+1})\)\footnote{Each of the \(n_i\) neurons in layer \(i\) connects to each of the \(n_{i+1}\) neurons in layer \(i+1\), making \({n_i}\times{n_{i+1}}\) connections in total.}. Then the activations for the neurons in layer \(i+1\) are given by:
-\[a_{i+1} = f_{i+1}(\mathbf{W_{i+1}^{\top}}a_i + b_{i+1}) \]
+The connections between the neurons from one layer to the next represent the network's weights, each weight again usually just a real number. In addition to these weights between layers, each neuron (aside from the input layer) has an associated bias, once again usually just a real number. Taken across the whole network, these weights and biases form the set of parameters that define the model. They dictate how the activations from neurons in the previous layer should be used to calculate the activations of neurons in the next layer. For instance, let the activations of the neurons in layer \(i\) be given by the vector \(a^{[i]}\), and the weights connecting neurons in layer \(i\) to those in layer \(i+1\) be given by the matrix \(\mathbf{W^{[i+1]}}\). So if the numbers of neurons in layers \(i\) and \(i+1\) respectively are \(n_i\) and \(n_{i+1}\), then \(a^{[i]}\) will have dimension \((n_i,1)\), and \(\mathbf{W^{[i+1]}}\) dimension \((n_i,n_{i+1})\)\footnote{Each of the \(n_i\) neurons in layer \(i\) connects to each of the \(n_{i+1}\) neurons in layer \(i+1\), making \({n_i}\times{n_{i+1}}\) connections in total.}. Then the activations for the neurons in layer \(i+1\) are given by:
+\[a^{[i+1]} = f_{i+1}(\mathbf{{W^{[i+1]}}^{\top}}a^{[i]} + b^{[i+1]}) \]
 where:
 \begin{itemize}
-  \item \(b_{i+1}\) is the vector of biases for the neurons in layer \(i+1\) (so of dimension \((n_{i+1},1)\)). 
+  \item \(b^{[i+1]}\) is the vector of biases for the neurons in layer \(i+1\) (so of dimension \((n_{i+1},1)\)). 
   \item \(f_{i+1}\) is the activation function for layer \(i+1\), that applies element-wise to the vector on which it operates, and hence returns a vector. The choice of activation functions is part of the design of the network.   
 \end{itemize}
 This process is repeated, with activations from the input layer feeding into activations of the first hidden layer; activations from this hidden layer feeding into the next hidden layer; etc until the final activations in the output layer are produced. Note that while \textbf{Figure \ref{fig:simple_ann}} above showed only one hidden layer between input and output, in practice there can be arbitrarily many hidden layers - each taking as input the activations from their previous layer, and sending their own activations as output to the next layer. The choice of the numbers of hidden layers, and the numbers of neurons in each of these layers is again part of the design of the network.   
 
 \subsubsection{Activation Functions}
 The activation functions are usually chosen to be non-linear - since otherwise, composing several layers of neuron activations reduces to taking a linear function of the original input neurons and the network itself simply becomes a linear function. To see this, let \(f(x) = x\) be the linear activation function used throughout the network. Then if layer \(0\) is the input layer, the activations of layer \(1\) are:
-\[a_{1} = f(\mathbf{W_1^{\top}}a_0 + b_1) = \mathbf{W_1^{\top}}a_0 + b_1\]
+\[a^{[1]} = f(\mathbf{{W^{[1]}}^{\top}}a^{[0]} + b^{[1]}) = \mathbf{{W^{[1]}}^{\top}}a^{[0]} + b^{[1]}\]
 And hence the activations for layer \(2\) are:
 \begin{align}
-a_{2} &= f(\mathbf{W_2^{\top}}a_1 + b_2)  \\
-      &= \mathbf{W_2^{\top}}a_1 + b_2 \\
-      &= \mathbf{W_2^{\top}}(\mathbf{W_1^{\top}}a_0 + b_1) + b_2 \\
-      &= \mathbf{(W_1W_2)^{\top}}a_0 + \mathbf{W_2^{\top}}b_1 + b_2 \\
-      &= \mathbf{W'^{\top}}a_0 + b' 
+a^{[2]} &= f(\mathbf{{W^{[2]}}^{\top}}a^{[1]} + b^{[2]})  \\
+      &= \mathbf{{W^{[2]}}^{\top}}a^{[1]} + b^{[2]} \\
+      &= \mathbf{{W^{[2]}}^{\top}}(\mathbf{{W^{[1]}}^{\top}}a^{[0]} + b^{[1]}) + b^{[2]} \\
+      &= \mathbf{(W^{[1]}W^{[2]})^{\top}}a^{[0]} + \mathbf{{W^{[2]}}^{\top}}b^{[1]} + b^{[2]} \\
+      &= \mathbf{W'^{\top}}a^{[0]} + b' 
 \end{align}
 where:
 \begin{itemize}
-  \item \(\mathbf{W'} = \mathbf{W_1W_2}\)  is an \({n_0}\times{n_2}\) matrix
-  \item \(b' = \mathbf{W_2^{\top}}b_1 + b_2\) is an \({n_2}\times{1}\) vector
+  \item \(\mathbf{W'} = \mathbf{W^{[1]}W^{[2]}}\)  is an \({n_0}\times{n_2}\) matrix
+  \item \(b' = \mathbf{{W^{[2]}}^{\top}}b^{[1]} + b^{[2]}\) is an \({n_2}\times{1}\) vector
   \item Equation \((4)\) uses the matrix transpose rule \((AB)^{\top} = B^{\top}A^{\top}\)
 \end{itemize}
-Hence both \(a_1\) and \(a_2\) are linear functions of \(a_0\). This argument can be extended to any number of hidden layers, and so the output of the whole network (regardless of its size) is simply a linear function of the input. This is undesirable since such a network cannot learn more complicated, non-linear features of the data. Training the network is effectively equivalent to just performing linear regression.
+Hence both \(a^{[1]}\) and \(a^{[2]}\) are linear functions of \(a^{[0]}\). This argument can be extended to any number of hidden layers, and so the output of the whole network (regardless of its size) is simply a linear function of the input. This is undesirable since such a network cannot learn more complicated, non-linear features of the data. Training the network is effectively equivalent to just performing linear regression.
 \\
 \\
 \noindent
@@ -118,7 +118,7 @@ Therefore non-linear activation functions are usually preferred. In this project
 \noindent
 The Rectified Linear Unit (ReLU) is a scalar activation function that takes a linear function of its argument above a certain threshold \(m\), and is constant otherwise:
 \[f(x) = max\{x,m\} \] 
-Note that \(m\) is a hyperparameter, specified in advance of training, rather than learning during it. Typically it is just set to 0 - as otherwise this implies some sort of prior knowledge about the scale of the "pre-activation" values \(\mathbf{W_{i+1}^{\top}}a_i + b_{i+1} \) for all the various layers and neurons in the network (since \(m\) could theoretically be set on a neuron-by-neuron basis). This would be difficult to justify, especially when adjusting the level of these pre-activation values is already handled by the bias term \(b_{i+1}\), a parameter that is learned during training.  
+Note that \(m\) is a hyperparameter, specified in advance of training, rather than learning during it. Typically it is just set to 0 - as otherwise this implies some sort of prior knowledge about the scale of the "pre-activation" values \(\mathbf{{W^{[i+1]}}^{\top}}a^{[i]} + b^{[i+1]} \) for all the various layers and neurons in the network (since \(m\) could theoretically be set on a neuron-by-neuron basis). This would be difficult to justify, especially when adjusting the level of these pre-activation values is already handled by the bias term \(b^{[i+1]}\), a parameter that is learned during training.  
 \\
 \\
 \noindent
@@ -131,9 +131,9 @@ This activation function introduces a non-linearity at the point \(x=m\), since 
 \noindent
 The Softmax can be regarded as a vector-to-vector function, that takes as input a vector \(v\), of length (say) \(n\), and produces an output vector \(w\) with the same length as \(v\). The \(j^{th}\) component of \(w\) is given by:
 \[w_j = f(v)_j = \dfrac{e^{v_j}}{\sum_{k=1}^n e^{v_k}} \] 
-where \(v_j\) is the \(j^{th}\) component of \(v\). Since \({e^x}\geq0 \ \forall \ x \in \mathbb{R} \) we have \(w_j\geq0\). And, by definition:
+where \(v_j\) is the \(j^{th}\) component of \(v\). Since the Softmax involves exponentiation, it is clearly a non-linear function of its inputs, as desired. Now \({e^x}\geq0 \ \forall \ x \in \mathbb{R} \), so we have \(w_j\geq0\). And, by definition:
 \[\sum_{j=1}^n w_j = \sum_{j=1}^n \dfrac{e^{v_j}}{\sum_{k=1}^n e^{v_k}} = \dfrac{\sum_{j=1}^n e^{v_j}}{\sum_{k=1}^n e^{v_k}} = 1\] 
-Hence \(w_j \in [0,1] \ \forall \ j=1, \ldots,n\) and so \(w\) represents a probability distribution over the set of values \(1, \ldots,n\). Note that this is true regardless of the scale or values of the input \(v\). 
+Hence \(w_j \in [0,1] \ \forall \ j=1, \ldots,n\) and so \(w\) represents a probability distribution over the set of values \(1, \ldots,n\). This is true regardless of the scale or values of the input \(v\).  
 \\
 \\
 \noindent
@@ -143,6 +143,7 @@ This is extremely useful for classification, since we can set the final layer of
 \noindent
 More concretely, for our purposes we set the final layer to have 2 neurons - corresponding to normal or abnormal respectively.
 
+\newpage
 \subsection{Training}
 After choosing the structure of the ANN - i.e. the numbers of layers, numbers of neurons, and activation functions for each layer/neuron - it remains to train the network. The act of training the network boils down to setting appropriate values for all the weights and biases across the whole network. While this could be done by hand - this would be very difficult and, for larger networks, the numbers of weights and biases can be several million and hence infeasible to set by hand anyway. Instead, the weights\footnote{We'll use "weights" as a shorthand for "weights and biases" - i.e. the set of model parameters - from now on.} are initialised to random values and then automatically updated through a process called \textit{Backpropagation}. This involves the following steps:
 \begin{itemize}
@@ -152,9 +153,56 @@ After choosing the structure of the ANN - i.e. the numbers of layers, numbers of
 \end{itemize}
 There are in fact a number of different training algorithms, which vary in the details, but all of the ones we consider follow this basic pattern.
 
-\subsection{Loss Functions}
-We use the cross-entropy loss.
+\subsubsection{Loss Functions}
+As mentioned, loss functions are used to measure how far away predicted labels, generated by the network, are from the true label. Predictions that are "close" to the true label should have a smaller loss than predictions that are further away. For any item of data, both the activations in the network's input layer, and the item's true label are fixed. So the only aspect of a given network that we are free to vary are its weights, since these determine how the prediction is generated for an item of data. Therefore we can regard the loss as a function of the network's weights - and the goal of training is to set these weights so as to minimise the expected loss over a collection of data items.
+\\
+\\
+\noindent
+The loss function we have used in this project is the cross-entropy loss, again in line with standard practice for image classification.
+\\
+\\
+\noindent
+\textbf{Cross-Entropy Loss}
+\\
+\noindent
+The cross-entropy loss assumes that the true label \(y\) (i.e. the class to which the data item belongs) is coded as a "one-hot" vector. If there are \(n\) classes, \(y\) is a vector of length \(n\), with each component corresponding to one of these classes. All components of \(y\) are set to 0, except for the component corresponding the class to which \(y\) belongs - which is set to 1. 
+\\
+\\
+\noindent
+So for our x-ray data we code the two classes as follows:
+\begin{itemize}
+  \item Normal: \([1, 0]\)   
+  \item Abnormal: \([0, 1]\)   
+\end{itemize}
+The predicted label $\hat{y}$, per the Softmax activation function in the output layer, represents a probability distribution over the \(n\) classes - and so has the same dimension as \(y\).
+\\
+\\
+\noindent
+The cross-entropy loss is then given by:
+\[L(y,\hat{y}) = - \sum_{j=1}^n y_jlog(\hat{y_j})   \]
+Note that since \(y\) has all components 0, except for a 1 corresponding to the true label, the loss above reduces to taking the logarithm of the predicted probability of the true label. The sign of the logarithm is negated, so that smaller probabilties (which would give larger negative values of log) give larger positive loss values. The loss is therefore monotonically decreasing with the predicted probability of the true label - which is as desired, since predicting a high probability for the true label should have a smaller loss than predicting a lower probability.  
 
+\subsubsection{Backward Pass}
+After calculating the loss for a given data item, we now perform a pass to calculate the gradients of the loss with respect to all the weights and activations in the network. This is called a backward pass since the gradients in one layer depend on those in the next layer. Hence the process starts with calculating gradients in the output layer, then the gradients for the previous layer, and so on all the way back through the whole network. While the weight update step of the Backpropagation algorithm only uses the gradients of the weights, these gradients themselves depend on the gradients of the activations of the neurons which depend on these weights. Thus the backward pass involves calculating the gradients of activations, even though these are not strictly used in the weight update step. 
+\\
+\\
+\noindent
+Using the cross-entropy loss function, for a classification task as described above, we have the loss:
+\[L = -log(\hat{y_j})   \]
+where \(y_j\) corresponds to label's the true class. So we can calculate the gradient of the loss with respect to $\hat{y_j}$:
+\[\dfrac{dL}{d\hat{y_j}} = -\dfrac{d}{d\hat{y_j}}(log(\hat{y_j})) = -\dfrac{1}{\hat{y_j}}  \]
+Recall that $\hat{y_j}$ is the activation of the \(j^{th}\) neuron in the output layer. Which itself is a derived from the weights \(\mathbf{W}\) and biases \(b\) in the output layer, and the activations from the previous layer (layer \(l\), say) \(a^{[l]}\), fed through the Softmax function:
+\[ z = \mathbf{W^{\top}}a_l + b\]   
+\[ \hat{y_j} = \dfrac{e^{z_j}}{\sum_{k=1}^n e^{z_k}} \]
+Therefore we can apply the chain rule of differentiation to calculate the gradients of the loss with respect to the weights and biases in the output layer as follows:
+\[ \dfrac{dL}{dz_j} = \dfrac{dL}{d\hat{y_j}}\dfrac{d\hat{y_j}}{dz_j} \]
+\[\dfrac{dL}{dw_{s,j}} = \dfrac{dL}{dz_j}\dfrac{dz_j}{dw_{s,j}} = \dfrac{dL}{d\hat{y_j}}\dfrac{d\hat{y_j}}{dz_j}\dfrac{dz_j}{dw_{s,j}} \]
+\[\dfrac{dL}{db_j} = \dfrac{dL}{dz_j}\dfrac{dz_j}{db_j} = \dfrac{dL}{d\hat{y_j}}\dfrac{d\hat{y_j}}{dz_j}\dfrac{dz_j}{db_j} \]
+where \(w_{s,j}\) is an element from \(j^{th}\) column of the weight matrix \(\mathbf{W}\), and \(b_j\) the \(j^{th}\) component of \(b\).
+
+
+
+\newpage
 \subsection{Convolutional Neural Networks}
 Write about conv nets, their performance, history etc
 
@@ -253,7 +301,7 @@ How does my model compare vs a selection of pretrained models
 \newpage
 \section{Conclusions}
 Include introspective chapter
-Work here not comaparable to clinical setting, e.g. smaller, lower resoution images; radiologist may have a relationship with patient - know medical history, other symptoms etc
+Work here not comparable to clinical setting, e.g. smaller, lower resoution images; radiologist may have a relationship with patient - know medical history, other symptoms etc
 What is "abnormal"? - type \& severity of abnormality not known, MURA paper not clear.
 
 % END CONCLUSIONS

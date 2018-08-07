@@ -85,7 +85,7 @@
     \Large \bfseries \abstractname
     \@endparpenalty\@M
   \end{center}}%
-  {\newpage\par\vfill\tableofcontents\listoffigures\endtitlepage}
+  {\newpage\par\vfill\tableofcontents\newpage\listoffigures\endtitlepage}
   
   
 % ACKNOWLEDGEMENT

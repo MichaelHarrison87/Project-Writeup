@@ -79,11 +79,11 @@ More specifically, these Deep Learning systems tend to be artificial neural netw
 \\
 \\
 \noindent
-The connections between the neurons from one layer to the next represent the network's weights, each weight again usually just a real number. In addition to these weights between layers, each neuron (aside from the input layer) has an associated bias, once again usually just a real number. Taken across the whole network, these weights and biases form the set of parameters that define the model. They dictate how the activations from neurons in the previous layer should be used to calculate the activations of neurons in the next layer. For instance, let the activations of the neurons in layer \(i\) be given by the vector \(a^{[i]}\), and the weights connecting neurons in layer \(i\) to those in layer \(i+1\) be given by the matrix \(\mathbf{W^{[i+1]}}\). So if the numbers of neurons in layers \(i\) and \(i+1\) respectively are \(n_i\) and \(n_{i+1}\), then \(a^{[i]}\) will have dimension \((n_i,1)\), and \(\mathbf{W^{[i+1]}}\) dimension \((n_i,n_{i+1})\)\footnote{Each of the \(n_i\) neurons in layer \(i\) connects to each of the \(n_{i+1}\) neurons in layer \(i+1\), making \({n_i}\times{n_{i+1}}\) connections in total.}. Then the activations for the neurons in layer \(i+1\) are given by:
+The connections between the neurons from one layer to the next represent the network's weights, each weight again usually just a real number. In addition to these weights between layers, each neuron (aside from the input layer) has an associated bias, once again usually just a real number. Taken across the whole network, these weights and biases form the set of parameters that define the model. They dictate how the activations from neurons in the previous layer should be used to calculate the activations of neurons in the next layer. For instance, let the activations of the neurons in layer \(i\) be given by the vector \(a^{[i]}\), and the weights connecting neurons in layer \(i\) to those in layer \(i+1\) be given by the matrix \(\mathbf{W^{[i+1]}}\). So if the numbers of neurons in layers \(i\) and \(i+1\) respectively are \(n_i\) and \(n_{i+1}\), then \(a^{[i]}\) will have dimension \(n_i \times 1\), and \(\mathbf{W^{[i+1]}}\) dimension \(n_i \times n_{i+1}\)\footnote{Each of the \(n_i\) neurons in layer \(i\) connects to each of the \(n_{i+1}\) neurons in layer \(i+1\), making \({n_i} \times n_{i+1}\) connections in total.}. Then the activations for the neurons in layer \(i+1\) are given by:
 \[a^{[i+1]} = f_{i+1}(\mathbf{{W^{[i+1]}}^{\top}}a^{[i]} + b^{[i+1]}) \]
 where:
 \begin{itemize}
-  \item \(b^{[i+1]}\) is the vector of biases for the neurons in layer \(i+1\) (so of dimension \((n_{i+1},1)\)). 
+  \item \(b^{[i+1]}\) is the vector of biases for the neurons in layer \(i+1\) (so of dimension \(n_{i+1} \times 1\)). 
   \item \(f_{i+1}\) is the activation function for layer \(i+1\), that applies element-wise to the vector on which it operates, and hence returns a vector. The choice of activation functions is part of the design of the network.   
 \end{itemize}
 This process is repeated, with activations from the input layer feeding into activations of the first hidden layer; activations from this hidden layer feeding into the next hidden layer; etc until the final activations in the output layer are produced. Note that while \textbf{Figure \ref{fig:simple_ann}} above showed only one hidden layer between input and output, in practice there can be arbitrarily many hidden layers - each taking as input the activations from their previous layer, and sending their own activations as output to the next layer. The choice of the numbers of hidden layers, and the numbers of neurons in each of these layers is again part of the design of the network.   
@@ -132,7 +132,11 @@ This activation function introduces a non-linearity at the point \(x=m\), since 
 The Softmax can be regarded as a vector-to-vector function, that takes as input a vector \(v\), of length (say) \(n\), and produces an output vector \(w\) with the same length as \(v\). The \(j^{th}\) component of \(w\) is given by:
 \[w_j = f(v)_j = \dfrac{e^{v_j}}{\sum_{k=1}^n e^{v_k}} \] 
 where \(v_j\) is the \(j^{th}\) component of \(v\). Since the Softmax involves exponentiation, it is clearly a non-linear function of its inputs, as desired. Now \({e^x}\geq0 \ \forall \ x \in \mathbb{R} \), so we have \(w_j\geq0\). And, by definition:
-\[\sum_{j=1}^n w_j = \sum_{j=1}^n \dfrac{e^{v_j}}{\sum_{k=1}^n e^{v_k}} = \dfrac{\sum_{j=1}^n e^{v_j}}{\sum_{k=1}^n e^{v_k}} = 1\] 
+\begin{align*}
+\sum_{j=1}^n w_j &= \sum_{j=1}^n \dfrac{e^{v_j}}{\sum_{k=1}^n e^{v_k}} \\
+&= \dfrac{\sum_{j=1}^n e^{v_j}}{\sum_{k=1}^n e^{v_k}} \\
+&= 1 
+\end{align*}
 Hence \(w_j \in [0,1] \ \forall \ j=1, \ldots,n\) and so \(w\) represents a probability distribution over the set of values \(1, \ldots,n\). This is true regardless of the scale or values of the input \(v\).  
 \\
 \\
@@ -180,7 +184,7 @@ The predicted label $\hat{y}$, per the Softmax activation function in the output
 \noindent
 The cross-entropy loss is then given by:
 \[L(y,\hat{y}) = - \sum_{j=1}^n y_jlog(\hat{y_j})   \]
-Note that since \(y\) has all components 0, except for a 1 corresponding to the true label, the loss above reduces to taking the logarithm of the predicted probability of the true label. The sign of the logarithm is negated, so that smaller probabilties (which would give larger negative values of log) give larger positive loss values. The loss is therefore monotonically decreasing with the predicted probability of the true label - which is as desired, since predicting a high probability for the true label should have a smaller loss than predicting a lower probability.  
+Note that since \(y\) has all components 0, except for a 1 corresponding to the true label, the loss above reduces to taking the logarithm of the predicted probability of the true label. The sign of the logarithm is negated, so that smaller probabilties, which would give larger negative values of log, give larger positive loss values. The loss is therefore monotonically decreasing with the predicted probability of the true label - which is as desired, since predicting a high probability for the true label should have a smaller loss than predicting a lower probability.  
 
 \subsubsection{Backward Pass}
 After performaing a forward pass and calculating the loss for a given data item, we now calculate the gradients of the loss with respect to all the weights and activations in the network. This is called a backward pass since the gradients in one layer depend on those in the subsequent layer. Hence the process starts with calculating gradients in the output layer, then the gradients for the previous layer, and so on all the way back through the whole network. While the weight update step of the Backpropagation algorithm only uses the gradients of the weights, these gradients themselves depend on the gradients of the activations of the neurons which depend on these weights. Thus the backward pass involves calculating the gradients of activations, even though these are not strictly used in the weight update step. 
@@ -188,30 +192,64 @@ After performaing a forward pass and calculating the loss for a given data item,
 \\
 \noindent
 Using the cross-entropy loss function, for a classification task as described above, we can calculate the gradient of the loss with respect to $\hat{y_j}$ (considering \(y_j\) as a fixed constant):
-\[\dfrac{\partial  L}{\partial \hat{y_j}} = \dfrac{\partial }{\partial \hat{y_j}}(- \sum_{j=1}^n y_jlog(\hat{y_j})) = \dfrac{\partial }{\partial \hat{y_j}}(-y_jlog(\hat{y_j})) = -\dfrac{y_j}{\hat{y_j}}  \]
+\begin{align*}
+\dfrac{\partial  L}{\partial \hat{y_j}} &= \dfrac{\partial }{\partial \hat{y_j}}(- \sum_{j=1}^n y_jlog(\hat{y_j})) \\
+&= \dfrac{\partial }{\partial \hat{y_j}}(-y_jlog(\hat{y_j})) \\
+&= -\dfrac{y_j}{\hat{y_j}}
+\end{align*}
 Recall that $\hat{y_j}$ is the activation of the \(j^{th}\) neuron in the output layer. Which itself is a derived from the weights \(\mathbf{W}\) and biases \(b\) in the output layer, and the activations from the previous layer (layer \(l\), say) \(a^{[l]}\), fed through the Softmax function:
 \[ z = \mathbf{W^{\top}}a^{[l]} + b\]   
 \[ \hat{y_j} = \dfrac{e^{z_j}}{\sum_{k=1}^n e^{z_k}} \]
+And so, by the quotient rule:
+\begin{align*}
+\dfrac{\partial  \hat{y_j}}{\partial z_j} &= \dfrac{e^{z_j}(\sum_{k \neq j}e^{z_k}+e^{z_j}) - (e^{z_j})^2}{(\sum_{k=1}^n e^{z_k})^2} \\
+&= \dfrac{e^{z_j}}{\sum_{k=1}^n e^{z_k}} \dfrac{\sum_{k \neq j}e^{z_k}}{\sum_{k=1}^n e^{z_k}} \\
+&= \hat{y_j}(1-\hat{y_j})
+\end{align*}
+Where the final equality is due to:
+\begin{align*}
+1-\hat{y_j} &= 1 - \dfrac{e^{z_j}}{\sum_{k=1}^n e^{z_k}} \\
+&= \dfrac {\sum_{k=1}^n e^{z_k} - e^{z_j}}{\sum_{k=1}^n e^{z_k}} \\
+&= \dfrac {\sum_{k \neq j} e^{z_k}}{\sum_{k=1}^n e^{z_k}}
+\end{align*}
 Therefore we can apply the chain rule of differentiation to calculate the gradients of the loss with respect to the weights and biases in the output layer as follows:
-\[ \dfrac{\partial L}{\partial z_j} = \dfrac{\partial L}{\partial \hat{y_j}}\dfrac{\partial \hat{y_j}}{\partial z_j} \]
-\[ \dfrac{\partial L}{\partial w_{s,j}} = \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial w_{s,j}} = \dfrac{\partial L}{\partial \hat{y_j}}\dfrac{\partial \hat{y_j}}{\partial z_j}\dfrac{\partial z_j}{\partial w_{s,j}} \]
-\[ \dfrac{\partial L}{\partial b_j} = \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial b_j} = \dfrac{\partial L}{\partial \hat{y_j}}\dfrac{\partial \hat{y_j}}{\partial z_j}\dfrac{\partial z_j}{\partial b_j} \]
-where \(w_{s,j}\) is an element from \(j^{th}\) column of the weight matrix \(\mathbf{W}\). 
+\begin{align*}
+\dfrac{\partial L}{\partial z_j} &= \dfrac{\partial L}{\partial \hat{y_j}} \dfrac{\partial \hat{y_j}}{\partial z_j} \\
+&= \dfrac {y_j}{\hat{y_j}} \hat{y_j}(1-\hat{y_j}) \\
+&= y_j(1-\hat{y_j})
+\end{align*}
+Now if layer \(l\) has \(n_l\) neurons\footnote{Technically since we are using the Softmax activation function in the output layer, \(n_l\) must match the number of neurons in the output layer, \(n\).}:
+\[ z_j = \sum_{i=1}^{n_l} w_{i,j}a^{[l]}_i + b_j\]
+So:
+\[ \dfrac{\partial z_j}{\partial w_{i,j}} = a^{[l]}_i \]
+\[ \dfrac{\partial z_j}{\partial b_j} = 1 \]
+And we have:
+\begin{align*}
+\dfrac{\partial L}{\partial w_{i,j}} &= \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial w_{i,j}} \\
+&= y_j(1-\hat{y_j})a^{[l]}_i
+\end{align*}
+\begin{align*}
+\dfrac{\partial L}{\partial b_j} &= \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial b_j} \\
+&= y_j(1-\hat{y_j})
+\end{align*}
+where \(w_{i,j}\) is an element from \(j^{th}\) column of the weight matrix \(\mathbf{W}\), and \(b_j\) the bias of the \(j^{th}\) neuron in the output layer. 
 \\
 \\
 \noindent
-We can also obtain similar formulas for the gradients of the loss with respect to the activations in layer \(l\). Since each of the \(n_l\) components of \(a^{[l]}\) (i.e. each neuron in layer \(l\)) is used to calculate the activation of each neuron in the output layer by:
-\[ z_j = \sum_{i=1}^{n_l} w_{i,j}a^{[l]}_i + b_j   \quad j=1,\ldots,n\]
-And each component \(z_j\) appears additively in the loss function via $\hat{y_j}$ we have:
-\[ \dfrac{\partial L}{\partial a^{[l]}_i} = \sum_{j=1}^{n} \dfrac{\partial L}{\partial \hat{y_j}}\dfrac{\partial \hat{y_j}}{\partial z_j}\dfrac{\partial z_j}{\partial a^{[l]}_i}\]
-But these activations \(a^{[l]}\) themselves depend on the weights and biases in layer \(l\), and so we can extend the chain rule further to calculate the gradient of the loss with respect to these as well. And we can repeat this process back to the activations, weights and biases, in layers \({l-1}, {l-2}, \ldots \) etc all the way back through the entire network.   
+We can also obtain similar formulas for the gradients of the loss with respect to the activations in layer \(l\). Since each neuron in this layer connects to all neurons in the output layer, a given activation \(a^{[l]}_i\) will appear in the formula (as shown above) for all \(z_j\), \(j=1,\ldots,n\). And each of the \(z_j\) appear additively in the loss function via $\hat{y_j}$. Therefore we have:
+\[ \dfrac{\partial z_j}{\partial a^{[l]}_i} = w_{i,j}\]
+\begin{align*}
+\dfrac{\partial L}{\partial a^{[l]}_i} &= \sum_{j=1}^{n} \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial a^{[l]}_i} \\
+&= \sum_{j=1}^{n} y_j(1-\hat{y_j})w_{i,j}
+\end{align*}
+But these activations \(a^{[l]}\) themselves depend on the weights and biases in layer \(l\), and so we can extend the chain rule further to calculate the gradient of the loss with respect to these as well. And we can repeat this process for the activations, weights and biases, in layers \({l-1}, {l-2}, \ldots \) etc all the way back through the entire network.   
 
 \subsubsection{Weight Update}
 The gradients calculated in the backward pass above give the change in weight to make, in order to increase the loss function. Since we aim to decrease our loss function, we subtract the gradients from the current values of all the weights. However, as mentioned, we first multiply the gradients by a hyperparameter \(\epsilon\), called the learning rate, in order to avoid large, erratic changes in weights (and hence predictions) after each weight update. That is, for a weight (or bias) \(w\) in the network, with gradient \(\dfrac{\partial L}{\partial w}\) we apply the following update:
 \[ w = w - \epsilon \dfrac{\partial L}{\partial w} \]
 
 \subsubsection{Optimisers}
-The following algorithms are all variations on the general theme of Backpropagation described above. That is, they all concern how to set the weights in order to minimise ("optimise") the loss function, based on the gradients of the loss function. 
+The following algorithms are all variations on the general theme of Backpropagation described above. That is, they all concern how to set the weights in order to minimise the loss function, based on the gradients of the loss function (hence the algorithms are called "optimisers"). 
 \\
 \\
 \noindent
@@ -227,7 +265,7 @@ That is, we have to perform a forward pass and backward pass for every item in t
 \textbf{Stochastic Gradient Descent}
 \\
 \noindent
-Stochasitc gradient descent (SGD) aims to speed things up by dividing the training set up into batches of a certain size (say, 128). Each data item in the training set is assigned randomly (hence "stochastic") without replacement to each of the batches. Then the weight updates are performed after calculating and averaging the gradients for each item in a batch. That is, if the batches are of size \(m\), for a given weight we make the following update:
+Stochastic gradient descent (SGD) aims to speed things up by dividing the training set up into batches of a certain size (say, 128). Each data item in the training set is assigned randomly (hence "stochastic") without replacement to each of the batches. Then the weight updates are performed after calculating and averaging the gradients for each item in a batch. That is, if the batches are of size \(m\), for a given weight we make the following update:
 \[ w = w - \dfrac{\epsilon}{m}\sum_{i=1}^{m} {\dfrac{\partial L}{\partial w}}_i \]
 where \({\dfrac{\partial L}{\partial w}}_i\) is the gradient of \(w\) for the \(i^{th}\) item in the batch. An \textit{epoch} is then defined as a pass through the full set of batches, performing a weight update for each batch. Thus if the training data of size \(n\) is split up into batches of size \(m\), an epoch would involve \( \left \lceil{\dfrac{n}{m}}\right \rceil \)\footnote{\( \left \lceil{x}\right \rceil \) is the largest integer greater than or equal to \(x\). If \(m\) does not divide into \(n\), the final batch will comprise \((n \mod m)\) items to ensure an epoch covers the entire training set.} weight updates - vs just one for ordinary Gradient Descent. Training using SGD often involves running for several epochs. The random assignment of the training data into batches is repeated fresh at the start of each epoch.
 \\

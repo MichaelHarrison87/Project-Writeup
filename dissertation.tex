@@ -149,11 +149,11 @@ More concretely, for our purposes we set the final layer to have 2 neurons - cor
 
 \newpage
 \subsection{Training}
-After choosing the structure of the ANN - i.e. the numbers of layers, numbers of neurons, and activation functions for each layer/neuron - it remains to train the network. The act of training the network boils down to setting appropriate values for all the weights and biases across the whole network. While this could be done by hand - this would be very difficult and, for larger networks, the numbers of weights and biases can be several million and hence infeasible to set by hand anyway. Instead, the weights\footnote{We'll use "weights" as a shorthand for "weights and biases" - i.e. the set of model parameters - from now on.} are initialised to random values and then automatically updated through a process called \textit{Backpropagation}. This involves the following steps:
+After choosing the structure of the ANN - i.e. the numbers of layers, numbers of neurons, and activation functions for each layer/neuron - it remains to train the network. The act of training the network boils down to setting appropriate values for all the weights and biases across the whole network. While this could be done by hand - this would be very difficult and, for larger networks, the numbers of weights and biases can be several million and hence infeasible to set by hand anyway. Instead, the weights\footnote{We'll use "weights" as a shorthand for "weights and biases" - i.e. the set of model parameters - except where a distinction between the two is necessary.} are initialised to random values and then automatically updated through a process called \textit{Backpropagation}. This involves the following steps:
 \begin{itemize}
   \item \textbf{Forward Pass:} data items are input into the network (via the input layer). The activations of each of the subsequent layers are then calculated based on this input, up to the final output layer. Then (since our problem is supervised learning) the output is compared to known, true label for the given data item. This comparison is quantified by a loss function, some chosen function that measures how close the prediction is to the true label.   
   \item \textbf{Backward Pass:} Since the value of the loss function depends on the network's weights (via the predicted label), the gradient of the loss function with respect to each of the weights can be calculated. These gradients then tell us how to adjust (in what direction, by how much) each of the weights in order to reduce the loss - and hence make the prediction closer to the true label.
-  \item \textbf{Weight Update:} It remains to make these changes to the weights. Typically we only make a small change vs that indicated by the gradient - since the gradients themselves will be subject to a lot of random variation from data item-to-data item. So making the full change will result in noisy, erratic weight changes, and hence also erratic changes in the predictions with each weight update. So instead we multiply all of the gradients by some small number \(\epsilon\) (e.g. \(\epsilon\approx0.001\)) called the \textit{learning rate}. This has the effect of slowing down the weight updates, and hence allowing a more gradual progression towards a minimum of the loss function. 
+  \item \textbf{Weight Update:} It remains to make these changes to the weights. Typically we only make a small change vs that indicated by the gradient - since the gradients themselves will be subject to a lot of random variation from data item-to-data item. So making the full change will result in noisy, erratic weight changes, and hence also erratic changes in the predictions with each weight update. So instead we multiply all of the gradients by some small number \(\eta\) (e.g. \(\eta\approx0.001\)) called the \textit{learning rate}. This has the effect of slowing down the weight updates, and hence allowing a more gradual progression towards a minimum of the loss function. 
 \end{itemize}
 There are in fact a number of different training algorithms, which vary in the details, but all of the ones we consider follow this basic pattern.
 
@@ -245,8 +245,8 @@ We can also obtain similar formulas for the gradients of the loss with respect t
 But these activations \(a^{[l]}\) themselves depend on the weights and biases in layer \(l\), and so we can extend the chain rule further to calculate the gradient of the loss with respect to these as well. And we can repeat this process for the activations, weights and biases, in layers \({l-1}, {l-2}, \ldots \) etc all the way back through the entire network.   
 
 \subsubsection{Weight Update}
-The gradients calculated in the backward pass above give the change in weight to make, in order to increase the loss function. Since we aim to decrease our loss function, we subtract the gradients from the current values of all the weights. However, as mentioned, we first multiply the gradients by a hyperparameter \(\epsilon\), called the learning rate, in order to avoid large, erratic changes in weights (and hence predictions) after each weight update. That is, for a weight (or bias) \(w\) in the network, with gradient \(\dfrac{\partial L}{\partial w}\) we apply the following update:
-\[ w = w - \epsilon \dfrac{\partial L}{\partial w} \]
+The gradients calculated in the backward pass above give the change in weight to make, in order to increase the loss function. Since we aim to decrease our loss function, we subtract the gradients from the current values of all the weights. However, as mentioned, we first multiply the gradients by a hyperparameter \(\eta\), called the learning rate, in order to avoid large, erratic changes in weights (and hence predictions) after each weight update. That is, for a weight (or bias) \(w\) in the network, with gradient \(\dfrac{\partial L}{\partial w}\) we apply the following update:
+\[ w = w - \eta \dfrac{\partial L}{\partial w} \]
 
 \subsubsection{Optimisers}
 The following algorithms are all variations on the general theme of Backpropagation described above. That is, they all concern how to set the weights in order to minimise the loss function, based on the gradients of the loss function (hence the algorithms are called "optimisers"). 
@@ -257,7 +257,7 @@ The following algorithms are all variations on the general theme of Backpropagat
 \\
 \noindent
 This involves performing a forward pass, calculating the activations and the loss, then performing a backward pass, calculating the gradients of all the weights, for every item of data in the training set. The gradients of each weight are then averaged across the entire set of training data, before performing the weight update using these average values for each weight. That is, for a weight \(w\) let  \({\dfrac{\partial L}{\partial w}}_i\) be its gradient after  forward and backward passes with the \(i^{th}\) element of the training set as input to the network. Then if there are \(n\) items of data in the training set, perform the following weight update:
-\[ w = w - \dfrac{\epsilon}{n}\sum_{i=1}^{n} {\dfrac{\partial L}{\partial w}}_i \]
+\[ w = w - \dfrac{\eta}{n}\sum_{i=1}^{n} {\dfrac{\partial L}{\partial w}}_i \]
 That is, we have to perform a forward pass and backward pass for every item in the training set, and keep track of all associated gradients, before making a single weight update. This can be both slow and consume a lot of memory (consider a large network with millions of weights, and a large training set with millions of items). Note this process will often be repeated, with training involving hundreds or thousands of weight updates.
 \\
 \\
@@ -266,28 +266,52 @@ That is, we have to perform a forward pass and backward pass for every item in t
 \\
 \noindent
 Stochastic gradient descent (SGD) aims to speed things up by dividing the training set up into batches of a certain size (say, 128). Each data item in the training set is assigned randomly (hence "stochastic") without replacement to each of the batches. Then the weight updates are performed after calculating and averaging the gradients for each item in a batch. That is, if the batches are of size \(m\), for a given weight we make the following update:
-\[ w = w - \dfrac{\epsilon}{m}\sum_{i=1}^{m} {\dfrac{\partial L}{\partial w}}_i \]
-where \({\dfrac{\partial L}{\partial w}}_i\) is the gradient of \(w\) for the \(i^{th}\) item in the batch. An \textit{epoch} is then defined as a pass through the full set of batches, performing a weight update for each batch. Thus if the training data of size \(n\) is split up into batches of size \(m\), an epoch would involve \( \left \lceil{\dfrac{n}{m}}\right \rceil \)\footnote{\( \left \lceil{x}\right \rceil \) is the largest integer greater than or equal to \(x\). If \(m\) does not divide into \(n\), the final batch will comprise \((n \mod m)\) items to ensure an epoch covers the entire training set.} weight updates - vs just one for ordinary Gradient Descent. Training using SGD often involves running for several epochs. The random assignment of the training data into batches is repeated fresh at the start of each epoch.
+\[ w = w - \dfrac{\eta}{m}\sum_{i=1}^{m} {\dfrac{\partial L}{\partial w}}_i \]
+where \({\dfrac{\partial L}{\partial w}}_i\) is the gradient of \(w\) for the \(i^{th}\) item in the batch. An \textit{epoch} is then defined as a pass through the full set of batches, performing a weight update for each batch. Thus if the training data of size \(n\) is split up into batches of size \(m\), an epoch would involve \( \left \lceil{\dfrac{n}{m}}\right \rceil \)\footnote{\( \left \lceil{x}\right \rceil \) is the smallest integer greater than or equal to \(x\). If \(m\) does not divide into \(n\), the final batch will comprise \((n \mod m)\) items to ensure an epoch covers the entire training set.} weight updates - compared to just one for ordinary Gradient Descent. Training using SGD often involves running for several epochs. The random assignment of the training data into batches is repeated fresh at the start of each epoch.
 \\
 \\
 \noindent
-The advantage of SGD is that it is clearly quicker than GD to perform weight updates.
+The advantage of SGD is that it is clearly quicker than GD to perform weight updates. While each weight update will be subject to more randomness than in GD, since each update corresponds to a single, random batch rather than the full training set. However, over the course of several hundred or thousand weight updates, involving many epochs or passes over the whole training set, this should average out to give comparable results to GD. 
 \\
 \\
 \noindent
 \textbf{RMSProp}
 \\
 \noindent
-Describe RMSProp
+One of the issues with GD and SGD is that the learning rate \(\eta\) is a global hyperparameter that is fixed for all the weights in the network, and for all weight update iterations. However in practice, some weights in the network will require larger or smaller updates than others and, over the course of training, the weight updates will usually need to get smaller and smaller for successive iterations, as we approach a minimum of the loss function. RMSProp aims to solve these problems by effectively allowing the learning rate to vary during training and for each weight.
+\\
+\\
+\noindent
+Let \(w_t\) be a weight in the network, and let \(g_t = {\dfrac{\partial L}{\partial w}}_t\) be its gradient, at iteration \(t\). Then over all iterations we keep an exponential moving average of the square of these gradients:
+\[ v_t = \alpha g_t^2 + (1-\alpha)v_{t-1} \]
+where the base case is \(v_0 = 0\), and \( \alpha \in [0,1]\) is a chosen hyperparameter that determines the extent to which (squared) gradients from past iterations affect the value of \(v_{t+1}\). Note that an iteration can refer either to a full pass over the whole training set, as in GD, or over a batch, as in SGD. Although in pratcice we will use it in conjunction with SGD, since it inherits the benefits mentioned above. So the "gradient" \(g_t\) above would in fact be the average of the gradients for the weight across a batch. The weight update for the given iteration is then:
+\[ \delta_t  = \dfrac{\eta}{\sqrt{v_t} + \epsilon} g_t \]
+\[ w_{t+1} = w_t - \delta_t \]
+where \(\eta\) is the (global) learning rate, and \(\epsilon\) is some small number (e.g. \(\epsilon=10^{-6}\)) added to avoid division by 0. The \(\dfrac{\eta}{\sqrt{v_t} + \epsilon}\) term now means that the learning rate \(\eta\) is dampened by the factor \(\sqrt{v_t} + \epsilon\), which varies for each training iteration and for each weight in the network. So for a weight that had larger gradients in previous iterations, so a larger \(v_t\), the effective learning rate will be smaller. Hence its subsequent weight updates get smaller as training progresses - slowing them down compared to weights with smaller gradients and weight updates at earlier iterations. This is desired, since weights that have seen large changes over training are more likely to be closer to the loss function minimum on which they are converging, and so should progress more slowly towards it (to avoid overshooting it, or other erratic behaviour).
 \\
 \\
 \noindent
 \textbf{Adam}
 \\
 \noindent
-Describe Adam
+The Adam ("Adaptive Momentum") optimiser is a variation on RMSProp that allows for the momentum in the gradients over previous epochs. That is, previous large gradients should not be ignored if the current gradient (by chance) happens to be very low, or vice versa. The momentum effect also produces smoother and less erratic weight updates than RMSProp. To this end, Adam maintains an exponential moving average of the gradient \(g_t\), as well as the squared gradient of RMSProp:
+\[ m_t = \beta g_t + (1-\beta)m_{t-1} \]
+Again the base case is \(m_0=0\), and \( \beta \in [0,1]\) is another hyperparameter that determines to what extent past gradients are taken credit for. The weight update is then:
+\[ \delta_t  = \dfrac{\eta}{\sqrt{v_t} + \epsilon} m_t \]
+\[ w_{t+1} = w_t - \delta_t \]
+where \(v_t\) is defined as in RMSProp. This has the same benefits as RMSProp of dampening the learning rate \(\eta\) during training, but the weight update uses the smoothed \(m_t\) rather than the raw \(g_t\) at each iteration. 
 
 \subsubsection{Weight Initialisation}
+Prior to training, all weights and biases in the network need to be initialised to some reasonable values. If they were all simply set to 0, the activations of all neurons in the network, and hence all the gradients would just be 0 too. Therefore the weight update step would leave all weights unchanged, and "training" would accomplish nothing. Instead weights are usually initialised to random values. This effectively sets the initial position on the (multidimensional) loss surface, condsidering the loss as a function of the network's weights. Training then proceeds from this initial position towards a minimum of this loss function. Therefore performing different instances of training (even on the same data) ab-initio can lead to different solutions, since each instance will have a different starting position on the loss surface, and hence converge toward different minima. However the choice of optimiser should help mitigate this problem, e.g. by avoiding shallow local minima, and progressing towards deeper, more global minima\footnote{Of course, the loss surface is very high dimensional, and depends on the training data. So it is hard to have any clarity over its precise form or nature. In any case, it is not usually necessary for the task at hand - networks are typically trained until they achieve some desired level of performance, regardless of whether this represents a true global minimum or not.}. For this project we have used the following weight initialisation scheme, since that is the default in the software we used to train our models.
+\\
+\\
+\noindent
+\textbf{Glorot Uniform}
+\\
+\noindent
+This initialisation scheme was introduced by Xavier Glorot and Yoshua Benjio in 2010 \cite{glorot_uniform}. It initialises biases to 0, and the weights \(w_{i,j}\) in each layer randomly according to the distribution:
+\[ w_{i,j} \sim U[-\dfrac{1}{\sqrt{n}}, \dfrac{1}{\sqrt{n}}] \]
+where \(U[a,b]\) is the continuous random uniform distribution over the interval \([a,b]\), and \(n\) is the number of neurons in the previous layer.
 
 \newpage
 \subsection{Convolutional Neural Networks}
@@ -416,7 +440,7 @@ Alter NN to accept multiple images simultaneously and so predict based on severa
 
 
 \clearpage
-\bibliographystyle{plain}
+\bibliographystyle{ieeetr}
 \bibliography{bibliography}
 
 \clearpage

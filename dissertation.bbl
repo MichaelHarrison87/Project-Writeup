@@ -3,15 +3,19 @@
 \bibitem{MURA2017}
 P.~{Rajpurkar}, J.~{Irvin}, A.~{Bagul}, D.~{Ding}, T.~{Duan}, H.~{Mehta},
   B.~{Yang}, K.~{Zhu}, D.~{Laird}, R.~L. {Ball}, C.~{Langlotz},
-  K.~{Shpanskaya}, M.~P. {Lungren}, and A.~Y. {Ng}.
-\newblock {MURA: Large Dataset for Abnormality Detection in Musculoskeletal
-  Radiographs}.
-\newblock {\em ArXiv e-prints}, December 2017.
+  K.~{Shpanskaya}, M.~P. {Lungren}, and A.~Y. {Ng}, ``{MURA: Large Dataset for
+  Abnormality Detection in Musculoskeletal Radiographs},'' {\em ArXiv
+  e-prints}, Dec. 2017.
 
 \bibitem{wiki:simple_ann}
-{Wikipedia contributors}.
-\newblock Artificial neural network --- {Wikipedia}{,} the free encyclopedia.
-\newblock \url{https://en.wikipedia.org/wiki/Artificial_neural_network}, 2018.
+{Wikipedia contributors}, ``Artificial neural network --- {Wikipedia}{,} the
+  free encyclopedia.''
+  \url{https://en.wikipedia.org/wiki/Artificial_neural_network}, 2018.
 \newblock [Online; accessed 5-August-2018].
+
+\bibitem{glorot_uniform}
+Y.~Bengio and X.~Glorot, ``Understanding the difficulty of training deep feed
+  forward neural networks,'' {\em International Conference on Artificial
+  Intelligence and Statistics}, pp.~249--256, Jan. 2010.
 
 \end{thebibliography}

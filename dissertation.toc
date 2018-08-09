@@ -10,29 +10,33 @@
 \contentsline {subsubsection}{\numberline {2.3.3}Weight Update}{12}
 \contentsline {subsubsection}{\numberline {2.3.4}Optimisers}{13}
 \contentsline {subsubsection}{\numberline {2.3.5}Weight Initialisation}{16}
-\contentsline {subsection}{\numberline {2.4}Convolutional Neural Networks}{17}
-\contentsline {subsection}{\numberline {2.5}Prediction}{17}
-\contentsline {subsection}{\numberline {2.6}Performance Measures}{17}
-\contentsline {subsection}{\numberline {2.7}State-of-the-Art}{17}
-\contentsline {subsection}{\numberline {2.8}Pretrained Models}{17}
-\contentsline {subsubsection}{\numberline {2.8.1}VGG16}{17}
-\contentsline {section}{\numberline {3}Data}{18}
-\contentsline {subsection}{\numberline {3.1}MURA}{18}
-\contentsline {subsection}{\numberline {3.2}Image Examples}{18}
-\contentsline {subsection}{\numberline {3.3}Data Breakdowns}{20}
-\contentsline {section}{\numberline {4}Model Development}{21}
-\contentsline {subsection}{\numberline {4.1}Working Environment}{21}
-\contentsline {subsection}{\numberline {4.2}Data Preprocessing}{21}
-\contentsline {subsection}{\numberline {4.3}Model}{21}
-\contentsline {subsection}{\numberline {4.4}Predictions}{21}
-\contentsline {section}{\numberline {5}Results}{22}
-\contentsline {subsection}{\numberline {5.1}Baseline Performance}{22}
-\contentsline {subsection}{\numberline {5.2}Image Size}{22}
-\contentsline {subsection}{\numberline {5.3}Regularisation}{22}
-\contentsline {subsection}{\numberline {5.4}Pre-Trained Models}{22}
-\contentsline {section}{\numberline {6}Conclusions}{23}
-\contentsline {section}{\numberline {7}Professional and Ethical Issues}{24}
-\contentsline {section}{\numberline {8}Extensions}{25}
-\contentsline {section}{References}{26}
-\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{27}
-\contentsline {subsection}{\numberline {A.1}VGG16}{27}
+\contentsline {subsection}{\numberline {2.4}Convolutional Neural Networks}{18}
+\contentsline {subsubsection}{\numberline {2.4.1}Image Representation}{19}
+\contentsline {subsubsection}{\numberline {2.4.2}Convolution Layers}{19}
+\contentsline {subsubsection}{\numberline {2.4.3}Padding}{20}
+\contentsline {subsubsection}{\numberline {2.4.4}Pooling Layers}{20}
+\contentsline {subsection}{\numberline {2.5}Prediction}{21}
+\contentsline {subsection}{\numberline {2.6}Performance Measures}{21}
+\contentsline {subsection}{\numberline {2.7}State-of-the-Art}{21}
+\contentsline {subsection}{\numberline {2.8}Pretrained Models}{21}
+\contentsline {subsubsection}{\numberline {2.8.1}VGG16}{21}
+\contentsline {section}{\numberline {3}Data}{22}
+\contentsline {subsection}{\numberline {3.1}MURA}{22}
+\contentsline {subsection}{\numberline {3.2}Image Examples}{22}
+\contentsline {subsection}{\numberline {3.3}Data Breakdowns}{24}
+\contentsline {section}{\numberline {4}Model Development}{25}
+\contentsline {subsection}{\numberline {4.1}Working Environment}{25}
+\contentsline {subsection}{\numberline {4.2}Data Preprocessing}{25}
+\contentsline {subsection}{\numberline {4.3}Model}{25}
+\contentsline {subsection}{\numberline {4.4}Predictions}{25}
+\contentsline {section}{\numberline {5}Results}{26}
+\contentsline {subsection}{\numberline {5.1}Baseline Performance}{26}
+\contentsline {subsection}{\numberline {5.2}Image Size}{26}
+\contentsline {subsection}{\numberline {5.3}Regularisation}{26}
+\contentsline {subsection}{\numberline {5.4}Pre-Trained Models}{26}
+\contentsline {section}{\numberline {6}Conclusions}{27}
+\contentsline {section}{\numberline {7}Professional and Ethical Issues}{28}
+\contentsline {section}{\numberline {8}Extensions}{29}
+\contentsline {section}{References}{30}
+\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{31}
+\contentsline {subsection}{\numberline {A.1}VGG16}{31}

@@ -2,6 +2,7 @@
 \input{BigDataStyle.txt}      % do not change this line
 \usepackage{amsmath,amsfonts,amssymb,amsthm,latexsym,graphicx}
 \usepackage{url}
+\usepackage{multirow}
 
 \emergencystretch=5mm
 \tolerance=400
@@ -433,10 +434,49 @@ where
 1 \quad \text{if } y=\hat{y}\\
 0 \quad \text{otherwise}\\
 \end{cases}\]
-That is, accuracy simply meansures the proportion of correct predictions the network makes on a dataset.
+That is, accuracy simply measures the proportion of correct predictions the network makes on a dataset.
 
 \subsubsection{Confusion Matrix}
-The confusion matrix decomposes the correct and incorrect predictions for each class. For instance, if there are two classes \(0\) and \(1\),  
+The confusion matrix decomposes the correct and incorrect predictions for each class. An example for two classes \textit{Normal} and \textit{Abnormal} is shown below:
+% Create Confusion Matrix - adapted from https://tex.stackexchange.com/questions/20267/how-to-construct-a-confusion-matrix-in-latex/338931. Note: need the multirow package
+\begin{figure}[ht]
+    \centering
+  \caption{Confusion Matrix Example}
+    \begin{tabular}{l|l|c|c|c}
+    \multicolumn{2}{c}{}&\multicolumn{2}{c}{\textbf{True Label}}&\\
+    \cline{3-4}
+    \multicolumn{2}{c|}{}&\textbf{Normal}&\textbf{Abnormal}&\multicolumn{1}{c}{\textbf{Total}}\\
+    \cline{2-4}
+    \multirow{2}{*}{\textbf{Predicted Label}}& \textbf{Normal} & $a$ & $b$ & $a+b$\\
+    \cline{2-4}
+    & \textbf{Abnormal} & $c$ & $d$ & $c+d$\\
+    \cline{2-4}
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{\textbf{Total}} & \multicolumn{1}{c}{$a+c$} & \multicolumn{1}{c}{$b+d$} & \multicolumn{1}{c}{$a+b+c+d$}\\
+    \end{tabular}
+    \label{fig:confusion_matrix_example}
+\end{figure}
+% End Confusiom Matrix Code
+\\
+\\
+\noindent
+That is, the network predicted \(a\) examples with true label \textit{Normal} as \textit{Normal}, etc. So the accuracy would be \( \dfrac{a+d}{a+b+c+d}\). 
+\\
+\\
+\noindent
+Now if we consider \textit{Normal} to be "negative" and \textit{Abnormal} to be "positive", we can define:
+\begin{itemize}
+  \item \textbf{True Negative Rate} Proportion of true \textit{Normal} labels predicted correctly: \( \dfrac{a}{a+c} \)
+  \item \textbf{False Negative Rate} Proportion of true \textit{Normal} labels incorrectly predicted as \textit{Abnormal}: \( \dfrac{c}{a+c} \)
+  \item \textbf{True Positive Rate} Proportion of true \textit{Abormal} labels predicted correctly:  \( \dfrac{d}{b+d} \)
+  \item \textbf{False Positive Rate} Proportion of true \textit{Abormal} labels incorrectly predicted as \textit{Normal}: \( \dfrac{b}{b+d} \)
+\end{itemize}
+
+
+
+\subsubsection{ROC Curve}
+
+
+\subsubsection{Cohen's Kappa}
 
 \subsection{State-of-the-Art}
 What is the current image processing SOTA - e.g. ILSVRC

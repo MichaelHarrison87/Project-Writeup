@@ -321,6 +321,25 @@ where \(U[a,b]\) is the continuous random uniform distribution over the interval
 \noindent
 In fact, examining the Keras source code \cite{keras_source}, Glorot Uniform is implemented slightly differently to how it was introduced by Glorot \& Bengio. Biases are still initialised to 0. However weights are drawn randomly from \(U[-limit,limit]\) with \(limit = \sqrt{\dfrac{6}{fan\_in + fan\_out}}\) where \(fan\_in\) is the number of input neurons to the weight tensor, and \(fan\_out\) the number of output neurons. In our terms, if \(\mathbf{W}\) is the \(n_i \times n_{i+1}\) matrix of weights connecting layers \(i\) and \(i+1\), then each element \(w\) of \(\mathbf{W}\) will be initialised as above, with \(fan\_in = n_i\) and \(fan\_out = n_{i+1}\).  
 
+
+\subsubsection{Regularisation}
+Regularisation is used to prevent overfitting by neural networks - i.e. the fact that, while the network may perform well on the data on which it was trained, its performance on another set of data is poor. This usually occurs because, while training, the network captures too much of the random noise present in the training data, and therefore does not transfer well to another data set where that noise is not present (instead having its own random noise). So regularisation aims to ensure that training leads networks to capture genuine features of the data that will be present in other data sets, rather than that random noise. We describe some regularisation techniques below: 
+\\
+\\
+\noindent
+\textbf{Dropout}
+\\
+\noindent
+Dropout was introduced by Srivastava et al in 2014 \cite{dropout_paper}. The idea is, for a given network layer, to randomly remove some neurons from that layer. At each training iteration, e.g. for each batch in SGD, each neuron and its associated weights and biases are retained in the network with some chosen probability \(p\), and removed with probability \(1-p\). This random selection is performed fresh for each iteration, so that each iteration effectively uses a slightly different network architecture. That means that the paths for information to travel through the network - the sequence of neurons and connections between them - vary. This introduces redundancy in that the same genuine features of the data are learned by several routes through the network, since the available routes change with each iteration. This reduces the likelihood that parts of the network just start capturing noise, as for any given iteration those parts of the network may or may not be present. Further, for any given epoch, each neuron will only see an expected fraction \(p\) batches of training data, and is therefore exposed to less noise in the data. So the neuron's weights will be less likely to capture noise.        
+\\
+\\
+\noindent
+Dropout also reduces the effective capacity of the network layer at each iteration by the factor \(p\). A layer with 10 neurons and dropout probability 70\%, would only use an expected 7 neurons. This reduces the scope of the layer to capture noise in the data, since there are fewer effective parameters. So there is less "room" for the network layer to pick up noise.
+\\
+\\
+\noindent
+After training, say when testing the network on a validation set, we revert to the full original network architecture - neurons are no longer dropped out. Instead, a trained weights \(w\) in a given dropout layer are replaced with \(pw\). A forward pass can then be conducted as normal. 
+
 \newpage
 \subsection{Convolutional Neural Networks}
 Convolutional neural networks (CNN's) are a variant of artificial neural networks described above, that are often used for image processing tasks such as classification. They are organised as a sequence of "convolution" layers, where the first layer operates directly on an image to produce a representation of it comprised of various low-level features, such as edges or patches of light or dark etc. The next layer then operates on this representation, producing another representation that captures slightly higher-level features, based on compostions of the low-level features from the first layer. This process is repeated for a chosen number of layers, with each layer outputting a representation based on the one from the previous layer. The final output from the sequence of convolution layers is then some representation of the original image built up from the low- and mid-level features from past layers. This final representation can then be used for the task at hand - for instance fed through a fully-connected layer, into a Softmax output layer for classification.     
@@ -389,23 +408,35 @@ In the context of image classification, the predictions we make from a convoluti
 \\
 \\
 \noindent
-This separation allows for transferring learning as described above. We can replace simply the "head", while retaining the convolutional base - both its structure, and the weights and biases of its filters. This means that the convolutinal base will still pick out the same features, combinations of features etc, in the same way when applied to a new set of images. We can then use these as inputs for the new network "head", which may need to have a different design than the head with which the convolational base was originally trained with. For instance, if our new image classification task involves a new (smaller or larger) set of classes than those originally trained on - the output Softmax layer would have to change to match the new number of classes.
+This separation allows for transfer learning as described above. We can replace simply the head, while retaining the convolutional base - both its structure, and the weights and biases of its filters. This means that the convolutinal base will still pick out the same features, combinations of features etc, in the same way when applied to a new set of images. We can then use these as inputs for the new network head, which may need to have a different design than the head with which the convolational base was originally trained with. For instance, if our new image classification task involves a new (smaller or larger) set of classes than those originally trained on - the output Softmax layer would have to change to match the new number of classes.
 \\
 \\
 \noindent
-One slight downside of using a fully-connected "head", is that the size of the flatten input layer is dependant on the size of the input image - say all our filters use padding, and we have two pooling layers of window size \(2 \times 2\) with stride 2. Then the final representation will have one quarter the height and one quarter the width of the original image. This means, if we're performing training over a set of images, each image in the set must have the same dimension. Otherwise, the flatten layer would vary in size with each image, and so the number of weights between the flatten and hidden layer in the head. 
+One slight downside of using a fully-connected head, is that the size of the flatten input layer is dependant on the size of the input image - say all our filters use padding, and we have two pooling layers of window size \(2 \times 2\) with stride 2. Then the final representation will have one quarter the height and one quarter the width of the original image. This means, if we're performing training over a set of images, each image in the set must have the same dimension. Otherwise, the flatten layer would vary in size with each image, and so the number of weights between the flatten and hidden layer in the head. 
 
 \subsubsection{Training}
-Convolutional networks can be trained in the exactly the same way as for general artificial neural networks described above- that is, by Backpropagation via algorithms such as SGD or Adam. As mentioned, the weights for convolutional layers are the values in the filters. We can perform a backward pass through both the "head" and convolutional base to calculate the gradients of the loss with respect to the weights and biases in all filters, throughout the whole network. 
+Convolutional networks can be trained in the exactly the same way as for general artificial neural networks described above- that is, by Backpropagation via algorithms such as SGD or Adam. As mentioned, the weights for convolutional layers are the values in the filters. We can perform a backward pass through both the head and convolutional base to calculate the gradients of the loss with respect to the weights and biases in all filters, throughout the whole network. 
 \\
 \\
 \noindent
-However in transfer learning, the weights in the convolutional base are often left unchanged. Instead only the weights in the head are trained on the new set of data - they generally can't be reused (even if the "head" has the same structure) since they will be specific to the set of labels originally trained on. Whereas the convolutional base is seen as capturing fairly generic features that will have relevance across a range of image processing tasks. 
+However in transfer learning, the weights in the convolutional base are often left unchanged. Instead only the weights in the head are trained on the new set of data - they generally can't be reused (even if the head has the same structure) since they will be specific to the set of labels originally trained on. Whereas the convolutional base captures fairly generic features that will have relevance across a range of image processing tasks. 
 
 \newpage
 \subsection{Performance Measures}
-Write about performance measures - ROC curve, Cohen's Kappa etc
-Discuss train vs valid performance, overfitting etc.
+We now introduce the measures we use to asses the performance of our trained network. While the network is trained using the cross-entropy loss, as described above, we can report other measures that capture other aspects of performance more explicitly e.g. the false positive or false negative rates. Typically we are interested on the performance of the network on an alternative data set to that on which it was trained - a so-called valiation set.   
+
+\subsubsection{Accuracy}
+This is probably simplest measure of performance. For each item in the validation set, we have the true label (e.g. normal or abnormal). The network outputs a predicted probability of each class for each data item. So we can let the network's predicted label be the class that has the largest predicted probability. Let the true class label be \(y\) and the predicted label be \(\hat{y}\), and the validation set consist of \(m\) data items. The accuracy is then:
+\[ accuracy = \dfrac{1}{m} \sum_{i=1}^m I(y=\hat{y}) \]
+where
+\[ I(y=\hat{y}) = \begin{cases}
+1 \quad \text{if } y=\hat{y}\\
+0 \quad \text{otherwise}\\
+\end{cases}\]
+That is, accuracy simply meansures the proportion of correct predictions the network makes on a dataset.
+
+\subsubsection{Confusion Matrix}
+The confusion matrix decomposes the correct and incorrect predictions for each class. For instance, if there are two classes \(0\) and \(1\),  
 
 \subsection{State-of-the-Art}
 What is the current image processing SOTA - e.g. ILSVRC

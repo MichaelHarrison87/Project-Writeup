@@ -23,4 +23,9 @@ Y.~Bengio and X.~Glorot, ``Understanding the difficulty of training deep feed
   2018.
 \newblock Commit: 0771f37 [Online; accessed 9-August-2018].
 
+\bibitem{dropout_paper}
+N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov,
+  ``Dropout: A simple way to prevent neural networks from overfitting,'' {\em
+  Journal of Machine Learning Research}, vol.~15, pp.~1929--1958, 2014.
+
 \end{thebibliography}

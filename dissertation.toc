@@ -10,34 +10,37 @@
 \contentsline {subsubsection}{\numberline {2.3.3}Weight Update}{12}
 \contentsline {subsubsection}{\numberline {2.3.4}Optimisers}{13}
 \contentsline {subsubsection}{\numberline {2.3.5}Weight Initialisation}{16}
-\contentsline {subsection}{\numberline {2.4}Convolutional Neural Networks}{18}
-\contentsline {subsubsection}{\numberline {2.4.1}Image Representation}{19}
-\contentsline {subsubsection}{\numberline {2.4.2}Convolution Layers}{19}
-\contentsline {subsubsection}{\numberline {2.4.3}Padding}{21}
-\contentsline {subsubsection}{\numberline {2.4.4}Pooling Layers}{22}
-\contentsline {subsubsection}{\numberline {2.4.5}Prediction}{23}
-\contentsline {subsubsection}{\numberline {2.4.6}Training}{24}
-\contentsline {subsection}{\numberline {2.5}Performance Measures}{25}
-\contentsline {subsection}{\numberline {2.6}State-of-the-Art}{25}
-\contentsline {subsection}{\numberline {2.7}Pretrained Models}{25}
-\contentsline {subsubsection}{\numberline {2.7.1}VGG16}{25}
-\contentsline {section}{\numberline {3}Data}{26}
-\contentsline {subsection}{\numberline {3.1}MURA}{26}
-\contentsline {subsection}{\numberline {3.2}Image Examples}{26}
-\contentsline {subsection}{\numberline {3.3}Data Breakdowns}{28}
-\contentsline {section}{\numberline {4}Model Development}{29}
-\contentsline {subsection}{\numberline {4.1}Working Environment}{29}
-\contentsline {subsection}{\numberline {4.2}Data Preprocessing}{29}
-\contentsline {subsection}{\numberline {4.3}Model}{29}
-\contentsline {subsection}{\numberline {4.4}Predictions}{29}
-\contentsline {section}{\numberline {5}Results}{30}
-\contentsline {subsection}{\numberline {5.1}Baseline Performance}{30}
-\contentsline {subsection}{\numberline {5.2}Image Size}{30}
-\contentsline {subsection}{\numberline {5.3}Regularisation}{30}
-\contentsline {subsection}{\numberline {5.4}Pre-Trained Models}{30}
-\contentsline {section}{\numberline {6}Conclusions}{31}
-\contentsline {section}{\numberline {7}Professional and Ethical Issues}{32}
-\contentsline {section}{\numberline {8}Extensions}{33}
-\contentsline {section}{References}{34}
-\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{35}
-\contentsline {subsection}{\numberline {A.1}VGG16}{35}
+\contentsline {subsubsection}{\numberline {2.3.6}Regularisation}{17}
+\contentsline {subsection}{\numberline {2.4}Convolutional Neural Networks}{19}
+\contentsline {subsubsection}{\numberline {2.4.1}Image Representation}{20}
+\contentsline {subsubsection}{\numberline {2.4.2}Convolution Layers}{20}
+\contentsline {subsubsection}{\numberline {2.4.3}Padding}{22}
+\contentsline {subsubsection}{\numberline {2.4.4}Pooling Layers}{23}
+\contentsline {subsubsection}{\numberline {2.4.5}Prediction}{24}
+\contentsline {subsubsection}{\numberline {2.4.6}Training}{25}
+\contentsline {subsection}{\numberline {2.5}Performance Measures}{26}
+\contentsline {subsubsection}{\numberline {2.5.1}Accuracy}{26}
+\contentsline {subsubsection}{\numberline {2.5.2}Confusion Matrix}{26}
+\contentsline {subsection}{\numberline {2.6}State-of-the-Art}{26}
+\contentsline {subsection}{\numberline {2.7}Pretrained Models}{27}
+\contentsline {subsubsection}{\numberline {2.7.1}VGG16}{27}
+\contentsline {section}{\numberline {3}Data}{28}
+\contentsline {subsection}{\numberline {3.1}MURA}{28}
+\contentsline {subsection}{\numberline {3.2}Image Examples}{28}
+\contentsline {subsection}{\numberline {3.3}Data Breakdowns}{30}
+\contentsline {section}{\numberline {4}Model Development}{31}
+\contentsline {subsection}{\numberline {4.1}Working Environment}{31}
+\contentsline {subsection}{\numberline {4.2}Data Preprocessing}{31}
+\contentsline {subsection}{\numberline {4.3}Model}{31}
+\contentsline {subsection}{\numberline {4.4}Predictions}{31}
+\contentsline {section}{\numberline {5}Results}{32}
+\contentsline {subsection}{\numberline {5.1}Baseline Performance}{32}
+\contentsline {subsection}{\numberline {5.2}Image Size}{32}
+\contentsline {subsection}{\numberline {5.3}Regularisation}{32}
+\contentsline {subsection}{\numberline {5.4}Pre-Trained Models}{32}
+\contentsline {section}{\numberline {6}Conclusions}{33}
+\contentsline {section}{\numberline {7}Professional and Ethical Issues}{34}
+\contentsline {section}{\numberline {8}Extensions}{35}
+\contentsline {section}{References}{36}
+\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{37}
+\contentsline {subsection}{\numberline {A.1}VGG16}{37}

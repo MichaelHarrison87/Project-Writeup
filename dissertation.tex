@@ -151,7 +151,15 @@ This is extremely useful for classification, since we can set the final layer of
 \\
 \noindent
 More concretely, for our purposes we set the final layer to have 2 neurons - corresponding to normal or abnormal respectively.
-
+\\
+\\
+\noindent
+\textbf{Sigmoid}
+\\
+\noindent
+The sigmoid activation is simply a one-dimensional version of Softmax:
+\[ \sigma(x) = \dfrac{e^x}{1+e^x}\]
+As with the Softmax, it outputs values in the interval \([0,1]\), which can be thought of as a probability. Sigmoids are often used to provide a soft form of "gating" for a signal, namely the activations from the previous layer in a neural network. Whereas a hard version of gating can only multiply the signal by 1 (to allow all of it through) or 0 (to prevent it entirely), the sigmoid function can vary smoothly between these two extremes. This allows the signal to progress, but dampened by by the factor \(\sigma\), with the extent of dampening required able to be learned during training.  
 \newpage
 \subsection{Training}
 After choosing the structure of the ANN - i.e. the numbers of layers, numbers of neurons, and activation functions for each layer/neuron - it remains to train the network. The act of training the network boils down to setting appropriate values for all the weights and biases across the whole network. While this could be done by hand - this would be very difficult and, for larger networks, the numbers of weights and biases can be several million and hence infeasible to set by hand anyway. Instead, the weights\footnote{We'll use "weights" as a shorthand for "weights and biases" - i.e. the set of model parameters - except where a distinction between the two is necessary.} are initialised to random values and then automatically updated through a process called \textit{Backpropagation}. This involves the following steps:
@@ -506,10 +514,25 @@ However, intermediate points on the ROC curve will indicate the extent to which 
 \noindent
 We can summarise this over a whole set of threshold probabilities by calculating the area under the ROC curve, called the \textit{AUC}. A classifier whose ROC curve is strictly above another's will have a larger AUC - so a larger AUC represents a better classifier.
 
-\subsection{State-of-the-Art}
-What is the current image processing SOTA - e.g. ILSVRC
-Anything done specifically for radiology?
+\newpage
+\subsection{Model Ensembles}
+Look into ensembles of CNN's; move this section above performance measures later.
 
+\newpage
+\subsection{State-of-the-Art}
+ILSVRC 2017 image classification winner: Squeeze-and-excitation networks https://arxiv.org/abs/1709.01507
+Squeeze: global-average pooling over the full height-and-width for each channel of a representation. Results is therefore a scalar for each channel. Seen as capturing the global information about the image carried in each channel ("global information embedding").
+Excitation: captures channel-wise dependencies; mutliplies the result of the squeeze op by some new weight matrix W1 (and takes a ReLU). Then dampens this signal by mutliplying the result of that operation by another weight matrix W2 and taking the sigmoid. Size of the weight matrices dictated by number of channels, and some dimension-reduction hyperparameter r. This is again done channel-wise. The result of the sigmoid, s, is then multiplied with the corresponding channel of the original representation, essentially rescaling the original representation. Note s is simply a scalar for each channel.
+
+VGG
+Inception
+ResNets
+MobileNet
+ShuffleNet
+Attention/Gating
+
+
+\newpage
 \subsection{Pretrained Models}
 Discuss the use of pre-trained models - can keep weights the same, replact the head.
 Describe the structure of the pre-trained models we'll use for comparison:
@@ -561,6 +584,7 @@ Describe google cloud set-up, GPU, python packages used etc
 
 \subsection{Data Preprocessing}
 Describe the preprocessing work done on the data - resize images, normalise values, data augmentation etc 
+Random-size cropping?
 
 \subsection{Model}
 Describe the final ab-initio model I end up with - structure, loss function, training params/hyperparams etc

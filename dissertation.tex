@@ -394,7 +394,7 @@ Pooling layers are used to reduce the size of representations, while still retai
 \\
 \\
 \noindent
-Moreover, downsampling in between convolution layers allows the subsequent layer to more easily capture spatial combinations of the features created in the previous layer. In particular doing so using smaller filter sizes (and hence fewer trainable weights) than would otherwise be necessary. That is, if the key features of an \(h \times w\) representation are compressed into a smaller, say, \(\dfrac{h}{2} \times \dfrac{w}{2}\) representation - an \(n \times n\) filter would now be able to capture combinations of features that were further than \(n\) pixels apart in the original representation, if they are now within \(n\) pixels in the new representation. As this process continues over several layers, with representations getting progressively smaller, the convolution operations are better able to progress from low-level features of the original image, to mid- then high-level combinations of such features across the whole image.
+Moreover, downsampling in between convolution layers allows the subsequent layer to more easily capture spatial combinations of the features created in the previous layer. In particular doing so using smaller filter sizes (and hence fewer trainable weights) than would otherwise be necessary. That is, if the key features of an \(h \times w\) representation are compressed into a smaller, say, \(\dfrac{h}{2} \times \dfrac{w}{2}\) representation - an \(n \times n\) filter would now be able to capture combinations of features that were further than \(n\) pixels apart in the original representation, if they are now within \(n\) pixels in the new representation. As this process continues over several layers, with representations getting progressively smaller, the convolution operations are better able to progress from isolated low-level features of the original image, to mid- then high-level combinations of such features across the whole image.
 \\
 \\
 \noindent
@@ -437,7 +437,7 @@ where
 That is, accuracy simply measures the proportion of correct predictions the network makes on a dataset.
 
 \subsubsection{Confusion Matrix}
-The confusion matrix decomposes the correct and incorrect predictions for each class. An example for two classes \textit{Normal} and \textit{Abnormal} is shown below:
+The confusion matrix decomposes the correct and incorrect predictions for each class. An example for our two classes \textit{Normal} and \textit{Abnormal} is shown below:
 % Create Confusion Matrix - adapted from https://tex.stackexchange.com/questions/20267/how-to-construct-a-confusion-matrix-in-latex/338931. Note: need the multirow package
 \begin{figure}[ht]
     \centering
@@ -466,17 +466,45 @@ That is, the network predicted \(a\) examples with true label \textit{Normal} as
 Now if we consider \textit{Normal} to be "negative" and \textit{Abnormal} to be "positive", we can define:
 \begin{itemize}
   \item \textbf{True Negative Rate} Proportion of true \textit{Normal} labels predicted correctly: \( \dfrac{a}{a+c} \)
-  \item \textbf{False Negative Rate} Proportion of true \textit{Normal} labels incorrectly predicted as \textit{Abnormal}: \( \dfrac{c}{a+c} \)
-  \item \textbf{True Positive Rate} Proportion of true \textit{Abormal} labels predicted correctly:  \( \dfrac{d}{b+d} \)
-  \item \textbf{False Positive Rate} Proportion of true \textit{Abormal} labels incorrectly predicted as \textit{Normal}: \( \dfrac{b}{b+d} \)
+  \item \textbf{False Negative Rate} Proportion of true \textit{Abnormal} labels incorrectly predicted as \textit{Normal}: \( \dfrac{b}{b+d} \)
+  \item \textbf{True Positive Rate} Proportion of true \textit{Abnormal} labels predicted correctly:  \( \dfrac{d}{b+d} \)
+  \item \textbf{False Positive Rate} Proportion of true \textit{Normal} labels incorrectly predicted as \textit{Abnormal}: \( \dfrac{c}{a+c} \)
 \end{itemize}
 
-
-
-\subsubsection{ROC Curve}
-
-
 \subsubsection{Cohen's Kappa}
+Cohen's Kappa was introduced by Jacob Cohen in 1960 \cite{cohens_kappa}. It is a measure of agreement between two raters - so when applied to a corresponding set of true and predicted labels, it measures the accuracy of the predictions. Its advantage over simple accuracy is that is measures the extent of agreement over and above that which would be expected by chance. This is useful for instance when the class frequencies in the underlying data are naturally skewed. Consider data comprised of two classes, 80\% A and 20\% B - a classifier that simply always predicted A would have 80\% accuracy, but can not be considered a very good classifier. Cohen's Kappa accounts for this underlying skew, and would score the classifier poorly. For the confusion matrix in \textbf{Figure \ref{fig:confusion_matrix_example}} above, it is defined as follows:
+\\
+\\
+\noindent
+Let \(p_o = \dfrac{a+d}{a+b+c+d}\) be the observed overall accuracy.
+\\
+\\
+\noindent
+Now let \(p_e = p_{normal} + p_{abnormal}\) be the probability of agreement at random, where:
+\[p_{normal} = \dfrac{a+b}{a+b+c+d} \ \dfrac{a+c}{a+b+c+d} \]
+\[p_{abnormal} = \dfrac{c+d}{a+b+c+d} \ \dfrac{b+d}{a+b+c+d} \]
+Cohen's Kappa is then:
+\[ \kappa = \dfrac{p_o - p_e}{1-p_e} \]
+Cohen's Kappa usually ranges from 0, when the observed accuracy is simply equal to that expected at random (i.e. \(p_o = p_e\)) - to 1, when the observed accuracy is 100\% (i.e. \(p_o=1\)), regardless of the extent of expected random agreement \(p_e\)\footnote{Ignoring the degenerate case \(p_e=1\).}. It can be negative, when the observed accuracy is \textit{below} that expected by chance, but this should be rare in practice.
+\subsubsection{ROC Curve}
+The ROC curve is a way to illustrate the performance of one or more binary classifiers, allowing for convenient comparison. An example \cite{wiki:ROC_Curve} is shown below:  
+\begin{figure}[!ht]
+  \centering    
+  \caption{Example of a ROC Curve plot}
+  \label{fig:ROC_Curve}
+  \includegraphics[scale=2]{ROC_Curve.png}
+\end{figure}
+\\
+\noindent
+It plots the true positive rate of the classifier against its false positive rate. A single run of the classifier on a set of data would only represent a single point on the plot. However, in practice, we vary the discrimination threshold of the classifier, e.g. the predicted probability for which it predicts a "positive" label, from 1 to 0. For a given classifier this then produces a series of points on the plot, which we connect to form the ROC \textit{curve}. If the threshold probability is 1, all examples are classified as negative and hence both the true and false positive rates are 0. Reducing the threshold probability means more of the true positive labels are correctly predicted as positive - increasing the true positive rate. But this can introduce a higher false positive rate, since more of the true negative labels are predicted as positive. When the threshold reaches 0, all examples are classified as positive, so the true positive rate is 1, but the false positive rate is also 1 since all true negatives are predicted as positive. 
+\\
+\\
+\noindent
+However, intermediate points on the ROC curve will indicate the extent to which the classifier can correctly classify positive examples (high true positive rate), while avoiding misclassifying negative examples (low false positive rate). Clearly, a classifier that is better at doing this is preferred, so we prefer those with ROC curves towards the top-left corner of the plot. And a classifier whose ROC curve is strictly above another's in the plot is a strictly better classifier (at least on the given data set).
+\\
+\\
+\noindent
+We can summarise this over a whole set of threshold probabilities by calculating the area under the ROC curve, called the \textit{AUC}. A classifier whose ROC curve is strictly above another's will have a larger AUC - so a larger AUC represents a better classifier.
 
 \subsection{State-of-the-Art}
 What is the current image processing SOTA - e.g. ILSVRC

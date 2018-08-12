@@ -28,4 +28,13 @@ N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov,
   ``Dropout: A simple way to prevent neural networks from overfitting,'' {\em
   Journal of Machine Learning Research}, vol.~15, pp.~1929--1958, 2014.
 
+\bibitem{cohens_kappa}
+J.~Cohen, ``A coefficient of agreement for nominal scales,'' {\em Educational
+  and Psychological Measurement}, vol.~20, no.~1, pp.~37--46, 1960.
+
+\bibitem{wiki:ROC_Curve}
+``Receiver operating characteristic.''
+  \url{https://en.wikipedia.org/wiki/Receiver_operating_characteristic}, 2018.
+\newblock [Online; accessed 12-August-2018].
+
 \end{thebibliography}

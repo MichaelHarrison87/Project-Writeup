@@ -21,28 +21,28 @@
 \contentsline {subsection}{\numberline {2.5}Performance Measures}{26}
 \contentsline {subsubsection}{\numberline {2.5.1}Accuracy}{26}
 \contentsline {subsubsection}{\numberline {2.5.2}Confusion Matrix}{26}
-\contentsline {subsubsection}{\numberline {2.5.3}ROC Curve}{27}
-\contentsline {subsubsection}{\numberline {2.5.4}Cohen's Kappa}{27}
-\contentsline {subsection}{\numberline {2.6}State-of-the-Art}{27}
-\contentsline {subsection}{\numberline {2.7}Pretrained Models}{27}
-\contentsline {subsubsection}{\numberline {2.7.1}VGG16}{27}
-\contentsline {section}{\numberline {3}Data}{28}
-\contentsline {subsection}{\numberline {3.1}MURA}{28}
-\contentsline {subsection}{\numberline {3.2}Image Examples}{28}
-\contentsline {subsection}{\numberline {3.3}Data Breakdowns}{30}
-\contentsline {section}{\numberline {4}Model Development}{31}
-\contentsline {subsection}{\numberline {4.1}Working Environment}{31}
-\contentsline {subsection}{\numberline {4.2}Data Preprocessing}{31}
-\contentsline {subsection}{\numberline {4.3}Model}{31}
-\contentsline {subsection}{\numberline {4.4}Predictions}{31}
-\contentsline {section}{\numberline {5}Results}{32}
-\contentsline {subsection}{\numberline {5.1}Baseline Performance}{32}
-\contentsline {subsection}{\numberline {5.2}Image Size}{32}
-\contentsline {subsection}{\numberline {5.3}Regularisation}{32}
-\contentsline {subsection}{\numberline {5.4}Pre-Trained Models}{32}
-\contentsline {section}{\numberline {6}Conclusions}{33}
-\contentsline {section}{\numberline {7}Professional and Ethical Issues}{34}
-\contentsline {section}{\numberline {8}Extensions}{35}
-\contentsline {section}{References}{36}
-\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{37}
-\contentsline {subsection}{\numberline {A.1}VGG16}{37}
+\contentsline {subsubsection}{\numberline {2.5.3}Cohen's Kappa}{27}
+\contentsline {subsubsection}{\numberline {2.5.4}ROC Curve}{28}
+\contentsline {subsection}{\numberline {2.6}State-of-the-Art}{29}
+\contentsline {subsection}{\numberline {2.7}Pretrained Models}{29}
+\contentsline {subsubsection}{\numberline {2.7.1}VGG16}{29}
+\contentsline {section}{\numberline {3}Data}{30}
+\contentsline {subsection}{\numberline {3.1}MURA}{30}
+\contentsline {subsection}{\numberline {3.2}Image Examples}{30}
+\contentsline {subsection}{\numberline {3.3}Data Breakdowns}{32}
+\contentsline {section}{\numberline {4}Model Development}{33}
+\contentsline {subsection}{\numberline {4.1}Working Environment}{33}
+\contentsline {subsection}{\numberline {4.2}Data Preprocessing}{33}
+\contentsline {subsection}{\numberline {4.3}Model}{33}
+\contentsline {subsection}{\numberline {4.4}Predictions}{33}
+\contentsline {section}{\numberline {5}Results}{34}
+\contentsline {subsection}{\numberline {5.1}Baseline Performance}{34}
+\contentsline {subsection}{\numberline {5.2}Image Size}{34}
+\contentsline {subsection}{\numberline {5.3}Regularisation}{34}
+\contentsline {subsection}{\numberline {5.4}Pre-Trained Models}{34}
+\contentsline {section}{\numberline {6}Conclusions}{35}
+\contentsline {section}{\numberline {7}Professional and Ethical Issues}{36}
+\contentsline {section}{\numberline {8}Extensions}{37}
+\contentsline {section}{References}{38}
+\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{39}
+\contentsline {subsection}{\numberline {A.1}VGG16}{39}

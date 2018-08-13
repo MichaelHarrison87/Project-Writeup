@@ -520,6 +520,21 @@ Look into ensembles of CNN's; move this section above performance measures later
 
 \newpage
 \subsection{State-of-the-Art}
+For the state-of-the-art in image classification, we look to the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) \cite{ILSVRC}, a machine learning competition held each year between 2010 and 2017 to assess the performance machine learning systems on a variety of computer vision tasks. The competition is held on a subset of ImageNet, a database of 10,000,000 labelled images depicting over 10,000 object categories, published by Deng et al. in 2009 \cite{imagenet}. For instance, for the 2017 object classification and localisation tasks, the test and validation comprised 150,000 photographs hand-labelled with the presence of absence of 1000 object categories. Each algorithm submitted to the competition was required to output 5 class labels, in decreasing order of confidence. The error was then based on matches between the true object categories and these top-5 predicted labels - giving the so-called top-5 error. Winners of the ILSVRC classification task, and their associated top-5 error rates are shown below (taken from \cite{ILSVRC_Classification_Top5}).          
+\begin{figure}[!ht]
+  \centering    
+  \caption{ImageNet Classification Winners}
+  \label{fig:ILSVRC_Winners}
+  \includegraphics[scale=0.4]{ILSVRC_Winners.png}
+\end{figure}
+\\
+\noindent
+AlexNet in 2012 was the first winner to use a Deep Learning with convolutional neural networks, and as can be seen achieved a considerable improvement in performance over the previous year's winner. Since then, all winners have used variations or extensions of the Deep Learning/convolutional network idea. Below we describe some of these winning networks in more detail.
+\\
+\\
+\noindent
+\subsubsection{VGG}
+
 ILSVRC 2017 image classification winner: Squeeze-and-excitation networks https://arxiv.org/abs/1709.01507
 Squeeze: global-average pooling over the full height-and-width for each channel of a representation. Results is therefore a scalar for each channel. Seen as capturing the global information about the image carried in each channel ("global information embedding").
 Excitation: captures channel-wise dependencies; mutliplies the result of the squeeze op by some new weight matrix W1 (and takes a ReLU). Then dampens this signal by mutliplying the result of that operation by another weight matrix W2 and taking the sigmoid. Size of the weight matrices dictated by number of channels, and some dimension-reduction hyperparameter r. This is again done channel-wise. The result of the sigmoid, s, is then multiplied with the corresponding channel of the original representation, essentially rescaling the original representation. Note s is simply a scalar for each channel.

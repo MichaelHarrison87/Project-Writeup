@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{MURA2017}
 P.~{Rajpurkar}, J.~{Irvin}, A.~{Bagul}, D.~{Ding}, T.~{Duan}, H.~{Mehta},
@@ -36,5 +36,21 @@ J.~Cohen, ``A coefficient of agreement for nominal scales,'' {\em Educational
 ``Receiver operating characteristic.''
   \url{https://en.wikipedia.org/wiki/Receiver_operating_characteristic}, 2018.
 \newblock [Online; accessed 12-August-2018].
+
+\bibitem{ILSVRC}
+O.~Russakovsky, J.~Deng, H.~Su, J.~Krause, S.~Satheesh, S.~Ma, Z.~Huang,
+  A.~Karpathy, A.~Khosla, M.~Bernstein, A.~C. Berg, and L.~Fei-Fei, ``{ImageNet
+  Large Scale Visual Recognition Challenge},'' {\em International Journal of
+  Computer Vision (IJCV)}, vol.~115, no.~3, pp.~211--252, 2015.
+
+\bibitem{imagenet}
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei, ``Imagenet: A
+  large-scale hierarchical image database,'' in {\em CVPR09}, 2009.
+
+\bibitem{ILSVRC_Classification_Top5}
+M.~Jacobs, ``Deep learning in five and a half minutes.''
+  \url{http://www.videantis.com/deep-learning-in-five-and-a-half-minutes.html},
+  2018.
+\newblock [Online; accessed 13-August-2018].
 
 \end{thebibliography}

@@ -520,7 +520,7 @@ Look into ensembles of CNN's; move this section above performance measures later
 
 \newpage
 \subsection{State-of-the-Art}
-For the state-of-the-art in image classification, we look to the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) \cite{ILSVRC}, a machine learning competition held each year between 2010 and 2017 to assess the performance machine learning systems on a variety of computer vision tasks. The competition is held on a subset of ImageNet, a database of 10,000,000 labelled images depicting over 10,000 object categories, published by Deng et al. in 2009 \cite{imagenet}. For instance, for the 2017 object classification and localisation tasks, the test and validation comprised 150,000 photographs hand-labelled with the presence of absence of 1000 object categories. Each algorithm submitted to the competition was required to output 5 class labels, in decreasing order of confidence. The error was then based on matches between the true object categories and these top-5 predicted labels - giving the so-called top-5 error. Winners of the ILSVRC classification task, and their associated top-5 error rates are shown below (taken from \cite{ILSVRC_Classification_Top5}).          
+For the state-of-the-art in image classification, we look to the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) \cite{ILSVRC}, a machine learning competition held each year between 2010 and 2017 to assess the performance machine learning systems on a variety of computer vision tasks. The competition is held on a subset of ImageNet, a database of 10,000,000 labelled images depicting over 10,000 object categories, published by Deng et al. in 2009 \cite{imagenet}. For instance, for the 2017 object classification and localisation tasks, the test and validation sets together comprised 150,000 photographs hand-labelled with the presence of absence of 1000 object categories. Each algorithm submitted to the competition was required to output 5 class labels, in decreasing order of confidence. The error was then based on matches between the true object categories and these top-5 predicted labels - giving the so-called top-5 error. Winners of the ILSVRC classification task, and their associated top-5 error rates are shown below (taken from \cite{ILSVRC_Classification_Top5}).          
 \begin{figure}[!ht]
   \centering    
   \caption{ImageNet Classification Winners}
@@ -529,15 +529,36 @@ For the state-of-the-art in image classification, we look to the ImageNet Large 
 \end{figure}
 \\
 \noindent
-AlexNet in 2012 was the first winner to use a Deep Learning with convolutional neural networks, and as can be seen achieved a considerable improvement in performance over the previous year's winner. Since then, all winners have used variations or extensions of the Deep Learning/convolutional network idea. Below we describe some of these winning networks in more detail.
+AlexNet in 2012 was the first winner to use Deep Learning with convolutional neural networks, and as can be seen achieved a considerable improvement in performance over the previous year's winner. Since then, all winners have used variations or extensions of the Deep Learning/convolutional network idea. Note that in 2014, the VGG team achieved first place on the localistation task and second place on the classification task, which was won by GoogLeNet. Below we describe some of these winning networks in more detail.
 \\
 \\
 \noindent
 \subsubsection{VGG}
+VGG \cite{VGG_Paper} explored the idea of using very deep convolutional networks, with up to 19 weight layers. The networks were made up of a set of successive "blocks", each comprising successive \(3 \times 3\)  convolutional layers (with padding, ReLU activaiton function, and stride of 1) followed by one \(2 \times 2\) max-pooling layer with stride of 2. The output of each block was the input to the next block. The convolutional layers within each block contained the same number of filters, but the number of filters increased with each block. 
+\\
+\\
+\noindent
+For instance, the VGG19 model contains five blocks, the first consisting of two convolutional layers each with 64 filters, plus the final max-pooling layer. The second block contains two convolutional layers each with 128 filters. The three remaining blocks all have four convolutional layers with, respectively, 256, 512 and 512 filters. This convolutional base then feeds into a head comprising a flatten layer, then two fully-connected layers and finally a Softmax layer. This gives it \(2 + 2 + 4 + 4 + 4 + 3 = 19\) trainable layers, as the name suggests. The VGG16 model is similar, but the final three blocks have only three convolutional layers each - giving 16 trainable layers. 
+\\
+\\
+\noindent
+Note that one pixel in the output of two successive \(3 \times 3\) convolutional layers (with stride 1) would correspond to the same region of the original input as the equivalent pixel in the output of one \(5 \times 5\) convolutional layer (with stride 1)\footnote{The latter would correspond to, say, \( \sum_{i=1}^5 \sum_{j=1}^5 w_{i,j}p_{i,j} \). While the former would correspond to \( \sum_{x=0}^2 \sum_{y=0}^2 w'_{x+1,y+1}(\sum_{i=1}^3 \sum_{j=1}^3 w_{i,j}p_{x+i,y+j}) \). Both cover the same range of pixel values \(p_{i,j}\).}. However the VGG team preferred to use stacks of smaller convolutional filters in order to keep the number of weights small (e.g. 18 vs 25), and increase the extent of non-linearity in the network - the two \(3 \times 3\) layers each apply separate activation functions where the \(5 \times 5\) layer applies just one. The idea is that this should increase the discriminative power of the network, allowing better performance.
 
-ILSVRC 2017 image classification winner: Squeeze-and-excitation networks https://arxiv.org/abs/1709.01507
-Squeeze: global-average pooling over the full height-and-width for each channel of a representation. Results is therefore a scalar for each channel. Seen as capturing the global information about the image carried in each channel ("global information embedding").
-Excitation: captures channel-wise dependencies; mutliplies the result of the squeeze op by some new weight matrix W1 (and takes a ReLU). Then dampens this signal by mutliplying the result of that operation by another weight matrix W2 and taking the sigmoid. Size of the weight matrices dictated by number of channels, and some dimension-reduction hyperparameter r. This is again done channel-wise. The result of the sigmoid, s, is then multiplied with the corresponding channel of the original representation, essentially rescaling the original representation. Note s is simply a scalar for each channel.
+\subsubsection{GoogLeNet}
+GoogLeNet \cite{GoogLeNet_Paper} introduced the idea of "Inception" modules, illustrated in  below (image from \cite{GoogLeNet_Paper}):
+\begin{figure}[!ht]
+  \centering    
+  \caption{Inception Module}
+  \label{fig:Inception_Module}
+  \includegraphics[scale=0.7]{InceptionModule.PNG}
+\end{figure}
+\\
+\noindent
+The initial layer of \(1 \times 1\) filters (with stride 1) performs dimension-reduction by reducing the number of channels in the input layer - the spatial height and width will be unchanged, but the number of channels will reduce to the chosen number of \(1 \times 1\) filters. That is, they effectively perform aggregation across the channels for each pixel in the input, namely summing across all channels then scaling by the filter's weight. This reduces the number of channels that the subsequent \(3 \times 3\) and \(5 \times 5\) operations have to work on, reducing their numbers of parameters and computation time.
+
+\subsubsection{ResNet}
+
+
 
 VGG
 Inception

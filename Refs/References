@@ -1,0 +1,10 @@
+ReLU:
+@article{ReLU_Paper,
+author = {Nair, Vinod and E. Hinton, Geoffrey},
+year = {2010},
+month = {06},
+pages = {807-814},
+title = {Rectified Linear Units Improve Restricted Boltzmann Machines Vinod Nair},
+volume = {27},
+booktitle = {Proceedings of ICML}
+}

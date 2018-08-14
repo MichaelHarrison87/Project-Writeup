@@ -53,4 +53,13 @@ M.~Jacobs, ``Deep learning in five and a half minutes.''
   2018.
 \newblock [Online; accessed 13-August-2018].
 
+\bibitem{VGG_Paper}
+K.~{Simonyan} and A.~{Zisserman}, ``{Very Deep Convolutional Networks for
+  Large-Scale Image Recognition},'' {\em ArXiv e-prints}, Sept. 2014.
+
+\bibitem{GoogLeNet_Paper}
+C.~{Szegedy}, W.~{Liu}, Y.~{Jia}, P.~{Sermanet}, S.~{Reed}, D.~{Anguelov},
+  D.~{Erhan}, V.~{Vanhoucke}, and A.~{Rabinovich}, ``{Going Deeper with
+  Convolutions},'' {\em ArXiv e-prints}, Sept. 2014.
+
 \end{thebibliography}

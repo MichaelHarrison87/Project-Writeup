@@ -55,7 +55,7 @@ This project focuses on image recognition, as this is one of the areas where Dee
 \\
 \\
 \noindent
-While any model developed as part of this project can only represent a toy solution to this problem, the principle of combining Deep Learning and medicine seems to be a good one. Inded this too is an area of active research, both within radiology [ref radiology], medical imaging [ref other DL/med image work] and medicine more widely [ref DL/med work]. The works cited of course represents only a small fraction of what is being done. Thinking optimistically, Deep Learning can help improve patient outcomes, produce results more quickly, alleviate pressure off medical pracitioners, reduce medical mistakes and improve medical decision-making. As such, this represents good motivation for me to dip my toe into this area as part of my project.
+While any model developed as part of this project can only represent a toy solution to this problem, the principle of combining Deep Learning and medicine seems to be a good one. Inded this too is an area of active research, both within radiology [ref radiology], medical imaging [ref other DL/med image work] and medicine more widely [ref DL/med work]. The works cited of course represent only a small fraction of what is being done. Thinking optimistically, Deep Learning can help improve patient outcomes, produce results more quickly, alleviate pressure off medical pracitioners, reduce medical mistakes and improve medical decision-making. As such, this represents good motivation for me to dip my toe into this area as part of my project.
 
 % END INTRODUCTION
 
@@ -123,7 +123,7 @@ Therefore non-linear activation functions are usually preferred. In this project
 \noindent
 The Rectified Linear Unit (ReLU) is a scalar activation function that takes a linear function of its argument above a certain threshold \(m\), and is constant otherwise:
 \[f(x) = max\{x,m\} \] 
-Note that \(m\) is a hyperparameter, specified in advance of training, rather than learning during it. Typically it is just set to 0 - as otherwise this implies some sort of prior knowledge about the scale of the "pre-activation" values \(\mathbf{{W^{[i+1]}}^{\top}}a^{[i]} + b^{[i+1]} \) for all the various layers and neurons in the network (since \(m\) could theoretically be set on a neuron-by-neuron basis). This would be difficult to justify, especially when adjusting the level of these pre-activation values is already handled by the bias term \(b^{[i+1]}\), a parameter that is learned during training.  
+Note that \(m\) is a hyperparameter, specified in advance of training, rather than learned during it. Typically it is just set to 0 - as otherwise this implies some sort of prior knowledge about the scale of the "pre-activation" values \(\mathbf{{W^{[i+1]}}^{\top}}a^{[i]} + b^{[i+1]} \) for all the various layers and neurons in the network (since \(m\) could theoretically be set on a neuron-by-neuron basis). This would be difficult to justify, especially since adjusting the level of these pre-activation values is already handled by the bias term \(b^{[i+1]}\), a parameter that is learned during training.  
 \\
 \\
 \noindent
@@ -165,7 +165,7 @@ As with the Softmax, it outputs values in the interval \([0,1]\), which can be t
 After choosing the structure of the ANN - i.e. the numbers of layers, numbers of neurons, and activation functions for each layer/neuron - it remains to train the network. The act of training the network boils down to setting appropriate values for all the weights and biases across the whole network. While this could be done by hand - this would be very difficult and, for larger networks, the numbers of weights and biases can be several million and hence infeasible to set by hand anyway. Instead, the weights\footnote{We'll use "weights" as a shorthand for "weights and biases" - i.e. the set of model parameters - except where a distinction between the two is necessary.} are initialised to random values and then automatically updated through a process called \textit{Backpropagation}. This involves the following steps:
 \begin{itemize}
   \item \textbf{Forward Pass:} data items are input into the network (via the input layer). The activations of each of the subsequent layers are then calculated based on this input, up to the final output layer. Then (since our problem is supervised learning) the output is compared to known, true label for the given data item. This comparison is quantified by a loss function, some chosen function that measures how close the prediction is to the true label.   
-  \item \textbf{Backward Pass:} Since the value of the loss function depends on the network's weights (via the predicted label), the gradient of the loss function with respect to each of the weights can be calculated. These gradients then tell us how to adjust (in what direction, by how much) each of the weights in order to reduce the loss - and hence make the prediction closer to the true label.
+  \item \textbf{Backward Pass:} Since the value of the loss function depends on the network's weights (via the predicted label), the gradient of the loss function with respect to each of the weights can be calculated. These gradients then tell us how to adjust (in what direction, by how much) each of the weights in order to reduce the loss - and hence move the prediction closer to the true label.
   \item \textbf{Weight Update:} It remains to make these changes to the weights. Typically we only make a small change vs that indicated by the gradient - since the gradients themselves will be subject to a lot of random variation from data item-to-data item. So making the full change will result in noisy, erratic weight changes, and hence also erratic changes in the predictions with each weight update. So instead we multiply all of the gradients by some small number \(\eta\) (e.g. \(\eta\approx0.001\)) called the \textit{learning rate}. This has the effect of slowing down the weight updates, and hence allowing a more gradual progression towards a minimum of the loss function. 
 \end{itemize}
 There are in fact a number of different training algorithms, which vary in the details, but all of the ones we consider follow this basic pattern.
@@ -288,6 +288,13 @@ The advantage of SGD is that it is clearly quicker than GD to perform weight upd
 \\
 \\
 \noindent
+\textbf{Momentum}
+\\
+\noindent
+[TBD] Describe momentum explicitly; Section may not be needed if only using RMSProp or Adam optimisers.
+\\
+\\
+\noindent
 \textbf{RMSProp}
 \\
 \noindent
@@ -313,6 +320,9 @@ Again the base case is \(m_0=0\), and \( \beta \in [0,1]\) is another hyperparam
 \[ \delta_t  = \dfrac{\eta}{\sqrt{v_t} + \epsilon} m_t \]
 \[ w_{t+1} = w_t - \delta_t \]
 where \(v_t\), \(\eta\) and \(\epsilon\) are defined as in RMSProp. This has the same benefits as RMSProp of dampening the learning rate \(\eta\) during training, but the weight update uses the smoothed \(m_t\) rather than the raw \(g_t\) at each iteration. 
+
+\subsubsection{Learning Decay}
+[TBD][Maybe put into the Optimisers section?] Often explicitly reduce learning rate by some factor (e.g. 10) when the validation loss plateaus during training.
 
 \subsubsection{Weight Initialisation}
 Prior to training, all weights and biases in the network need to be initialised to some reasonable values. If they were all simply set to 0, the activations of all neurons in the network, and hence all the gradients would just be 0 too. Therefore the weight update step would leave all weights unchanged, and "training" would accomplish nothing. Instead weights are usually initialised to random values. This effectively sets the initial position on the (multidimensional) loss surface, considering the loss as a function of the network's weights. Training then proceeds from this initial position towards a minimum of this loss function. Therefore performing different instances of training (even on the same data) ab-initio can lead to different solutions, since each instance will have a different starting position on the loss surface, and hence converge toward different minima. However the choice of optimiser should help mitigate this problem, e.g. by avoiding shallow local minima, and progressing towards deeper, more global minima\footnote{Of course, the loss surface is usually very high dimensional, and depends on the training data. So it is hard to have any clarity over its precise form or nature. In any case, it is often not necessary for the task at hand - networks are typically trained until they achieve some desired level of performance, regardless of whether this represents a true global minimum or not.}. For this project we have used the following weight initialisation scheme, since that is the default in the software (Keras) we used to train our models.
@@ -348,7 +358,20 @@ Dropout also reduces the effective capacity of the network layer at each iterati
 \\
 \noindent
 After training, say when testing the network on a validation set, we revert to the full original network architecture - neurons are no longer dropped out. Instead, a trained weights \(w\) in a given dropout layer are replaced with \(pw\). A forward pass can then be conducted as normal. 
-
+\\
+\\
+\noindent
+\textbf{Weight Decay}
+\\
+\noindent
+[TBD] Weight decay is basically just L1 or L2 regularisation applied to NN's. Section might not be needed if I don't use weight decay explicitly.
+\\
+\\
+\noindent
+\textbf{Batch Normalisation}
+\\
+\noindent
+[TBD]
 \newpage
 \subsection{Convolutional Neural Networks}
 Convolutional neural networks (CNN's) are a variant of artificial neural networks described above, that are often used for image processing tasks such as classification. They are organised as a sequence of "convolution" layers, where the first layer operates directly on an image to produce a representation of it comprised of various low-level features, such as edges or patches of light or dark etc. The next layer then operates on this representation, producing another representation that captures slightly higher-level features, based on compostions of the low-level features from the first layer. This process is repeated for a chosen number of layers, with each layer outputting a representation based on the one from the previous layer. The final output from the sequence of convolution layers is then some representation of the original image built up from the low- and mid-level features from past layers. This final representation can then be used for the task at hand - for instance fed through a fully-connected layer, into a Softmax output layer for classification.     
@@ -362,10 +385,10 @@ The strength of CNN's is that the representations they produce can pick up featu
 Another strength is that the numbers of weights in convolution layers are not tied to the size of the image, whereas a fully-connected layer would be. Therefore the number of weights in a given layer can be significantly smaller than for a corresponding fully-connected layer. This makes training the network easier, since there are fewer weights to set. For instance, consider a \(100 \times 100\) image fully-connected to a hidden layer of 10 neurons - this would have \(100 \times 100 \times 10 = 100,000\) weights. Meanwhile a convolution layer might have, say, 30 \(3 \times 3\) filters - making \(30 \times 3 \times 3 = 270\) weights. This independence from the size of images means that previously-trained CNN's can be used on different sets of images (potentially of entirely different dimensions) from those it was originally trained on, and still identify the same features in both sets of images. This makes CNN's very convenient for transferring from one image processing task to another - so-called \textit{transfer learning}. 
 
 \subsubsection{Image Representation}
-Throughout this section, we represent an image as either a 2D or 3D grid of pixel values, where the height and width of the image are the first two dimensions, and the channels of the image are the third dimesion. For greyscale images, there is only one channel, so we regard the image as being 2D. For colour images coded as RGB (say), there are three channels (red, green, blue) so we regard the image as 3D with depth 3.  
+Throughout this section, we represent an image as either a 2D or 3D grid of pixel values, where the height and width of the image are the first two dimensions, and the channels of the image are the third dimesion. For greyscale images, there is only one channel, so we regard the image as being 2D. For colour images coded as RGB (say), there are three channels (red, green, blue) so we regard the image as 3D with depth 3. The height and width are sometimes called the spatial dimensions, to distinguish them from the channels.  
 
 \subsubsection{Convolution Layers}
-A convolution layer represents a collection of \textit{filters} of a chosen dimension - say, \(3 \times 3\). Each element of a filter is a real number, and is one of the weights of the convolution layer to be learned during training. The filter will operate on all channels of its input image or representation (from previous convolution layers). So a \(3 \times 3\) filter working on an RGB image will have \(3 \times 3 \times 3 = 27\) weights, since the image has 3 channels. The output of each filter in a convolution layer is passed to the next convolution layer as a separate channels - so that if the first layer has (say) 32 filters, the filters in the next layer will have a depth of 32. If the next layer uses \(5 \times 5\) filters, each one will have \(5 \times 5 \times 32 = 800\) weights\footnote{In fact, each filter has a single associated bias term (regardless of depth), so the filters mentioned would have 28 and 801 parameters respectively.}.    
+A convolution layer represents a collection of \textit{filters} of a chosen dimension - say, \(3 \times 3\). Each element of a filter is a real number, and is one of the weights of the convolution layer to be learned during training. The filter will operate on all channels of its input image or representation (from previous convolution layers). So a \(3 \times 3\) filter working on an RGB image will have \(3 \times 3 \times 3 = 27\) weights, since the image has 3 channels. The output of each filter in a convolution layer is passed to the next convolution layer as a separate channel - so that if the first layer has (say) 32 filters, the filters in the next layer will have a depth of 32. If the next layer uses \(5 \times 5\) filters, each one will have \(5 \times 5 \times 32 = 800\) weights\footnote{In fact, each filter has a single associated bias term (regardless of depth), so the filters mentioned would have 28 and 801 parameters respectively.}.    
 \\
 \\
 \noindent
@@ -376,7 +399,7 @@ The convolution is then:
 That is, we take the element-wise product of the corresponding weights and input values, then sum all of them. The function \(f\) is some chosen activation function (e.g. ReLU). For a multiple-channel input, the filter and input will be 3-dimensional, and the operation would instead apply to a contiguous 3D volume of the input. For instance, if the input were an RBG image and the filter were now of dimension \(n \times n\), the convolution would look like:
 \[ z = \sum_{i=1}^n \sum_{j=1}^n \sum_{k=1}^3 w_{i,j,k}p_{i,j,k} + b \]
 \[ a = f(z) \]
-This convolution operation is repeated multiple times, over many positions in the input. It first applies at the top-left corner of the input - for the one-channel \(2 \times 2\) filter, say this is $\begin{bmatrix}p_{1,1} & p_{1,2}\\ p_{2,1} & p_{2,2}\end{bmatrix}$ - with result \(a_{1,1}\). Then the filter will shift to the right some chosen number of columns, called the \textit{stride}, and perform the convolution operation again on this new region of the input - with result \(a_{1,2}\). However for convolution layers, the stride is usually just set to 1 - so that for our \(2 \times 2\) filter, the second position is $\begin{bmatrix}p_{1,2} & p_{1,3}\\ p_{2,2} & p_{2,3}\end{bmatrix}$. This continues on until the right-hand edge of the input is reached, at which point the filter moves down some number of rows, again given by the stride. So if the input has width \(w\), the \(2 \times 2\) filter with stride 1 would now apply to the region $\begin{bmatrix}p_{2,w-1} & p_{2,w}\\ p_{3,w-1} & p_{3,w}\end{bmatrix}$ - with result \(a_{2,w-1}\). Then filter would then move from right-to-left over this new row, before moving down to the next row. This continues until the filter has performed a sweep of the whole input, applying the convolution to the corresponding input values at each position. 
+This convolution operation is repeated multiple times, over many positions in the input. It first applies at the top-left corner of the input - for the one-channel \(2 \times 2\) filter, say this is $\begin{bmatrix}p_{1,1} & p_{1,2}\\ p_{2,1} & p_{2,2}\end{bmatrix}$ - with result \(a_{1,1}\). Then the filter will shift to the right some chosen number of columns, called the \textit{stride}, and perform the convolution operation again on this new region of the input - with result \(a_{1,2}\). However for convolution layers, the stride is usually just set to 1 - so that for our \(2 \times 2\) filter, the second position is $\begin{bmatrix}p_{1,2} & p_{1,3}\\ p_{2,2} & p_{2,3}\end{bmatrix}$. This continues on until the right-hand edge of the input is reached, at which point the filter moves down some number of rows, again given by the stride. So if the input has width \(w\), the \(2 \times 2\) filter with stride 1 would now apply to the region $\begin{bmatrix}p_{2,w-1} & p_{2,w}\\ p_{3,w-1} & p_{3,w}\end{bmatrix}$ - with result \(a_{2,w-1}\). Then filter would then move from right-to-left over this new row, before moving down to the next row. This continues until the filter has performed a sweep over the whole input, applying the convolution to the corresponding input values at each position. 
 \\
 \\
 \noindent
@@ -406,7 +429,7 @@ Moreover, downsampling in between convolution layers allows the subsequent layer
 \\
 \\
 \noindent
-The pooling layers themselves again involve a window of some chosen dimension, again usually square, and stride. However the stride is now usually (though not necesarily) set equal to the height/width of the window. The window will move across the input in the same manner as the filter in a convolution layer - in increments of the chosen stride. However instead of performing the convolution operation, it will instead perform some aggregation of the pixel values corresponding to its position on the input. Typically taking either the maximum or the sum of these values. This will then form the value for one cell in the represention produced by the pooling layer. Since it is simply aggregating pixel values, the pooling layer has no associated weights, and so does not need to be trained. Also, the pooling layer only operates on the two spatial dimensions - so for a multi-channel input, it will operate on each channel separately. The representation produced by the pooling layer will therefore have the same number of channels as its input, but a smaller height and width.
+The pooling layers themselves again involve a window of some chosen dimension, again usually square, and stride. However the stride is now usually (though not necesarily) set equal to the height/width of the window. The window will move across the input in the same manner as the filter in a convolution layer - in increments of the chosen stride. However instead of performing the convolution operation, it will instead perform some aggregation of the pixel values corresponding to its position on the input. For instance taking the maximum, the average or the sum of these values. This will then form the value for one cell in the represention produced by the pooling layer. Since it is simply aggregating pixel values, the pooling layer has no associated weights, and so does not need to be trained. Also, the pooling layer only operates on the two spatial dimensions - so for a multi-channel input, it will operate on each channel separately. The representation produced by the pooling layer will therefore have the same number of channels as its input, but a smaller height and width.
 \\
 \\
 \noindent
@@ -417,7 +440,7 @@ In the context of image classification, the predictions we make from a convoluti
 \\
 \\
 \noindent
-This separation allows for transfer learning as described above. We can replace simply the head, while retaining the convolutional base - both its structure, and the weights and biases of its filters. This means that the convolutinal base will still pick out the same features, combinations of features etc, in the same way when applied to a new set of images. We can then use these as inputs for the new network head, which may need to have a different design than the head with which the convolational base was originally trained with. For instance, if our new image classification task involves a new (smaller or larger) set of classes than those originally trained on - the output Softmax layer would have to change to match the new number of classes.
+This separation allows for transfer learning as described above. We can replace simply the head, while retaining the convolutional base - both its structure, and the weights and biases of its filters. This means that the base will still pick out the same features, combinations of features etc, in the same way when applied to a new set of images. We can then use these as inputs for the new network head, which may need to have a different design than the head with which the base was originally trained with. For instance, if our new image classification task involves a new (smaller or larger) set of classes than those originally trained on - the output Softmax layer would have to change to match the new number of classes.
 \\
 \\
 \noindent
@@ -542,7 +565,7 @@ For instance, the VGG19 model contains five blocks, the first consisting of two 
 \\
 \\
 \noindent
-Note that one pixel in the output of two successive \(3 \times 3\) convolutional layers (with stride 1) would correspond to the same region of the original input as the equivalent pixel in the output of one \(5 \times 5\) convolutional layer (with stride 1)\footnote{The latter would correspond to, say, \( \sum_{i=1}^5 \sum_{j=1}^5 w_{i,j}p_{i,j} \). While the former would correspond to \( \sum_{x=0}^2 \sum_{y=0}^2 w'_{x+1,y+1}(\sum_{i=1}^3 \sum_{j=1}^3 w_{i,j}p_{x+i,y+j}) \). Both cover the same range of pixel values \(p_{i,j}\).}. However the VGG team preferred to use stacks of smaller convolutional filters in order to keep the number of weights small (e.g. 18 vs 25), and increase the extent of non-linearity in the network - the two \(3 \times 3\) layers each apply separate activation functions where the \(5 \times 5\) layer applies just one. The idea is that this should increase the discriminative power of the network, allowing better performance.
+Note that one pixel in the output of two successive \(3 \times 3\) convolutional layers (with stride 1) would correspond to the same region of the original input as the equivalent pixel in the output of one \(5 \times 5\) convolutional layer (with stride 1)\footnote{The latter would correspond to, say, \( \sum_{i=1}^5 \sum_{j=1}^5 w_{i,j}p_{i,j} \) (ignoring bias and activation function). While the former would correspond to \( \sum_{x=0}^2 \sum_{y=0}^2 w'_{x+1,y+1}(\sum_{i=1}^3 \sum_{j=1}^3 w_{i,j}p_{x+i,y+j}) \). Both cover the same range of pixel values \(p_{i,j}\).}. However the VGG team preferred to use stacks of smaller convolutional filters in order to keep the number of weights small (e.g. 18 vs 25), and increase the extent of non-linearity in the network - the two \(3 \times 3\) layers each apply separate activation functions where the \(5 \times 5\) layer applies just one. The idea is that this should increase the discriminative power of the network, allowing better performance.
 
 \subsubsection{GoogLeNet}
 GoogLeNet \cite{GoogLeNet_Paper} introduced the idea of "Inception" modules, illustrated in  below (image from \cite{GoogLeNet_Paper}):
@@ -554,27 +577,59 @@ GoogLeNet \cite{GoogLeNet_Paper} introduced the idea of "Inception" modules, ill
 \end{figure}
 \\
 \noindent
-The initial layer of \(1 \times 1\) filters (with stride 1) performs dimension-reduction by reducing the number of channels in the input layer - the spatial height and width will be unchanged, but the number of channels will reduce to the chosen number of \(1 \times 1\) filters. That is, they effectively perform aggregation across the channels for each pixel in the input, namely summing across all channels then scaling by the filter's weight. This reduces the number of channels that the subsequent \(3 \times 3\) and \(5 \times 5\) operations have to work on, reducing their numbers of parameters and computation time.
+The initial layer of \(1 \times 1\) filters (with stride 1) performs dimension-reduction by reducing the number of channels in the input layer - the spatial height and width will be unchanged, but the number of channels will reduce to the chosen number of \(1 \times 1\) filters. That is, they perform an aggregation across the channels for each pixel in the input, namely a weighted sum across the channels weighted by the filter's weight in each channel. This lets certain channels be prioritised or deprioritised as appropriate. It also reduces the number of channels that the subsequent \(3 \times 3\) and \(5 \times 5\) operations have to work on, reducing their numbers of parameters and computation time. For example, a \(5 \times 5\) operation on an input with 100 channels would involve \(5 \times 5 \times 100 = 2500\) parameters. Whereas using, say, 50 \(1 \times 1\) filters to first reduce the depth would involve in total \(100 + (5 \times 5 \times 50) = 1350\) parameters. The number of computational operations required would also be reduced similarly.
+\\
+\\
+\noindent
+The \(1 \times 1\), \(3 \times 3\) and \(5 \times 5\) (all with stride 1) operations are performed in parallel, so that the module can pick up different features at different spatial scales simultaneously. Subsequent modules can then more easily capture combinations of highly local features (from the \(1 \times 1\) filters) and more global features spanning a larger part of the spatial range (from the \(5 \times 5)\) filters). There is also a parrallel max pooling layer added, according to the authors, due to the success of pooling operations in other convolutional networks. Note it uses a stride of 1 so as not to change the spatial dimension, but is followed by a \(1 \times 1\) convolutional layer to reduce the number of channels - since pooling operates on each channel separately and so would retain the original number of channels. Note that padding is used on all appropriate layers, including the pooling layer, so as to maintain the original spatial dimension, and to ensure all their outputs' spatial dimensions match. The results of all of these layers are finally concatenated, with each forming different channels of the module's final output representation.
+\\
+\\
+\noindent
+GoogLeNet itself consists of a stack of 9 of these inception modules chained together, each working on the output of the previous module. There are some preliminary convolutional and pooling layers before the first inception module, and some intermediate max-pooling layers with stride 2 in the middle of the inception stack, to perform spatial dimension reduction. The output from the final inception module is then fed through an average-pooling layer, followed by a fully-connected and Softmax layers for the final classification. In addition, at earlier points in the stack there are two "auxiliary" classifiers parallel to the main inception stack, consisting again of average-pooling, fully-connected then Softmax layers. The loss from these auxiliary classifiers is scaled by 0.3 then added to the loss from the main stack. The idea is that these will help to improve the disciminative power of the earlier parts of the network - since during training any weight updates in these earlier layers will include terms in the gradient corresponding to these auxiliary classifiers, and so should improve their loss. This also helps the gradients from becoming progressively smaller, to the point of vanishing, as we move back through the main stack. GoogLeNet has in total 22 trainable layers - a similar order of magnitude to VGG.
 
 \subsubsection{ResNet}
+ResNet \cite{ResNet_Paper} introduced a technique called \textit{residual} or \textit{skip} connections that allowed networks of unprecedented depth to be trained successfully. The winning submissing to ILSVRC 2015 was a residual network with 152 layers, which was the deepest network ever presented on ImageNet at the time. An example of a skip connection is shown below (image from \cite{ResNet_Paper}). The identity connection simply carries forward the original input \(X\) and adds it element-wise to the output of the weight layers, \(F(X)\).
+\begin{figure}[!ht]
+  \centering    
+  \caption{Skip Connection}
+  \label{fig:Skip_Connection}
+  \includegraphics[scale=0.7]{SkipConnection.PNG}
+\end{figure}
+\\
+\\
+\noindent
+The idea is that, in this scheme, it is much easier for the network to learn the identity mapping \(H(X)=X\), since it requires only learning weights that make \(F(X)=0\) (i.e. weights and biases 0) if \(H(X) = F(X) + X\). Whereas learning \(H(X)=X\) directly is much more difficult if \(H(X)\) is simply the output of some weight layers. The motivation behind easier identity mappings is the observation by the ResNet authors that, beyond a certain number of layers, the performance of plain convolutional network begins to degrade, even on the training set - and so is not simply due to overfitting. See the image below, again from \cite{ResNet_Paper}.
+\begin{figure}[!ht]
+  \centering    
+  \caption{Error rates of plain networks on CIFAR image dataset}
+  \label{fig:ResNet_TrainError}
+  \includegraphics[scale=0.7]{ResNet_TrainError.PNG}
+\end{figure}
+\\
+\noindent
+The authors hypothesise that this is due to the difficulty in finding good solutions (i.e. minima of the loss function) for such deep networks using current optimisation techniques (i.e. Backpropagation and its variants). Whereas, if later layers in the network simply perform identity mappings, then extending the network depth must perform as well as the smaller network since the output representations will be the same. Adding skip connections allows the later layers in deeper networks to learn the identity mapping, or close to it, if necessary - or not, if later non-identity layers do indeed improve performance.
+\\
+\\
+\noindent
+The ResNet architechtures used the idea of skip connections in the form of a "bottleneck" block, shown below:
+\begin{figure}[!ht]
+  \centering    
+  \caption{Bottleneck Block}
+  \label{fig:ResNet_Bottleneck}
+  \includegraphics[scale=0.7]{ResNet_Bottleneck.PNG}
+\end{figure}
+\\
+\noindent
+The initial 64 \(1 \times 1\) filters perform dimension-reduction in the manner of GoogLeNet, to reduce the computation time of the \(3 \times 3\) layers. The subsequent 256 \(1 \times 1\) projects the output of the \(3 \times 3\) up to 256 channels, to match the block's input and so enable the skip connection. The spatial dimensions remain unchanged throughout the block, so the skip connection can perform element-wise addition \(F(X) + X\) as required - and involves no parameters. Note that the core of feature detection is done by the \(3 \times 3\) convolutional layer. These were kept small (as opposed to, say, \(5 \times 5\) etc) in line with the philosophy of the VGG authors.
+\\
+\\
+\noindent
+The winning ResNet-152 architecture then involved stacking these bottleneck blocks. The number of filters inside their \(3 \times 3\) layers began at 64, and was periodically doubled after every few bottleneck blocks. To offset this doubling in terms of computation time, the spatial dimensions were also halved by using a stride of 2 in the \(3 \times 3\) layer of the first subsequent bottleneck block. However in this introduces a mismatch in the dimensions of the block's input and output, and hence the skip connection. To overcome this, the skip connection was altered to be \(F(X) + \mathbf{W_s}X\), where \(\mathbf{W_s}\) is a matrix of trainable weights that projects \(X\) to have the same dimension as \(F(X)\). However this was only done intermittently; most bottleneck blocks use the parameter-free skip connection as described above.   
+\\
+\\
+\noindent
+VGG,Inception,ResNets,MobileNet,ShuffleNet,Attention/Gating
 
-
-
-VGG
-Inception
-ResNets
-MobileNet
-ShuffleNet
-Attention/Gating
-
-
-\newpage
-\subsection{Pretrained Models}
-Discuss the use of pre-trained models - can keep weights the same, replact the head.
-Describe the structure of the pre-trained models we'll use for comparison:
-[MAYBE PUT INTO APPENDIX?] 
-\subsubsection{VGG16}
-Describe VGG16 \\
 
 % END BACKGROUND
 

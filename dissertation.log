@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  14 AUG 2018 23:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  15 AUG 2018 23:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -371,137 +371,152 @@ Underfull \hbox (badness 10000) in paragraph at lines 273--282
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 282--299
+Underfull \hbox (badness 10000) in paragraph at lines 282--306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--299
+Underfull \hbox (badness 10000) in paragraph at lines 282--306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--299
+Underfull \hbox (badness 10000) in paragraph at lines 282--306
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--306
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 302--311
+Underfull \hbox (badness 10000) in paragraph at lines 309--318
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 318--326
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 326--332
+Underfull \hbox (badness 10000) in paragraph at lines 328--336
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 335--351
+Underfull \hbox (badness 10000) in paragraph at lines 336--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--351
+Underfull \hbox (badness 10000) in paragraph at lines 345--375
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--351
+Underfull \hbox (badness 10000) in paragraph at lines 345--375
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--375
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--375
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--375
 
  []
 
 [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 354--363
+Underfull \hbox (badness 10000) in paragraph at lines 377--386
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--363
+Underfull \hbox (badness 10000) in paragraph at lines 377--386
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 368--374
+Underfull \hbox (badness 10000) in paragraph at lines 391--397
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 378--396
+Underfull \hbox (badness 10000) in paragraph at lines 401--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--396
+Underfull \hbox (badness 10000) in paragraph at lines 401--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--396
+Underfull \hbox (badness 10000) in paragraph at lines 401--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--396
+Underfull \hbox (badness 10000) in paragraph at lines 401--419
 
  []
 
 [21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 401--414
+Underfull \hbox (badness 10000) in paragraph at lines 424--437
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 401--414
+Underfull \hbox (badness 10000) in paragraph at lines 424--437
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 401--414
+Underfull \hbox (badness 10000) in paragraph at lines 424--437
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 416--425
+Underfull \hbox (badness 10000) in paragraph at lines 439--448
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--425
+Underfull \hbox (badness 10000) in paragraph at lines 439--448
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 427--432
+Underfull \hbox (badness 10000) in paragraph at lines 450--455
 
  []
 
 [25]
-Overfull \hbox (0.56697pt too wide) in paragraph at lines 453--465
+Overfull \hbox (0.56697pt too wide) in paragraph at lines 476--488
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--475
+Underfull \hbox (badness 10000) in paragraph at lines 471--498
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--475
+Underfull \hbox (badness 10000) in paragraph at lines 471--498
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 483--492
+Underfull \hbox (badness 10000) in paragraph at lines 506--515
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 483--492
+Underfull \hbox (badness 10000) in paragraph at lines 506--515
 
  []
 
@@ -509,15 +524,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 483--492
 File: ./images/ROC_Curve.png Graphic file (type png)
 
 <use ./images/ROC_Curve.png>
-Package pdftex.def Info: ./images/ROC_Curve.png used on input line 503.
+Package pdftex.def Info: ./images/ROC_Curve.png used on input line 526.
 (pdftex.def)             Requested size: 180.67453pt x 175.2543pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 498--516
+Underfull \hbox (badness 10000) in paragraph at lines 521--539
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 498--516
+Underfull \hbox (badness 10000) in paragraph at lines 521--539
 
  []
 
@@ -526,25 +541,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 498--516
 File: ./images/ILSVRC_Winners.png Graphic file (type png)
 
 <use ./images/ILSVRC_Winners.png>
-Package pdftex.def Info: ./images/ILSVRC_Winners.png used on input line 528.
+Package pdftex.def Info: ./images/ILSVRC_Winners.png used on input line 551.
 (pdftex.def)             Requested size: 309.55101pt x 160.99864pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 523--536
+Underfull \hbox (badness 10000) in paragraph at lines 546--559
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 523--536
+Underfull \hbox (badness 10000) in paragraph at lines 546--559
 
  []
 
 [31 <./images/ILSVRC_Winners.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 537--546
+Underfull \hbox (badness 10000) in paragraph at lines 568--568
+[][]\OT1/cmr/m/n/9 The lat-ter would cor-re-spond to, say, $[][] [][] \OML/cmm/
+m/it/9 w[]p[]$ \OT1/cmr/m/n/9 (ig-nor-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 568--568
+\OT1/cmr/m/n/9 bias and ac-ti-va-tion func-tion). While the for-mer would cor-r
+e-spond to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--569
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 537--546
+Underfull \hbox (badness 10000) in paragraph at lines 560--569
 
  []
 
@@ -552,46 +579,95 @@ Underfull \hbox (badness 10000) in paragraph at lines 537--546
 File: ./images/InceptionModule.PNG Graphic file (type png)
 
 <use ./images/InceptionModule.PNG>
-Package pdftex.def Info: ./images/InceptionModule.PNG used on input line 553.
+Package pdftex.def Info: ./images/InceptionModule.PNG used on input line 576.
 (pdftex.def)             Requested size: 261.37471pt x 144.9154pt.
- [32] [33 <./images/InceptionModule.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 577--578
+
+Underfull \hbox (badness 10000) in paragraph at lines 571--589
 
  []
 
-[34] <./images/image1.png, id=161, 477.785pt x 513.92pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 571--589
+
+ []
+
+[32] [33 <./images/InceptionModule.PNG>]
+<./images/SkipConnection.PNG, id=158, 240.9pt x 134.00063pt>
+File: ./images/SkipConnection.PNG Graphic file (type png)
+
+<use ./images/SkipConnection.PNG>
+Package pdftex.def Info: ./images/SkipConnection.PNG used on input line 596.
+(pdftex.def)             Requested size: 168.62883pt x 93.79977pt.
+
+<./images/ResNet_TrainError.PNG, id=159, 392.21532pt x 140.02313pt>
+File: ./images/ResNet_TrainError.PNG Graphic file (type png)
+
+<use ./images/ResNet_TrainError.PNG>
+Package pdftex.def Info: ./images/ResNet_TrainError.PNG used on input line 606.
+
+(pdftex.def)             Requested size: 274.54884pt x 98.01552pt.
+
+<./images/ResNet_Bottleneck.PNG, id=160, 146.04562pt x 130.98938pt>
+File: ./images/ResNet_Bottleneck.PNG Graphic file (type png)
+
+<use ./images/ResNet_Bottleneck.PNG>
+Package pdftex.def Info: ./images/ResNet_Bottleneck.PNG used on input line 619.
+
+(pdftex.def)             Requested size: 102.23122pt x 91.69193pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 591--632
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 591--632
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 591--632
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 591--632
+
+ []
+
+[34] [35 <./images/SkipConnection.PNG> <./images/ResNet_TrainError.PNG>]
+[36 <./images/ResNet_Bottleneck.PNG>]
+<./images/image1.png, id=174, 477.785pt x 513.92pt>
 File: ./images/image1.png Graphic file (type png)
-
-<use ./images/image1.png>
-Package pdftex.def Info: ./images/image1.png used on input line 597.
+ <use ./images/image1.png>
+Package pdftex.def Info: ./images/image1.png used on input line 652.
 (pdftex.def)             Requested size: 238.8919pt x 256.95937pt.
- <./images/image2.png, id=162, 399.4925pt x 513.92pt>
-File: ./images/image2.png Graphic file (type png)
 
-<use ./images/image2.png>
-Package pdftex.def Info: ./images/image2.png used on input line 600.
+<./images/image2.png, id=175, 399.4925pt x 513.92pt>
+File: ./images/image2.png Graphic file (type png)
+ <use ./images/image2.png>
+Package pdftex.def Info: ./images/image2.png used on input line 655.
 (pdftex.def)             Requested size: 199.74576pt x 256.95937pt.
 
-<./images/image2_copy.png, id=163, 399.4925pt x 513.92pt>
+<./images/image2_copy.png, id=176, 399.4925pt x 513.92pt>
 File: ./images/image2_copy.png Graphic file (type png)
 
 <use ./images/image2_copy.png>
-Package pdftex.def Info: ./images/image2_copy.png used on input line 603.
+Package pdftex.def Info: ./images/image2_copy.png used on input line 658.
 (pdftex.def)             Requested size: 199.74576pt x 256.95937pt.
 
 
-LaTeX Warning: Float too large for page by 303.66953pt on input line 604.
+LaTeX Warning: Float too large for page by 303.66953pt on input line 659.
 
-[35] [36 <./images/image1.png (PNG copy)> <./images/image2.png (PNG copy)> <./i
-mages/image2_copy.png (PNG copy)>] [37
+[37] [38 <./images/image1.png (PNG copy)> <./images/image2.png (PNG copy)> <./i
+mages/image2_copy.png (PNG copy)>] [39
 
-] [38] [39] [40]
-Underfull \hbox (badness 1297) in paragraph at lines 666--669
+] [40] [41] [42]
+Underfull \hbox (badness 1297) in paragraph at lines 721--724
 \OT1/cmr/m/n/10.95 Potential Im-pact on Ra-di-ol-ogy - Deep Learn-ing tools use
 d to help
  []
 
-[41] [42] (./dissertation.bbl
+[43] [44] (./dissertation.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 11--14
 []\OT1/cmr/m/n/10.95 ``Artificial neu-ral net-work.'' $\OT1/cmtt/m/n/10.95 http
 s : / / en . wikipedia . org / wiki /
@@ -615,16 +691,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--55
 alf-[]minutes .
  []
 
-[43
+[45
 
-]) [44] [45
+]) [46] [47
 
 ] (./dissertation.aux) ) 
 Here is how much of TeX's memory you used:
- 2751 strings out of 494953
- 36577 string characters out of 6180977
- 98539 words of memory out of 5000000
- 5950 multiletter control sequences out of 15000+600000
+ 2770 strings out of 494953
+ 37123 string characters out of 6180977
+ 101572 words of memory out of 5000000
+ 5966 multiletter control sequences out of 15000+600000
  16237 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  37i,11n,24p,1615b,254s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -648,10 +724,10 @@ re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on dissertation.pdf (52 pages, 601035 bytes).
+Output written on dissertation.pdf (54 pages, 653915 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
+ 281 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

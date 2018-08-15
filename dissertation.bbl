@@ -62,4 +62,8 @@ C.~{Szegedy}, W.~{Liu}, Y.~{Jia}, P.~{Sermanet}, S.~{Reed}, D.~{Anguelov},
   D.~{Erhan}, V.~{Vanhoucke}, and A.~{Rabinovich}, ``{Going Deeper with
   Convolutions},'' {\em ArXiv e-prints}, Sept. 2014.
 
+\bibitem{ResNet_Paper}
+K.~{He}, X.~{Zhang}, S.~{Ren}, and J.~{Sun}, ``{Deep Residual Learning for
+  Image Recognition},'' {\em ArXiv e-prints}, Dec. 2015.
+
 \end{thebibliography}

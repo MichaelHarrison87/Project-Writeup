@@ -3,7 +3,7 @@ To create the pdf, seems best to run the pdflatex command twice: pdflatex templa
 This allows auxiliary files etc to be created so that, e.g., the table of contents is updated properly
 
 WORDCOUNT
-Run "texcount doc.tex" in the command line to get a breakdown of wordcounts
+Run "texcount template.tex" in the command line to get a breakdown of wordcounts
 
 DECLARATION
 Note the Declaration - with name, word count,  date of submission is defined in: BigDataStyle.txt (inside the \newcommand{\declaration})
@@ -20,7 +20,9 @@ Where in the bibliography.bib we have:
   year = 	2009}
 }
 
-Within the main .tex file, use bibliograph style "\bibliographystyle{ieeetr}" to make references appear in the order in which they are referenced in the text. The "plain" style orders them alphabetically.
+Within the main .tex file, use bibliography style "\bibliographystyle{ieeetr}" to make references appear in the order in which they are referenced in the text. The "plain" style orders them alphabetically.
+
+Run "bibtex template" on the command line a few times to update the .aux file after adding new references.
 
 INSERT IMAGES
 [Example]

@@ -3,6 +3,9 @@
 \contentsline {figure}{\numberline {3}{\ignorespaces Example of a ROC Curve plot}}{28}
 \contentsline {figure}{\numberline {4}{\ignorespaces ImageNet Classification Winners}}{31}
 \contentsline {figure}{\numberline {5}{\ignorespaces Inception Module}}{33}
-\contentsline {figure}{\numberline {6}{\ignorespaces Example X-Ray Image}}{36}
-\contentsline {figure}{\numberline {7}{\ignorespaces Another example X-Ray Image}}{36}
-\contentsline {figure}{\numberline {8}{\ignorespaces A copy of figure 2}}{36}
+\contentsline {figure}{\numberline {6}{\ignorespaces Skip Connection}}{35}
+\contentsline {figure}{\numberline {7}{\ignorespaces Error rates of plain networks on CIFAR image dataset}}{35}
+\contentsline {figure}{\numberline {8}{\ignorespaces Bottleneck Block}}{36}
+\contentsline {figure}{\numberline {9}{\ignorespaces Example X-Ray Image}}{38}
+\contentsline {figure}{\numberline {10}{\ignorespaces Another example X-Ray Image}}{38}
+\contentsline {figure}{\numberline {11}{\ignorespaces A copy of figure 2}}{38}

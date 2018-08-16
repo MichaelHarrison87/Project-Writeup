@@ -7,45 +7,45 @@
 \contentsline {subsection}{\numberline {2.3}Training}{8}
 \contentsline {subsubsection}{\numberline {2.3.1}Loss Functions}{9}
 \contentsline {subsubsection}{\numberline {2.3.2}Backward Pass}{10}
-\contentsline {subsubsection}{\numberline {2.3.3}Weight Update}{12}
+\contentsline {subsubsection}{\numberline {2.3.3}Weight Update}{13}
 \contentsline {subsubsection}{\numberline {2.3.4}Optimisers}{13}
 \contentsline {subsubsection}{\numberline {2.3.5}Learning Decay}{16}
 \contentsline {subsubsection}{\numberline {2.3.6}Weight Initialisation}{16}
-\contentsline {subsubsection}{\numberline {2.3.7}Regularisation}{17}
-\contentsline {subsection}{\numberline {2.4}Convolutional Neural Networks}{19}
-\contentsline {subsubsection}{\numberline {2.4.1}Image Representation}{20}
-\contentsline {subsubsection}{\numberline {2.4.2}Convolution Layers}{20}
-\contentsline {subsubsection}{\numberline {2.4.3}Padding}{22}
-\contentsline {subsubsection}{\numberline {2.4.4}Pooling Layers}{23}
-\contentsline {subsubsection}{\numberline {2.4.5}Prediction}{24}
-\contentsline {subsubsection}{\numberline {2.4.6}Training}{25}
-\contentsline {subsection}{\numberline {2.5}Performance Measures}{26}
-\contentsline {subsubsection}{\numberline {2.5.1}Accuracy}{26}
-\contentsline {subsubsection}{\numberline {2.5.2}Confusion Matrix}{26}
-\contentsline {subsubsection}{\numberline {2.5.3}Cohen's Kappa}{27}
-\contentsline {subsubsection}{\numberline {2.5.4}ROC Curve}{28}
-\contentsline {subsection}{\numberline {2.6}Model Ensembles}{30}
-\contentsline {subsection}{\numberline {2.7}State-of-the-Art}{31}
-\contentsline {subsubsection}{\numberline {2.7.1}VGG}{32}
-\contentsline {subsubsection}{\numberline {2.7.2}GoogLeNet}{33}
-\contentsline {subsubsection}{\numberline {2.7.3}ResNet}{34}
-\contentsline {section}{\numberline {3}Data}{37}
-\contentsline {subsection}{\numberline {3.1}MURA}{37}
-\contentsline {subsection}{\numberline {3.2}Image Examples}{37}
-\contentsline {subsection}{\numberline {3.3}Data Breakdowns}{39}
-\contentsline {section}{\numberline {4}Model Development}{40}
-\contentsline {subsection}{\numberline {4.1}Working Environment}{40}
-\contentsline {subsection}{\numberline {4.2}Data Preprocessing}{40}
-\contentsline {subsection}{\numberline {4.3}Model}{40}
-\contentsline {subsection}{\numberline {4.4}Predictions}{40}
-\contentsline {section}{\numberline {5}Results}{41}
-\contentsline {subsection}{\numberline {5.1}Baseline Performance}{41}
-\contentsline {subsection}{\numberline {5.2}Image Size}{41}
-\contentsline {subsection}{\numberline {5.3}Regularisation}{41}
-\contentsline {subsection}{\numberline {5.4}Pre-Trained Models}{41}
-\contentsline {section}{\numberline {6}Conclusions}{42}
-\contentsline {section}{\numberline {7}Professional and Ethical Issues}{43}
-\contentsline {section}{\numberline {8}Extensions}{44}
-\contentsline {section}{References}{45}
-\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{47}
-\contentsline {subsection}{\numberline {A.1}VGG16}{47}
+\contentsline {subsubsection}{\numberline {2.3.7}Regularisation}{18}
+\contentsline {subsection}{\numberline {2.4}Convolutional Neural Networks}{20}
+\contentsline {subsubsection}{\numberline {2.4.1}Image Representation}{21}
+\contentsline {subsubsection}{\numberline {2.4.2}Convolution Layers}{21}
+\contentsline {subsubsection}{\numberline {2.4.3}Padding}{23}
+\contentsline {subsubsection}{\numberline {2.4.4}Pooling Layers}{24}
+\contentsline {subsubsection}{\numberline {2.4.5}Prediction}{25}
+\contentsline {subsubsection}{\numberline {2.4.6}Training}{26}
+\contentsline {subsection}{\numberline {2.5}Performance Measures}{27}
+\contentsline {subsubsection}{\numberline {2.5.1}Accuracy}{27}
+\contentsline {subsubsection}{\numberline {2.5.2}Confusion Matrix}{27}
+\contentsline {subsubsection}{\numberline {2.5.3}Cohen's Kappa}{28}
+\contentsline {subsubsection}{\numberline {2.5.4}ROC Curve}{29}
+\contentsline {subsection}{\numberline {2.6}Model Ensembles}{31}
+\contentsline {subsection}{\numberline {2.7}State-of-the-Art}{32}
+\contentsline {subsubsection}{\numberline {2.7.1}VGG}{33}
+\contentsline {subsubsection}{\numberline {2.7.2}GoogLeNet}{34}
+\contentsline {subsubsection}{\numberline {2.7.3}ResNet}{35}
+\contentsline {section}{\numberline {3}Data}{38}
+\contentsline {subsection}{\numberline {3.1}MURA}{38}
+\contentsline {subsection}{\numberline {3.2}Image Examples}{38}
+\contentsline {subsection}{\numberline {3.3}Data Breakdowns}{40}
+\contentsline {section}{\numberline {4}Model Development}{41}
+\contentsline {subsection}{\numberline {4.1}Working Environment}{41}
+\contentsline {subsection}{\numberline {4.2}Data Preprocessing}{41}
+\contentsline {subsection}{\numberline {4.3}Model}{41}
+\contentsline {subsection}{\numberline {4.4}Predictions}{41}
+\contentsline {section}{\numberline {5}Results}{42}
+\contentsline {subsection}{\numberline {5.1}Baseline Performance}{42}
+\contentsline {subsection}{\numberline {5.2}Image Size}{42}
+\contentsline {subsection}{\numberline {5.3}Regularisation}{42}
+\contentsline {subsection}{\numberline {5.4}Pre-Trained Models}{42}
+\contentsline {section}{\numberline {6}Conclusions}{43}
+\contentsline {section}{\numberline {7}Professional and Ethical Issues}{44}
+\contentsline {section}{\numberline {8}Extensions}{45}
+\contentsline {section}{References}{46}
+\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{48}
+\contentsline {subsection}{\numberline {A.1}VGG16}{48}

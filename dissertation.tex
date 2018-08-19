@@ -3,6 +3,15 @@
 \usepackage{amsmath,amsfonts,amssymb,amsthm,latexsym,graphicx}
 \usepackage{url}
 \usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{subfig}
+\usepackage{pdflscape}
+
+\usepackage{caption} 
+\captionsetup[table]{skip=1pt}
+
+\usepackage{placeins} 
+
 
 \emergencystretch=5mm
 \tolerance=400
@@ -689,29 +698,180 @@ VGG,Inception,ResNets,MobileNet,ShuffleNet,Attention/Gating
 \clearpage
 \newpage
 \section{Data}
-Write about the MURA data, show some exmaple images (normal \& abnormal), give data breakdowns 
+The data we will use in this project is the MURA (\textbf{mu}sculoskeletal \textbf{ra}diographs) dataset, published by the Machine Learning Group at Stanford University \cite{MURA2017}. This is a collection of 40,005 X-ray images of a part of the upper extremity - comprising the arm, shoulder, wrist, hand etc. Each image is from one of 14,656 studies of 11,967 individual patients, performed at a particular point in time on one of these parts of the upper extremity. Each study was labelled as normal or abnormal at the time of clinical interpretation by a radiologist from Stanford Hospital - and these labels have been published alongside the images themselves. 
+\\
+\\
+\noindent
+The data was published as part of a competition, allowing participants to submit their trained classifiers. These will then be assessed on a test set of a further 556 X-ray images from 207 studies of 206 patients - however this test set has not been published alongside the other images. The authors split the published data into training and validation sets, to help participants train their classifiers on this specific data. They say that they ensured no overlaps in patients between any of the data sets - i.e. that all studies and images for a given patient belong only to one of the training/validation/test sets - and I verified this when analysing Patient ID's in the data.
+\begin{table}[!ht]
+\centering
+\caption{MURA data breakdown}
+\label{MURA_Breakdown_ByType}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Type & Images & Studies & Patients \\ \midrule
+Training & 36,808 & 13,457 & 11,184 \\
+Validation & 3,197 & 1,199 & 783 \\
+Test & 556 & 207 & 206 \\
+\bottomrule
+Total & 40,561 & 14,863 & 12,173 \\
+\hline
+Total (exc Test) & 40,005 & 14,656 & 11,967 \\ \bottomrule
+\end{tabular}
+\end{table}
+\\
+\noindent
+Alongside the images, the authors published which of seven parts of the upper extremity each study was performed on - Elbow, Finger (though not which finger), Hand, Humerus, Forearm, Shoulder or Wrist. They also published Patient ID to distinguish the different patients, and a study number to distinguish multiple studies of the same patient on the same site (presumably performed at different times, for instance an initial and follow-up study). Note that some Patient ID's appeared for multiple upper extremity parts - e.g. they had studies of both, say, the wrist and forearm. As noted, a label "normal" or "abnormal" was also published for each study - and we have assumed this label applies for all images in the study. However beyond this no further information was released - for instance, date of the study (which would let us identify follow-up studies, or if studies of different parts were performed at the same time and so likely due to the same injury or condition), demographic information about the patients (age, sex etc), the nature of any abnormalities (e.g. fracture vs lesion), the nature of the treatment or the patient's medical condition (e.g. emergency room vs out-patient) etc, all of which would be relevant in a real, clinical setting. The corresponding radiologist's report for each study was also not published, presumably due to privacy concerns. As such, the data available to build a classifier is really just the images themselves, their study's label, and which part of the upper extremity the images are of. Therefore we treat this task as an exercise in image classification, despite the clear relevance of other information (if it were available).
+\\
+\\
+\noindent
+Most of the studies in the data are made up of several X-ray images, each of the same part of the upper extremity, but taken from a different angle. For instance, a frontal view of the hand and a side-profile view. However information about this directionality was not published by the authors. 
 
-\subsection{MURA}
-Discuss MURA - what it is, how it was produced
+\subsection{Data Collection}
+As noted by the authors, each study was performed at Stanford Hospital between 2001 and 2012. The labelling was performed manually by a board-certified radiologist, using \cite{MURA2017}: ''\textit{DICOM\footnote{Digital Imaging and Communications in Medicine} images presented on at least 3 megapixel PACS\footnote{Picture Archiving and Communication System} medical grade display with max luminance 400 cd/\(m^2\) and min luminance 1 cd/\(m^2\) with pixel size of 0.2 and native resolution of \(1500 \times 2000\) pixels}''.
+
+\subsection{Abnormality Analysis}
+The authors also manually investigated the radiologist reports for a sample of 100 abnormal studies to get an understanding of the types of abnormalities present in the data. From this they found \cite{MURA2017}: ''\textit{53 studies were labeled with fractures, 48 with hardware, 35 with degenerative joint diseases, and 29 with other miscellaneous abnormalities, including lesions and subluxations}''. Where "hardware" presumably refers to orthopedic hardward such as screws, plates, pins etc, and a "subluxation" refers to the partial dislocation of a joint. The authors did not indicate how many reports for each body part they looked at, or how this breakdown compared across body parts. It is also not clear how representative the sample of 100 is of the full data. However the high numbers of hardware is interesting and of relevance to image classification, since such hardware will be apparent in the images and a classifier may learn them to be strong predictive of abnormality.
+\\
+\\
+\noindent
+As a side note, the authors do not mention any similar analysis of normal studies. The overall proportion of normal studies in the published dataset is about 60\% (see breakdowns below), and it is not clear why so many patients are having X-rays that do not find any abnormality. I would not expect a patient to get an X-ray of their upper extremity without prior cause, and so would have expected a higher overall rate of abnormality. The explanation may come down to the clinical context - for instance, a large proportion of these studies may be follow-up X-rays post-treatment. Or even X-rays taken during treatment where "normal" might mean "treatment progressing normally" even if the original abnormality (say a fracture) is present. However this is entirely speculation on my part.   
 
 \subsection{Image Examples}
-As can be seen in \textbf{Figure \ref{fig:xray1}} below, the x-ray is of a hand. A side-profile of the hand from the same study can be seen in \textbf{Figure \ref{fig:xray2}}. \textbf{Figure \ref{fig:xray2_copy}} is a copy of \textbf{Figure \ref{fig:xray2}}.
+The images from some example studies, of each body part and covering both normal and abnormal studies, are shown below. For some of the abnormal studies, the reason behind the result is clear - for instance, both Figure \ref{fig:MURA_Example_Humerus} of the Humerus and Figure \ref{fig:MURA_Example_Wrist} of the Wrist contain hardware (note the pin in the wrist). However the abnormality for some of the other studies is perhaps less clear to the untrained eye, for instance Figure \ref{fig:MURA_Example_Finger} of the Finger.
 
-\begin{figure}
-  \centering    
-  \caption{Example X-Ray Image}
-  \label{fig:xray1}
-  \includegraphics[scale=0.5]{image1.png}
-  \caption{Another example X-Ray Image}
-  \label{fig:xray2}
-  \includegraphics[scale=0.5]{image2.png}
-  \caption{A copy of figure 2}
-  \label{fig:xray2_copy}
-  \includegraphics[scale=0.5]{image2_copy.png}
+\newpage
+\subsubsection{Elbow}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.5]{XR_ELBOW/Negative/patient05926/study1_negative/image1.png}
+\label{fig:Elbow_1}}
+\subfloat{
+\includegraphics[scale=0.5]{XR_ELBOW/Negative/patient05926/study1_negative/image2.png}
+\label{fig:Elbow_2}}
+\caption{Patient 05926; Study 1; Elbow; Normal}
+\label{fig:MURA_Example_Elbow}
 \end{figure}
-\clearpage
-\noindent
+\FloatBarrier
 
+\newpage
+\subsubsection{Finger}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.5]{XR_FINGER/Positive/patient00234/study1_positive/image1.png}
+\label{fig:Finger_1}}
+\subfloat{
+\includegraphics[scale=0.5]{XR_FINGER/Positive/patient00234/study1_positive/image2.png}
+\label{fig:Finger_2}}
+\subfloat{
+\includegraphics[scale=0.5]{XR_FINGER/Positive/patient00234/study1_positive/image3.png}
+\label{fig:Finger_3}}
+\caption{Patient 00234; Study 1; Finger; Abnormal}
+\label{fig:MURA_Example_Finger}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsubsection{Hand}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.4]{XR_HAND/Positive/patient09836/study1_positive/image1.png}
+\label{fig:Hand_1}}
+\subfloat{
+\includegraphics[scale=0.4]{XR_HAND/Positive/patient09836/study1_positive/image2.png}
+\label{fig:Hand_2}}
+\newline
+\subfloat{
+\includegraphics[scale=0.4]{XR_HAND/Positive/patient09836/study1_positive/image3.png}
+\label{fig:Hand_3}}
+\caption{Patient 09836; Study 1; Hand; Abnormal}
+\label{fig:MURA_Example_Hand}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsubsection{Humerus}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.5]{XR_HUMERUS/Negative/patient11225/study1_negative/image1.png}
+\label{fig:Humerus_1}}
+\subfloat{
+\includegraphics[scale=0.5]{XR_HUMERUS/Negative/patient11225/study1_negative/image2.png}
+\label{fig:Humerus_2}}
+\caption{Patient 11225; Study 1; Humerus; Normal}
+\label{fig:MURA_Example_Humerus}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsubsection{Forearm}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.5]{XR_FOREARM/Positive/patient11417/study1_positive/image1.png}
+\label{fig:Forearm_1}}
+\newline
+\subfloat{
+\includegraphics[scale=0.5]{XR_FOREARM/Positive/patient11417/study1_positive/image2.png}
+\label{fig:Forearm_2}}
+\newline
+\subfloat{
+\includegraphics[scale=0.4]{XR_FOREARM/Positive/patient11417/study1_positive/image3.png}
+\label{fig:Forearm_3}}
+\subfloat{
+\includegraphics[scale=0.4]{XR_FOREARM/Positive/patient11417/study1_positive/image4.png}
+\label{fig:Forearm_4}}
+\caption{Patient 11417; Study 1; Forearm; Abnormal}
+\label{fig:MURA_Example_Forearm}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsubsection{Shoulder}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.5]{XR_SHOULDER/Positive/patient00001/study1_positive/image1.png}
+\label{fig:Shoulder_1}}
+\subfloat{
+\includegraphics[scale=0.5]{XR_SHOULDER/Positive/patient00001/study1_positive/image2.png}
+\label{fig:Shoulder_2}}
+\newline
+\subfloat{
+\includegraphics[scale=0.5]{XR_SHOULDER/Positive/patient00001/study1_positive/image3.png}
+\label{fig:Shoulder_3}}
+\caption{Patient 00001; Study 1; Shoulder; Abnormal}
+\label{fig:MURA_Example_Shoulder}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsubsection{Wrist}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image1.png}
+\label{fig:Wrist_1}}
+\subfloat{
+\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image2.png}
+\label{fig:Wrist_2}}
+\newline
+\subfloat{
+\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image3.png}
+\label{fig:Wrist_3}}
+\subfloat{
+\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image4.png}
+\label{fig:Wrist_4}}
+\caption{Patient 01521; Study 1; Wrist; Abnormal}
+\label{fig:MURA_Example_Wrist}
+\end{figure}
+\FloatBarrier
+
+\newpage
 \subsection{Data Breakdowns}
 Data breakdowns
 

@@ -32,24 +32,32 @@
 \contentsline {subsection}{\numberline {3.1}VGG}{34}
 \contentsline {subsection}{\numberline {3.2}GoogLeNet}{35}
 \contentsline {subsection}{\numberline {3.3}ResNet}{36}
-\contentsline {subsubsection}{\numberline {3.3.1}GoogLeNet-v4}{38}
+\contentsline {subsection}{\numberline {3.4}GoogLeNet-v4}{38}
 \contentsline {section}{\numberline {4}Data}{42}
-\contentsline {subsection}{\numberline {4.1}MURA}{42}
-\contentsline {subsection}{\numberline {4.2}Image Examples}{42}
-\contentsline {subsection}{\numberline {4.3}Data Breakdowns}{44}
-\contentsline {section}{\numberline {5}Model Development}{45}
-\contentsline {subsection}{\numberline {5.1}Working Environment}{45}
-\contentsline {subsection}{\numberline {5.2}Data Preprocessing}{45}
-\contentsline {subsection}{\numberline {5.3}Model}{45}
-\contentsline {subsection}{\numberline {5.4}Predictions}{45}
-\contentsline {section}{\numberline {6}Results}{46}
-\contentsline {subsection}{\numberline {6.1}Baseline Performance}{46}
-\contentsline {subsection}{\numberline {6.2}Image Size}{46}
-\contentsline {subsection}{\numberline {6.3}Regularisation}{46}
-\contentsline {subsection}{\numberline {6.4}Pre-Trained Models}{46}
-\contentsline {section}{\numberline {7}Conclusions}{47}
-\contentsline {section}{\numberline {8}Professional and Ethical Issues}{48}
-\contentsline {section}{\numberline {9}Extensions}{49}
-\contentsline {section}{References}{50}
-\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{52}
-\contentsline {subsection}{\numberline {A.1}VGG16}{52}
+\contentsline {subsection}{\numberline {4.1}Data Collection}{43}
+\contentsline {subsection}{\numberline {4.2}Abnormality Analysis}{43}
+\contentsline {subsection}{\numberline {4.3}Image Examples}{44}
+\contentsline {subsubsection}{\numberline {4.3.1}Elbow}{45}
+\contentsline {subsubsection}{\numberline {4.3.2}Finger}{46}
+\contentsline {subsubsection}{\numberline {4.3.3}Hand}{47}
+\contentsline {subsubsection}{\numberline {4.3.4}Humerus}{48}
+\contentsline {subsubsection}{\numberline {4.3.5}Forearm}{49}
+\contentsline {subsubsection}{\numberline {4.3.6}Shoulder}{50}
+\contentsline {subsubsection}{\numberline {4.3.7}Wrist}{51}
+\contentsline {subsection}{\numberline {4.4}Data Breakdowns}{52}
+\contentsline {section}{\numberline {5}Model Development}{53}
+\contentsline {subsection}{\numberline {5.1}Working Environment}{53}
+\contentsline {subsection}{\numberline {5.2}Data Preprocessing}{53}
+\contentsline {subsection}{\numberline {5.3}Model}{53}
+\contentsline {subsection}{\numberline {5.4}Predictions}{53}
+\contentsline {section}{\numberline {6}Results}{54}
+\contentsline {subsection}{\numberline {6.1}Baseline Performance}{54}
+\contentsline {subsection}{\numberline {6.2}Image Size}{54}
+\contentsline {subsection}{\numberline {6.3}Regularisation}{54}
+\contentsline {subsection}{\numberline {6.4}Pre-Trained Models}{54}
+\contentsline {section}{\numberline {7}Conclusions}{55}
+\contentsline {section}{\numberline {8}Professional and Ethical Issues}{56}
+\contentsline {section}{\numberline {9}Extensions}{57}
+\contentsline {section}{References}{58}
+\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{60}
+\contentsline {subsection}{\numberline {A.1}VGG16}{60}

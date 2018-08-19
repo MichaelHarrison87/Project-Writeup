@@ -1,13 +1,17 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Example of a simple artificial neural network}}{4}
-\contentsline {figure}{\numberline {2}{\ignorespaces Confusion Matrix Example}}{28}
-\contentsline {figure}{\numberline {3}{\ignorespaces Example of a ROC Curve plot}}{30}
-\contentsline {figure}{\numberline {4}{\ignorespaces ImageNet Classification Winners}}{33}
-\contentsline {figure}{\numberline {5}{\ignorespaces Inception Module}}{35}
-\contentsline {figure}{\numberline {6}{\ignorespaces Skip Connection}}{37}
-\contentsline {figure}{\numberline {7}{\ignorespaces Error rates of plain networks on CIFAR image dataset}}{37}
-\contentsline {figure}{\numberline {8}{\ignorespaces Bottleneck Block}}{38}
-\contentsline {figure}{\numberline {9}{\ignorespaces Efficient Dimension Reduction Block}}{40}
-\contentsline {figure}{\numberline {10}{\ignorespaces Inception Block with Skip Connection}}{41}
-\contentsline {figure}{\numberline {11}{\ignorespaces Example X-Ray Image}}{43}
-\contentsline {figure}{\numberline {12}{\ignorespaces Another example X-Ray Image}}{43}
-\contentsline {figure}{\numberline {13}{\ignorespaces A copy of figure 2}}{43}
+\contentsline {figure}{\numberline {1}{\ignorespaces Example of a simple artificial neural network\relax }}{4}
+\contentsline {figure}{\numberline {2}{\ignorespaces Confusion Matrix Example\relax }}{28}
+\contentsline {figure}{\numberline {3}{\ignorespaces Example of a ROC Curve plot\relax }}{30}
+\contentsline {figure}{\numberline {4}{\ignorespaces ImageNet Classification Winners\relax }}{33}
+\contentsline {figure}{\numberline {5}{\ignorespaces Inception Module\relax }}{35}
+\contentsline {figure}{\numberline {6}{\ignorespaces Skip Connection\relax }}{37}
+\contentsline {figure}{\numberline {7}{\ignorespaces Error rates of plain networks on CIFAR image dataset\relax }}{37}
+\contentsline {figure}{\numberline {8}{\ignorespaces Bottleneck Block\relax }}{38}
+\contentsline {figure}{\numberline {9}{\ignorespaces Efficient Dimension Reduction Block\relax }}{40}
+\contentsline {figure}{\numberline {10}{\ignorespaces Inception Block with Skip Connection\relax }}{41}
+\contentsline {figure}{\numberline {11}{\ignorespaces Patient 05926; Study 1; Elbow; Normal\relax }}{45}
+\contentsline {figure}{\numberline {12}{\ignorespaces Patient 00234; Study 1; Finger; Abnormal\relax }}{46}
+\contentsline {figure}{\numberline {13}{\ignorespaces Patient 09836; Study 1; Hand; Abnormal\relax }}{47}
+\contentsline {figure}{\numberline {14}{\ignorespaces Patient 11225; Study 1; Humerus; Normal\relax }}{48}
+\contentsline {figure}{\numberline {15}{\ignorespaces Patient 11417; Study 1; Forearm; Abnormal\relax }}{49}
+\contentsline {figure}{\numberline {16}{\ignorespaces Patient 00001; Study 1; Shoulder; Abnormal\relax }}{50}
+\contentsline {figure}{\numberline {17}{\ignorespaces Patient 01521; Study 1; Wrist; Abnormal\relax }}{51}

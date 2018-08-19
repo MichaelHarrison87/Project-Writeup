@@ -347,17 +347,13 @@ where \(U[a,b]\) is the continuous random uniform distribution over the interval
 \\
 \\
 \noindent
-In fact, examining the Keras source code \cite{keras_source}, Glorot Uniform is implemented slightly differently to how it was introduced by Glorot \& Bengio. Biases are still initialised to 0. However weights are drawn randomly from \(U[-limit,limit]\) with \(limit = \sqrt{\dfrac{6}{fan\_in + fan\_out}}\) where \(fan\_in\) is the number of input neurons to the weight tensor, and \(fan\_out\) the number of output neurons. In our terms, if \(\mathbf{W}\) is the \(n_i \times n_{i+1}\) matrix of weights connecting layers \(i\) and \(i+1\), then each element \(w\) of \(\mathbf{W}\) will be initialised as above, with \(fan\_in = n_i\) and \(fan\_out = n_{i+1}\).  
+In fact, examining the Keras documentation and source code \cite{keras_source_glorot_uniform}, Glorot Uniform is implemented slightly differently to how it was introduced by Glorot \& Bengio. Biases are still initialised to 0. However weights are drawn randomly from \(U[-limit,limit]\) with \(limit = \sqrt{\dfrac{6}{fan\_in + fan\_out}}\) where \(fan\_in\) is the number of input neurons to the weight tensor, and \(fan\_out\) the number of output neurons. In our terms, if \(\mathbf{W}\) is the \(n_i \times n_{i+1}\) matrix of weights connecting layers \(i\) and \(i+1\), then each element \(w\) of \(\mathbf{W}\) will be initialised as above, with \(fan\_in = n_i\) and \(fan\_out = n_{i+1}\).  
 
 
-\subsubsection{Regularisation}
+\subsection{Regularisation}
 Regularisation is used to prevent overfitting by neural networks - i.e. the fact that, while the network may perform well on the data on which it was trained, its performance on another set of data is poor. This usually occurs because, while training, the network captures too much of the random noise present in the training data, and therefore does not transfer well to another data set where that noise is not present (instead having its own random noise). So regularisation aims to ensure that training leads networks to capture genuine features of the data that will be present in other data sets, rather than that random noise. We describe some regularisation techniques below: 
-\\
-\\
-\noindent
-\textbf{Dropout}
-\\
-\noindent
+
+\subsubsection{Dropout}
 Dropout was introduced by Srivastava et al in 2014 \cite{dropout_paper}. The idea is, for a given network layer, to randomly remove some neurons from that layer. At each training iteration, e.g. for each batch in SGD, each neuron and its associated weights and biases are retained in the network with some chosen probability \(p\), and removed with probability \(1-p\). This random selection is performed fresh for each iteration, so that each iteration effectively uses a slightly different network architecture. That means that the paths for information to travel through the network - the sequence of neurons and connections between them - vary. This introduces redundancy in that the same genuine features of the data are learned by several routes through the network, since the available routes change with each iteration. This reduces the likelihood that parts of the network just start capturing noise, as for any given iteration those parts of the network may or may not be present. Further, for any given epoch, each neuron will only see an expected fraction \(p\) batches of training data, and is therefore exposed to less noise in the data. So the neuron's weights will be less likely to capture noise.        
 \\
 \\
@@ -367,20 +363,37 @@ Dropout also reduces the effective capacity of the network layer at each iterati
 \\
 \noindent
 After training, say when testing the network on a validation set, we revert to the full original network architecture - neurons are no longer dropped out. Instead, a trained weights \(w\) in a given dropout layer are replaced with \(pw\). A forward pass can then be conducted as normal. 
-\\
-\\
-\noindent
-\textbf{Weight Decay}
-\\
-\noindent
+
+\subsubsection{Weight Decay}
 [TBD] Weight decay is basically just L1 or L2 regularisation applied to NN's. Section might not be needed if I don't use weight decay explicitly.
+
+\subsubsection{Batch Normalisation}
+Batch normalisation was intoduced by Ioffe and Szegedy in 2015 \cite{BatchNorm_Paper}. It involves normalising the activation values for each neuron in a given layer across all data items in each SGD batch. The normalisation is done with respect to the mean and variance of the activation values for the batch - so that the activations after the batch normalisation will have mean 0 and variance 1 across the batch. These values are then scaled and shifted by two parameters, learned separately for each neuron during training. 
 \\
 \\
 \noindent
-\textbf{Batch Normalisation}
+That is, if we have a batch of size \(m\), and \(x_i\) is a neuron's activation for the \(i^{th}\) example in the batch - we replace it with the transformation \(y_i = \gamma \hat{x_i} + \beta\). Where \(\gamma\) and \(\beta\) are the learned scale and shift parameters respectively, and \(\hat{x_i}\) is given by: 
+\[ \mu = \dfrac{1}{m} \sum_{i=1}^m x_i \]
+\[ \sigma^2 = \dfrac{1}{m} \sum_{i=1}^m (x_i - \mu)^2 \]
+\[ \hat{x_i} = \dfrac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \]
+\noindent
+Where \(\epsilon\) is a small number (e.g. \(10^{-3}\)) added to avoid division by 0. While we referred to neuron activations above, the authors actually reccomend to apply the batch normalisation transformation \textit{before} the activation function. So if \(u\) is are the actiations from the previous layer, and \(g\) is the activation function, so that new the layer's activations are ordinarily:
+\[ z = g(Wu + b) \]
+We instead let them be:
+\[ z = g(BN(Wu)) \]
+Where \(BN\) is the batch normalistion transformation. Note that the bias term \(b\) is now redundant, since it serves the same role as the batch norm shift parameter \(\beta\) - so it is dropped.
+\\
 \\
 \noindent
-[TBD]
+The authors argue that batch normalisation enables larger learning rates, and hence faster training, since it prevents small parameter changes from amplifying through the whole network into large, suboptimal weight updates (due to large gradients). It also separates the scale parameters from the scale of the learning rate - on which parameters depend via the weight update formula - since batch norm learns the scale and position of each activation (and hence gradient). And so it should compensate for learning rate being too high. 
+\\
+\\
+\noindent
+The authors also argue that batch normalisation regularises the model, since activation values are averaged over a batch rather than depending only on a single data item. This makes the model less prone to overfitting. They argue that dropout in a batch-normalised network can either be removed, or reduced in strength.
+\\
+\\
+\noindent
+Note that in the Keras implementation of batch norm \cite{keras_docs_batch_norm}, a moving average of the mean and variance are kept (with an adjustable "momentum" parameter). The final values of these moving averages are then used at test time in lieu of \(\mu\) and \(\sigma^2\) in the normalisation above - since normalisation a test or validation batch would consitute "data snooping". 
 \newpage
 \subsection{Convolutional Neural Networks}
 Convolutional neural networks (CNN's) are a variant of artificial neural networks described above, that are often used for image processing tasks such as classification. They are organised as a sequence of "convolution" layers, where the first layer operates directly on an image to produce a representation of it comprised of various low-level features, such as edges or patches of light or dark etc. The next layer then operates on this representation, producing another representation that captures slightly higher-level features, based on compostions of the low-level features from the first layer. This process is repeated for a chosen number of layers, with each layer outputting a representation based on the one from the previous layer. The final output from the sequence of convolution layers is then some representation of the original image built up from the low- and mid-level features from past layers. This final representation can then be used for the task at hand - for instance fed through a fully-connected layer, into a Softmax output layer for classification.     
@@ -430,11 +443,11 @@ Filters are also usually chosen to have odd height and width, rather than even (
 Padding allows for the representation produced from an input to have the same height and width as the input. Note that if we position a \(3 \times 3\) filter in the top-left corner of the input, its central weight would not correspond to the top-left pixel\footnote{We'll use "pixel" loosely to mean either one cell in the original image (thought of as a 2D or 3D grid), or one cell in the representation produced by a convolution layer.} - instead to the pixel down-and-to-the-right by one. And similar when the filter is postioned in the top-right, bottom-left etc. This means that there would be no positions in the output representation corresponding to the top or bottom rows of the input, nor the rightmost or leftmost columns. So an \(h \times w \) input would reduce to a \(h-2 \times w-2 \) representation. Padding inserts values of 0 around the edge of the input - effectively increasing its dimension to \(h+2 \times w+2 \) - so that the top-left position can correspond to the actual top-left pixel of the input. So the resulting output representation would then be \(h \times w \) as desired. The amount of padding layers will depend on the dimension of the filter - a \(5 \times 5\) filter would have 2 such padding layers, and so on.
 
 \subsubsection{Pooling Layers}
-Pooling layers are used to reduce the size of representations, while still retaining their key features. This is also called downsampling. It is useful when using the final representation produced by a sequence of convolution layers for further tasks. For example, feeding it through a fully-connected layer in order to perform classification. If we had used padding, the final representation would have the same height and width as the original image, and potentially many more channels depending on the number of filters used in the final convolution layer. The fully-connected layer would therefore be extremely large, and have a very large number of parameters.   
+Pooling layers are used to reduce the spatial dimensions of a representation, while still retaining its key features. This is also called downsampling. It is useful when using the final representation produced by a sequence of convolution layers for further tasks. For example, feeding it through a fully-connected layer in order to perform classification. If we had used padding, the final representation would have the same height and width as the original image, and potentially many more channels depending on the number of filters used in the final convolution layer. The fully-connected layer would therefore be extremely large, and have a very large number of parameters. Reducing the spatial dimension will also reduce the computational cost of a convolutional layer, since the number of positions on which needs to perform a convolution operation is reduced.
 \\
 \\
 \noindent
-Moreover, downsampling in between convolution layers allows the subsequent layer to more easily capture spatial combinations of the features created in the previous layer. In particular doing so using smaller filter sizes (and hence fewer trainable weights) than would otherwise be necessary. That is, if the key features of an \(h \times w\) representation are compressed into a smaller, say, \(\dfrac{h}{2} \times \dfrac{w}{2}\) representation - an \(n \times n\) filter would now be able to capture combinations of features that were further than \(n\) pixels apart in the original representation, if they are now within \(n\) pixels in the new representation. As this process continues over several layers, with representations getting progressively smaller, the convolution operations are better able to progress from isolated low-level features of the original image, to mid- then high-level combinations of such features across the whole image.
+Moreover, downsampling in between convolution layers allows the subsequent layer to more easily capture spatial combinations of the features created in the previous layer. In particular doing so using smaller filter sizes (and hence fewer trainable weights) than would otherwise be necessary. That is, if the key features of an \(h \times w\) representation are compressed into a smaller, say, \(\dfrac{h}{2} \times \dfrac{w}{2}\) representation - an \(n \times n\) filter would now be able to capture combinations of features that were further than \(n\) pixels apart in the original representation, if they are now within \(n\) pixels in the new representation. As this process continues over several layers, with representations getting progressively smaller, the convolution operations are better able to progress from isolated low-level features of the original image, to mid- then high-level combinations of such features that span the whole image.
 \\
 \\
 \noindent
@@ -551,8 +564,8 @@ We can summarise this over a whole set of threshold probabilities by calculating
 Look into ensembles of CNN's; move this section above performance measures later.
 
 \newpage
-\subsection{State-of-the-Art}
-For the state-of-the-art in image classification, we look to the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) \cite{ILSVRC}, a machine learning competition held each year between 2010 and 2017 to assess the performance machine learning systems on a variety of computer vision tasks. The competition is held on a subset of ImageNet, a database of 10,000,000 labelled images depicting over 10,000 object categories, published by Deng et al. in 2009 \cite{imagenet}. For instance, for the 2017 object classification and localisation tasks, the test and validation sets together comprised 150,000 photographs hand-labelled with the presence of absence of 1000 object categories. Each algorithm submitted to the competition was required to output 5 class labels, in decreasing order of confidence. The error was then based on matches between the true object categories and these top-5 predicted labels - giving the so-called top-5 error. Winners of the ILSVRC classification task, and their associated top-5 error rates are shown below (taken from \cite{ILSVRC_Classification_Top5}).          
+\section{State of the Art}
+In this section we review the current state of the art Deep Learning models used in image classification. For this we look to the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) \cite{ILSVRC}, a machine learning competition held each year between 2010 and 2017 to assess the performance machine learning systems on a variety of computer vision tasks. The competition is held on a subset of ImageNet, a database of 10,000,000 labelled images depicting over 10,000 object categories, published by Deng et al. in 2009 \cite{imagenet}. For instance, for the 2017 object classification and localisation tasks, the test and validation sets together comprised 150,000 photographs hand-labelled with the presence of absence of 1000 object categories. Each algorithm submitted to the competition was required to output 5 class labels, in decreasing order of confidence. The error was then based on matches between the true object categories and these top-5 predicted labels - giving the so-called top-5 error. Winners of the ILSVRC classification task, and their associated top-5 error rates are shown below (taken from \cite{ILSVRC_Classification_Top5}).          
 \begin{figure}[!ht]
   \centering    
   \caption{ImageNet Classification Winners}
@@ -565,7 +578,7 @@ AlexNet in 2012 was the first winner to use Deep Learning with convolutional neu
 \\
 \\
 \noindent
-\subsubsection{VGG}
+\subsection{VGG}
 VGG \cite{VGG_Paper} explored the idea of using very deep convolutional networks, with up to 19 weight layers. The networks were made up of a set of successive "blocks", each comprising successive \(3 \times 3\)  convolutional layers (with padding, ReLU activaiton function, and stride of 1) followed by one \(2 \times 2\) max-pooling layer with stride of 2. The output of each block was the input to the next block. The convolutional layers within each block contained the same number of filters, but the number of filters increased with each block. 
 \\
 \\
@@ -576,7 +589,7 @@ For instance, the VGG19 model contains five blocks, the first consisting of two 
 \noindent
 Note that one pixel in the output of two successive \(3 \times 3\) convolutional layers (with stride 1) would correspond to the same region of the original input as the equivalent pixel in the output of one \(5 \times 5\) convolutional layer (with stride 1)\footnote{The latter would correspond to, say, \( \sum_{i=1}^5 \sum_{j=1}^5 w_{i,j}p_{i,j} \) (ignoring bias and activation function). While the former would correspond to \( \sum_{x=0}^2 \sum_{y=0}^2 w'_{x+1,y+1}(\sum_{i=1}^3 \sum_{j=1}^3 w_{i,j}p_{x+i,y+j}) \). Both cover the same range of pixel values \(p_{i,j}\).}. However the VGG team preferred to use stacks of smaller convolutional filters in order to keep the number of weights small (e.g. 18 vs 25), and increase the extent of non-linearity in the network - the two \(3 \times 3\) layers each apply separate activation functions where the \(5 \times 5\) layer applies just one. The idea is that this should increase the discriminative power of the network, allowing better performance.
 
-\subsubsection{GoogLeNet}
+\subsection{GoogLeNet}
 GoogLeNet \cite{GoogLeNet_Paper} introduced the idea of "Inception" modules, illustrated in  below (image from \cite{GoogLeNet_Paper}):
 \begin{figure}[!ht]
   \centering    
@@ -596,7 +609,7 @@ The \(1 \times 1\), \(3 \times 3\) and \(5 \times 5\) (all with stride 1) operat
 \noindent
 GoogLeNet itself consists of a stack of 9 of these inception modules chained together, each working on the output of the previous module. There are some preliminary convolutional and pooling layers before the first inception module (called the network's "stem"), and some intermediate max-pooling layers with stride 2 in the middle of the inception stack, to perform spatial dimension reduction. The output from the final inception module is then fed through an average-pooling layer, followed by a fully-connected and Softmax layers for the final classification. In addition, at earlier points in the stack there are two "auxiliary" classifiers parallel to the main inception stack, consisting again of average-pooling, fully-connected then Softmax layers. The loss from these auxiliary classifiers is scaled by 0.3 then added to the loss from the main stack. The idea is that these will help to improve the disciminative power of the earlier parts of the network - since during training any weight updates in these earlier layers will include terms in the gradient corresponding to these auxiliary classifiers, and so should improve their loss. This also helps the gradients from becoming progressively smaller, to the point of vanishing, as we move back through the main stack. GoogLeNet has in total 22 trainable layers - a similar order of magnitude to VGG.
 
-\subsubsection{ResNet}
+\subsection{ResNet}
 ResNet \cite{ResNet_Paper} introduced a technique called \textit{residual} or \textit{skip connections} that allowed networks of unprecedented depth to be trained successfully. The winning submissing to ILSVRC 2015 was a residual network with 152 layers, which was the deepest network ever presented on ImageNet at the time. An example of a skip connection is shown below (image from \cite{ResNet_Paper}). The identity connection simply carries forward the original input \(X\) and adds it element-wise to the output of the weight layers, \(F(X)\).
 \begin{figure}[!ht]
   \centering    
@@ -629,21 +642,51 @@ The ResNet architechtures used the idea of skip connections in the form of a "bo
 \end{figure}
 \\
 \noindent
-The initial 64 \(1 \times 1\) filters perform dimension-reduction in the manner of GoogLeNet, to reduce the computation time of the \(3 \times 3\) layers. The subsequent 256 \(1 \times 1\) projects the output of the \(3 \times 3\) up to 256 channels, to match the block's input and so enable the skip connection. The spatial dimensions remain unchanged throughout the block, so the skip connection can perform element-wise addition \(F(X) + X\) as required - and involves no parameters. Note that the core of feature detection is done by the \(3 \times 3\) convolutional layer. These were kept small (as opposed to, say, \(5 \times 5\) etc) in line with the philosophy of the VGG authors.
+The initial 64 \(1 \times 1\) filters perform dimension-reduction in the manner of GoogLeNet, to reduce the computation time of the \(3 \times 3\) layers. The subsequent \(1 \times 1\) filters project the output of the \(3 \times 3\) back up to 256 channels, to match the block's input and so enable the skip connection. The spatial dimensions remain unchanged throughout the block, so the skip connection can perform element-wise addition \(F(X) + X\) as required - and involves no parameters. Note that the core of feature detection is done by the \(3 \times 3\) convolutional layer. These were kept small (as opposed to, say, \(5 \times 5\) etc) in line with the philosophy of the VGG authors.
 \\
 \\
 \noindent
-The winning ResNet-152 architecture then involved stacking these bottleneck blocks. The number of filters inside their \(3 \times 3\) layers began at 64, and was periodically doubled after every few bottleneck blocks. To offset this doubling in terms of computation time, the spatial dimensions were also halved by using a stride of 2 in the \(3 \times 3\) layer of the first subsequent bottleneck block. However in this introduces a mismatch in the dimensions of the block's input and output, and hence the skip connection. To overcome this, the skip connection was altered to be \(F(X) + \mathbf{W_s}X\), where \(\mathbf{W_s}\) is a matrix of trainable weights that projects \(X\) to have the same dimension as \(F(X)\). However this was only done intermittently; most bottleneck blocks use the parameter-free skip connection as described above.   
+The winning ResNet-152 architecture then involved stacking these bottleneck blocks. The number of filters inside their \(3 \times 3\) layers began at 64, and was periodically doubled after every few bottleneck blocks. To offset this doubling in terms of computation time, the spatial dimensions were also halved by using a stride of 2 in the \(3 \times 3\) layer of the first subsequent bottleneck block. However this introduces a mismatch in the dimensions of the block's input and output, and hence in the skip connection. To overcome this, the skip connection was altered to be \(F(X) + \mathbf{W_s}X\), where \(\mathbf{W_s}\) is a matrix of trainable weights that projects \(X\) to the same dimension as \(F(X)\). However this was only done intermittently; most bottleneck blocks use the parameter-free skip connection as described above.   
+
+\subsection{GoogLeNet-v4}
+GoogLeNet-v4 \cite{GoogLeNet_v4_Paper} incorporated the idea of skip connections from ResNet into the Inception-based architecture of GoogLeNet, as well as other techniques from the -v2 and -v3 reviews of the original GoogLeNet architecture \cite{GoogLeNet_v3_Paper}. The Inception-v4 model used a number of different Inception blocks, all variations of the theme of the original block. The following good practices were identified in these reviews:
+\begin{itemize}
+    \item Factorise large filter size convolutions: This seems to follow the insight from VGG that larger filters can be decomposed into successive \(3 \times 3\) filters that, in combination, cover the same spatial range as the larger filter while having fewer parameters and being cheaper computationally. For instance, \(5 \times 5\) can be decomposed into two \(3 \times 3\) filters, \(7 \times 7\) into three \(3 \times 3\) filters, and so on. In particular, the \(5 \times 5\) block in the original Inception module was replaced in this manner.
+    \item Asymmetric convolutions: An alternative approach to factorising convolutions decomposes an \(n \times n\) filter into two \(1 \times n\) and \(n \times 1\) filters.. The authors seem to organise these either in sequence or in parallel - for instance a \(1 \times 7\) followed by a \(7 \times 1\) in one of the inception blocks of Inception-v4, but parallel \(1 \times 3\) and \(3 \times 1\) in another. For the parallel version, horizontal and vertical features would feed forward as separate channels, but subsequent \(1 \times 1\) layers in the following block should combine these by aggregating across channel. Whereas for the successive version, the vertical \(n \times 1\) layer operates on the output of the horizontal \(1 \times n\) layer, so capturing spatial features more directly. The rationale behind this design other than reduced computational cost and numbers of parameters is not clearly explained by the authors, beyond mentioning that they achieve "very good" results with successive \(1 \times 7\) and \(7 \times 1\) layers.   
+    \\
+    \\
+    \noindent
+    Note that the authors use both the asymmetric and successive \(3 \times 3\) forms of factorisation, in different blocks - with the former used earlier in the network and the latter used later, presumably simply as a result of experimentation since they mention the asymmetric approach does not work well on earlier layers. Although they do not hypothesise as to why. 
+    \item Efficient dimension reduction: the authors reccomend to avoid reducing the spatial dimension too much, too early in the network, as this introduces a bottleneck in the amount of information that can flow through to later layers. They claim that the method of inserting a pooling layer to reduce dimension prior to a convolution layer (or, say, Inception block) violates this principle - since the subsequent convolutions work on a compressed representation. Conversely, pooling after the convolutional layer is much more computationally costly, since it will many more convolution operations. 
+    \\
+    \\
+    \noindent
+    The authors introduce a more computationally efficient alternative, that avoids the bottleneck issue. They build a "reduction block" using parallel pooling and convolution layers, both with stride 2 to reduce the spatial dimension, and concatenate the results. The convolutional layer therefore works on the original-dimension input, avoiding information bottleneck, while still reducing spatial dimension. For instance, the block in \textbf{Figure \ref{fig:EfficientSpatialReductionBlock}} below (from \cite{GoogLeNet_v3_Paper}) has parallel \(3 \times 3\) convolutional and pooling layers, and a parallel \(5 \times 5\) convolutional layer decomposed into successive \(3 \times 3\) layers. In GoogleLeNet-v4 the authors also did not use padding in these layers, so as to further reduce dimension.
+    \begin{figure}[!ht]
+        \centering    
+        \caption{Efficient Dimension Reduction Block}
+        \label{fig:EfficientSpatialReductionBlock}
+        \includegraphics[scale=0.7]{EfficientSpatialReductionBlock.PNG}
+    \end{figure}
+    \item Residual connections: residual connections were put across inception blocks, with the output of the block added element-wise to its input. This performs the same function as in ResNet, where the block and skip connection together can more easily learn the identity mapping, if required, and so enable larger stacks of inception blocks. For instance, the Inception-ResNet-v2 architecture comprised a stack of 40 inception blocks (of various types). One module from this architecture is shown in \textbf{Figure \ref{fig:InceptionResNet}} below, showing the skip connection.
+    \begin{figure}[!ht]
+        \centering    
+        \caption{Inception Block with Skip Connection}
+        \label{fig:InceptionResNet}
+        \includegraphics[scale=0.7]{InceptionResNet.PNG}
+    \end{figure}
+\end{itemize}
+The winning GoogLeNet-v4 model was an ensemble of the Inception-v4 architecture - which incorporated the above factorisation and spatial reduction ideas, but did not use skip connections - and three Inception-ResNet-v2 architectures - which also included skip connections as well as the other ideas. 
 \\
 \\
 \noindent
 VGG,Inception,ResNets,MobileNet,ShuffleNet,Attention/Gating
 
-
 % END BACKGROUND
 
 
 % BEGIN DATA
+\clearpage
 \newpage
 \section{Data}
 Write about the MURA data, show some exmaple images (normal \& abnormal), give data breakdowns 
@@ -698,7 +741,7 @@ Discuss getting predictions and aggregating down to study-level predctions
 % BEGIN RESULTS
 \newpage
 \section{Results}
-
+Use hyperasbfor hyperparameter optimisation? 
 \subsection{Baseline Performance}
 Give the performance of my chosen ab-initio model
 

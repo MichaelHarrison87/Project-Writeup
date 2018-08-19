@@ -1,11 +1,13 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Example of a simple artificial neural network}}{4}
-\contentsline {figure}{\numberline {2}{\ignorespaces Confusion Matrix Example}}{27}
-\contentsline {figure}{\numberline {3}{\ignorespaces Example of a ROC Curve plot}}{29}
-\contentsline {figure}{\numberline {4}{\ignorespaces ImageNet Classification Winners}}{32}
-\contentsline {figure}{\numberline {5}{\ignorespaces Inception Module}}{34}
-\contentsline {figure}{\numberline {6}{\ignorespaces Skip Connection}}{36}
-\contentsline {figure}{\numberline {7}{\ignorespaces Error rates of plain networks on CIFAR image dataset}}{36}
-\contentsline {figure}{\numberline {8}{\ignorespaces Bottleneck Block}}{37}
-\contentsline {figure}{\numberline {9}{\ignorespaces Example X-Ray Image}}{39}
-\contentsline {figure}{\numberline {10}{\ignorespaces Another example X-Ray Image}}{39}
-\contentsline {figure}{\numberline {11}{\ignorespaces A copy of figure 2}}{39}
+\contentsline {figure}{\numberline {2}{\ignorespaces Confusion Matrix Example}}{28}
+\contentsline {figure}{\numberline {3}{\ignorespaces Example of a ROC Curve plot}}{30}
+\contentsline {figure}{\numberline {4}{\ignorespaces ImageNet Classification Winners}}{33}
+\contentsline {figure}{\numberline {5}{\ignorespaces Inception Module}}{35}
+\contentsline {figure}{\numberline {6}{\ignorespaces Skip Connection}}{37}
+\contentsline {figure}{\numberline {7}{\ignorespaces Error rates of plain networks on CIFAR image dataset}}{37}
+\contentsline {figure}{\numberline {8}{\ignorespaces Bottleneck Block}}{38}
+\contentsline {figure}{\numberline {9}{\ignorespaces Efficient Dimension Reduction Block}}{40}
+\contentsline {figure}{\numberline {10}{\ignorespaces Inception Block with Skip Connection}}{41}
+\contentsline {figure}{\numberline {11}{\ignorespaces Example X-Ray Image}}{43}
+\contentsline {figure}{\numberline {12}{\ignorespaces Another example X-Ray Image}}{43}
+\contentsline {figure}{\numberline {13}{\ignorespaces A copy of figure 2}}{43}

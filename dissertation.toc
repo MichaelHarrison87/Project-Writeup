@@ -35,7 +35,7 @@
 \contentsline {subsection}{\numberline {3.4}GoogLeNet-v4}{38}
 \contentsline {section}{\numberline {4}Data}{42}
 \contentsline {subsection}{\numberline {4.1}Data Collection}{43}
-\contentsline {subsection}{\numberline {4.2}Abnormality Analysis}{43}
+\contentsline {subsection}{\numberline {4.2}Abnormality Analysis}{44}
 \contentsline {subsection}{\numberline {4.3}Image Examples}{44}
 \contentsline {subsubsection}{\numberline {4.3.1}Elbow}{45}
 \contentsline {subsubsection}{\numberline {4.3.2}Finger}{46}
@@ -45,19 +45,23 @@
 \contentsline {subsubsection}{\numberline {4.3.6}Shoulder}{50}
 \contentsline {subsubsection}{\numberline {4.3.7}Wrist}{51}
 \contentsline {subsection}{\numberline {4.4}Data Breakdowns}{52}
-\contentsline {section}{\numberline {5}Model Development}{53}
-\contentsline {subsection}{\numberline {5.1}Working Environment}{53}
-\contentsline {subsection}{\numberline {5.2}Data Preprocessing}{53}
-\contentsline {subsection}{\numberline {5.3}Model}{53}
-\contentsline {subsection}{\numberline {5.4}Predictions}{53}
-\contentsline {section}{\numberline {6}Results}{54}
-\contentsline {subsection}{\numberline {6.1}Baseline Performance}{54}
-\contentsline {subsection}{\numberline {6.2}Image Size}{54}
-\contentsline {subsection}{\numberline {6.3}Regularisation}{54}
-\contentsline {subsection}{\numberline {6.4}Pre-Trained Models}{54}
-\contentsline {section}{\numberline {7}Conclusions}{55}
-\contentsline {section}{\numberline {8}Professional and Ethical Issues}{56}
-\contentsline {section}{\numberline {9}Extensions}{57}
-\contentsline {section}{References}{58}
-\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{60}
-\contentsline {subsection}{\numberline {A.1}VGG16}{60}
+\contentsline {subsubsection}{\numberline {4.4.1}Numbers of Studies}{52}
+\contentsline {subsubsection}{\numberline {4.4.2}Numbers of Images}{52}
+\contentsline {subsubsection}{\numberline {4.4.3}Studies of Multiple Body Parts}{53}
+\contentsline {subsubsection}{\numberline {4.4.4}Consecutive Studies}{55}
+\contentsline {section}{\numberline {5}Model Development}{57}
+\contentsline {subsection}{\numberline {5.1}Working Environment}{57}
+\contentsline {subsection}{\numberline {5.2}Data Preprocessing}{57}
+\contentsline {subsection}{\numberline {5.3}Model}{58}
+\contentsline {subsection}{\numberline {5.4}Predictions}{58}
+\contentsline {section}{\numberline {6}Results}{59}
+\contentsline {subsection}{\numberline {6.1}Baseline Performance}{59}
+\contentsline {subsection}{\numberline {6.2}Image Size}{59}
+\contentsline {subsection}{\numberline {6.3}Regularisation}{59}
+\contentsline {subsection}{\numberline {6.4}Pre-Trained Models}{59}
+\contentsline {section}{\numberline {7}Conclusions}{60}
+\contentsline {section}{\numberline {8}Professional and Ethical Issues}{61}
+\contentsline {section}{\numberline {9}Extensions}{63}
+\contentsline {section}{References}{64}
+\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{66}
+\contentsline {subsection}{\numberline {A.1}VGG16}{66}

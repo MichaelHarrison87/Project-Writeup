@@ -15,3 +15,17 @@
 \contentsline {figure}{\numberline {15}{\ignorespaces Patient 11417; Study 1; Forearm; Abnormal\relax }}{49}
 \contentsline {figure}{\numberline {16}{\ignorespaces Patient 00001; Study 1; Shoulder; Abnormal\relax }}{50}
 \contentsline {figure}{\numberline {17}{\ignorespaces Patient 01521; Study 1; Wrist; Abnormal\relax }}{51}
+\contentsline {figure}{\numberline {18}{\ignorespaces Studies Breakdown by Part\relax }}{52}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Numbers of Studies}}}{52}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Percentage Normal/Abnormal}}}{52}
+\contentsline {figure}{\numberline {19}{\ignorespaces Images Breakdown by Part\relax }}{53}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Numbers of Images}}}{53}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Percentage Normal/Abnormal}}}{53}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Average Number of Images Per Study}}}{53}
+\contentsline {figure}{\numberline {20}{\ignorespaces Patients by Number of Body Parts\relax }}{54}
+\contentsline {figure}{\numberline {21}{\ignorespaces Breakdown of body part co-occurence\relax }}{54}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Co-occurence by numbers of patients}}}{54}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Percentage Co-occurence}}}{54}
+\contentsline {figure}{\numberline {22}{\ignorespaces Numbers of studies per patient's body part\relax }}{55}
+\contentsline {figure}{\numberline {23}{\ignorespaces Results of Consecutive Studies\relax }}{56}
+\contentsline {figure}{\numberline {24}{\ignorespaces Breakdown of study outcomes\relax }}{56}

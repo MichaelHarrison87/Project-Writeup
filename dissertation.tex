@@ -9,6 +9,7 @@
 
 \usepackage{caption} 
 \captionsetup[table]{skip=1pt}
+\captionsetup[figure]{skip=0.5pt}
 
 \usepackage{placeins} 
 
@@ -79,7 +80,7 @@ The main idea behind Deep Learning is for a system to learn representations of t
 
 \subsection{Artificial Neural Networks}
 \subsubsection{Basic Structure}
-More specifically, these Deep Learning systems tend to be artificial neural networks (ANN's), of various forms depending on the nature of the task. A simple version of such a network \cite{wiki:simple_ann} is shown in \textbf{Figure \ref{fig:simple_ann}} below. These consist of a set of "neurons" (the circles in the image below) organised into layers, with each neuron from one layer connected to all neurons in the next layer. Each neuron has an associated activation, typically just a real number, which is derived from the activations of the neurons feeding into it from the previous layer. The input layer is a special case, where the neuron activations represent values from the item of data being fed into the network. For instance, for greyscale images, the input neurons correspond to each pixel in the given input image, and the input activations are simply each pixel's value. The activations of the final output layer may represent different things, depending on the task - for instance, the final learned representation of the data item when doing dimension reduction. Or, for classification, the probability distribution over the set of classes that captures the network's prediction of which class the given data item is in. 
+More specifically, these Deep Learning systems tend to be artificial neural networks (ANN's), of various forms depending on the nature of the task. A simple version of such a network \cite{wiki:simple_ann} is shown in Figure \ref{fig:simple_ann} below. These consist of a set of "neurons" (the circles in the image below) organised into layers, with each neuron from one layer connected to all neurons in the next layer. Each neuron has an associated activation, typically just a real number, which is derived from the activations of the neurons feeding into it from the previous layer. The input layer is a special case, where the neuron activations represent values from the item of data being fed into the network. For instance, for greyscale images, the input neurons correspond to each pixel in the given input image, and the input activations are simply each pixel's value. The activations of the final output layer may represent different things, depending on the task - for instance, the final learned representation of the data item when doing dimension reduction. Or, for classification, the probability distribution over the set of classes that captures the network's prediction of which class the given data item is in. 
 \begin{figure}[!ht]
   \centering    
   \caption{Example of a simple artificial neural network}
@@ -96,7 +97,7 @@ where:
   \item \(b^{[i+1]}\) is the vector of biases for the neurons in layer \(i+1\) (so of dimension \(n_{i+1} \times 1\)). 
   \item \(f_{i+1}\) is the activation function for layer \(i+1\), that applies element-wise to the vector on which it operates, and hence returns a vector. The choice of activation functions is part of the design of the network.   
 \end{itemize}
-This process is repeated, with activations from the input layer feeding into activations of the first hidden layer; activations from this hidden layer feeding into the next hidden layer; etc until the final activations in the output layer are produced. Note that while \textbf{Figure \ref{fig:simple_ann}} above showed only one hidden layer between input and output, in practice there can be arbitrarily many hidden layers - each taking as input the activations from their previous layer, and sending their own activations as output to the next layer. The choice of the numbers of hidden layers, and the numbers of neurons in each of these layers is again part of the design of the network. 
+This process is repeated, with activations from the input layer feeding into activations of the first hidden layer; activations from this hidden layer feeding into the next hidden layer; etc until the final activations in the output layer are produced. Note that while Figure \ref{fig:simple_ann} above showed only one hidden layer between input and output, in practice there can be arbitrarily many hidden layers - each taking as input the activations from their previous layer, and sending their own activations as output to the next layer. The choice of the numbers of hidden layers, and the numbers of neurons in each of these layers is again part of the design of the network. 
 \\
 \\
 \noindent
@@ -534,7 +535,7 @@ Now if we consider \textit{Normal} to be "negative" and \textit{Abnormal} to be 
 \end{itemize}
 
 \subsubsection{Cohen's Kappa}
-Cohen's Kappa was introduced by Jacob Cohen in 1960 \cite{cohens_kappa}. It is a measure of agreement between two raters - so when applied to a corresponding set of true and predicted labels, it measures the accuracy of the predictions. Its advantage over simple accuracy is that is measures the extent of agreement over and above that which would be expected by chance. This is useful for instance when the class frequencies in the underlying data are naturally skewed. Consider data comprised of two classes, 80\% A and 20\% B - a classifier that simply always predicted A would have 80\% accuracy, but can not be considered a very good classifier. Cohen's Kappa accounts for this underlying skew, and would score the classifier poorly. For the confusion matrix in \textbf{Figure \ref{fig:confusion_matrix_example}} above, it is defined as follows:
+Cohen's Kappa was introduced by Jacob Cohen in 1960 \cite{cohens_kappa}. It is a measure of agreement between two raters - so when applied to a corresponding set of true and predicted labels, it measures the accuracy of the predictions. Its advantage over simple accuracy is that is measures the extent of agreement over and above that which would be expected by chance. This is useful for instance when the class frequencies in the underlying data are naturally skewed. Consider data comprised of two classes, 80\% A and 20\% B - a classifier that simply always predicted A would have 80\% accuracy, but can not be considered a very good classifier. Cohen's Kappa accounts for this underlying skew, and would score the classifier poorly. For the confusion matrix in Figure \ref{fig:confusion_matrix_example} above, it is defined as follows:
 \\
 \\
 \noindent
@@ -670,14 +671,14 @@ GoogLeNet-v4 \cite{GoogLeNet_v4_Paper} incorporated the idea of skip connections
     \\
     \\
     \noindent
-    The authors introduce a more computationally efficient alternative, that avoids the bottleneck issue. They build a "reduction block" using parallel pooling and convolution layers, both with stride 2 to reduce the spatial dimension, and concatenate the results. The convolutional layer therefore works on the original-dimension input, avoiding information bottleneck, while still reducing spatial dimension. For instance, the block in \textbf{Figure \ref{fig:EfficientSpatialReductionBlock}} below (from \cite{GoogLeNet_v3_Paper}) has parallel \(3 \times 3\) convolutional and pooling layers, and a parallel \(5 \times 5\) convolutional layer decomposed into successive \(3 \times 3\) layers. In GoogleLeNet-v4 the authors also did not use padding in these layers, so as to further reduce dimension.
+    The authors introduce a more computationally efficient alternative, that avoids the bottleneck issue. They build a "reduction block" using parallel pooling and convolution layers, both with stride 2 to reduce the spatial dimension, and concatenate the results. The convolutional layer therefore works on the original-dimension input, avoiding information bottleneck, while still reducing spatial dimension. For instance, the block in Figure \ref{fig:EfficientSpatialReductionBlock} below (from \cite{GoogLeNet_v3_Paper}) has parallel \(3 \times 3\) convolutional and pooling layers, and a parallel \(5 \times 5\) convolutional layer decomposed into successive \(3 \times 3\) layers. In GoogleLeNet-v4 the authors also did not use padding in these layers, so as to further reduce dimension.
     \begin{figure}[!ht]
         \centering    
         \caption{Efficient Dimension Reduction Block}
         \label{fig:EfficientSpatialReductionBlock}
         \includegraphics[scale=0.7]{EfficientSpatialReductionBlock.PNG}
     \end{figure}
-    \item Residual connections: residual connections were put across inception blocks, with the output of the block added element-wise to its input. This performs the same function as in ResNet, where the block and skip connection together can more easily learn the identity mapping, if required, and so enable larger stacks of inception blocks. For instance, the Inception-ResNet-v2 architecture comprised a stack of 40 inception blocks (of various types). One module from this architecture is shown in \textbf{Figure \ref{fig:InceptionResNet}} below, showing the skip connection.
+    \item Residual connections: residual connections were put across inception blocks, with the output of the block added element-wise to its input. This performs the same function as in ResNet, where the block and skip connection together can more easily learn the identity mapping, if required, and so enable larger stacks of inception blocks. For instance, the Inception-ResNet-v2 architecture comprised a stack of 40 inception blocks (of various types). One module from this architecture is shown in Figure \ref{fig:InceptionResNet} below, showing the skip connection.
     \begin{figure}[!ht]
         \centering    
         \caption{Inception Block with Skip Connection}
@@ -721,7 +722,11 @@ Total (exc Test) & 40,005 & 14,656 & 11,967 \\ \bottomrule
 \end{table}
 \\
 \noindent
-Alongside the images, the authors published which of seven parts of the upper extremity each study was performed on - Elbow, Finger (though not which finger), Hand, Humerus, Forearm, Shoulder or Wrist. They also published Patient ID to distinguish the different patients, and a study number to distinguish multiple studies of the same patient on the same site (presumably performed at different times, for instance an initial and follow-up study). Note that some Patient ID's appeared for multiple upper extremity parts - e.g. they had studies of both, say, the wrist and forearm. As noted, a label "normal" or "abnormal" was also published for each study - and we have assumed this label applies for all images in the study. However beyond this no further information was released - for instance, date of the study (which would let us identify follow-up studies, or if studies of different parts were performed at the same time and so likely due to the same injury or condition), demographic information about the patients (age, sex etc), the nature of any abnormalities (e.g. fracture vs lesion), the nature of the treatment or the patient's medical condition (e.g. emergency room vs out-patient) etc, all of which would be relevant in a real, clinical setting. The corresponding radiologist's report for each study was also not published, presumably due to privacy concerns. As such, the data available to build a classifier is really just the images themselves, their study's label, and which part of the upper extremity the images are of. Therefore we treat this task as an exercise in image classification, despite the clear relevance of other information (if it were available).
+Alongside the images, the authors published which of seven parts of the upper extremity each study was performed on - Elbow, Finger (though not which finger), Hand, Humerus, Forearm, Shoulder or Wrist. They also published Patient ID to distinguish the different patients, and a study number to distinguish multiple studies of the same patient on the same site (presumably performed at different times, for instance an initial and follow-up study). It's not clear if consecutive study numbers imply the studies were performed consecutively in chronological time, i.e. that study 1 was always performed before study 2 etc. Note that some Patient ID's appeared for multiple upper extremity parts - e.g. they had studies of both, say, the wrist and forearm. However the different studies for different body parts are numbered only within each body part - e.g. a patient may have study 1 for wrist, and studies 1 and 2 for forearm (vs, say, study 1 for wrist and studies 2 and 3 for forearm). So we can't infer that studies 1 for both parts were performed at the same time. 
+\\
+\\
+\noindent
+As noted, a label "normal" or "abnormal" was also published for each study - and we have assumed this label applies for all images in the study. However beyond this no further information was released - for instance, date of the study (which would let us identify follow-up studies, or if studies of different parts were performed at the same time and so likely due to the same injury or condition), demographic information about the patients (age, sex etc), the nature of any abnormalities (e.g. fracture vs lesion), the nature of the treatment or the patient's medical condition (e.g. emergency room vs out-patient) etc, all of which would be relevant in a real, clinical setting. The corresponding radiologist's report for each study was also not published, presumably due to privacy concerns. As such, the data available to build a classifier is really just the images themselves, their study's label, and which part of the upper extremity the images are of. Therefore we treat this task as an exercise in image classification, despite the clear relevance of other information (if it were available).
 \\
 \\
 \noindent
@@ -731,7 +736,7 @@ Most of the studies in the data are made up of several X-ray images, each of the
 As noted by the authors, each study was performed at Stanford Hospital between 2001 and 2012. The labelling was performed manually by a board-certified radiologist, using \cite{MURA2017}: ''\textit{DICOM\footnote{Digital Imaging and Communications in Medicine} images presented on at least 3 megapixel PACS\footnote{Picture Archiving and Communication System} medical grade display with max luminance 400 cd/\(m^2\) and min luminance 1 cd/\(m^2\) with pixel size of 0.2 and native resolution of \(1500 \times 2000\) pixels}''.
 
 \subsection{Abnormality Analysis}
-The authors also manually investigated the radiologist reports for a sample of 100 abnormal studies to get an understanding of the types of abnormalities present in the data. From this they found \cite{MURA2017}: ''\textit{53 studies were labeled with fractures, 48 with hardware, 35 with degenerative joint diseases, and 29 with other miscellaneous abnormalities, including lesions and subluxations}''. Where "hardware" presumably refers to orthopedic hardward such as screws, plates, pins etc, and a "subluxation" refers to the partial dislocation of a joint. The authors did not indicate how many reports for each body part they looked at, or how this breakdown compared across body parts. It is also not clear how representative the sample of 100 is of the full data. However the high numbers of hardware is interesting and of relevance to image classification, since such hardware will be apparent in the images and a classifier may learn them to be strong predictive of abnormality.
+The authors also manually investigated the radiologist reports for a sample of 100 abnormal studies to get an understanding of the types of abnormalities present in the data. From this they found \cite{MURA2017}: ''\textit{53 studies were labeled with fractures, 48 with hardware, 35 with degenerative joint diseases, and 29 with other miscellaneous abnormalities, including lesions and subluxations}''. Where "hardware" presumably refers to orthopedic hardware such as screws, plates, pins etc, and a "subluxation" refers to the partial dislocation of a joint. The authors did not give a breakdown of which body parts they surveyed, although we assume it was representative, or how this abnormalities compared across body parts. It is also not clear how representative the sample of 100 is of the full data. However the high numbers of hardware is interesting and of relevance to image classification, since such hardware will be apparent in the images and a classifier may learn them to be strong predictive of abnormality. Note that beyond this survey no other informaton about the type or nature of abnormality was given with the data.
 \\
 \\
 \noindent
@@ -873,7 +878,106 @@ The images from some example studies, of each body part and covering both normal
 
 \newpage
 \subsection{Data Breakdowns}
-Data breakdowns
+Below we present some breakdowns of the data.
+\subsubsection{Numbers of Studies}
+Figure \ref{fig:StudiesByPart} below is a recreation in my own work of the table in \cite{MURA2017} showing the same breakdown - which acts as a validation that I am analysing the data correctly. The percentage breakdown shows the proportion of Normal studies is around 60\%, as mentioned. The variation in abnormal rate does not look too drastic, although 26\% for Hand in the training data perhaps seems low. Shoulder has the highest abnormality rate in the training data, which seems reasonable given that a dislocated shoulder is a commom sports injury. Stanford Hosptial is close to Stanford University, and so may have an unusal number of such injuries (e.g. due to student atheletics, or American college football)
+\begin{figure}[!ht]
+\centering
+\subfloat[Numbers of Studies]{
+    \includegraphics[scale=0.7]{MURA-Breakdowns/StudiesByPart.PNG}
+    \label{fig:StudiesByPart}
+}
+\subfloat[Percentage Normal/Abnormal]{
+    \includegraphics[scale=0.7]{MURA-Breakdowns/StudiesByPart_Percentages.PNG}
+    \label{fig:StudiesByPart_Percentages}
+}
+\caption{Studies Breakdown by Part}
+\label{fig:StudiesByPart_Breakdown}
+\end{figure}
+
+\subsubsection{Numbers of Images}
+Below is an analogous breakdown to Figure \ref{fig:ImagesByPart_Breakdown}, except by numbers of images rather than numbers of studies.
+\begin{figure}[!ht]
+\centering
+\subfloat[Numbers of Images]{
+    \includegraphics[scale=0.7]{MURA-Breakdowns/ImagesByPart.PNG}
+    \label{fig:ImagesByPart}
+}
+\subfloat[Percentage Normal/Abnormal]{
+    \includegraphics[scale=0.7]{MURA-Breakdowns/ImagesByPart_Percentages.PNG}
+    \label{fig:ImagesByPart_Percentages}
+}
+\newline
+\subfloat[Average Number of Images Per Study]{
+    \includegraphics[scale=0.7]{MURA-Breakdowns/ImagesPerStudy.PNG}
+    \label{fig:ImagesPerStudy}
+}
+\caption{Images Breakdown by Part}
+\label{fig:ImagesByPart_Breakdown}
+\end{figure}
+\FloatBarrier
+\noindent
+The above shows no strong bias in numbers of images per study, however there are slightly more on average for abnormal studies than normal - which stands to reason. This is reflected in the percentage abnormal by image being slightly higher than the by study equivalent. Humerus and forearm have noticable fewer average images per study than the other body parts - most likely because they do not need to be viewed from as many angles to make an assessment.
+
+\subsubsection{Studies of Multiple Body Parts}
+Below we show the numbers of patients by how many body parts they have a study for. This reason for examining this is that it implies a correlation in the data - an abnormal study of the hand, say, might make a study of the wrist more likely to be abnormal if they are both the result of the same injury. While our method image classification doesn't really require independant data, this correlation is still worth noting.
+\begin{figure}[!ht]
+    \centering    
+    \caption{Patients by Number of Body Parts}
+    \label{fig:PatientsByNumberOfSites}
+    \includegraphics[scale=0.7]{MURA-Breakdowns/PatientsByNumberOfSites.PNG}
+\end{figure}
+\FloatBarrier
+\noindent
+So this says that 11\% of patients in the training data had at least one study each on two parts of the upper extremity. It is interesting that the validation data is skewed towards patients with studies of multiple parts, although this is probably a random effect due to small numbers, rather than being intentional by the MURA authors. Below we break down the co-occurence of pairs of body parts in the training data. 
+\begin{figure}[!ht]
+\centering
+\subfloat[Co-occurence by numbers of patients]{
+    \includegraphics[scale=0.7]{MURA-Breakdowns/PartCoOccurence.PNG}
+    \label{fig:PartCoOccurence}
+}
+\newline
+\subfloat[Percentage Co-occurence]{
+    \includegraphics[scale=0.7]{MURA-Breakdowns/PartCoOccurence_Percentages.PNG}
+    \label{fig:PartCoOccurence_Percentages}
+}
+\caption{Breakdown of body part co-occurence}
+\label{fig:PartCoOccurence_Breakdown}
+\end{figure}
+\FloatBarrier
+\noindent
+So for instance 113 patients had studies of both their hand and elbow. Note this table double-counts patients with studies of more than two parts (e.g. hand/wrist/shoulder would be counted in all pairs hand/wrist, hand/shoulder, shoulder/wrist) so totals won't match Figure \ref{fig:PatientsByNumberOfSites} above. However producing the full multi-way occurence breakdown is cumbersome, and not very relevant since only a small proportion of patients had studies of more than two parts. The breakdown above shows that shoulder and wrist are the most common pair of parts, which seems plausible assuming they were studied together in the same period of treatment. Humerus and forearm have only small numbers of co-occurences, suggesting they tend to be studied in isolation.    
+
+\subsubsection{Consecutive Studies}
+Now we examine the cases of the same patient having multiple studies on the same body part. The distribution of numbers of studies per patient's body part is shown below: 
+\begin{figure}[!ht]
+    \centering    
+    \caption{Numbers of studies per patient's body part}
+    \label{fig:NumbersOfStudiesBySite}
+    \includegraphics[scale=0.7]{MURA-Breakdowns/NumbersOfStudiesBySite.PNG}
+\end{figure}
+\FloatBarrier
+\noindent
+So there were 8 patients in the training data with 4 studies of the same body part (ignoring studies of other parts). We speculated above that multiple studies likely related to follow-up reviews after initial treatment. This \textit{appears} to suggested by the data, since analysing the study results over consecutive studies (which were named study1, study2 etc in the raw data) shows only progressions from abnormal to normal, and none at all from normal to abnormal anywhere in the data:
+\begin{figure}[!ht]
+    \centering    
+    \caption{Results of Consecutive Studies}
+    \label{fig:ConsecutiveStudyResults}
+    \includegraphics[scale=0.7]{MURA-Breakdowns/ConsecutiveStudyResults.PNG}
+\end{figure}
+\FloatBarrier
+\noindent
+This led to the thought that the rate of normal studies in the whole data is being inflated by the follow-up studies. Examining the results of the first study only shows this is true, although the effect is too small to be relevant as the numbers of these apparent follow-up studies are small. The tables below the first study has a slightly higher rate of abnormality than the rate of abnormality across the whole data.
+\begin{figure}[!ht]
+\centering
+\subfloat{
+    \includegraphics[scale=0.7]{MURA-Breakdowns/StudyOutcomesByRole.PNG}
+    \label{fig:StudyOutcomesByRole}
+}
+\caption{Breakdown of study outcomes}
+\label{fig:Outcomes_Breakdown}
+\end{figure}
+\FloatBarrier
 
 % END DATA
 
@@ -883,17 +987,31 @@ Data breakdowns
 \section{Model Development}
 
 \subsection{Working Environment}
-Describe google cloud set-up, GPU, python packages used etc
+The working environment for this project is primarily a Google Cloud virtual machine, which I have rented (using free credit) in order to get access to GPU, namely an NVIDIA Tesla P100. This is needed because training large a neural network would be infeasible without a GPU, which are optimised to perform the types of calculations required (e.g. convolution operations). The GPU will also handle parallelisation, e.g. of each image in an SGD batch, to further improve computation time. Aside from the GPU, the machine has two 7.5GB Intel Sandy Bridge CPU's and is running the Ubuntu 17.10 operating system.
+\\
+\\
+\noindent
+Beyond that, I am using the Python library Keras to build, train and test my neural networks. This is a subset of the Tensorflow (version 1.9) library, which also handles assignment of computation to the GPU. As such, all my scripts are written in Python (version 3.6.5). I installed this set-up myself on the virtual machine, including Tensorflow dependencies such as NVIDIA's CUDA toolkit (version 9.2) and cuDNN neural network library (version 7.2) which enable it to work with the GPU.
 
 \subsection{Data Preprocessing}
-Describe the preprocessing work done on the data - resize images, normalise values, data augmentation etc 
-Random-size cropping?
-
+The images in raw data come in a variety of resolutions and aspect ratios. However for the purposes of image classification with convolutional networks, all images in the input must be the same size - as otherwise the sizes of the final representation from the convolutional base would differ, and hence the number of neurons after flattening it. 
+\\
+\\
+\noindent
+Therefore we resized the images to common height and width using an in-built Tensorflow function. This uses the method called \textit{bilinear interpolation}. Following wikipedia \cite{wiki:bilinear_interpolation} this works by first linearly interpolating pixel values in the x-direction, and then performing a second interpolation on the results, in the y-direction. Note that our images are greyscale, and so have only one channel - hence interpolation is only required in the spatial dimension.
+\\
+\\
+\noindent
+[Random Cropping, Normalise Pixel Values, Data Augmentation]
 \subsection{Model}
-Describe the final ab-initio model I end up with - structure, loss function, training params/hyperparams etc
+Describe the final ab-initio model I end up with - structure, loss function, training params/hyperparams etc. Will look to follow an Inception+ResNet style architecture - perhaps a smaller version of Inception-ResNet-v2 so as to be easier to train? Can compare to full version pre-trained on ImageNet. Need to use Keras to build 
 
 \subsection{Predictions}
-Discuss getting predictions and aggregating down to study-level predctions
+The model describe above works on individual images - producing a predicted probability of abnormality for each image separately. However the original data is organised into studies consisting of multiple images, and the original normal/abnormal label was applied to the study, rather than to each image within. As mentioned, we have assumed during training that this label applies to all images in the study, and this seems reasonable. However when analysing the performance of our model after training, we should be more interested in its performance at the study level. 
+\\
+\\
+\noindent
+So we need to go from the model's image-wise predictions to study-wise predictions. To do this, we follow the MURA authors \cite{MURA2017} who take the arithmetic mean of the predicted probabilities of abnormality across all images in the study. If this average exceeds 50\%, then their study-wise prediction is "abnormal" and "normal" otherwise. After calculating study-wise predictions, we can then calculate other performance metrics, such as Cohen's Kappa, study-wise. Indeed, study-wise Cohen's Kappa assessed on the test set is the performance metric used in the competition held by the MURA authors.
 
 % END MODEL DEVELOPMENT
 
@@ -930,10 +1048,19 @@ What is "abnormal"? - type \& severity of abnormality not known, MURA paper not 
 % BEGIN ETHICAL
 \newpage
 \section{Professional and Ethical Issues}
-Potential Impact on Radiology - Deep Learning tools used to help triage/prioritise radiologists' work, not replace them; 
-Can we trust diagnosis to a computer program? Would you be happy to do so? 
-Conversely - medical errors happen a lot (est. cost \$X p.a.; any specifics for radiology?) but DL tools may at least help cut that down.
-
+There are a number of ethical issues raised when considering the use of Deep Learning within medicine. This is different to other forms of medical technology in that the purpose would be to make \textit{decisions} regarding a patient, in lieu of or alongside a human doctor. Of course, if these decisions are ultimately based on data, as learned by the model during training and perhaps while in use afterwards, then it might be argued that these decisions should be superior to those made by human doctors. Human doctors will be subject (among other things) to their own internal biases, external pressures (e.g. overwork, or fashions in medical diagnosis), their state of mind (e.g. tired at the end of a long shift) etc. Nevertheless there is likely to be a psychological barrier for patients to fully accept a diagnosis reported by computer over that given by a human whom they trust. As such, the use of these machine learning tools is likely to be a behind-the-scenes aspect of medicine, used by human doctors to help inform their decision but unlikely to replace them.
+\\
+\\
+\noindent
+A more likely scenario is that Deep Learning could be used to help triage and prioritise a doctor's work. For instance, a radiology system working with analogous data to this project could leave a nurse to deal with patients with a very low probability abnormality, while sending high probability and more ambiguous cases to the senior radiologist. This could help ease the burden on the radiologist's time as he would not have to be involved with the obvious clear-cut cases. If the deep learning system tried to make some estimate of the nature and severity of the abnormality, it could help the radiologist focus on the most severe cases who need treatment more urgently.   
+\\
+\\
+\noindent
+Further, by acting as a "second opinion" of sorts, such a system could help reduce medical errors. For instance, spotting some form of abnormality that the radiologist might have missed - even if the system isn't enitrely certain that it is indeed a true abnormality. Merely highlighting the relevant part of the image could motivate the radiologist to investigate further, and so help reduce his false negative rate. Although this has a drawback, if the system highlights a lot of false positives of this nature, then it could end up wasting a lot of the radiologist's time over nothing. That said, the degree of conservatism with which the system operates could ultimately be tweaked and tuned, and changed in response to conditions or the nature of the task, whereas for a human doctor it is entirely subjective and will depend on their personality.   
+\\
+\\
+\noindent
+Clearly any such system would need to be very thoroughly tested and validated against a range of many and varied datasets before being used in the real world. Any bias in the training data will be reflected in its subseuqent performance. For instance, if the MURA data from Stanford Hospital came from an unusually young age demographic (due to the nearby University), a system trained on that alone may be more likely to detect abnormalities affect young people (e.g. fractures, dislocations), over conditions affecting the elderly (e.g. joint degeneration). So if the system was then used in practice primarily with the elderly, it may be prone to mistakes.
 % END ETHICAL
 
 
@@ -955,6 +1082,7 @@ Alter NN to accept multiple images simultaneously and so predict based on severa
 \clearpage
 \appendix
 \section{Pretrained Model Architechtures}
+[Probably won't be used]
 Below we describe the architechtures of the various pre-trained neural network models mentioned in the text.
 \subsection{VGG16}
 This is the VGG16 model.

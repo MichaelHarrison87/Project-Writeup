@@ -83,7 +83,7 @@
 \citation{MURA2017}
 \citation{MURA2017}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Data Collection}{43}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Abnormality Analysis}{43}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Abnormality Analysis}{44}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Image Examples}{44}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Elbow}{45}}
 \newlabel{fig:Elbow_1}{{11a}{45}}
@@ -148,20 +148,64 @@
 \newlabel{sub@fig:Wrist_4}{{(d)}{d}}
 \@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Patient 01521; Study 1; Wrist; Abnormal\relax }}{51}}
 \newlabel{fig:MURA_Example_Wrist}{{17}{51}}
+\citation{MURA2017}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Data Breakdowns}{52}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Model Development}{53}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Working Environment}{53}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Data Preprocessing}{53}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Model}{53}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Predictions}{53}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{54}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Baseline Performance}{54}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Image Size}{54}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Regularisation}{54}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Pre-Trained Models}{54}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{55}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Professional and Ethical Issues}{56}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Extensions}{57}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Numbers of Studies}{52}}
+\newlabel{fig:StudiesByPart}{{18a}{52}}
+\newlabel{sub@fig:StudiesByPart}{{(a)}{a}}
+\newlabel{fig:StudiesByPart_Percentages}{{18b}{52}}
+\newlabel{sub@fig:StudiesByPart_Percentages}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Studies Breakdown by Part\relax }}{52}}
+\newlabel{fig:StudiesByPart_Breakdown}{{18}{52}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Numbers of Studies}}}{52}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Percentage Normal/Abnormal}}}{52}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Numbers of Images}{52}}
+\newlabel{fig:ImagesByPart}{{19a}{53}}
+\newlabel{sub@fig:ImagesByPart}{{(a)}{a}}
+\newlabel{fig:ImagesByPart_Percentages}{{19b}{53}}
+\newlabel{sub@fig:ImagesByPart_Percentages}{{(b)}{b}}
+\newlabel{fig:ImagesPerStudy}{{19c}{53}}
+\newlabel{sub@fig:ImagesPerStudy}{{(c)}{c}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Images Breakdown by Part\relax }}{53}}
+\newlabel{fig:ImagesByPart_Breakdown}{{19}{53}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Numbers of Images}}}{53}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Percentage Normal/Abnormal}}}{53}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Average Number of Images Per Study}}}{53}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}Studies of Multiple Body Parts}{53}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Patients by Number of Body Parts\relax }}{54}}
+\newlabel{fig:PatientsByNumberOfSites}{{20}{54}}
+\newlabel{fig:PartCoOccurence}{{21a}{54}}
+\newlabel{sub@fig:PartCoOccurence}{{(a)}{a}}
+\newlabel{fig:PartCoOccurence_Percentages}{{21b}{54}}
+\newlabel{sub@fig:PartCoOccurence_Percentages}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Breakdown of body part co-occurence\relax }}{54}}
+\newlabel{fig:PartCoOccurence_Breakdown}{{21}{54}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Co-occurence by numbers of patients}}}{54}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Percentage Co-occurence}}}{54}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.4}Consecutive Studies}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Numbers of studies per patient's body part\relax }}{55}}
+\newlabel{fig:NumbersOfStudiesBySite}{{22}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Results of Consecutive Studies\relax }}{56}}
+\newlabel{fig:ConsecutiveStudyResults}{{23}{56}}
+\newlabel{fig:StudyOutcomesByRole}{{24a}{56}}
+\newlabel{sub@fig:StudyOutcomesByRole}{{(a)}{a}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Breakdown of study outcomes\relax }}{56}}
+\newlabel{fig:Outcomes_Breakdown}{{24}{56}}
+\citation{wiki:bilinear_interpolation}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Model Development}{57}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Working Environment}{57}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Data Preprocessing}{57}}
+\citation{MURA2017}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Model}{58}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Predictions}{58}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{59}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Baseline Performance}{59}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Image Size}{59}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Regularisation}{59}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Pre-Trained Models}{59}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{60}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Professional and Ethical Issues}{61}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Extensions}{63}}
 \bibstyle{ieeetr}
 \bibdata{bibliography}
 \bibcite{MURA2017}{1}
@@ -175,12 +219,13 @@
 \bibcite{wiki:ROC_Curve}{9}
 \bibcite{ILSVRC}{10}
 \bibcite{imagenet}{11}
-\@writefile{toc}{\contentsline {section}{References}{58}}
+\@writefile{toc}{\contentsline {section}{References}{64}}
 \bibcite{ILSVRC_Classification_Top5}{12}
 \bibcite{VGG_Paper}{13}
 \bibcite{GoogLeNet_Paper}{14}
 \bibcite{ResNet_Paper}{15}
 \bibcite{GoogLeNet_v4_Paper}{16}
 \bibcite{GoogLeNet_v3_Paper}{17}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{60}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}VGG16}{60}}
+\bibcite{wiki:bilinear_interpolation}{18}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{66}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}VGG16}{66}}

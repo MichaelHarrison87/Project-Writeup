@@ -50,6 +50,8 @@ The \clearpage after closing the figure will put the figures onto a new, separat
 The [!ht] at the opening of the figure tells Latex to put the images close to their position in the text, rather than leave them "floating" (when their default position seems to be at the end of the document). The "!" makes this a "strong" suggestion. See:
 https://tex.stackexchange.com/questions/16207/image-from-includegraphics-showing-up-in-wrong-location
 
+Can use the \FloatBarrier command from the placeins.sty package to force images to appear before the FloatBarrier position.
+
 BIBLIOGRAPHY
 May need to create the .bbl file - which should match the filename of the main doc (e.g. dissertation.tex -> dissertation.bbl); although think can change this if needed.
 

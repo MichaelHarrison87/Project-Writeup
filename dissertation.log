@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  21 AUG 2018 01:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  21 AUG 2018 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -728,30 +728,30 @@ File: ./images/InceptionResNet.PNG Graphic file (type png)
 Package pdftex.def Info: ./images/InceptionResNet.PNG used on input line 686.
 (pdftex.def)             Requested size: 190.23442pt x 172.3176pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 689--694
+Underfull \hbox (badness 10000) in paragraph at lines 692--697
 
  []
 
 [40 <./images/EfficientSpatialReductionBlock.PNG>] [41 <./images/InceptionResNe
 t.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 702--734
+Underfull \hbox (badness 10000) in paragraph at lines 705--737
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--734
+Underfull \hbox (badness 10000) in paragraph at lines 705--737
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--734
+Underfull \hbox (badness 10000) in paragraph at lines 705--737
 
  []
 
 [42
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 739--744
+Underfull \hbox (badness 10000) in paragraph at lines 742--747
 
  []
 
@@ -763,7 +763,7 @@ c file (type png)
 
 <use ./images/XR_ELBOW/Negative/patient05926/study1_negative/image1.png>
 Package pdftex.def Info: ./images/XR_ELBOW/Negative/patient05926/study1_negativ
-e/image1.png used on input line 754.
+e/image1.png used on input line 757.
 (pdftex.def)             Requested size: 169.63333pt x 256.95937pt.
 
 <./images/XR_ELBOW/Negative/patient05926/study1_negative/image2.png, id=205, 51
@@ -773,10 +773,10 @@ c file (type png)
 
 <use ./images/XR_ELBOW/Negative/patient05926/study1_negative/image2.png>
 Package pdftex.def Info: ./images/XR_ELBOW/Negative/patient05926/study1_negativ
-e/image2.png used on input line 757.
+e/image2.png used on input line 760.
 (pdftex.def)             Requested size: 256.95937pt x 226.84694pt.
 
-Overfull \hbox (81.19267pt too wide) in paragraph at lines 754--758
+Overfull \hbox (81.19267pt too wide) in paragraph at lines 757--761
  [][][] 
  []
 
@@ -790,7 +790,7 @@ ic file (type png)
 
 <use ./images/XR_FINGER/Positive/patient00234/study1_positive/image1.png>
 Package pdftex.def Info: ./images/XR_FINGER/Positive/patient00234/study1_positi
-ve/image1.png used on input line 769.
+ve/image1.png used on input line 772.
 (pdftex.def)             Requested size: 63.73796pt x 256.95937pt.
 
 <./images/XR_FINGER/Positive/patient00234/study1_positive/image2.png, id=210, 1
@@ -800,7 +800,7 @@ ic file (type png)
 
 <use ./images/XR_FINGER/Positive/patient00234/study1_positive/image2.png>
 Package pdftex.def Info: ./images/XR_FINGER/Positive/patient00234/study1_positi
-ve/image2.png used on input line 772.
+ve/image2.png used on input line 775.
 (pdftex.def)             Requested size: 80.29979pt x 256.95937pt.
 
 <./images/XR_FINGER/Positive/patient00234/study1_positive/image3.png, id=211, 1
@@ -810,7 +810,7 @@ ic file (type png)
 
 <use ./images/XR_FINGER/Positive/patient00234/study1_positive/image3.png>
 Package pdftex.def Info: ./images/XR_FINGER/Positive/patient00234/study1_positi
-ve/image3.png used on input line 775.
+ve/image3.png used on input line 778.
 (pdftex.def)             Requested size: 63.73796pt x 256.95937pt.
 
 [46 <./images/XR_FINGER/Positive/patient00234/study1_positive/image1.png (PNG c
@@ -824,7 +824,7 @@ File: ./images/XR_HAND/Positive/patient09836/study1_positive/image1.png Graphic
 
 <use ./images/XR_HAND/Positive/patient09836/study1_positive/image1.png>
 Package pdftex.def Info: ./images/XR_HAND/Positive/patient09836/study1_positive
-/image1.png used on input line 787.
+/image1.png used on input line 790.
 (pdftex.def)             Requested size: 158.99118pt x 205.56435pt.
 
 <./images/XR_HAND/Positive/patient09836/study1_positive/image2.png, id=216, 395
@@ -834,7 +834,7 @@ File: ./images/XR_HAND/Positive/patient09836/study1_positive/image2.png Graphic
 
 <use ./images/XR_HAND/Positive/patient09836/study1_positive/image2.png>
 Package pdftex.def Info: ./images/XR_HAND/Positive/patient09836/study1_positive
-/image2.png used on input line 790.
+/image2.png used on input line 793.
 (pdftex.def)             Requested size: 158.18819pt x 205.56435pt.
 
 <./images/XR_HAND/Positive/patient09836/study1_positive/image3.png, id=217, 396
@@ -844,7 +844,7 @@ File: ./images/XR_HAND/Positive/patient09836/study1_positive/image3.png Graphic
 
 <use ./images/XR_HAND/Positive/patient09836/study1_positive/image3.png>
 Package pdftex.def Info: ./images/XR_HAND/Positive/patient09836/study1_positive
-/image3.png used on input line 794.
+/image3.png used on input line 797.
 (pdftex.def)             Requested size: 158.58968pt x 205.56435pt.
 
 [47 <./images/XR_HAND/Positive/patient09836/study1_positive/image1.png (PNG cop
@@ -858,7 +858,7 @@ hic file (type png)
 
 <use ./images/XR_HUMERUS/Negative/patient11225/study1_negative/image1.png>
 Package pdftex.def Info: ./images/XR_HUMERUS/Negative/patient11225/study1_negat
-ive/image1.png used on input line 806.
+ive/image1.png used on input line 809.
 (pdftex.def)             Requested size: 210.78697pt x 256.95937pt.
 
 <./images/XR_HUMERUS/Negative/patient11225/study1_negative/image2.png, id=222, 
@@ -868,10 +868,10 @@ hic file (type png)
 
 <use ./images/XR_HUMERUS/Negative/patient11225/study1_negative/image2.png>
 Package pdftex.def Info: ./images/XR_HUMERUS/Negative/patient11225/study1_negat
-ive/image2.png used on input line 809.
+ive/image2.png used on input line 812.
 (pdftex.def)             Requested size: 210.78697pt x 256.95937pt.
 
-Overfull \hbox (76.17392pt too wide) in paragraph at lines 806--810
+Overfull \hbox (76.17392pt too wide) in paragraph at lines 809--813
  [][][] 
  []
 
@@ -885,7 +885,7 @@ hic file (type png)
 
 <use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image1.png>
 Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
-ive/image1.png used on input line 821.
+ive/image1.png used on input line 824.
 (pdftex.def)             Requested size: 256.95937pt x 101.3785pt.
 
 <./images/XR_FOREARM/Positive/patient11417/study1_positive/image2.png, id=228, 
@@ -895,7 +895,7 @@ hic file (type png)
 
 <use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image2.png>
 Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
-ive/image2.png used on input line 825.
+ive/image2.png used on input line 828.
 (pdftex.def)             Requested size: 256.95937pt x 107.90285pt.
 
 <./images/XR_FOREARM/Positive/patient11417/study1_positive/image3.png, id=229, 
@@ -905,7 +905,7 @@ hic file (type png)
 
 <use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image3.png>
 Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
-ive/image3.png used on input line 829.
+ive/image3.png used on input line 832.
 (pdftex.def)             Requested size: 81.90454pt x 205.56435pt.
 
 <./images/XR_FOREARM/Positive/patient11417/study1_positive/image4.png, id=230, 
@@ -915,7 +915,7 @@ hic file (type png)
 
 <use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image4.png>
 Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
-ive/image4.png used on input line 832.
+ive/image4.png used on input line 835.
 (pdftex.def)             Requested size: 82.30603pt x 205.56435pt.
 
 [49 <./images/XR_FOREARM/Positive/patient11417/study1_positive/image1.png (PNG 
@@ -930,7 +930,7 @@ phic file (type png)
 
 <use ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image1.png>
 Package pdftex.def Info: ./images/XR_SHOULDER/Positive/patient00001/study1_posi
-tive/image1.png used on input line 844.
+tive/image1.png used on input line 847.
 (pdftex.def)             Requested size: 190.71202pt x 256.95937pt.
 
 <./images/XR_SHOULDER/Positive/patient00001/study1_positive/image2.png, id=235,
@@ -940,7 +940,7 @@ phic file (type png)
 
 <use ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image2.png>
 Package pdftex.def Info: ./images/XR_SHOULDER/Positive/patient00001/study1_posi
-tive/image2.png used on input line 847.
+tive/image2.png used on input line 850.
 (pdftex.def)             Requested size: 152.06775pt x 256.95937pt.
 
 <./images/XR_SHOULDER/Positive/patient00001/study1_positive/image3.png, id=236,
@@ -950,7 +950,7 @@ phic file (type png)
 
 <use ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image3.png>
 Package pdftex.def Info: ./images/XR_SHOULDER/Positive/patient00001/study1_posi
-tive/image3.png used on input line 851.
+tive/image3.png used on input line 854.
 (pdftex.def)             Requested size: 256.95937pt x 205.76825pt.
 
 [50 <./images/XR_SHOULDER/Positive/patient00001/study1_positive/image1.png (PNG
@@ -964,7 +964,7 @@ c file (type png)
 
 <use ./images/XR_WRIST/Positive/patient01521/study1_positive/image1.png>
 Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
-e/image1.png used on input line 863.
+e/image1.png used on input line 866.
 (pdftex.def)             Requested size: 135.30309pt x 205.56435pt.
 
 <./images/XR_WRIST/Positive/patient01521/study1_positive/image2.png, id=241, 51
@@ -974,7 +974,7 @@ c file (type png)
 
 <use ./images/XR_WRIST/Positive/patient01521/study1_positive/image2.png>
 Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
-e/image2.png used on input line 866.
+e/image2.png used on input line 869.
 (pdftex.def)             Requested size: 205.56435pt x 168.22551pt.
 
 <./images/XR_WRIST/Positive/patient01521/study1_positive/image3.png, id=242, 33
@@ -984,7 +984,7 @@ c file (type png)
 
 <use ./images/XR_WRIST/Positive/patient01521/study1_positive/image3.png>
 Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
-e/image3.png used on input line 870.
+e/image3.png used on input line 873.
 (pdftex.def)             Requested size: 134.5001pt x 205.56435pt.
 
 <./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png, id=243, 33
@@ -994,7 +994,7 @@ c file (type png)
 
 <use ./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png>
 Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
-e/image4.png used on input line 873.
+e/image4.png used on input line 876.
 (pdftex.def)             Requested size: 134.9016pt x 205.56435pt.
 
 [51 <./images/XR_WRIST/Positive/patient01521/study1_positive/image1.png (PNG co
@@ -1006,7 +1006,7 @@ copy)> <./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png (PNG
 File: ./images/MURA-Breakdowns/StudiesByPart.PNG Graphic file (type png)
 <use ./images/MURA-Breakdowns/StudiesByPart.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/StudiesByPart.PNG used on inp
-ut line 889.
+ut line 892.
 (pdftex.def)             Requested size: 208.67819pt x 112.24356pt.
 
 <./images/MURA-Breakdowns/StudiesByPart_Percentages.PNG, id=248, 253.69781pt x 
@@ -1015,10 +1015,10 @@ File: ./images/MURA-Breakdowns/StudiesByPart_Percentages.PNG Graphic file (type
  png)
  <use ./images/MURA-Breakdowns/StudiesByPart_Percentages.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/StudiesByPart_Percentages.PNG
- used on input line 893.
+ used on input line 896.
 (pdftex.def)             Requested size: 177.58725pt x 112.24356pt.
 
-Overfull \hbox (40.86542pt too wide) in paragraph at lines 889--894
+Overfull \hbox (40.86542pt too wide) in paragraph at lines 892--897
  [][][] 
  []
 
@@ -1028,7 +1028,7 @@ File: ./images/MURA-Breakdowns/ImagesByPart.PNG Graphic file (type png)
 
 <use ./images/MURA-Breakdowns/ImagesByPart.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/ImagesByPart.PNG used on inpu
-t line 905.
+t line 908.
 (pdftex.def)             Requested size: 208.15123pt x 111.7166pt.
 
 <./images/MURA-Breakdowns/ImagesByPart_Percentages.PNG, id=250, 252.945pt x 160
@@ -1037,7 +1037,7 @@ File: ./images/MURA-Breakdowns/ImagesByPart_Percentages.PNG Graphic file (type
 png)
  <use ./images/MURA-Breakdowns/ImagesByPart_Percentages.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/ImagesByPart_Percentages.PNG 
-used on input line 909.
+used on input line 912.
 (pdftex.def)             Requested size: 177.06029pt x 112.24356pt.
 
 <./images/MURA-Breakdowns/ImagesPerStudy.PNG, id=251, 304.88907pt x 160.34906pt
@@ -1045,10 +1045,10 @@ used on input line 909.
 File: ./images/MURA-Breakdowns/ImagesPerStudy.PNG Graphic file (type png)
  <use ./images/MURA-Breakdowns/ImagesPerStudy.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/ImagesPerStudy.PNG used on in
-put line 914.
+put line 917.
 (pdftex.def)             Requested size: 213.42088pt x 112.24356pt.
 
-Overfull \hbox (39.8115pt too wide) in paragraph at lines 905--915
+Overfull \hbox (39.8115pt too wide) in paragraph at lines 908--918
  [][][]  
  []
 
@@ -1060,7 +1060,7 @@ File: ./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG Graphic file (type p
 ng)
  <use ./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG u
-sed on input line 928.
+sed on input line 931.
 (pdftex.def)             Requested size: 226.06804pt x 83.26048pt.
  [53 <./images/MURA-Breakdowns/ImagesByPart.PNG> <./images/MURA-Breakdowns/Imag
 esByPart_Percentages.PNG> <./images/MURA-Breakdowns/ImagesPerStudy.PNG>]
@@ -1069,7 +1069,7 @@ t>
 File: ./images/MURA-Breakdowns/PartCoOccurence.PNG Graphic file (type png)
  <use ./images/MURA-Breakdowns/PartCoOccurence.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/PartCoOccurence.PNG used on i
-nput line 938.
+nput line 941.
 (pdftex.def)             Requested size: 322.50267pt x 102.23122pt.
 
 <./images/MURA-Breakdowns/PartCoOccurence_Percentages.PNG, id=265, 456.95718pt 
@@ -1078,7 +1078,7 @@ File: ./images/MURA-Breakdowns/PartCoOccurence_Percentages.PNG Graphic file (ty
 pe png)
  <use ./images/MURA-Breakdowns/PartCoOccurence_Percentages.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/PartCoOccurence_Percentages.P
-NG used on input line 943.
+NG used on input line 946.
 (pdftex.def)             Requested size: 319.86784pt x 92.21889pt.
 
 [54 <./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG> <./images/MURA-Break
@@ -1090,7 +1090,7 @@ File: ./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG Graphic file (type pn
 g)
  <use ./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG us
-ed on input line 957.
+ed on input line 960.
 (pdftex.def)             Requested size: 125.4177pt x 57.4392pt.
 
 <./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG, id=274, 318.43968pt x 24
@@ -1099,7 +1099,7 @@ File: ./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG Graphic file (type p
 ng)
  <use ./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG u
-sed on input line 966.
+sed on input line 969.
 (pdftex.def)             Requested size: 222.90625pt x 173.8985pt.
  [55 <./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG>]
 <./images/MURA-Breakdowns/StudyOutcomesByRole.PNG, id=279, 264.99pt x 145.29282
@@ -1107,41 +1107,41 @@ pt>
 File: ./images/MURA-Breakdowns/StudyOutcomesByRole.PNG Graphic file (type png)
  <use ./images/MURA-Breakdowns/StudyOutcomesByRole.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/StudyOutcomesByRole.PNG used 
-on input line 976.
+on input line 979.
 (pdftex.def)             Requested size: 185.49173pt x 101.70427pt.
  [56 <./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG> <./images/MURA-Brea
 kdowns/StudyOutcomesByRole.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 990--995
+Underfull \hbox (badness 10000) in paragraph at lines 993--998
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 997--1006
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1009
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 997--1006
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1009
 
  []
 
 [57]
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1015
+Underfull \hbox (badness 10000) in paragraph at lines 1013--1018
 
  []
 
 [58] [59] [60]
-Underfull \hbox (badness 10000) in paragraph at lines 1051--1065
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1068
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1051--1065
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1068
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1051--1065
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1068
 
  []
 
@@ -1184,7 +1184,7 @@ alf-[]minutes .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--92
+Underfull \hbox (badness 10000) in paragraph at lines 93--96
 []\OT1/cmr/m/n/10.95 ``Bilinear in-ter-po-la-tion.'' $\OT1/cmtt/m/n/10.95 https
  : / / en . wikipedia . org / wiki /
  []
@@ -1193,10 +1193,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 89--92
 
 ] (./dissertation.aux) ) 
 Here is how much of TeX's memory you used:
- 4323 strings out of 494953
- 71606 string characters out of 6180977
- 127906 words of memory out of 5000000
- 7464 multiletter control sequences out of 15000+600000
+ 4324 strings out of 494953
+ 71622 string characters out of 6180977
+ 127910 words of memory out of 5000000
+ 7465 multiletter control sequences out of 15000+600000
  16237 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  44i,11n,49p,1615b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1220,7 +1220,7 @@ re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on dissertation.pdf (73 pages, 1922214 bytes).
+Output written on dissertation.pdf (73 pages, 1922761 bytes).
 PDF statistics:
  388 PDF objects out of 1000 (max. 8388607)
  228 compressed objects within 3 object streams

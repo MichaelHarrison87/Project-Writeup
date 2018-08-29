@@ -33,6 +33,7 @@
 \contentsline {subsection}{\numberline {3.2}GoogLeNet}{35}
 \contentsline {subsection}{\numberline {3.3}ResNet}{36}
 \contentsline {subsection}{\numberline {3.4}GoogLeNet-v4}{38}
+\contentsline {subsection}{\numberline {3.5}DenseNet}{40}
 \contentsline {section}{\numberline {4}Data}{42}
 \contentsline {subsection}{\numberline {4.1}Data Collection}{43}
 \contentsline {subsection}{\numberline {4.2}Abnormality Analysis}{44}

@@ -89,9 +89,25 @@ C.~{Szegedy}, V.~{Vanhoucke}, S.~{Ioffe}, J.~{Shlens}, and Z.~{Wojna},
 G.~{Huang}, Z.~{Liu}, L.~{van der Maaten}, and K.~Q. {Weinberger}, ``{Densely
   Connected Convolutional Networks},'' {\em ArXiv e-prints}, Aug. 2016.
 
+\bibitem{ChestXray-14}
+X.~Wang, Y.~Peng, L.~Lu, Z.~Lu, M.~Bagheri, and R.~Summers, ``Chestx-ray14:
+  Hospital-scale chest x-ray database and benchmarks on weakly-supervised
+  classification and localization of common thorax diseases,'' 09 2017.
+
+\bibitem{Oakden-Rayner-Commentary}
+L.~Oakden-Rayner, ``Exploring the chestxray14 dataset: problems.''
+  \url{https://lukeoakdenrayner.wordpress.com/2017/12/18/the-chestxray14-dataset-problems/},
+  2017.
+\newblock [Online; accessed 29-August-2018].
+
 \bibitem{wiki:bilinear_interpolation}
 ``Bilinear interpolation.''
   \url{https://en.wikipedia.org/wiki/Bilinear_interpolation}, 2018.
 \newblock [Online; accessed 20-August-2018].
+
+\bibitem{MURA_Webpage}
+``Bone x-ray deep learning competition.''
+  \url{https://stanfordmlgroup.github.io/competitions/mura/}, 2018.
+\newblock [Online; accessed 30-August-2018].
 
 \end{thebibliography}

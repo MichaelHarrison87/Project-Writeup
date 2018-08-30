@@ -29,3 +29,15 @@
 \contentsline {figure}{\numberline {22}{\ignorespaces Numbers of studies per patient's body part\relax }}{55}
 \contentsline {figure}{\numberline {23}{\ignorespaces Results of Consecutive Studies\relax }}{56}
 \contentsline {figure}{\numberline {24}{\ignorespaces Breakdown of study outcomes\relax }}{56}
+\contentsline {figure}{\numberline {25}{\ignorespaces Simple Baseline Structure\relax }}{59}
+\contentsline {figure}{\numberline {26}{\ignorespaces Alternative Baseline Models\relax }}{60}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Shallower Baseline}}}{60}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Deeper Baseline}}}{60}
+\contentsline {figure}{\numberline {27}{\ignorespaces MURA Authors Results - Test Data\relax }}{63}
+\contentsline {figure}{\numberline {28}{\ignorespaces MURA Leaderboard Top 10 - as of 30th August 2018\relax }}{64}
+\contentsline {figure}{\numberline {29}{\ignorespaces Small Baseline Model - Image Size \(48 \times 48\) \relax }}{65}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Accuracy - Training and Validation Sets}}}{65}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Loss - Training and Validation Sets}}}{65}
+\contentsline {figure}{\numberline {30}{\ignorespaces Studywise Performance - Vanilla Model\relax }}{66}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {ROC Curve}}}{66}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance by Site}}}{66}

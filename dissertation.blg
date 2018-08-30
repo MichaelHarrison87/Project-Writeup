@@ -3,36 +3,37 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: dissertation.aux
 The style file: ieeetr.bst
 Database file #1: bibliography.bib
-You've used 19 entries,
+Warning--empty journal in ChestXray-14
+You've used 22 entries,
             1876 wiz_defined-function locations,
-            576 strings with 6939 characters,
-and the built_in function-call counts, 3918 in all, are:
-= -- 323
-> -- 244
+            592 strings with 7593 characters,
+and the built_in function-call counts, 4367 in all, are:
+= -- 361
+> -- 269
 < -- 0
-+ -- 90
-- -- 71
-* -- 306
-:= -- 615
-add.period$ -- 25
-call.type$ -- 19
-change.case$ -- 19
++ -- 100
+- -- 78
+* -- 335
+:= -- 683
+add.period$ -- 30
+call.type$ -- 22
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 168
-empty$ -- 371
-format.name$ -- 71
-if$ -- 920
+cite$ -- 23
+duplicate$ -- 184
+empty$ -- 422
+format.name$ -- 78
+if$ -- 1028
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 13
-newline$ -- 66
-num.names$ -- 14
-pop$ -- 79
+int.to.str$ -- 22
+missing$ -- 14
+newline$ -- 77
+num.names$ -- 16
+pop$ -- 97
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 95
+skip$ -- 103
 stack$ -- 0
 substring$ -- 112
 swap$ -- 45
@@ -40,7 +41,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 22
-width$ -- 21
-write$ -- 170
+warning$ -- 1
+while$ -- 24
+width$ -- 24
+write$ -- 196
+(There was 1 warning)

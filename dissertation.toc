@@ -50,19 +50,26 @@
 \contentsline {subsubsection}{\numberline {4.4.2}Numbers of Images}{52}
 \contentsline {subsubsection}{\numberline {4.4.3}Studies of Multiple Body Parts}{53}
 \contentsline {subsubsection}{\numberline {4.4.4}Consecutive Studies}{55}
-\contentsline {section}{\numberline {5}Model Development}{57}
-\contentsline {subsection}{\numberline {5.1}Working Environment}{57}
-\contentsline {subsection}{\numberline {5.2}Data Preprocessing}{57}
-\contentsline {subsection}{\numberline {5.3}Model}{58}
-\contentsline {subsection}{\numberline {5.4}Predictions}{58}
-\contentsline {section}{\numberline {6}Results}{59}
-\contentsline {subsection}{\numberline {6.1}Baseline Performance}{59}
-\contentsline {subsection}{\numberline {6.2}Image Size}{59}
-\contentsline {subsection}{\numberline {6.3}Regularisation}{59}
-\contentsline {subsection}{\numberline {6.4}Pre-Trained Models}{59}
-\contentsline {section}{\numberline {7}Conclusions}{60}
-\contentsline {section}{\numberline {8}Professional and Ethical Issues}{61}
-\contentsline {section}{\numberline {9}Extensions}{63}
-\contentsline {section}{References}{64}
-\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{66}
-\contentsline {subsection}{\numberline {A.1}VGG16}{66}
+\contentsline {subsubsection}{\numberline {4.4.5}Alternative Data}{56}
+\contentsline {section}{\numberline {5}Model Development}{58}
+\contentsline {subsection}{\numberline {5.1}Working Environment}{58}
+\contentsline {subsection}{\numberline {5.2}Data Preprocessing}{58}
+\contentsline {subsection}{\numberline {5.3}Model}{59}
+\contentsline {subsubsection}{\numberline {5.3.1}Simple Baseline}{59}
+\contentsline {subsubsection}{\numberline {5.3.2}Pre-Built Architectures}{60}
+\contentsline {subsubsection}{\numberline {5.3.3}Training}{61}
+\contentsline {subsection}{\numberline {5.4}Predictions}{61}
+\contentsline {section}{\numberline {6}Results}{63}
+\contentsline {subsection}{\numberline {6.1}Benchmark - MURA Authors}{63}
+\contentsline {subsection}{\numberline {6.2}Baseline Performance}{65}
+\contentsline {subsubsection}{\numberline {6.2.1}Vanilla Model}{65}
+\contentsline {subsection}{\numberline {6.3}Image Size}{66}
+\contentsline {subsection}{\numberline {6.4}Regularisation}{66}
+\contentsline {subsection}{\numberline {6.5}Pre-Trained Models}{66}
+\contentsline {section}{\numberline {7}Conclusions}{67}
+\contentsline {section}{\numberline {8}Professional and Ethical Issues}{68}
+\contentsline {section}{\numberline {9}Extensions}{70}
+\contentsline {section}{References}{71}
+\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{73}
+\contentsline {subsection}{\numberline {A.1}VGG16}{73}
+\contentsline {section}{\numberline {B}How To Use My Model}{74}

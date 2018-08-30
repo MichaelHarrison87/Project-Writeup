@@ -187,27 +187,69 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.4}Consecutive Studies}{55}}
 \@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Numbers of studies per patient's body part\relax }}{55}}
 \newlabel{fig:NumbersOfStudiesBySite}{{22}{55}}
+\citation{ChestXray-14}
+\citation{Oakden-Rayner-Commentary}
 \@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Results of Consecutive Studies\relax }}{56}}
 \newlabel{fig:ConsecutiveStudyResults}{{23}{56}}
 \newlabel{fig:StudyOutcomesByRole}{{24a}{56}}
 \newlabel{sub@fig:StudyOutcomesByRole}{{(a)}{a}}
 \@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Breakdown of study outcomes\relax }}{56}}
 \newlabel{fig:Outcomes_Breakdown}{{24}{56}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.5}Alternative Data}{56}}
 \citation{wiki:bilinear_interpolation}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Model Development}{57}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Working Environment}{57}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Data Preprocessing}{57}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Model Development}{58}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Working Environment}{58}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Data Preprocessing}{58}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Model}{59}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Simple Baseline}{59}}
+\newlabel{Simple-Baseline}{{5.3.1}{59}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Simple Baseline Structure\relax }}{59}}
+\newlabel{fig:SimpleBaselineModel}{{25}{59}}
+\newlabel{fig:SimpleBaselineModel_Shallower}{{26a}{60}}
+\newlabel{sub@fig:SimpleBaselineModel_Shallower}{{(a)}{a}}
+\newlabel{fig:SimpleBaselineModel_Deeper}{{26b}{60}}
+\newlabel{sub@fig:SimpleBaselineModel_Deeper}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Alternative Baseline Models\relax }}{60}}
+\newlabel{fig:Baseline_Alts}{{26}{60}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Shallower Baseline}}}{60}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Deeper Baseline}}}{60}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Pre-Built Architectures}{60}}
 \citation{MURA2017}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Model}{58}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Predictions}{58}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{59}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Baseline Performance}{59}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Image Size}{59}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Regularisation}{59}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Pre-Trained Models}{59}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{60}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Professional and Ethical Issues}{61}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Extensions}{63}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Training}{61}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Predictions}{61}}
+\citation{MURA2017}
+\citation{MURA2017}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{63}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Benchmark - MURA Authors}{63}}
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces MURA Authors Results - Test Data\relax }}{63}}
+\newlabel{fig:mura-authors-results}{{27}{63}}
+\citation{MURA_Webpage}
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces MURA Leaderboard Top 10 - as of 30th August 2018\relax }}{64}}
+\newlabel{fig:mura-leaderboard-}{{28}{64}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Baseline Performance}{65}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Vanilla Model}{65}}
+\newlabel{fig:SimpleBaselineModel_Shallower}{{29a}{65}}
+\newlabel{sub@fig:SimpleBaselineModel_Shallower}{{(a)}{a}}
+\newlabel{fig:SimpleBaselineModel_Deeper}{{29b}{65}}
+\newlabel{sub@fig:SimpleBaselineModel_Deeper}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Small Baseline Model - Image Size \(48 \times 48\) \relax }}{65}}
+\newlabel{fig:Results_Vanilla}{{29}{65}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Accuracy - Training and Validation Sets}}}{65}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Loss - Training and Validation Sets}}}{65}}
+\newlabel{fig:roc_curve_vanilla}{{30a}{66}}
+\newlabel{sub@fig:roc_curve_vanilla}{{(a)}{a}}
+\newlabel{fig:kappa_by_site_vanilla}{{30b}{66}}
+\newlabel{sub@fig:kappa_by_site_vanilla}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Studywise Performance - Vanilla Model\relax }}{66}}
+\newlabel{fig:Results_Vanilla_Studywise}{{30}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {ROC Curve}}}{66}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance by Site}}}{66}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Image Size}{66}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Regularisation}{66}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Pre-Trained Models}{66}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{67}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Professional and Ethical Issues}{68}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Extensions}{70}}
 \bibstyle{ieeetr}
 \bibdata{bibliography}
 \bibcite{MURA2017}{1}
@@ -221,7 +263,7 @@
 \bibcite{wiki:ROC_Curve}{9}
 \bibcite{ILSVRC}{10}
 \bibcite{imagenet}{11}
-\@writefile{toc}{\contentsline {section}{References}{64}}
+\@writefile{toc}{\contentsline {section}{References}{71}}
 \bibcite{ILSVRC_Classification_Top5}{12}
 \bibcite{VGG_Paper}{13}
 \bibcite{GoogLeNet_Paper}{14}
@@ -229,6 +271,10 @@
 \bibcite{GoogLeNet_v4_Paper}{16}
 \bibcite{GoogLeNet_v3_Paper}{17}
 \bibcite{DenseNet_Paper}{18}
-\bibcite{wiki:bilinear_interpolation}{19}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{66}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}VGG16}{66}}
+\bibcite{ChestXray-14}{19}
+\bibcite{Oakden-Rayner-Commentary}{20}
+\bibcite{wiki:bilinear_interpolation}{21}
+\bibcite{MURA_Webpage}{22}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Pretrained Model Architechtures}{73}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}VGG16}{73}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}How To Use My Model}{74}}

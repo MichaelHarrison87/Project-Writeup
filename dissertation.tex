@@ -43,12 +43,12 @@
 \declaration
 
 \begin{acknowledgement}
-I would like to thank...
+I would like to thank Alberto Paccanaro for giving me the initial spur for this project, and for providing help and support along the way.
 \end{acknowledgement}
 
 % NB: The abstract environment also inserts the Table of Contents
 \begin{abstract}
-ABSTRACT TBD
+This report covers the use of Deep Learning to perform X-ray image classification. In particular, on the MURA (muskuloskeletal radiographs) dataset - a collection of over 40,000 X-rays of various parts of the upper extremity such as hand, shoulder or elbow. The classification task was to distinguish normal from abnormal X-rays. The Deep Learning aspect was to build and train a convolutional neural network to do this. We trained a model that achieved 77\% accuracy on the validation data. We then submitted this model to a competition held by the MURA authors, and it will be assessed against an unseen test set. However at the time of submitting this project, we are awaiting this result.
 \end{abstract}
 
 
@@ -57,7 +57,7 @@ ABSTRACT TBD
 \setcounter{page}{1}
 \pagenumbering{arabic}
 \section{Introduction}
-The aim of this project is to explore the use of Deep Learning in a practical situation. Deep Learning techniques have been used in a range of problems, such as image recognition [ref GoogleLeNet], natural language processing [ref Google Neural Machine Translation], playing games [ref AlphaGo] and self-driving cars [ref WayMo], among others. These techniques have often achieved cutting-edge performance on these tasks - for instance, surpassing human performance in the ImageNet task [ref ILSVRC], or beating the world champion Lee Sedol at the game Go [ref AlphaGo win]. As such, Deep Learning is an exciting branch of Machine Learning with the potential to make significant impacts in many areas of life. Indeed Deep Learning is one of (the?) largest areas of active research in Machine Learning at the time of writing [ref numbers of citations].
+The aim of this project is to explore the use of Deep Learning in a practical situation. Deep Learning techniques have been used in a range of problems, such as image recognition, natural language processing, playing games and self-driving cars, among others. These techniques have often achieved cutting-edge performance on these tasks - for instance, surpassing human performance in the ImageNet task, or beating the world champion Lee Sedol at the game Go. As such, Deep Learning is an exciting branch of Machine Learning with the potential to make significant impacts in many areas of life. Indeed Deep Learning is one of the largest areas of active research in Machine Learning at the time of writing.
 \\
 \\
 \noindent
@@ -65,7 +65,7 @@ This project focuses on image recognition, as this is one of the areas where Dee
 \\
 \\
 \noindent
-While any model developed as part of this project can only represent a toy solution to this problem, the principle of combining Deep Learning and medicine seems to be a good one. Inded this too is an area of active research, both within radiology [ref radiology], medical imaging [ref other DL/med image work] and medicine more widely [ref DL/med work]. The works cited of course represent only a small fraction of what is being done. Thinking optimistically, Deep Learning can help improve patient outcomes, produce results more quickly, alleviate pressure off medical pracitioners, reduce medical mistakes and improve medical decision-making. As such, this represents good motivation for me to dip my toe into this area as part of my project.
+While any model developed as part of this project can only represent a toy solution to this problem, the principle of combining Deep Learning and medicine seems to be a good one. Indeed this too is an area of active research, both within radiology, medical imaging, and medicine more widely. Thinking optimistically, Deep Learning can help improve patient outcomes, produce results more quickly, alleviate pressure off medical pracitioners, reduce medical mistakes and improve medical decision-making. As such, this represents good motivation for me to dip my toe into this area as part of my project.
 
 % END INTRODUCTION
 
@@ -104,27 +104,11 @@ This process is repeated, with activations from the input layer feeding into act
 Such networks are called fully-connected networks, and theirs layers with every neuron connecting to every neuron in the next layer are called \textit{fully-connected} or \textit{dense} layers.   
 
 \subsubsection{Activation Functions}
-The activation functions are usually chosen to be non-linear - since otherwise, composing several layers of neuron activations reduces to taking a linear function of the original input neurons and the network itself simply becomes a linear function. To see this, let \(f(x) = x\) be the linear activation function used throughout the network. Then if layer \(0\) is the input layer, the activations of layer \(1\) are:
-\[a^{[1]} = f(\mathbf{{W^{[1]}}^{\top}}a^{[0]} + b^{[1]}) = \mathbf{{W^{[1]}}^{\top}}a^{[0]} + b^{[1]}\]
-And the activations for layer \(2\) are:
-\begin{align}
-a^{[2]} &= f(\mathbf{{W^{[2]}}^{\top}}a^{[1]} + b^{[2]})  \\
-      &= \mathbf{{W^{[2]}}^{\top}}a^{[1]} + b^{[2]} \\
-      &= \mathbf{{W^{[2]}}^{\top}}(\mathbf{{W^{[1]}}^{\top}}a^{[0]} + b^{[1]}) + b^{[2]} \\
-      &= \mathbf{(W^{[1]}W^{[2]})^{\top}}a^{[0]} + \mathbf{{W^{[2]}}^{\top}}b^{[1]} + b^{[2]} \\
-      &= \mathbf{W'^{\top}}a^{[0]} + b' 
-\end{align}
-where:
-\begin{itemize}
-  \item \(\mathbf{W'} = \mathbf{W^{[1]}W^{[2]}}\)  is an \({n_0}\times{n_2}\) matrix
-  \item \(b' = \mathbf{{W^{[2]}}^{\top}}b^{[1]} + b^{[2]}\) is an \({n_2}\times{1}\) vector
-  \item Equation \((4)\) uses the matrix transpose rule \((AB)^{\top} = B^{\top}A^{\top}\)
-\end{itemize}
-Hence both \(a^{[1]}\) and \(a^{[2]}\) are linear functions of \(a^{[0]}\). This argument can be repeated to any number of hidden layers, and so the output of the whole network (regardless of its size) is simply a linear function of the input. This is undesirable since such a network cannot learn more complicated, non-linear features of the data. Training the network is effectively equivalent to just performing linear regression.
+The activation functions are usually chosen to be non-linear - since otherwise, composing several layers of neuron activations reduces to taking a linear function of the original input neurons, and the network itself simply becomes a linear function. See Appendex \ref{linear-activation-functions} for the mathematical argument.  Training the network is effectively equivalent to just performing linear regression. This is undesirable since such a network cannot learn more complicated, non-linear features of the data.
 \\
 \\
 \noindent
-Therefore non-linear activation functions are usually preferred. In this project we have used the following activation functions, in line with standard practice for image classification [ref e.g. VGG16].
+Therefore non-linear activation functions are usually preferred. In this project we have used the following activation functions, in line with standard practice for image classification.
 \\
 \\
 \noindent
@@ -156,20 +140,8 @@ Hence \(w_j \in [0,1] \ \forall \ j=1, \ldots,n\) and so \(w\) represents a prob
 \\
 \\
 \noindent
-This is extremely useful for classification, since we can set the final layer of our ANN to have the same number of neurons as numbers of classes, and let it use the Softmax activation function. Then each neuron would correspond to one of the \(w_j\) above, and the activations across the whole output layer would form a probability distribution over the set of classes. The network then provides a means to go from, say, an image to predicted probabilities of which class        the image belongs to. 
-\\
-\\
-\noindent
-More concretely, for our purposes we set the final layer to have 2 neurons - corresponding to normal or abnormal respectively.
-\\
-\\
-\noindent
-\textbf{Sigmoid}
-\\
-\noindent
-The sigmoid activation is simply a one-dimensional version of Softmax:
-\[ \sigma(x) = \dfrac{e^x}{1+e^x}\]
-As with the Softmax, it outputs values in the interval \([0,1]\), which can be thought of as a probability. Sigmoids are often used to provide a soft form of "gating" for a signal, namely the activations from the previous layer in a neural network. Whereas a hard version of gating can only multiply the signal by 1 (to allow all of it through) or 0 (to prevent it entirely), the sigmoid function can vary smoothly between these two extremes. This allows the signal to progress, but dampened by by the factor \(\sigma\), with the extent of dampening required able to be learned during training.  
+This is extremely useful for classification, since we can set the final layer of our ANN to have the same number of neurons as numbers of classes, and let it use the Softmax activation function. Then each neuron would correspond to one of the \(w_j\) above, and the activations across the whole output layer would form a probability distribution over the set of classes. The network then provides a means to go from, say, an image to predicted probabilities of which class the image belongs to. More concretely, for our purposes we set the final layer to have 2 neurons - corresponding to normal or abnormal respectively.
+
 \newpage
 \subsection{Training}
 After choosing the structure of the ANN - i.e. the numbers of layers, numbers of neurons, and activation functions for each layer/neuron - it remains to train the network. The act of training the network boils down to setting appropriate values for all the weights and biases across the whole network. While this could be done by hand - this would be very difficult and, for larger networks, the numbers of weights and biases can be several million and hence infeasible to set by hand anyway. Instead, the weights\footnote{We'll use "weights" as a shorthand for "weights and biases" - i.e. the set of model parameters - except where a distinction between the two is necessary.} are initialised to random values and then automatically updated through a process called \textit{Backpropagation}. This involves the following steps:
@@ -210,71 +182,7 @@ The cross-entropy loss is then given by:
 Note that since \(y\) has all components 0, except for a 1 corresponding to the true label, the loss above reduces to taking the logarithm of the predicted probability of the true label. The sign of the logarithm is negated, so that smaller probabilties, which would give larger negative values of log, give larger positive loss values. The loss is therefore monotonically decreasing with the predicted probability of the true label - which is as desired, since predicting a high probability for the true label should have a smaller loss than predicting a lower probability.  
 
 \subsubsection{Backward Pass}
-After performaing a forward pass and calculating the loss for a given data item, we now calculate the gradients of the loss with respect to all the weights and activations in the network. This is called a backward pass since the gradients in one layer depend on those in the subsequent layer. Hence the process starts with calculating gradients in the output layer, then the gradients for the previous layer, and so on all the way back through the whole network. While the weight update step of the Backpropagation algorithm only uses the gradients of the weights, these gradients themselves depend on the gradients of the activations of the neurons which depend on these weights. Thus the backward pass involves calculating the gradients of activations, even though these are not strictly used in the weight update step. 
-\\
-\\
-\noindent
-Using the cross-entropy loss function, for a classification task as described above, we can calculate the gradient of the loss with respect to $\hat{y_j}$ (considering \(y_j\) as a fixed constant):
-\begin{align*}
-\dfrac{\partial  L}{\partial \hat{y_j}} &= \dfrac{\partial }{\partial \hat{y_j}}(- \sum_{j=1}^n y_jlog(\hat{y_j})) \\
-&= \dfrac{\partial }{\partial \hat{y_j}}(-y_jlog(\hat{y_j})) \\
-&= -\dfrac{y_j}{\hat{y_j}}
-\end{align*}
-Recall that $\hat{y_j}$ is the activation of the \(j^{th}\) neuron in the output layer. Which itself is a derived from the weights \(\mathbf{W}\) and biases \(b\) in the output layer, and the activations from the previous layer (layer \(l\), say) \(a^{[l]}\), fed through the Softmax function:
-\[ z = \mathbf{W^{\top}}a^{[l]} + b\]   
-\[ \hat{y_j} = \dfrac{e^{z_j}}{\sum_{k=1}^n e^{z_k}} \]
-And so, by the quotient rule:
-\begin{align*}
-\dfrac{\partial  \hat{y_j}}{\partial z_j} &= \dfrac{e^{z_j}(\sum_{k \neq j}e^{z_k}+e^{z_j}) - (e^{z_j})^2}{(\sum_{k=1}^n e^{z_k})^2} \\
-&= \dfrac{e^{z_j}}{\sum_{k=1}^n e^{z_k}} \dfrac{\sum_{k \neq j}e^{z_k}}{\sum_{k=1}^n e^{z_k}} \\
-&= \hat{y_j}(1-\hat{y_j})
-\end{align*}
-Where the final equality is due to:
-\begin{align*}
-1-\hat{y_j} &= 1 - \dfrac{e^{z_j}}{\sum_{k=1}^n e^{z_k}} \\
-&= \dfrac {\sum_{k=1}^n e^{z_k} - e^{z_j}}{\sum_{k=1}^n e^{z_k}} \\
-&= \dfrac {\sum_{k \neq j} e^{z_k}}{\sum_{k=1}^n e^{z_k}}
-\end{align*}
-But since \(z_j\) appears in the denominator for all other \(y_i\), \(i \neq j\), we also need to calculate:
-\begin{align*}
-\dfrac{\partial \hat{y_i}}{\partial z_j} &= \dfrac{\partial }{\partial z_j} (\dfrac{e^{z_i}}{\sum_{k \neq j} e^{z_k} + e^{z_j}})  \\
-&= -\dfrac{e^{z_i}e^{z_j}}{(\sum_{k=1}^n e^{z_k})^2} \\
-&= -\hat{y_i}\hat{y_j}
-\end{align*}
-Therefore we can apply the chain rule of differentiation to calculate the gradients of the loss with respect to the weights and biases in the output layer as follows:
-\begin{align*}
-\dfrac{\partial L}{\partial z_j} &= \sum_{i=1}^n \dfrac{\partial L}{\partial \hat{y_i}} \dfrac{\partial \hat{y_i}}{\partial z_j} \\
-&= (-\dfrac {y_j}{\hat{y_j}}) (\hat{y_j}(1-\hat{y_j})) + \sum_{i \neq j} (-\dfrac {y_i}{\hat{y_i}})(-\hat{y_i}\hat{y_j}) \\
-&= -y_j(1-\hat{y_j}) + \sum_{i \neq j} y_i\hat{y_j} \\
-&= -y_j + \sum_{i = 1}^n y_i\hat{y_j}  \\
-&= -y_j + \hat{y_j}\sum_{i = 1}^n y_i \\ 
-&= \hat{y_j} - y_j 
-\end{align*}
-Where we've used the fact that \(\sum_{i=1}^n y_i =1 \). Now if layer \(l\) has \(n_l\) neurons:
-\[ z_j = \sum_{i=1}^{n_l} w_{i,j}a^{[l]}_i + b_j\]
-So:
-\[ \dfrac{\partial z_j}{\partial w_{i,j}} = a^{[l]}_i \]
-\[ \dfrac{\partial z_j}{\partial b_j} = 1 \]
-And we have:
-\begin{align*}
-\dfrac{\partial L}{\partial w_{i,j}} &= \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial w_{i,j}} \\
-&= (\hat{y_j}-y_j)a^{[l]}_i
-\end{align*}
-\begin{align*}
-\dfrac{\partial L}{\partial b_j} &= \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial b_j} \\
-&= \hat{y_j}-y_j
-\end{align*}
-where \(w_{i,j}\) is an element from \(j^{th}\) column of the weight matrix \(\mathbf{W}\), and \(b_j\) the bias of the \(j^{th}\) neuron in the output layer. 
-\\
-\\
-\noindent
-We can also obtain similar formulas for the gradients of the loss with respect to the activations in layer \(l\). Since each neuron in this layer connects to all neurons in the output layer, a given activation \(a^{[l]}_i\) will appear in the formula (as shown above) for all \(z_j\), \(j=1,\ldots,n\). And each of the \(z_j\) appear additively in the loss function via $\hat{y_j}$. Therefore we have:
-\[ \dfrac{\partial z_j}{\partial a^{[l]}_i} = w_{i,j}\]
-\begin{align*}
-\dfrac{\partial L}{\partial a^{[l]}_i} &= \sum_{j=1}^{n} \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial a^{[l]}_i} \\
-&= \sum_{j=1}^{n} (\hat{y_j}-y_j)w_{i,j}
-\end{align*}
-But these activations \(a^{[l]}\) themselves depend on the weights and biases in layer \(l\), and so we can extend the chain rule further to calculate the gradient of the loss with respect to these as well. And we can repeat this process for the activations, weights and biases, in layers \({l-1}, {l-2}, \ldots \) etc all the way back through the entire network.   
+After performing a forward pass and calculating the loss for a given data item, we now calculate the gradients of the loss with respect to all the weights and activations in the network. This is called a backward pass since the gradients in one layer depend on those in the subsequent layer. Hence the process starts with calculating gradients in the output layer, then the gradients for the previous layer, and so on all the way back through the whole network. While the weight update step of the Backpropagation algorithm only uses the gradients of the weights, these gradients themselves depend on the gradients of the activations of the neurons which depend on these weights. Thus the backward pass involves calculating the gradients of activations, even though these are not strictly used in the weight update step. For the mathematical details of calculating gradients during the backward pass, see Appendix \ref{Backward-Pass}.
 
 \subsubsection{Weight Update}
 The gradients calculated in the backward pass above give the change in weight to make, in order to increase the loss function. Since we aim to decrease our loss function, we subtract the gradients from the current values of all the weights. However, as mentioned, we first multiply the gradients by a hyperparameter \(\eta\), called the learning rate, in order to avoid large, erratic changes in weights (and hence predictions) after each weight update. That is, for a weight (or bias) \(w\) in the network, with gradient \(\dfrac{\partial L}{\partial w}\) we apply the following update:
@@ -285,66 +193,20 @@ The following algorithms are all variations on the general theme of Backpropagat
 \\
 \\
 \noindent
-\textbf{Gradient Descent}
-\\
-\noindent
-This involves performing a forward pass, calculating the activations and the loss, then performing a backward pass, calculating the gradients of all the weights, for every item of data in the training set. The gradients of each weight are then averaged across the entire set of training data, before performing the weight update using these average values for each weight. That is, for a weight \(w\) let  \({\dfrac{\partial L}{\partial w}}_i\) be its gradient after  forward and backward passes with the \(i^{th}\) element of the training set as input to the network. Then if there are \(n\) items of data in the training set, perform the following weight update:
-\[ w = w - \dfrac{\eta}{n}\sum_{i=1}^{n} {\dfrac{\partial L}{\partial w}}_i \]
-That is, we have to perform a forward pass and backward pass for every item in the training set, and keep track of all associated gradients, before making a single weight update. This can be both slow and consume a lot of memory (consider a large network with millions of weights, and a large training set with millions of items). Note this process will often be repeated, with training involving hundreds or thousands of weight updates.
-\\
-\\
-\noindent
-\textbf{Stochastic Gradient Descent}
-\\
-\noindent
-Stochastic gradient descent (SGD) aims to speed things up by dividing the training set up into batches of a certain size (say, 128). Each data item in the training set is assigned randomly (hence "stochastic") without replacement to each of the batches. Then the weight updates are performed after calculating and averaging the gradients for each item in a batch. That is, if the batches are of size \(m\), for a given weight we make the following update:
-\[ w = w - \dfrac{\eta}{m}\sum_{i=1}^{m} {\dfrac{\partial L}{\partial w}}_i \]
-where \({\dfrac{\partial L}{\partial w}}_i\) is the gradient of \(w\) for the \(i^{th}\) item in the batch. An \textit{epoch} is then defined as a pass through the full set of batches, performing a weight update for each batch. Thus if the training data of size \(n\) is split up into batches of size \(m\), an epoch would involve \( \left \lceil{\dfrac{n}{m}}\right \rceil \)\footnote{\( \left \lceil{x}\right \rceil \) is the smallest integer greater than or equal to \(x\). If \(m\) does not divide into \(n\), the final batch will comprise \((n \mod m)\) items to ensure an epoch covers the entire training set.} weight updates - compared to just one for ordinary Gradient Descent. Training using SGD often involves running for several epochs. The random assignment of the training data into batches is repeated fresh at the start of each epoch.
-\\
-\\
-\noindent
-The advantage of SGD is that it is clearly quicker than GD to perform weight updates. While each weight update will be subject to more randomness than in GD, since each update corresponds to a single, random batch rather than the full training set. However, over the course of several hundred or thousand weight updates, involving many epochs or passes over the whole training set, this should average out to give comparable results to GD. 
-\\
-\\
-\noindent
-\textbf{Momentum}
-\\
-\noindent
-[TBD] Describe momentum explicitly; Section may not be needed if only using RMSProp or Adam optimisers.
-\\
-\\
-\noindent
 \textbf{RMSProp}
 \\
 \noindent
-One of the issues with GD and SGD is that the learning rate \(\eta\) is a global hyperparameter that is fixed for all the weights in the network, and for all weight update iterations. However in practice, some weights in the network will require larger or smaller updates than others and, over the course of training, the weight updates will usually need to get smaller and smaller for successive iterations, as we approach a minimum of the loss function. RMSProp aims to solve these problems by effectively allowing the learning rate to vary during training and for each weight.
-\\
-\\
-\noindent
-Let \(w_t\) be a weight in the network, and let \(g_t = {\dfrac{\partial L}{\partial w}}_t\) be its gradient, at iteration \(t\). Then over all iterations we keep an exponential moving average of the square of these gradients:
-\[ v_t = \alpha g_t^2 + (1-\alpha)v_{t-1} \]
-where the base case is \(v_0 = 0\), and \( \alpha \in [0,1]\) is a chosen hyperparameter that determines the extent to which (squared) gradients from past iterations affect the value of \(v_{t+1}\). Note that an iteration can refer either to a full pass over the whole training set, as in GD, or over a batch, as in SGD. Although in practice we will use it in conjunction with SGD, since it inherits the benefits mentioned above. So the "gradient" \(g_t\) above would in fact be the average of the gradients for the weight across a batch. The weight update for the given iteration is then:
-\[ \delta_t  = \dfrac{\eta}{\sqrt{v_t} + \epsilon} g_t \]
-\[ w_{t+1} = w_t - \delta_t \]
-where \(\eta\) is the (global) learning rate, and \(\epsilon\) is some small number (e.g. \(\epsilon=10^{-6}\)) added to avoid division by 0. The \(\dfrac{\eta}{\sqrt{v_t} + \epsilon}\) term now means that the learning rate \(\eta\) is dampened by the factor \(\sqrt{v_t} + \epsilon\), which varies for each training iteration and for each weight in the network. So for a weight that had larger gradients in previous iterations, so a larger \(v_t\), the effective learning rate will be smaller. Hence its subsequent weight updates get smaller as training progresses - slowing them down compared to weights with smaller gradients and weight updates at earlier iterations. This is desired, since weights that have seen large changes over training are more likely to be closer to the loss function minimum on which they are converging, and so should progress more slowly towards it (to avoid overshooting it, or other erratic behaviour).
+One of the issues with ordinary gradient descent or stochastic gradient descent (see Appendix \ref{appendix-background} for information about these) is that the learning rate \(\eta\) is a global hyperparameter that is fixed for all the weights in the network, and for all weight update iterations. However in practice, some weights in the network will require larger or smaller updates than others and, over the course of training, the weight updates will usually need to get smaller and smaller for successive iterations, as we approach a minimum of the loss function. RMSProp aims to solve these problems by effectively allowing the learning rate to vary during training and for each weight. It does this by taking a moving average of the gradients during training, and dampening the learning rate by this factor. See Appendix \ref{RMSProp} for the mathematical details.
 \\
 \\
 \noindent
 \textbf{Adam}
 \\
 \noindent
-The Adam ("Adaptive Momentum") optimiser is a variation on RMSProp that takes account of momentum in the gradients from previous epochs. That is, large gradients on several previous iterations should not be ignored if the current gradient (by chance) happens to be very low, or vice versa. The momentum effect produces smoother and less erratic weight updates than RMSProp. To this end, Adam maintains an exponential moving average of the gradient \(g_t\), as well as the squared gradient of RMSProp:
-\[ m_t = \beta g_t + (1-\beta)m_{t-1} \]
-Again the base case is \(m_0=0\), and \( \beta \in [0,1]\) is another hyperparameter that determines to what extent past gradients are taken credit for. The weight update is then:
-\[ \delta_t  = \dfrac{\eta}{\sqrt{v_t} + \epsilon} m_t \]
-\[ w_{t+1} = w_t - \delta_t \]
-where \(v_t\), \(\eta\) and \(\epsilon\) are defined as in RMSProp. This has the same benefits as RMSProp of dampening the learning rate \(\eta\) during training, but the weight update uses the smoothed \(m_t\) rather than the raw \(g_t\) at each iteration. 
-
-\subsubsection{Learning Decay}
-[TBD][Maybe put into the Optimisers section?] Often explicitly reduce learning rate by some factor (e.g. 10) when the validation loss plateaus during training.
+The Adam ("Adaptive Momentum") optimiser is a variation on RMSProp that takes account of momentum in the gradients from previous epochs. That is, large gradients on several previous iterations should not be ignored if the current gradient (by chance) happens to be very low, or vice versa. The momentum effect produces smoother and less erratic weight updates than RMSProp. To this end, Adam maintains an moving average of the gradient, as well as the squared gradient of RMSProp. This has the same benefits as RMSProp of dampening the learning rate \(\eta\) during training, but the weight update uses the smoothed rather than the raw gradient at each iteration. See Appendix \ref{Adam} for the formulas.
 
 \subsubsection{Weight Initialisation}
-Prior to training, all weights and biases in the network need to be initialised to some reasonable values. If they were all simply set to 0, the activations of all neurons in the network, and hence all the gradients would just be 0 too. Therefore the weight update step would leave all weights unchanged, and "training" would accomplish nothing. Instead weights are usually initialised to random values. This effectively sets the initial position on the (multidimensional) loss surface, considering the loss as a function of the network's weights. Training then proceeds from this initial position towards a minimum of this loss function. Therefore performing different instances of training (even on the same data) ab-initio can lead to different solutions, since each instance will have a different starting position on the loss surface, and hence converge toward different minima. However the choice of optimiser should help mitigate this problem, e.g. by avoiding shallow local minima, and progressing towards deeper, more global minima\footnote{Of course, the loss surface is usually very high dimensional, and depends on the training data. So it is hard to have any clarity over its precise form or nature. In any case, it is often not necessary for the task at hand - networks are typically trained until they achieve some desired level of performance, regardless of whether this represents a true global minimum or not.}. For this project we have used the following weight initialisation scheme, since that is the default in the software (Keras) we used to train our models.
+Prior to training, all weights and biases in the network need to be initialised to some reasonable values. For this project we have used the following weight initialisation scheme, since that is the default in the software (Keras) we used to train our models.
 \\
 \\
 \noindent
@@ -374,36 +236,9 @@ Dropout also reduces the effective capacity of the network layer at each iterati
 \noindent
 After training, say when testing the network on a validation set, we revert to the full original network architecture - neurons are no longer dropped out. Instead, a trained weights \(w\) in a given dropout layer are replaced with \(pw\). A forward pass can then be conducted as normal. 
 
-\subsubsection{Weight Decay}
-[TBD] Weight decay is basically just L1 or L2 regularisation applied to NN's. Section might not be needed if I don't use weight decay explicitly.
-
 \subsubsection{Batch Normalisation}
-Batch normalisation was intoduced by Ioffe and Szegedy in 2015 \cite{BatchNorm_Paper}. It involves normalising the activation values for each neuron in a given layer across all data items in each SGD batch. The normalisation is done with respect to the mean and variance of the activation values for the batch - so that the activations after the batch normalisation will have mean 0 and variance 1 across the batch. These values are then scaled and shifted by two parameters, learned separately for each neuron during training. 
-\\
-\\
-\noindent
-That is, if we have a batch of size \(m\), and \(x_i\) is a neuron's activation for the \(i^{th}\) example in the batch - we replace it with the transformation \(y_i = \gamma \hat{x_i} + \beta\). Where \(\gamma\) and \(\beta\) are the learned scale and shift parameters respectively, and \(\hat{x_i}\) is given by: 
-\[ \mu = \dfrac{1}{m} \sum_{i=1}^m x_i \]
-\[ \sigma^2 = \dfrac{1}{m} \sum_{i=1}^m (x_i - \mu)^2 \]
-\[ \hat{x_i} = \dfrac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \]
-\noindent
-Where \(\epsilon\) is a small number (e.g. \(10^{-3}\)) added to avoid division by 0. While we referred to neuron activations above, the authors actually reccomend to apply the batch normalisation transformation \textit{before} the activation function. So if \(u\) is are the actiations from the previous layer, and \(g\) is the activation function, so that new the layer's activations are ordinarily:
-\[ z = g(Wu + b) \]
-We instead let them be:
-\[ z = g(BN(Wu)) \]
-Where \(BN\) is the batch normalistion transformation. Note that the bias term \(b\) is now redundant, since it serves the same role as the batch norm shift parameter \(\beta\) - so it is dropped.
-\\
-\\
-\noindent
-The authors argue that batch normalisation enables larger learning rates, and hence faster training, since it prevents small parameter changes from amplifying through the whole network into large, suboptimal weight updates (due to large gradients). It also separates the scale parameters from the scale of the learning rate - on which parameters depend via the weight update formula - since batch norm learns the scale and position of each activation (and hence gradient). And so it should compensate for learning rate being too high. 
-\\
-\\
-\noindent
-The authors also argue that batch normalisation regularises the model, since activation values are averaged over a batch rather than depending only on a single data item. This makes the model less prone to overfitting. They argue that dropout in a batch-normalised network can either be removed, or reduced in strength.
-\\
-\\
-\noindent
-Note that in the Keras implementation of batch norm \cite{keras_docs_batch_norm}, a moving average of the mean and variance are kept (with an adjustable "momentum" parameter). The final values of these moving averages are then used at test time in lieu of \(\mu\) and \(\sigma^2\) in the normalisation above - since normalisation a test or validation batch would consitute "data snooping". 
+Batch normalisation was intoduced by Ioffe and Szegedy in 2015 \cite{BatchNorm_Paper}. It involves normalising the activation values for each neuron in a given layer across all data items in each SGD batch. The normalisation is done with respect to the mean and variance of the activation values for the batch - so that the activations after the batch normalisation will have mean 0 and variance 1 across the batch. These values are then scaled and shifted by two parameters, learned separately for each neuron during training. For further information, see \ref{Batch-Norm}.
+ 
 \newpage
 \subsection{Convolutional Neural Networks}
 Convolutional neural networks (CNN's) are a variant of artificial neural networks described above, that are often used for image processing tasks such as classification. They are organised as a sequence of "convolution" layers, where the first layer operates directly on an image to produce a representation of it comprised of various low-level features, such as edges or patches of light or dark etc. The next layer then operates on this representation, producing another representation that captures slightly higher-level features, based on compostions of the low-level features from the first layer. This process is repeated for a chosen number of layers, with each layer outputting a representation based on the one from the previous layer. The final output from the sequence of convolution layers is then some representation of the original image built up from the low- and mid-level features from past layers. This final representation can then be used for the task at hand - for instance fed through a fully-connected layer, into a Softmax output layer for classification.     
@@ -489,16 +324,6 @@ However in transfer learning, the weights in the convolutional base are often le
 \subsection{Performance Measures}
 We now introduce the measures we use to asses the performance of our trained network. While the network is trained using the cross-entropy loss, as described above, we can report other measures that capture other aspects of performance more explicitly e.g. the false positive or false negative rates. Typically we are interested on the performance of the network on an alternative data set to that on which it was trained - a so-called valiation set.   
 
-\subsubsection{Accuracy}
-This is probably simplest measure of performance. For each item in the validation set, we have the true label (e.g. normal or abnormal). The network outputs a predicted probability of each class for each data item. So we can let the network's predicted label be the class that has the largest predicted probability. Let the true class label be \(y\) and the predicted label be \(\hat{y}\), and the validation set consist of \(m\) data items. The accuracy is then:
-\[ accuracy = \dfrac{1}{m} \sum_{i=1}^m I(y=\hat{y}) \]
-where
-\[ I(y=\hat{y}) = \begin{cases}
-1 \quad \text{if } y=\hat{y}\\
-0 \quad \text{otherwise}\\
-\end{cases}\]
-That is, accuracy simply measures the proportion of correct predictions the network makes on a dataset.
-
 \subsubsection{Confusion Matrix}
 The confusion matrix decomposes the correct and incorrect predictions for each class. An example for our two classes \textit{Normal} and \textit{Abnormal} is shown below:
 % Create Confusion Matrix - adapted from https://tex.stackexchange.com/questions/20267/how-to-construct-a-confusion-matrix-in-latex/338931. Note: need the multirow package
@@ -522,7 +347,7 @@ The confusion matrix decomposes the correct and incorrect predictions for each c
 \\
 \\
 \noindent
-That is, the network predicted \(a\) examples with true label \textit{Normal} as \textit{Normal}, etc. So the accuracy would be \( \dfrac{a+d}{a+b+c+d}\). 
+That is, the network predicted \(a\) examples with true label \textit{Normal} as \textit{Normal}, etc. So the accuracy rate would be \( \dfrac{a+d}{a+b+c+d}\). 
 \\
 \\
 \noindent
@@ -555,7 +380,7 @@ The ROC curve is a way to illustrate the performance of one or more binary class
   \centering    
   \caption{Example of a ROC Curve plot}
   \label{fig:ROC_Curve}
-  \includegraphics[scale=2]{ROC_Curve.png}
+  \includegraphics[scale=1.9]{ROC_Curve.png}
 \end{figure}
 \\
 \noindent
@@ -570,17 +395,13 @@ However, intermediate points on the ROC curve will indicate the extent to which 
 We can summarise this over a whole set of threshold probabilities by calculating the area under the ROC curve, called the \textit{AUC}. A classifier whose ROC curve is strictly above another's will have a larger AUC - so a larger AUC represents a better classifier.
 
 \newpage
-\subsection{Model Ensembles}
-Look into ensembles of CNN's; move this section above performance measures later.
-
-\newpage
 \section{State of the Art}
-In this section we review the current state of the art Deep Learning models used in image classification. For this we look to the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) \cite{ILSVRC}, a machine learning competition held each year between 2010 and 2017 to assess the performance machine learning systems on a variety of computer vision tasks. The competition is held on a subset of ImageNet, a database of 10,000,000 labelled images depicting over 10,000 object categories, published by Deng et al. in 2009 \cite{imagenet}. For instance, for the 2017 object classification and localisation tasks, the test and validation sets together comprised 150,000 photographs hand-labelled with the presence of absence of 1000 object categories. Each algorithm submitted to the competition was required to output 5 class labels, in decreasing order of confidence. The error was then based on matches between the true object categories and these top-5 predicted labels - giving the so-called top-5 error. Winners of the ILSVRC classification task, and their associated top-5 error rates are shown below (taken from \cite{ILSVRC_Classification_Top5}).          
+In this section we review the current state of the art Deep Learning models used in image classification. For this we look to the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) \cite{ILSVRC}, a machine learning competition held each year between 2010 and 2017 to assess the performance machine learning systems on a variety of computer vision tasks. The competition is held on a subset of ImageNet, a database of 10,000,000 labelled images depicting over 10,000 object categories, published by Deng et al. in 2009 \cite{imagenet}. For instance, for the 2017 object classification and localisation tasks, the test and validation sets together comprised 150,000 photographs hand-labelled with the presence or absence of 1000 object categories. Each algorithm submitted to the competition was required to output 5 class labels, in decreasing order of confidence. The error was then based on matches between the true object categories and these top-5 predicted labels - giving the so-called top-5 error. Winners of the ILSVRC classification task, and their associated top-5 error rates are shown below (taken from \cite{ILSVRC_Classification_Top5}).          
 \begin{figure}[!ht]
   \centering    
   \caption{ImageNet Classification Winners}
   \label{fig:ILSVRC_Winners}
-  \includegraphics[scale=0.4]{ILSVRC_Winners.png}
+  \includegraphics[scale=0.35]{ILSVRC_Winners.png}
 \end{figure}
 \\
 \noindent
@@ -598,7 +419,10 @@ For instance, the VGG19 model contains five blocks, the first consisting of two 
 \\
 \noindent
 Note that one pixel in the output of two successive \(3 \times 3\) convolutional layers (with stride 1) would correspond to the same region of the original input as the equivalent pixel in the output of one \(5 \times 5\) convolutional layer (with stride 1)\footnote{The latter would correspond to, say, \( \sum_{i=1}^5 \sum_{j=1}^5 w_{i,j}p_{i,j} \) (ignoring bias and activation function). While the former would correspond to \( \sum_{x=0}^2 \sum_{y=0}^2 w'_{x+1,y+1}(\sum_{i=1}^3 \sum_{j=1}^3 w_{i,j}p_{x+i,y+j}) \). Both cover the same range of pixel values \(p_{i,j}\).}. However the VGG team preferred to use stacks of smaller convolutional filters in order to keep the number of weights small (e.g. 18 vs 25), and increase the extent of non-linearity in the network - the two \(3 \times 3\) layers each apply separate activation functions where the \(5 \times 5\) layer applies just one. The idea is that this should increase the discriminative power of the network, allowing better performance.
-
+\\
+\\
+\noindent
+A schematic of the VGG16 architecture is shown in Appendix \ref{Model-Architectures-Appendix}.
 \subsection{GoogLeNet}
 GoogLeNet \cite{GoogLeNet_Paper} introduced the idea of "Inception" modules, illustrated in  below (image from \cite{GoogLeNet_Paper}):
 \begin{figure}[!ht]
@@ -678,31 +502,20 @@ GoogLeNet-v4 \cite{GoogLeNet_v4_Paper} incorporated the idea of skip connections
         \label{fig:EfficientSpatialReductionBlock}
         \includegraphics[scale=0.7]{EfficientSpatialReductionBlock.PNG}
     \end{figure}
-    \item Residual connections: residual connections were put across inception blocks, with the output of the block added element-wise to its input. This performs the same function as in ResNet, where the block and skip connection together can more easily learn the identity mapping, if required, and so enable larger stacks of inception blocks. For instance, the Inception-ResNet-v2 architecture comprised a stack of 40 inception blocks (of various types). One module from this architecture is shown in Figure \ref{fig:InceptionResNet} below, showing the skip connection.
-    \begin{figure}[!ht]
-        \centering    
-        \caption{Inception Block with Skip Connection}
-        \label{fig:InceptionResNet}
-        \includegraphics[scale=0.7]{InceptionResNet.PNG}
-    \end{figure}
+    \item Residual connections: residual connections were put across inception blocks, with the output of the block added element-wise to its input. This performs the same function as in ResNet, where the block and skip connection together can more easily learn the identity mapping, if required, and so enable larger stacks of inception blocks. For instance, the Inception-ResNet-v2 architecture comprised a stack of 40 inception blocks (of various types). One module from this architecture is shown in Appendix \ref{Model-Architectures-Appendix}  below, showing the skip connection.
 \end{itemize}
 The winning GoogLeNet-v4 model was an ensemble of the Inception-v4 architecture - which incorporated the above factorisation and spatial reduction ideas, but did not use skip connections - and three Inception-ResNet-v2 architectures - which also included skip connections as well as the other ideas. 
-
-\subsection{DenseNet}
-The MURA authors trained a 169-layer DenseNet on the MURA data. DenseNet's were introduced by Huang et al in 2016 \cite{DenseNet_Paper}.
 \\
 \\
 \noindent
-VGG,Inception,ResNets,MobileNet,ShuffleNet,Attention/Gating
-
+A schematic of the Inception-ResNet-v2 architecture is also shown in Appendix \ref{Model-Architectures-Appendix}.
 % END BACKGROUND
 
 
 % BEGIN DATA
-\clearpage
 \newpage
 \section{Data}
-The data we will use in this project is the MURA (\textbf{mu}sculoskeletal \textbf{ra}diographs) dataset, published by the Machine Learning Group at Stanford University \cite{MURA2017}. This is a collection of 40,005 X-ray images of a part of the upper extremity - comprising the arm, shoulder, wrist, hand etc. Each image is from one of 14,656 studies of 11,967 individual patients, performed at a particular point in time on one of these parts of the upper extremity. Each study was labelled as normal or abnormal at the time of clinical interpretation by a radiologist from Stanford Hospital - and these labels have been published alongside the images themselves. 
+The data we will use in this project is the MURA (\textbf{mu}sculoskeletal \textbf{ra}diographs) dataset, published by the Machine Learning Group at Stanford University \cite{MURA2017}. This is a collection of 40,005 X-ray images of a part of the upper extremity - comprising the arm, shoulder, wrist, hand etc. Each image is from one of 14,656 studies of 11,967 individual patients, performed at a particular point in time on one of these parts of the upper extremity. Example images for each part of the upper extremity are shown in Appendix \ref{Image-Examples}. Each study was labelled as normal or abnormal at the time of clinical interpretation by a radiologist from Stanford Hospital - and these labels have been published alongside the images themselves. 
 \\
 \\
 \noindent
@@ -745,142 +558,9 @@ The authors also manually investigated the radiologist reports for a sample of 1
 \noindent
 As a side note, the authors do not mention any similar analysis of normal studies. The overall proportion of normal studies in the published dataset is about 60\% (see breakdowns below), and it is not clear why so many patients are having X-rays that do not find any abnormality. I would not expect a patient to get an X-ray of their upper extremity without prior cause, and so would have expected a higher overall rate of abnormality. The explanation may come down to the clinical context - for instance, a large proportion of these studies may be follow-up X-rays post-treatment. Or even X-rays taken during treatment where "normal" might mean "treatment progressing normally" even if the original abnormality (say a fracture) is present. However this is entirely speculation on my part.   
 
-\subsection{Image Examples}
-The images from some example studies, of each body part and covering both normal and abnormal studies, are shown below. For some of the abnormal studies, the reason behind the result is clear - for instance, both Figure \ref{fig:MURA_Example_Humerus} of the Humerus and Figure \ref{fig:MURA_Example_Wrist} of the Wrist contain hardware (note the pin in the wrist). However the abnormality for some of the other studies is perhaps less clear to the untrained eye, for instance Figure \ref{fig:MURA_Example_Finger} of the Finger.
 
 \newpage
-\subsubsection{Elbow}
-\begin{figure}[!ht]
-\centering
-\subfloat{
-\includegraphics[scale=0.5]{XR_ELBOW/Negative/patient05926/study1_negative/image1.png}
-\label{fig:Elbow_1}}
-\subfloat{
-\includegraphics[scale=0.5]{XR_ELBOW/Negative/patient05926/study1_negative/image2.png}
-\label{fig:Elbow_2}}
-\caption{Patient 05926; Study 1; Elbow; Normal}
-\label{fig:MURA_Example_Elbow}
-\end{figure}
-\FloatBarrier
-
-\newpage
-\subsubsection{Finger}
-\begin{figure}[!ht]
-\centering
-\subfloat{
-\includegraphics[scale=0.5]{XR_FINGER/Positive/patient00234/study1_positive/image1.png}
-\label{fig:Finger_1}}
-\subfloat{
-\includegraphics[scale=0.5]{XR_FINGER/Positive/patient00234/study1_positive/image2.png}
-\label{fig:Finger_2}}
-\subfloat{
-\includegraphics[scale=0.5]{XR_FINGER/Positive/patient00234/study1_positive/image3.png}
-\label{fig:Finger_3}}
-\caption{Patient 00234; Study 1; Finger; Abnormal}
-\label{fig:MURA_Example_Finger}
-\end{figure}
-\FloatBarrier
-
-\newpage
-\subsubsection{Hand}
-\begin{figure}[!ht]
-\centering
-\subfloat{
-\includegraphics[scale=0.4]{XR_HAND/Positive/patient09836/study1_positive/image1.png}
-\label{fig:Hand_1}}
-\subfloat{
-\includegraphics[scale=0.4]{XR_HAND/Positive/patient09836/study1_positive/image2.png}
-\label{fig:Hand_2}}
-\newline
-\subfloat{
-\includegraphics[scale=0.4]{XR_HAND/Positive/patient09836/study1_positive/image3.png}
-\label{fig:Hand_3}}
-\caption{Patient 09836; Study 1; Hand; Abnormal}
-\label{fig:MURA_Example_Hand}
-\end{figure}
-\FloatBarrier
-
-\newpage
-\subsubsection{Humerus}
-\begin{figure}[!ht]
-\centering
-\subfloat{
-\includegraphics[scale=0.5]{XR_HUMERUS/Negative/patient11225/study1_negative/image1.png}
-\label{fig:Humerus_1}}
-\subfloat{
-\includegraphics[scale=0.5]{XR_HUMERUS/Negative/patient11225/study1_negative/image2.png}
-\label{fig:Humerus_2}}
-\caption{Patient 11225; Study 1; Humerus; Normal}
-\label{fig:MURA_Example_Humerus}
-\end{figure}
-\FloatBarrier
-
-\newpage
-\subsubsection{Forearm}
-\begin{figure}[!ht]
-\centering
-\subfloat{
-\includegraphics[scale=0.5]{XR_FOREARM/Positive/patient11417/study1_positive/image1.png}
-\label{fig:Forearm_1}}
-\newline
-\subfloat{
-\includegraphics[scale=0.5]{XR_FOREARM/Positive/patient11417/study1_positive/image2.png}
-\label{fig:Forearm_2}}
-\newline
-\subfloat{
-\includegraphics[scale=0.4]{XR_FOREARM/Positive/patient11417/study1_positive/image3.png}
-\label{fig:Forearm_3}}
-\subfloat{
-\includegraphics[scale=0.4]{XR_FOREARM/Positive/patient11417/study1_positive/image4.png}
-\label{fig:Forearm_4}}
-\caption{Patient 11417; Study 1; Forearm; Abnormal}
-\label{fig:MURA_Example_Forearm}
-\end{figure}
-\FloatBarrier
-
-\newpage
-\subsubsection{Shoulder}
-\begin{figure}[!ht]
-\centering
-\subfloat{
-\includegraphics[scale=0.5]{XR_SHOULDER/Positive/patient00001/study1_positive/image1.png}
-\label{fig:Shoulder_1}}
-\subfloat{
-\includegraphics[scale=0.5]{XR_SHOULDER/Positive/patient00001/study1_positive/image2.png}
-\label{fig:Shoulder_2}}
-\newline
-\subfloat{
-\includegraphics[scale=0.5]{XR_SHOULDER/Positive/patient00001/study1_positive/image3.png}
-\label{fig:Shoulder_3}}
-\caption{Patient 00001; Study 1; Shoulder; Abnormal}
-\label{fig:MURA_Example_Shoulder}
-\end{figure}
-\FloatBarrier
-
-\newpage
-\subsubsection{Wrist}
-\begin{figure}[!ht]
-\centering
-\subfloat{
-\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image1.png}
-\label{fig:Wrist_1}}
-\subfloat{
-\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image2.png}
-\label{fig:Wrist_2}}
-\newline
-\subfloat{
-\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image3.png}
-\label{fig:Wrist_3}}
-\subfloat{
-\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image4.png}
-\label{fig:Wrist_4}}
-\caption{Patient 01521; Study 1; Wrist; Abnormal}
-\label{fig:MURA_Example_Wrist}
-\end{figure}
-\FloatBarrier
-
-\newpage
-\subsection{Data Breakdowns}
+\subsection{Data Breakdowns} \label{MURA-Breakdowns}
 Below we present some breakdowns of the data.
 \subsubsection{Numbers of Studies}
 Figure \ref{fig:StudiesByPart} below is a recreation in my own work of the table in \cite{MURA2017} showing the same breakdown - which acts as a validation that I am analysing the data correctly. The percentage breakdown shows the proportion of Normal studies is around 60\%, as mentioned. The variation in abnormal rate does not look too drastic, although 26\% for Hand in the training data perhaps seems low. Shoulder has the highest abnormality rate in the training data, which seems reasonable given that a dislocated shoulder is a commom sports injury. Stanford Hosptial is close to Stanford University, and so may have an unusal number of such injuries (e.g. due to student atheletics, or American college football)
@@ -1069,7 +749,7 @@ Specifically, I chose the following pre-built architectures:
 \item Inception-ResNet-v2 (GoogLeNet-v4) - the 2016 ILSVRC winner.
 \end{itemize}
 \subsubsection{Training}
-Unless stated otherwise, I trained all models using RMSProp with Keras' default parameters - learning rate 0.001, exponential smoothing parameter 0.9 and epsilon 1E-7. Training was ran for a pre-defined numer of epochs, usually 25, and the learning rate was left unchanged throughout unless stated otherwise.
+Unless stated otherwise, I trained all models using RMSProp with Keras' default parameters - learning rate 0.001, exponential smoothing parameter 0.9 and epsilon 1E-7. Training was ran for a pre-defined numer of epochs, usually 25, and the learning rate was left unchanged throughout unless stated otherwise. I typically used a batch size of 512 when training my simple baseline models. However for the larger pre-built models, large batch sizes resulted in out-of-memory errors so I reduced the batch size for these to 64.
 \subsection{Predictions}
 The models described above work on individual images - producing a predicted probability of abnormality for each image separately. However the original data is organised into studies consisting of multiple images, and the original normal/abnormal label was applied to the study, rather than to each image within. As mentioned, we have assumed during training that this label applies to all images in the study, and this seems reasonable. However when analysing the performance of our model after training, we should be more interested in its performance at the study level. 
 \\
@@ -1119,17 +799,17 @@ Below we show the (image-wise) performance over 25 epochs of training the small 
 \centering
 \subfloat[Accuracy - Training and Validation Sets]{
 \includegraphics[scale=0.6]{Results/SimpleBaseline-Small-is-48-48/acc_vanilla.PNG}
-\label{fig:SimpleBaselineModel_Shallower}}
+\label{fig:acc_vanilla}}
 \newline
 \subfloat[Loss - Training and Validation Sets]{
 \includegraphics[scale=0.6]{Results/SimpleBaseline-Small-is-48-48/loss_vanilla.PNG}
-\label{fig:SimpleBaselineModel_Deeper}}
-\caption{Small Baseline Model - Image Size \(48 \times 48\) }
-\label{fig:Results_Vanilla}
+\label{fig:loss_vanilla}}
+\caption{Small Baseline Model - Image Size \(48 \times 48\)}
+\label{fig:results_vanilla}
 \end{figure}
 \FloatBarrier
 \noindent
-Where the x-axis on these charts is the epoch. This appears to show overfitting - with the training accuracy approaching 1, while the validation accuracy has plateaued around 0.68 and the validation loss increasing at the later epochs.
+Where the x-axis on these charts is the epoch, and the y-axis is either accuracy rate or cross-entropy loss\footnote{Unfortunately TensorBoard, from where these graphs are taken, does not allow axes to be annotated, or a legend to be displayed with the chart. Hence these are missing.}. This appears to show overfitting - with the training accuracy approaching 1, while the validation accuracy has plateaued around 0.68 and the validation loss increasing at the later epochs.
 \\
 \\
 \noindent
@@ -1149,27 +829,212 @@ Below we present the study-wise performance on this model against the validation
 \noindent
 While the overall kappa of 0.39 might not compare favourably to the MURA benchmark of 0.778, this is a simple model trained on very small data so we do not expect cutting-edge performance.
 
-\subsection{Image Size}
-How do my results vary with size of image? Does increasing image size increase scope for
+\subsubsection{Regularisation}
+Since the vanilla model appeared to be overfitting, we tried to use some regularisation techniques to prevent this. 
+\begin{figure}[!ht]
+\centering
+\subfloat[Accuracy - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Small-is-48-48/acc_BN.PNG}
+\label{fig:acc_vanilla_BN}}
+\newline
+\subfloat[Loss - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Small-is-48-48/loss_BN.PNG}
+\label{fig:loss_vanilla_BN}}
+\caption{Vanilla Model with Batch Normalisation}
+\label{fig:vanilla_bn}
+\end{figure}
+\FloatBarrier
+\noindent
+The green and pink lines show the vanilla model with batch normalisation applied to all convolutional layers, while the brown line is the vanilla model from above. The green line uses the Adam optimiser while pink uses RMSProp. Unfortunately, while their training performance improved more quickly than the vanilla (albeit plateauing at a roughly similar level), the validation performance does not show any significant regularisation effect. Indeed, their validation loss is higher than the vanilla model's at almost all epochs.
+\\
+\\
+\noindent
+So we decided to try applying dropout to all layers (except the input) instead:
+\begin{figure}[!ht]
+\centering
+\subfloat[Accuracy - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Small-is-48-48/acc_dropout.PNG}
+\label{fig:acc_vanilla_dropout}}
+\newline
+\subfloat[Loss - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Small-is-48-48/loss_dropout.PNG}
+\label{fig:loss_vanilla_dropout}}
+\caption{Vanilla Model with Dropout}
+\label{fig:vanilla_dropout}
+\end{figure}
+\FloatBarrier
+\noindent
+The orange line shows dropout with probability 30\% of removing a neuron, while the blue line shows 70\%. Clearly the blue line removes too many neurons, since it demonstrates training failure - the resulting network is likely far too small. The orange line shows some regularising effect - it prevents the validation loss from increasing. Although it plateaus at a similar validation accuracy rate as the vanilla model.
 
-\subsection{Regularisation}
-Perform some regularisation experiments, show results
+\subsubsection{Learning Rate Decay}
+Next we decided to try the technique of learning rate decay - where the learning rate was reduced by a factor of 5 if the validation loss has not improved for more than 5 epochs. This could help prevent overfitting, since it slows down learning and prevents the weights from fitting too specifically to the training data. Note that we ran this experiment for 50 epochs rather than 25, to allow more time for the decay to take effect.
+\begin{figure}[!ht]
+\centering
+\subfloat[Accuracy - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Small-is-48-48/acc_learnrate_plateau.PNG}
+\label{fig:acc_learnrate_plateau}}
+\newline
+\subfloat[Loss - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Small-is-48-48/loss_learnrate_plateau.PNG}
+\label{fig:loss_learnrate_plateau}}
+\caption{Vanilla Model with Learning Rate Decay}
+\label{fig:vanilla_learnrate_plateau}
+\end{figure}
+\FloatBarrier
+\noindent
+The orange line shows the results with learning rate decay. Unfortunately this did not have the desired regularising effect - the model seems to settle at the same local minimum as the vanilla model. The extra, slower-learning, epochs showing only that the loss and accuracy plateaued (both training and validation) shortly after the 25 epochs of the vanilla model. Interestingly, training seems to accelerate around the \(12^{th}\) epoch, presumably when the learning rate was decreased. This may be because the vanilla model was oscillating around the minimum, due to the relatively high learning rate. Whereas decreasing the learning rate allowed the local minimum to be approached more directly and hence improved the training performance more quickly. But since both models appear to be approaching the same local minimum, this doesn't have much effect on the validation performance - indeed, the validation loss gets worse for the learning rate decay model learning when this acceleration effect kicks in.
 
-\subsection{Pre-Trained Models}
-How does my model compare vs a selection of pretrained models
+\subsubsection{Weight Initialisation}
+Since the two models above appeared to be approaching the same local minumum, we decided to try alternative weight initialisation schemes, in the hope that this would lead to an alternative, better, local minimum. 
+\begin{figure}[!ht]
+\centering
+\subfloat[Accuracy - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Small-is-48-48/loss_weight_initialisation.PNG}
+\label{fig:acc_weight_initialisation}}
+\newline
+\subfloat[Loss - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Small-is-48-48/loss_weight_initialisation.PNG}
+\label{fig:loss_weight_initialisation}}
+\caption{Vanilla Model with Alternative Weight Initialisation}
+\label{fig:vanilla_weight_initialisation}
+\end{figure}
+\FloatBarrier
+\noindent
+Note the vanilla model used Glorot Uniform initialisation. The orange line shows Glorot Normal, while the light blue and dark blue are random normal (mean 0, standard deviation 0.05) and He Normal respectively. While Glorot Normal does give a slightly lower validation loss in the early epochs, by the later epochs it appears to approach the same local minimum as the vanilla model. Random and He Normal result in training failure - perhaps because the scale of their weights was too large.
+
+
+\subsubsection{Vanilla Model Reruns}
+At this point we decided to rerun the vanilla model in its original form, with a couple of tweaks to see if we could get it to shift to a different local minima. The first rerun changed the random seed used when generating the data - so that different data appeared in each batch than the original vanilla model. The second rerun reduced the batch size from 512 to 128.
+\begin{figure}[!ht]
+\centering
+\subfloat[Accuracy - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Small-is-48-48/acc_vanilla_rerun.PNG}
+\label{fig:acc_vanilla_rerun}}
+\newline
+\subfloat[Loss - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Small-is-48-48/loss_vanilla_rerun.PNG}
+\label{fig:loss_vanilla_rerun}}
+\caption{Vanilla Model Reruns}
+\label{fig:vanilla_rerun}
+\end{figure}
+\FloatBarrier
+\noindent
+The brown line, as always, shows the original vanilla model. The pink line is the first rerun and the green line is the second. Using a different data seed appears to have a negligable effect - the charts are plotted by epoch, which consitutes a full pass through the data, so the order of appearance of each data item seems not to effect the epoch-level results much. Reducing the batch size seems to result in faster training, presumably due to having more weight updates per epoch. However it does not seem to lead to a different local minimum. It does have a considerably larger validation loss, but the original vanilla model would likely approach a similar level given enough training time.
+
+\subsubsection{Alternative Architectures}
+We now tried altering the vanilla model architecture to see if this helped imporve performance. First we tried the medium version of the simple architectures - using 128 filters in the initial convolational layers, comapared to 32 in the vanilla model.
+\begin{figure}[!ht]
+\centering
+\subfloat[Accuracy - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Medium-is-48-48/acc.PNG}
+\label{fig:acc_vanilla_medium}}
+\newline
+\subfloat[Loss - Training and Validation Sets]{
+\includegraphics[scale=0.5]{Results/SimpleBaseline-Medium-is-48-48/loss.PNG}
+\label{fig:loss_vanilla_medium}}
+\caption{Vanilla Model (32 vs 128 initial filters)}
+\label{fig:vanilla_medium}
+\end{figure}
+\FloatBarrier
+\noindent
+Having more filters per layers, the medium size model has greater scope to overfit - and it appears to do so. There is a curious acceleration in performance from around the \(10^{th}\) epoch. It's not clear what causes this, since learning rate decay was not used here.
+\\
+\\
+\noindent
+We also tried using the shallower and deeper versions of the vanilla architecture, again with 32 initial filters.
+\begin{figure}[!ht]
+\centering
+\subfloat[Accuracy - Training and Validation Sets]{
+\includegraphics[scale=0.4]{Results/SimpleBaseline-Small-is-48-48/acc_alt_structures.PNG}
+\label{fig:acc_alt_structures}}
+\newline
+\subfloat[Loss - Training and Validation Sets]{
+\includegraphics[scale=0.4]{Results/SimpleBaseline-Small-is-48-48/loss_alt_structures.PNG}
+\label{fig:loss_alt_structures}}
+\caption{Vanilla Model - Shallower and Deeper Versions}
+\label{fig:vanilla_medium}
+\end{figure}
+\FloatBarrier
+\noindent
+The green line shows the shallower model, and the silver line the deeper one. The deeper model appears to be training more slowly - it's training accuracy and loss have not yet plateaued after 25 epochs. However we decided not to train it for longer, since the validation loss shows that it is already overfitting in any case. The shallower model trains much quicker, but this just results in greater overfitting.
+
+\subsection{Pre-Built Models}
+After trying a number of experiments with the simple baseline architecture, as described above, we decided to compare the vanilla model's performance against pre-built architectures. As mentioned, these were trained from scratch, end-to-end, rather than use the pre-trained ImageNet weights. 
+\subsubsection{VGG16}
+We trained this architecture using RMSProp with a learning rate of 0.0002, since the default learning rate 0.001 was too high, resulting in training failure.  We also trained it on a variety of image sizes.
+\begin{figure}[!ht]
+\centering
+\subfloat[Accuracy - Training and Validation Sets]{
+\includegraphics[scale=0.6]{Results/VGG16/acc.PNG}
+\label{fig:acc_VGG16}}
+\newline
+\subfloat[Loss - Training and Validation Sets]{
+\includegraphics[scale=0.6]{Results/VGG16/loss.PNG}
+\label{fig:loss_VGG16}}
+\caption{VGG16}
+\label{fig:VGG16_Results}
+\end{figure}
+\FloatBarrier
+\noindent
+The brown line again shows the original vanilla model, trained as mentioned on \(48 \times 48\) images. The dark blue line shows VGG16 also trained on \(48 \times 48\) images, while light blue is on \(100 \times 100\). The pink line is trained on \(300 \times 300\) images. The latter two also used learning rate decay as above - reducing by a factor of 5 when the validation loss does not improve for more than 5 epochs.
+\\
+\\
+\noindent
+VGG16 trained on \(48 \times 48\) images shows very large and erratic jumps in validation loss at the later epochs - likely because by this point the learning rate is far too high (since it was not decayed). So it may be oscillating around a local minimum, but its weight updates are too large to get closer towards it. The overfitting is also likely exacerbated by the very small image size, which may not be appropriate for such a large model. 
+\\
+\\
+\noindent
+Meanwhile the model trained on the \(100 \times 100\) (light blue line) likely avoids this issue, and it has learning rate decay to help it progress smoothly towards its local minimum. It has a noticable acceleration in training accuracy after about the \(15^{th}\) epoch, likely when the learning rate was reduced. This model also significantly out-performs the vanilla model in terms of validation loss and accuracy, which might be expected since it is a more complicated architecture.
+
+\newpage
+\subsubsection{Inception-ResNet-v2}
+We also tried the Inception-ResNet-v2 architecture, again trained from scratch using RMSProp with learning rate 0.0002 and with learning weight decay, and again on variety of image sizes.
+\begin{figure}[!ht]
+\centering
+\subfloat[Accuracy - Training and Validation Sets]{
+\includegraphics[scale=0.6]{Results/Inception-ResNet-v2/acc.PNG}
+\label{fig:acc_IRVN2}}
+\newline
+\subfloat[Loss - Training and Validation Sets]{
+\includegraphics[scale=0.6]{Results/Inception-ResNet-v2/loss.PNG}
+\label{fig:loss_IRVN2}}
+\caption{Inception-ResNet-v2}
+\label{fig:IRVN2_Results}
+\end{figure}
+\FloatBarrier
+\noindent
+The brown line is the vanilla model, and the light blue line is the same VGG16 model trained on \(100 \times 100\) images as above. The orange line is Inception-ResNet-v2 trained on \(139 \times 139\) images, the smallest dimensions allowed. The pink line is the same but with L2 weight regularisation applied to the output of the convolutional block and the subsequent fully-connected and softmax layers. The dark blue line is Inception-Resnet-v2 trained on \(300 \times 300\) images, with no weight regularisation. Note we tried to train on \(300 \times 300\) images with regularisation but this led to several training failures and we did not have the time to try to fix this.
+\\
+\\
+\noindent
+Strikingly, these Inception models are able to achieve 100\% accuracy on the training data, although of course this does not translate as well to the validation accuracy, where they have comparable performance to the VGG16 model. And in terms of validation loss, they appear to perform worse than even the vanilla model. However the regularising effect of the L2 model is evident.
+
+\subsection{MURA Competition Submission}
+When deciding which of the above collection of models and experiments to submit to the MURA competition, we analysed the study-wise performance on the validation data. This is more comparable to the competition's performance metric - study-wise performance on their test data - than the image-wise training curves shown above. The resulting ROC curves, and AUC and kappa statistics are shown for a selection of models below:
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.8]{roc_curves_final.png}
+\label{fig:roc_curves_final}
+\caption{ROC Curves - Model Selection}
+\end{figure}
+\FloatBarrier
+\noindent
+The best performing of these models, per Cohen's kappa, were the Inception-ResNet-v2 architectures, and VGG16 trained on \(100 \times 100\). In the end we decided to submit the Inception-ResNet-v2 trained on \(139 \times 139\) images with L2 regularisation. We preferred it over the version trained on \(300 \times 300\) since this submission would be quicker to run computationally. We preferred it to the version with L1 regularisation, since it had the slight edge of overall performance We preferred it over the VGG model, even though VGG appears to out-perform it, since we felt there was a risk of "overfitting" to the validation set - i.e. VGG performing better on the validation set won't necessarily translate to better performance on the test set. And Inception-ResNet is a more sophisticated, modern architecure than the relatively straightforward VGG design, and so we have hope that it should perform better on the unseen data. In any case, the difference in performance between these two models is relatively small so it's something of a toss-up between the two.
+\\
+\\
+\noindent
+Breaking down the study-wise results of these two models shows they are comparable by site - each strong where the other is strong, and weak where the other is weak.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.8]{studywise_final.PNG}
+\label{fig:studywise_final}
+\caption{Results by Site - VGG16 \& Inception-ResNet-v2}
+\end{figure}
+\FloatBarrier
+\noindent
+The largest gap in performance was for Hand, where VGG comfortably beats Inception. However VGG is not the winner across the board - being beaten for Forearm, Humerus and Wrist.
 
 % END RESULTS
-
-
-% BEGIN CONCLUSIONS
-\newpage
-\section{Conclusions}
-Include introspective chapter
-Work here not comparable to clinical setting, e.g. smaller, lower resoution images; radiologist may have a relationship with patient - know medical history, other symptoms etc
-What is "abnormal"? - type \& severity of abnormality not known, MURA paper not clear.
-
-% END CONCLUSIONS
-
 
 % BEGIN ETHICAL
 \newpage
@@ -1190,16 +1055,37 @@ Clearly any such system would need to be very thoroughly tested and validated ag
 % END ETHICAL
 
 
-% BEGIN EXTENSIONS
+% BEGIN SELF-ASSESSMENT
 \newpage
-\section{Extensions}
-Enquire further about what "abnormal" means
-Alternative data e.g. CheXNet, others(?)
-Alter NN to accept multiple images simultaneously and so predict based on several views at once (e.g. by weight-sharing, or appening all study images into a single 3D tensor)
+\section{Self-Assessment}
+\subsection{Project Next Steps}
+Our MURA competition submission achieved a Cohen's kappa result of 0.52 on the validation set. Compared to the MURA authors' model result of 0.705 on the test set and the top-scoring result in the competition of 0.775, there is clearly a lot of scope to take the work done here further. Unfortunately, we ran out of time to do this before the project submission deadline. Nevertheless I think the work done here is a good start. If I were to take the project forward, I would look to do the following:
+\begin{itemize}
+\item Data Augmentation: artificially increase the amount of training data by applying random adjustments to the original images - such as small rotations, random-cropping, taking the mirror image. This not only gives more data for "free" but also should have a regularising effect, since the extra source of randomness helps models avoid overfitting to noise specific to the training set. 
+\item Other Architectures: try a broader range of pre-built models. For instance try to follow the MURA authors' use of DenseNet architectures. Investigate more recent image classification competition winners, such as squeeze-and-excitation networks.
+\item Model ensembles: instead of submitting a single, final model, train several models with different architectures then aggregate their results to form the final predictions. This helps average out overfitting by single models. 
+\item Hyperparameter tuning: take a more principled approach to searching the hyperparameter space, e.g. use grid search or cross-validation.
+\item Site-specific models: we could train specific models on each individual site (hand, wrist etc) and then use all of these on the test data if possible, picking the specific model for the specific site. This would be useful to the extent that abnormalities across different sites do not share common features. One test of this would be to assess site-specific models against the validation data for the other sites.  
+\item Class activation maps: these use the activations of the final representation produced by a model's convolutional base to produce a heatmap over the original image. This heatmap shows which region(s) of the image resulted in the largest activations, and hence are responsible for the model's output. This provides a window into what is otherwise a black box as to why the model made the prediction it did.
+\end{itemize}
 
-% END EXTENSIONS
+\subsection{Learning Outcomes}
+I learned a lot while working on this project. I had never previously done a major piece of work using Python, and had never really done coding work on a project of this scope before. This includes learning how to use various data science packages such as Pandas and SciKit-Learn. I tried to follow reasonable design principles when structuring my Python code. For instance putting different phases of the data-model-results pipeline into different scripts - e.g. a script to process and resize the raw image files, another script to train models on these processed images, and a third script to produce results based on trained models.
+\\
+\\
+\noindent
+In addition, I had to learn how to set up my own working environment - eventually settling on using a virtual machine on Google Cloud - which again is not something I've had experience with in the past. This involved installing all the software I needed, such as Python, Tensorflow etc. To do this, I had to get up to speed with using Linux which is something else I have not used much in the past.
+\\
+\\
+\noindent
+I also had the opportunity to learn some Tensorflow, since I used it for my data handling and, technically, my model building and training (although really this was Keras moreso than Tensorflow proper). Originally I wrote my code using Tensorflow's older queue-runners approach, but this has been deprecated in favour of the much simpler Dataset API - so I used that instead. I had originally wanted to explore Tensorflow further, since it allows much finer-grained control and analysis of your neural network's computation graph. But in the end the need to produce an end-product pushed me towards to simplicity of Keras.
+\\
+\\
+\noindent
+My review of the state-of-the-art convolutional network models helped me appreciate more clearly the design principles behind them - for instance, using \(1 \times 1\) convolutions to reduce dimension, or factorising larger convolutions into successive \(3 \times 3\) layers.
 
 
+% END SELF-ASSESSMENT
 
 \clearpage
 \bibliographystyle{ieeetr}
@@ -1207,14 +1093,8 @@ Alter NN to accept multiple images simultaneously and so predict based on severa
 
 \clearpage
 \appendix
-\section{Pretrained Model Architechtures}
-[Probably won't be used]
-Below we describe the architechtures of the various pre-trained neural network models mentioned in the text.
-\subsection{VGG16}
-This is the VGG16 model.
-
-\newpage
 \section{How To Use My Model}
+\subsection{Stucture}
 This appendix describes the structure of my working environment, with notes on what the various scripts do. 
 \\
 \\
@@ -1227,9 +1107,9 @@ The purpose of each of the scripts is described below. Their numbering indicates
 \begin{itemize}
 \item 00\_create\_images\_summary.py - creates a csv file that captures info about all the images in the MURA-v1.1 dataset, e.g. patientID, study outcome etc. This csv is used by subsequent scripts to know where each image is located.
 \item 01\_process\_images\_for\_training.py - resizes the raw images into a chosen dimension
-\item 02\_keras\_train\_MURA\_submission.py \& other keras\_\*.py - trains the chosen model on the image data. These are all mostly duplicates of one another, with minor differences (e.g using one model vs another, adding regularisation etc). Some are labelled with \_GPU\_1 or \_GPU\_2 for my own benefit, to keep track when training different models simultaneously on different GPU's.
-\item 03\_Predictions.py - calculates image-wise and study-wise performance of the trained models on the validation data
-\item ./models/\*.py  - provide functions that create pre-built architectures that are available in Keras. Used by some of the training scripts (should be clear which by the names).
+\item 02\_keras\_train\_MURA\_submission.py \& other keras\_*.py - trains the chosen model on the image data. These are all mostly duplicates of one another, with minor differences (e.g using one model vs another, adding regularisation etc). Some are labelled with \_GPU\_1 or \_GPU\_2 for my own benefit, to keep track when training different models simultaneously on different GPU's.
+\item 03\_Predictions.py - calculates image-wise and study-wise performance of a provided list of trained models on the validation data
+\item ./models/*.py  - provide functions that create pre-built architectures that are available in Keras. Used by some of the training scripts (should be clear which by the names).
 \item ./utils/utils.py - utility functions used across many scripts, e.g. a function to create a Tensorflow Dataset, used by all the training scripts.
 \end{itemize}
 \noindent
@@ -1240,24 +1120,350 @@ The other folders are:
 \item results - contains the images\_summary.csv produced by 00\_create\_images\_summary.py. Also has some Jupyter Notebooks to breakdown that summary, and to produce results from the output of 03\_Predictions.py (e.g. plot the ROC Curve).
 \end{itemize}
 \noindent
+There are also the following spreadsheets:
+\begin{itemize}
+\item MURA Breakdowns.xlsx - spreadsheet used to produce the data breakdowns, based off the images\_summary.csv table, seen in Section \ref{MURA-Breakdowns}.
+\item Model\_Runs.xlsx - a log of all the various runs I performed.
+\end{itemize}
+
+
+\subsection{Dependencies}
 Note that some of these scripts require the output of other scripts to run correctly. Specifically:
 \begin{itemize}
 \item 00\_create\_images\_summary.py - expects ./data/raw to contain a folder called MURA-v1.1 which contains the raw image files.
 \item 01\_process\_images\_for\_training.py - expects ./results to contain the file images\_summary.csv, which is created by 00\_create\_images\_summary.py. Expects the raw images in ./data/raw as above, as well.
 \item 02\_keras\_train\_MURA\_submission.py \& the other keras\_*.py scripts - expect ./data/processed/{folder} to contain a folder called MURA-v1.1 with resized versions of the raw image files (created by 01\_process\_images\_for\_training.py). Typically the final {folder} will indicate the dimensions of the new resized images, e.g. ./data/processed/resized-100-100. These scripts also expect images\_summary.csv in ./results as well.
-\item 03\_Predictions.py - expects keras .h5 model files in the ./keras\_saves folder. These are created by the keras\_\*.py scripts. Also expects processed images and images\_summary.csv as above.
-\item ./models - the .py scripts in here have sum\_weights\_\* functions that expect Keras .h5 weight files for their associated models inside the ./models folder with them. These are the pretrained ImageNet weights. Keras downloads these into the ~/.keras/models/ folder if necessary, however I copied them into my ./models folder to keep the project more self-contained. Note that the sum\_weights\_\* functions are called in some of the model training scripts to verify that the pre-built architectures' weights have updated as required (or not, if the case may be).
+\item 03\_Predictions.py - expects keras .h5 model files in the ./keras\_saves folder. These are created by the keras\_*.py scripts. Also expects processed images and images\_summary.csv as above.
+\item ./models - the .py scripts in here have sum\_weights\_* functions that expect Keras .h5 weight files for their associated models inside the ./models folder with them. These are the pretrained ImageNet weights. Keras downloads these into the ~/.keras/models/ folder if necessary, however I copied them into my ./models folder to keep the project more self-contained. Note that the sum\_weights\_* functions are called in some of the model training scripts to verify that the pre-built architectures' weights have updated as required (or not, if the case may be).
 \end{itemize}
-\noindent
+
+
+\subsection{Packages}
+Below is a list of the Python packages I used in my scripts, and the versions I used:
+\begin{itemize}
+\item Tensorflow: 1.9.0
+\item NumPy: 1.15.0
+\item Pandas: 0.23.3
+\item Python Image Library (PIL): 1.1.7
+\item SciKit-Learn: 0.19.1
+\end{itemize}
+Note that Tensorflow must be at least version 1.4.0 for my scripts to run, as they use the Dataset API which was added in this release.
+
+\subsection{Other Notes}
 A complete copy of my working environment with all data included can be found on the teaching server (teaching.cs.rhul.ac.uk) here:
+\\
+\noindent
 /rmt/nas/home/pgt/meac055/MURA/
 \\
 \\
 \noindent
 The raw images data (MURA-v1.1.zip) can be downloaded from here:
+\\
+\noindent
 https://stanfordmlgroup.github.io/competitions/mura/
+\\
 \\
 \noindent
 Note that after extracting the raw MURA-v1.1.zip, I moved the 4 csv files (train\_image\_paths.csv etc) up a level, out of MURA-v1.1/ into the docs/ folder. My 00\_create\_images\_summary.py script may throw an error if this is not done, as it expects the MURA-v1.1/ folder to contain only images. 
+
+\section{Background - Further Details} \label{appendix-background}
+\subsection{Linear Activation Functions} \label{linear-activation-functions}
+To see that composing several layers of neuron with linear activation functions reduces to taking a linear function of the original input neurons, let \(f(x) = x\) be the linear activation function used throughout the network. Then if layer \(0\) is the input layer, the activations of layer \(1\) are:
+\[a^{[1]} = f(\mathbf{{W^{[1]}}^{\top}}a^{[0]} + b^{[1]}) = \mathbf{{W^{[1]}}^{\top}}a^{[0]} + b^{[1]}\]
+And the activations for layer \(2\) are:
+\begin{align}
+a^{[2]} &= f(\mathbf{{W^{[2]}}^{\top}}a^{[1]} + b^{[2]})  \\
+      &= \mathbf{{W^{[2]}}^{\top}}a^{[1]} + b^{[2]} \\
+      &= \mathbf{{W^{[2]}}^{\top}}(\mathbf{{W^{[1]}}^{\top}}a^{[0]} + b^{[1]}) + b^{[2]} \\
+      &= \mathbf{(W^{[1]}W^{[2]})^{\top}}a^{[0]} + \mathbf{{W^{[2]}}^{\top}}b^{[1]} + b^{[2]} \\
+      &= \mathbf{W'^{\top}}a^{[0]} + b' 
+\end{align}
+where:
+\begin{itemize}
+  \item \(\mathbf{W'} = \mathbf{W^{[1]}W^{[2]}}\)  is an \({n_0}\times{n_2}\) matrix
+  \item \(b' = \mathbf{{W^{[2]}}^{\top}}b^{[1]} + b^{[2]}\) is an \({n_2}\times{1}\) vector
+  \item Equation \((4)\) uses the matrix transpose rule \((AB)^{\top} = B^{\top}A^{\top}\)
+\end{itemize}
+Hence both \(a^{[1]}\) and \(a^{[2]}\) are linear functions of \(a^{[0]}\). This argument can be repeated to any number of hidden layers, and so the output of the whole network (regardless of its size) is simply a linear function of the input. This is undesirable since such a network cannot learn more complicated, non-linear features of the data.
+
+\subsection{Calculating Gradients in Backward Pass} \label{Backward-Pass}
+Using the cross-entropy loss function, for a classification task as described above, we can calculate the gradient of the loss with respect to $\hat{y_j}$ (considering \(y_j\) as a fixed constant):
+\begin{align*}
+\dfrac{\partial  L}{\partial \hat{y_j}} &= \dfrac{\partial }{\partial \hat{y_j}}(- \sum_{j=1}^n y_jlog(\hat{y_j})) \\
+&= \dfrac{\partial }{\partial \hat{y_j}}(-y_jlog(\hat{y_j})) \\
+&= -\dfrac{y_j}{\hat{y_j}}
+\end{align*}
+Recall that $\hat{y_j}$ is the activation of the \(j^{th}\) neuron in the output layer. Which itself is a derived from the weights \(\mathbf{W}\) and biases \(b\) in the output layer, and the activations from the previous layer (layer \(l\), say) \(a^{[l]}\), fed through the Softmax function:
+\[ z = \mathbf{W^{\top}}a^{[l]} + b\]   
+\[ \hat{y_j} = \dfrac{e^{z_j}}{\sum_{k=1}^n e^{z_k}} \]
+And so, by the quotient rule:
+\begin{align*}
+\dfrac{\partial  \hat{y_j}}{\partial z_j} &= \dfrac{e^{z_j}(\sum_{k \neq j}e^{z_k}+e^{z_j}) - (e^{z_j})^2}{(\sum_{k=1}^n e^{z_k})^2} \\
+&= \dfrac{e^{z_j}}{\sum_{k=1}^n e^{z_k}} \dfrac{\sum_{k \neq j}e^{z_k}}{\sum_{k=1}^n e^{z_k}} \\
+&= \hat{y_j}(1-\hat{y_j})
+\end{align*}
+Where the final equality is due to:
+\begin{align*}
+1-\hat{y_j} &= 1 - \dfrac{e^{z_j}}{\sum_{k=1}^n e^{z_k}} \\
+&= \dfrac {\sum_{k=1}^n e^{z_k} - e^{z_j}}{\sum_{k=1}^n e^{z_k}} \\
+&= \dfrac {\sum_{k \neq j} e^{z_k}}{\sum_{k=1}^n e^{z_k}}
+\end{align*}
+But since \(z_j\) appears in the denominator for all other \(y_i\), \(i \neq j\), we also need to calculate:
+\begin{align*}
+\dfrac{\partial \hat{y_i}}{\partial z_j} &= \dfrac{\partial }{\partial z_j} (\dfrac{e^{z_i}}{\sum_{k \neq j} e^{z_k} + e^{z_j}})  \\
+&= -\dfrac{e^{z_i}e^{z_j}}{(\sum_{k=1}^n e^{z_k})^2} \\
+&= -\hat{y_i}\hat{y_j}
+\end{align*}
+Therefore we can apply the chain rule of differentiation to calculate the gradients of the loss with respect to the weights and biases in the output layer as follows:
+\begin{align*}
+\dfrac{\partial L}{\partial z_j} &= \sum_{i=1}^n \dfrac{\partial L}{\partial \hat{y_i}} \dfrac{\partial \hat{y_i}}{\partial z_j} \\
+&= (-\dfrac {y_j}{\hat{y_j}}) (\hat{y_j}(1-\hat{y_j})) + \sum_{i \neq j} (-\dfrac {y_i}{\hat{y_i}})(-\hat{y_i}\hat{y_j}) \\
+&= -y_j(1-\hat{y_j}) + \sum_{i \neq j} y_i\hat{y_j} \\
+&= -y_j + \sum_{i = 1}^n y_i\hat{y_j}  \\
+&= -y_j + \hat{y_j}\sum_{i = 1}^n y_i \\ 
+&= \hat{y_j} - y_j 
+\end{align*}
+Where we've used the fact that \(\sum_{i=1}^n y_i =1 \). Now if layer \(l\) has \(n_l\) neurons:
+\[ z_j = \sum_{i=1}^{n_l} w_{i,j}a^{[l]}_i + b_j\]
+So:
+\[ \dfrac{\partial z_j}{\partial w_{i,j}} = a^{[l]}_i \]
+\[ \dfrac{\partial z_j}{\partial b_j} = 1 \]
+And we have:
+\begin{align*}
+\dfrac{\partial L}{\partial w_{i,j}} &= \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial w_{i,j}} \\
+&= (\hat{y_j}-y_j)a^{[l]}_i
+\end{align*}
+\begin{align*}
+\dfrac{\partial L}{\partial b_j} &= \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial b_j} \\
+&= \hat{y_j}-y_j
+\end{align*}
+where \(w_{i,j}\) is an element from \(j^{th}\) column of the weight matrix \(\mathbf{W}\), and \(b_j\) the bias of the \(j^{th}\) neuron in the output layer. 
+\\
+\\
+\noindent
+We can also obtain similar formulas for the gradients of the loss with respect to the activations in layer \(l\). Since each neuron in this layer connects to all neurons in the output layer, a given activation \(a^{[l]}_i\) will appear in the formula (as shown above) for all \(z_j\), \(j=1,\ldots,n\). And each of the \(z_j\) appear additively in the loss function via $\hat{y_j}$. Therefore we have:
+\[ \dfrac{\partial z_j}{\partial a^{[l]}_i} = w_{i,j}\]
+\begin{align*}
+\dfrac{\partial L}{\partial a^{[l]}_i} &= \sum_{j=1}^{n} \dfrac{\partial L}{\partial z_j}\dfrac{\partial z_j}{\partial a^{[l]}_i} \\
+&= \sum_{j=1}^{n} (\hat{y_j}-y_j)w_{i,j}
+\end{align*}
+But these activations \(a^{[l]}\) themselves depend on the weights and biases in layer \(l\), and so we can extend the chain rule further to calculate the gradient of the loss with respect to these as well. And we can repeat this process for the activations, weights and biases, in layers \({l-1}, {l-2}, \ldots \) etc all the way back through the entire network.
+
+\subsection{Gradient Descent}
+This involves performing a forward pass, calculating the activations and the loss, then performing a backward pass, calculating the gradients of all the weights, for every item of data in the training set. The gradients of each weight are then averaged across the entire set of training data, before performing the weight update using these average values for each weight. That is, for a weight \(w\) let  \({\dfrac{\partial L}{\partial w}}_i\) be its gradient after  forward and backward passes with the \(i^{th}\) element of the training set as input to the network. Then if there are \(n\) items of data in the training set, perform the following weight update:
+\[ w = w - \dfrac{\eta}{n}\sum_{i=1}^{n} {\dfrac{\partial L}{\partial w}}_i \]
+That is, we have to perform a forward pass and backward pass for every item in the training set, and keep track of all associated gradients, before making a single weight update. This can be both slow and consume a lot of memory (consider a large network with millions of weights, and a large training set with millions of items). Note this process will often be repeated, with training involving hundreds or thousands of weight updates.
+
+\subsection{Stochastic Gradient Descent}
+Stochastic gradient descent (SGD) aims to speed things up by dividing the training set up into batches of a certain size (say, 128). Each data item in the training set is assigned randomly (hence "stochastic") without replacement to each of the batches. Then the weight updates are performed after calculating and averaging the gradients for each item in a batch. That is, if the batches are of size \(m\), for a given weight we make the following update:
+\[ w = w - \dfrac{\eta}{m}\sum_{i=1}^{m} {\dfrac{\partial L}{\partial w}}_i \]
+where \({\dfrac{\partial L}{\partial w}}_i\) is the gradient of \(w\) for the \(i^{th}\) item in the batch. An \textit{epoch} is then defined as a pass through the full set of batches, performing a weight update for each batch. Thus if the training data of size \(n\) is split up into batches of size \(m\), an epoch would involve \( \left \lceil{\dfrac{n}{m}}\right \rceil \)\footnote{\( \left \lceil{x}\right \rceil \) is the smallest integer greater than or equal to \(x\). If \(m\) does not divide into \(n\), the final batch will comprise \((n \mod m)\) items to ensure an epoch covers the entire training set.} weight updates - compared to just one for ordinary Gradient Descent. Training using SGD often involves running for several epochs. The random assignment of the training data into batches is repeated fresh at the start of each epoch.
+\\
+\\
+\noindent
+The advantage of SGD is that it is clearly quicker than GD to perform weight updates. While each weight update will be subject to more randomness than in GD, since each update corresponds to a single, random batch rather than the full training set. However, over the course of several hundred or thousand weight updates, involving many epochs or passes over the whole training set, this should average out to give comparable results to GD. 
+
+\subsection{RMSProp} \label{RMSProp}
+Let \(w_t\) be a weight in the network, and let \(g_t = {\dfrac{\partial L}{\partial w}}_t\) be its gradient, at iteration \(t\). Then over all iterations we keep an exponential moving average of the square of these gradients:
+\[ v_t = \alpha g_t^2 + (1-\alpha)v_{t-1} \]
+where the base case is \(v_0 = 0\), and \( \alpha \in [0,1]\) is a chosen hyperparameter that determines the extent to which (squared) gradients from past iterations affect the value of \(v_{t+1}\). Note that an iteration can refer either to a full pass over the whole training set, as in GD, or over a batch, as in SGD. Although in practice we will use it in conjunction with SGD, since it inherits the benefits mentioned above. So the "gradient" \(g_t\) above would in fact be the average of the gradients for the weight across a batch. The weight update for the given iteration is then:
+\[ \delta_t  = \dfrac{\eta}{\sqrt{v_t} + \epsilon} g_t \]
+\[ w_{t+1} = w_t - \delta_t \]
+where \(\eta\) is the (global) learning rate, and \(\epsilon\) is some small number (e.g. \(\epsilon=10^{-6}\)) added to avoid division by 0. The \(\dfrac{\eta}{\sqrt{v_t} + \epsilon}\) term now means that the learning rate \(\eta\) is dampened by the factor \(\sqrt{v_t} + \epsilon\), which varies for each training iteration and for each weight in the network. So for a weight that had larger gradients in previous iterations, so a larger \(v_t\), the effective learning rate will be smaller. Hence its subsequent weight updates get smaller as training progresses - slowing them down compared to weights with smaller gradients and weight updates at earlier iterations. This is desired, since weights that have seen large changes over training are more likely to be closer to the loss function minimum on which they are converging, and so should progress more slowly towards it (to avoid overshooting it, or other erratic behaviour).
+
+\subsection{Adam} \label{Adam}
+Let:
+\[ m_t = \beta g_t + (1-\beta)m_{t-1} \]
+Again the base case is \(m_0=0\), and \( \beta \in [0,1]\) is another hyperparameter that determines to what extent past gradients are taken credit for. The weight update is then:
+\[ \delta_t  = \dfrac{\eta}{\sqrt{v_t} + \epsilon} m_t \]
+\[ w_{t+1} = w_t - \delta_t \]
+where \(v_t\), \(\eta\) and \(\epsilon\) are defined as in RMSProp. This has the same benefits as RMSProp of dampening the learning rate \(\eta\) during training, but the weight update uses the smoothed \(m_t\) rather than the raw \(g_t\) at each iteration. 
+
+\subsection{Batch Normalisation} \label{Batch-Norm}
+Suppose we have a batch of size \(m\), and \(x_i\) is a neuron's activation for the \(i^{th}\) example in the batch - we replace it with the transformation \(y_i = \gamma \hat{x_i} + \beta\). Where \(\gamma\) and \(\beta\) are the learned scale and shift parameters respectively, and \(\hat{x_i}\) is given by: 
+\[ \mu = \dfrac{1}{m} \sum_{i=1}^m x_i \]
+\[ \sigma^2 = \dfrac{1}{m} \sum_{i=1}^m (x_i - \mu)^2 \]
+\[ \hat{x_i} = \dfrac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \]
+\noindent
+Where \(\epsilon\) is a small number (e.g. \(10^{-3}\)) added to avoid division by 0. While we referred to neuron activations above, the authors actually reccomend to apply the batch normalisation transformation \textit{before} the activation function. So if \(u\) is are the actiations from the previous layer, and \(g\) is the activation function, so that new the layer's activations are ordinarily:
+\[ z = g(Wu + b) \]
+We instead let them be:
+\[ z = g(BN(Wu)) \]
+Where \(BN\) is the batch normalistion transformation. Note that the bias term \(b\) is now redundant, since it serves the same role as the batch norm shift parameter \(\beta\) - so it is dropped.
+\\
+\\
+\noindent
+The authors argue that batch normalisation enables larger learning rates, and hence faster training, since it prevents small parameter changes from amplifying through the whole network into large, suboptimal weight updates (due to large gradients). It also separates the scale parameters from the scale of the learning rate - on which parameters depend via the weight update formula - since batch norm learns the scale and position of each activation (and hence gradient). And so it should compensate for learning rate being too high. 
+\\
+\\
+\noindent
+The authors also argue that batch normalisation regularises the model, since activation values are averaged over a batch rather than depending only on a single data item. This makes the model less prone to overfitting. They argue that dropout in a batch-normalised network can either be removed, or reduced in strength.
+\\
+\\
+\noindent
+Note that in the Keras implementation of batch norm \cite{keras_docs_batch_norm}, a moving average of the mean and variance are kept (with an adjustable "momentum" parameter). The final values of these moving averages are then used at test time in lieu of \(\mu\) and \(\sigma^2\) in the normalisation above - since normalisation a test or validation batch would consitute "data snooping".
+
+
+\newpage
+\section{Pre-Built Model Architechtures} \label{Model-Architectures-Appendix}
+Below we present diagrams showing the structure of the pre-built architectures considered in this project.
+\subsection{VGG16}
+VGG16 architecture (from \cite{VGG16_Webpage}):
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.4]{vgg16_original.png}
+\label{fig:vgg16_original}
+\caption{VGG16 Architecture}
+\end{figure}
+\FloatBarrier
+\subsection{Inception-ResNet-v2}
+Inception-ResNet-v2 (from \cite{IRNV2_Webpage})
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{IRNV2.png}
+\label{fig:IRNV2}
+\caption{Inception-ResNet-v2 Architecture}
+\end{figure}
+Example Inception block with skip connection:
+\begin{figure}[!ht]
+    \centering    
+    \caption{Inception Block with Skip Connection}
+    \label{fig:InceptionResNet}
+    \includegraphics[scale=0.7]{InceptionResNet.PNG}
+\end{figure}
+
+\section{Image Examples} \label{Image-Examples}
+The images from some example studies, of each body part and covering both normal and abnormal studies, are shown below. For some of the abnormal studies, the reason behind the result is clear - for instance, both Figure \ref{fig:MURA_Example_Humerus} of the Humerus and Figure \ref{fig:MURA_Example_Wrist} of the Wrist contain hardware (note the pin in the wrist). However the abnormality for some of the other studies is perhaps less clear to the untrained eye, for instance Figure \ref{fig:MURA_Example_Finger} of the Finger.
+
+\subsection{Elbow}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.5]{XR_ELBOW/Negative/patient05926/study1_negative/image1.png}
+\label{fig:Elbow_1}}
+\subfloat{
+\includegraphics[scale=0.5]{XR_ELBOW/Negative/patient05926/study1_negative/image2.png}
+\label{fig:Elbow_2}}
+\caption{Patient 05926; Study 1; Elbow; Normal}
+\label{fig:MURA_Example_Elbow}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsection{Finger}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.5]{XR_FINGER/Positive/patient00234/study1_positive/image1.png}
+\label{fig:Finger_1}}
+\subfloat{
+\includegraphics[scale=0.5]{XR_FINGER/Positive/patient00234/study1_positive/image2.png}
+\label{fig:Finger_2}}
+\subfloat{
+\includegraphics[scale=0.5]{XR_FINGER/Positive/patient00234/study1_positive/image3.png}
+\label{fig:Finger_3}}
+\caption{Patient 00234; Study 1; Finger; Abnormal}
+\label{fig:MURA_Example_Finger}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsection{Hand}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.4]{XR_HAND/Positive/patient09836/study1_positive/image1.png}
+\label{fig:Hand_1}}
+\subfloat{
+\includegraphics[scale=0.4]{XR_HAND/Positive/patient09836/study1_positive/image2.png}
+\label{fig:Hand_2}}
+\newline
+\subfloat{
+\includegraphics[scale=0.4]{XR_HAND/Positive/patient09836/study1_positive/image3.png}
+\label{fig:Hand_3}}
+\caption{Patient 09836; Study 1; Hand; Abnormal}
+\label{fig:MURA_Example_Hand}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsection{Humerus}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.5]{XR_HUMERUS/Negative/patient11225/study1_negative/image1.png}
+\label{fig:Humerus_1}}
+\subfloat{
+\includegraphics[scale=0.5]{XR_HUMERUS/Negative/patient11225/study1_negative/image2.png}
+\label{fig:Humerus_2}}
+\caption{Patient 11225; Study 1; Humerus; Normal}
+\label{fig:MURA_Example_Humerus}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsection{Forearm}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.5]{XR_FOREARM/Positive/patient11417/study1_positive/image1.png}
+\label{fig:Forearm_1}}
+\newline
+\subfloat{
+\includegraphics[scale=0.5]{XR_FOREARM/Positive/patient11417/study1_positive/image2.png}
+\label{fig:Forearm_2}}
+\newline
+\subfloat{
+\includegraphics[scale=0.4]{XR_FOREARM/Positive/patient11417/study1_positive/image3.png}
+\label{fig:Forearm_3}}
+\subfloat{
+\includegraphics[scale=0.4]{XR_FOREARM/Positive/patient11417/study1_positive/image4.png}
+\label{fig:Forearm_4}}
+\caption{Patient 11417; Study 1; Forearm; Abnormal}
+\label{fig:MURA_Example_Forearm}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsection{Shoulder}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.5]{XR_SHOULDER/Positive/patient00001/study1_positive/image1.png}
+\label{fig:Shoulder_1}}
+\subfloat{
+\includegraphics[scale=0.5]{XR_SHOULDER/Positive/patient00001/study1_positive/image2.png}
+\label{fig:Shoulder_2}}
+\newline
+\subfloat{
+\includegraphics[scale=0.5]{XR_SHOULDER/Positive/patient00001/study1_positive/image3.png}
+\label{fig:Shoulder_3}}
+\caption{Patient 00001; Study 1; Shoulder; Abnormal}
+\label{fig:MURA_Example_Shoulder}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsection{Wrist}
+\begin{figure}[!ht]
+\centering
+\subfloat{
+\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image1.png}
+\label{fig:Wrist_1}}
+\subfloat{
+\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image2.png}
+\label{fig:Wrist_2}}
+\newline
+\subfloat{
+\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image3.png}
+\label{fig:Wrist_3}}
+\subfloat{
+\includegraphics[scale=0.4]{XR_WRIST/Positive/patient01521/study1_positive/image4.png}
+\label{fig:Wrist_4}}
+\caption{Patient 01521; Study 1; Wrist; Abnormal}
+\label{fig:MURA_Example_Wrist}
+\end{figure}
+\FloatBarrier
+
 
 \end{document}

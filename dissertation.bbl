@@ -33,10 +33,6 @@ S.~{Ioffe} and C.~{Szegedy}, ``{Batch Normalization: Accelerating Deep Network
   Training by Reducing Internal Covariate Shift},'' {\em ArXiv e-prints}, Feb.
   2015.
 
-\bibitem{keras_docs_batch_norm}
-``Keras documentation.'' \url{https://keras.io/layers/normalization/}, 2018.
-\newblock [Online; accessed 17-August-2018].
-
 \bibitem{cohens_kappa}
 J.~Cohen, ``A coefficient of agreement for nominal scales,'' {\em Educational
   and Psychological Measurement}, vol.~20, no.~1, pp.~37--46, 1960.
@@ -85,10 +81,6 @@ C.~{Szegedy}, V.~{Vanhoucke}, S.~{Ioffe}, J.~{Shlens}, and Z.~{Wojna},
   ``{Rethinking the Inception Architecture for Computer Vision},'' {\em ArXiv
   e-prints}, Dec. 2015.
 
-\bibitem{DenseNet_Paper}
-G.~{Huang}, Z.~{Liu}, L.~{van der Maaten}, and K.~Q. {Weinberger}, ``{Densely
-  Connected Convolutional Networks},'' {\em ArXiv e-prints}, Aug. 2016.
-
 \bibitem{ChestXray-14}
 X.~Wang, Y.~Peng, L.~Lu, Z.~Lu, M.~Bagheri, and R.~Summers, ``Chestx-ray14:
   Hospital-scale chest x-ray database and benchmarks on weakly-supervised
@@ -108,6 +100,23 @@ L.~Oakden-Rayner, ``Exploring the chestxray14 dataset: problems.''
 \bibitem{MURA_Webpage}
 ``Bone x-ray deep learning competition.''
   \url{https://stanfordmlgroup.github.io/competitions/mura/}, 2018.
+\newblock [Online; accessed 30-August-2018].
+
+\bibitem{keras_docs_batch_norm}
+``Keras documentation.'' \url{https://keras.io/layers/normalization/}, 2018.
+\newblock [Online; accessed 17-August-2018].
+
+\bibitem{VGG16_Webpage}
+F.~Chollet, ``Building powerful image classification models using very little
+  data.''
+  \url{https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html},
+  2016.
+\newblock [Online; accessed 30-August-2018].
+
+\bibitem{IRNV2_Webpage}
+A.~Alemi, ``Improving inception and image classification in tensorflow.''
+  \url{https://ai.googleblog.com/2016/08/improving-inception-and-image.html},
+  2016.
 \newblock [Online; accessed 30-August-2018].
 
 \end{thebibliography}

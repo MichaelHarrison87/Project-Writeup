@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  30 AUG 2018 04:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.31)  30 AUG 2018 13:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -224,16 +224,7 @@ Package: placeins 2005/04/18  v 2.2
 \c@theorem=\count113
  (./dissertation.aux
 
-LaTeX Warning: Label `fig:SimpleBaselineModel_Shallower' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:SimpleBaselineModel_Shallower' multiply defined.
-
-
-LaTeX Warning: Label `fig:SimpleBaselineModel_Deeper' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:SimpleBaselineModel_Deeper' multiply defined.
+LaTeX Warning: Label `fig:vanilla_medium' multiply defined.
 
 )
 \openout1 = `dissertation.aux'.
@@ -338,11 +329,11 @@ Package pdftex.def Info: RHULlogo.jpg used on input line 41.
 \tf@toc=\write3
 \openout3 = `dissertation.toc'.
 
- [4] (./dissertation.lof)
+ [4] (./dissertation.lof [5])
 \tf@lof=\write4
 \openout4 = `dissertation.lof'.
 
- [5]
+ [6]
 Underfull \hbox (badness 10000) in paragraph at lines 60--69
 
  []
@@ -352,7 +343,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--69
 
  []
 
-[1] [2] <./images/simple_ann.png, id=40, 297.11pt x 357.335pt>
+[1] <./images/simple_ann.png, id=40, 297.11pt x 357.335pt>
 File: ./images/simple_ann.png Graphic file (type png)
 
 <use ./images/simple_ann.png>
@@ -363,923 +354,848 @@ Underfull \hbox (badness 10000) in paragraph at lines 83--94
 
  []
 
-[3]
+[2]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 97.
- [4 <./images/simple_ann.png>]
+ [3 <./images/simple_ann.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 100--105
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--132
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 138--144
+
+ []
+
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 123--135
+Underfull \hbox (badness 10000) in paragraph at lines 156--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--135
+Underfull \hbox (badness 10000) in paragraph at lines 156--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--148
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--148
+Underfull \hbox (badness 10000) in paragraph at lines 156--172
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 154--171
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--171
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--171
+Underfull \hbox (badness 10000) in paragraph at lines 176--181
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 184--200
+Underfull \hbox (badness 10000) in paragraph at lines 192--207
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--200
+Underfull \hbox (badness 10000) in paragraph at lines 192--207
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 204--209
+Underfull \hbox (badness 10000) in paragraph at lines 209--217
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--223
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 213--218
+Underfull \hbox (badness 10000) in paragraph at lines 229--238
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--238
 
  []
 
 [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 266--272
+Underfull \hbox (badness 10000) in paragraph at lines 244--253
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 244--253
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 284--292
+Underfull \hbox (badness 10000) in paragraph at lines 258--264
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 292--301
+Underfull \hbox (badness 10000) in paragraph at lines 268--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--325
+Underfull \hbox (badness 10000) in paragraph at lines 268--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--325
+Underfull \hbox (badness 10000) in paragraph at lines 268--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--325
+Underfull \hbox (badness 10000) in paragraph at lines 268--286
+
+ []
+
+[14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 291--304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--325
+Underfull \hbox (badness 10000) in paragraph at lines 291--304
 
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 328--337
 
- []
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 347--355
+Underfull \hbox (badness 10000) in paragraph at lines 291--304
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 355--361
+Underfull \hbox (badness 10000) in paragraph at lines 306--315
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--315
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 367--376
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 367--376
+Underfull \hbox (badness 10000) in paragraph at lines 317--322
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 381--386
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 393--407
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 393--407
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 393--407
-
- []
-
-[19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 409--418
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 409--418
-
- []
-
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 423--429
-
- []
-
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 433--451
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 433--451
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 433--451
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 433--451
-
- []
-
-[23] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 456--469
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 456--469
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 456--469
-
- []
-
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 471--480
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 471--480
-
- []
-
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 482--487
-
- []
-
-[27]
-Overfull \hbox (0.56697pt too wide) in paragraph at lines 508--520
+Overfull \hbox (0.56697pt too wide) in paragraph at lines 333--345
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--530
+Underfull \hbox (badness 10000) in paragraph at lines 328--355
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--530
-
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 538--547
+Underfull \hbox (badness 10000) in paragraph at lines 328--355
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 538--547
+Underfull \hbox (badness 10000) in paragraph at lines 363--372
 
  []
 
-[29] <./images/ROC_Curve.png, id=142, 90.3375pt x 87.62738pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--372
+
+ []
+
+[19] <./images/ROC_Curve.png, id=113, 90.3375pt x 87.62738pt>
 File: ./images/ROC_Curve.png Graphic file (type png)
 
 <use ./images/ROC_Curve.png>
-Package pdftex.def Info: ./images/ROC_Curve.png used on input line 558.
-(pdftex.def)             Requested size: 180.67453pt x 175.2543pt.
+Package pdftex.def Info: ./images/ROC_Curve.png used on input line 383.
+(pdftex.def)             Requested size: 171.64024pt x 166.49104pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 553--571
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 553--571
+Underfull \hbox (badness 10000) in paragraph at lines 378--396
 
  []
 
-[30 <./images/ROC_Curve.png>] [31] [32]
-<./images/ILSVRC_Winners.png, id=152, 773.89125pt x 402.50375pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--396
+
+ []
+
+[20] [21 <./images/ROC_Curve.png>]
+<./images/ILSVRC_Winners.png, id=120, 773.89125pt x 402.50375pt>
 File: ./images/ILSVRC_Winners.png Graphic file (type png)
 
 <use ./images/ILSVRC_Winners.png>
-Package pdftex.def Info: ./images/ILSVRC_Winners.png used on input line 583.
-(pdftex.def)             Requested size: 309.55101pt x 160.99864pt.
+Package pdftex.def Info: ./images/ILSVRC_Winners.png used on input line 404.
+(pdftex.def)             Requested size: 270.866pt x 140.87842pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 578--591
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 578--591
+Underfull \hbox (badness 10000) in paragraph at lines 399--412
 
  []
 
-[33 <./images/ILSVRC_Winners.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 600--600
+
+Underfull \hbox (badness 10000) in paragraph at lines 399--412
+
+ []
+
+[22 <./images/ILSVRC_Winners.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 421--421
 [][]\OT1/cmr/m/n/9 The lat-ter would cor-re-spond to, say, $[][] [][] \OML/cmm/
 m/it/9 w[]p[]$ \OT1/cmr/m/n/9 (ig-nor-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 600--600
+Underfull \hbox (badness 10000) in paragraph at lines 421--421
 \OT1/cmr/m/n/9 bias and ac-ti-va-tion func-tion). While the for-mer would cor-r
 e-spond to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 592--601
+Underfull \hbox (badness 10000) in paragraph at lines 413--426
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 592--601
+Underfull \hbox (badness 10000) in paragraph at lines 413--426
 
  []
 
-<./images/InceptionModule.PNG, id=157, 373.395pt x 207.02344pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 413--426
+
+ []
+
+<./images/InceptionModule.PNG, id=126, 373.395pt x 207.02344pt>
 File: ./images/InceptionModule.PNG Graphic file (type png)
 
 <use ./images/InceptionModule.PNG>
-Package pdftex.def Info: ./images/InceptionModule.PNG used on input line 608.
+Package pdftex.def Info: ./images/InceptionModule.PNG used on input line 432.
 (pdftex.def)             Requested size: 261.37471pt x 144.9154pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--621
+Underfull \hbox (badness 10000) in paragraph at lines 427--445
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--621
+Underfull \hbox (badness 10000) in paragraph at lines 427--445
 
  []
 
-[34] [35 <./images/InceptionModule.PNG>]
-<./images/SkipConnection.PNG, id=168, 240.9pt x 134.00063pt>
+[23] [24 <./images/InceptionModule.PNG>]
+<./images/SkipConnection.PNG, id=136, 240.9pt x 134.00063pt>
 File: ./images/SkipConnection.PNG Graphic file (type png)
 
 <use ./images/SkipConnection.PNG>
-Package pdftex.def Info: ./images/SkipConnection.PNG used on input line 628.
+Package pdftex.def Info: ./images/SkipConnection.PNG used on input line 452.
 (pdftex.def)             Requested size: 168.62883pt x 93.79977pt.
 
-<./images/ResNet_TrainError.PNG, id=169, 392.21532pt x 140.02313pt>
+<./images/ResNet_TrainError.PNG, id=137, 392.21532pt x 140.02313pt>
 File: ./images/ResNet_TrainError.PNG Graphic file (type png)
 
 <use ./images/ResNet_TrainError.PNG>
-Package pdftex.def Info: ./images/ResNet_TrainError.PNG used on input line 638.
+Package pdftex.def Info: ./images/ResNet_TrainError.PNG used on input line 462.
 
 (pdftex.def)             Requested size: 274.54884pt x 98.01552pt.
 
-<./images/ResNet_Bottleneck.PNG, id=170, 146.04562pt x 130.98938pt>
+<./images/ResNet_Bottleneck.PNG, id=138, 146.04562pt x 130.98938pt>
 File: ./images/ResNet_Bottleneck.PNG Graphic file (type png)
 
 <use ./images/ResNet_Bottleneck.PNG>
-Package pdftex.def Info: ./images/ResNet_Bottleneck.PNG used on input line 651.
+Package pdftex.def Info: ./images/ResNet_Bottleneck.PNG used on input line 475.
 
 (pdftex.def)             Requested size: 102.23122pt x 91.69193pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 623--660
+Underfull \hbox (badness 10000) in paragraph at lines 447--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 623--660
+Underfull \hbox (badness 10000) in paragraph at lines 447--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 623--660
+Underfull \hbox (badness 10000) in paragraph at lines 447--484
 
  []
 
-[36] [37 <./images/SkipConnection.PNG> <./images/ResNet_TrainError.PNG>]
-[38 <./images/ResNet_Bottleneck.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 665--670
+[25] [26 <./images/SkipConnection.PNG> <./images/ResNet_TrainError.PNG>]
+[27 <./images/ResNet_Bottleneck.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 489--494
 
  []
 
 
-<./images/EfficientSpatialReductionBlock.PNG, id=183, 128.73094pt x 139.27031pt
+<./images/EfficientSpatialReductionBlock.PNG, id=151, 128.73094pt x 139.27031pt
 >
 File: ./images/EfficientSpatialReductionBlock.PNG Graphic file (type png)
  <use ./images/EfficientSpatialReductionBlock.PNG>
 Package pdftex.def Info: ./images/EfficientSpatialReductionBlock.PNG used on in
-put line 679.
+put line 503.
 (pdftex.def)             Requested size: 90.11102pt x 97.48854pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 670--681
+Underfull \hbox (badness 10000) in paragraph at lines 494--505
 
  []
 
-[39] <./images/InceptionResNet.PNG, id=187, 271.76532pt x 246.1697pt>
-File: ./images/InceptionResNet.PNG Graphic file (type png)
-
-<use ./images/InceptionResNet.PNG>
-Package pdftex.def Info: ./images/InceptionResNet.PNG used on input line 686.
-(pdftex.def)             Requested size: 190.23442pt x 172.3176pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 692--697
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 507--513
 
  []
 
-[40 <./images/EfficientSpatialReductionBlock.PNG>] [41 <./images/InceptionResNe
-t.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 705--737
+[29 <./images/EfficientSpatialReductionBlock.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 518--550
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 705--737
+Underfull \hbox (badness 10000) in paragraph at lines 518--550
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 705--737
+Underfull \hbox (badness 10000) in paragraph at lines 518--550
 
  []
 
-[42
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 742--747
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 555--560
 
  []
 
-[43] [44]
-<./images/XR_ELBOW/Negative/patient05926/study1_negative/image1.png, id=207, 33
-9.2675pt x 513.92pt>
-File: ./images/XR_ELBOW/Negative/patient05926/study1_negative/image1.png Graphi
-c file (type png)
-
-<use ./images/XR_ELBOW/Negative/patient05926/study1_negative/image1.png>
-Package pdftex.def Info: ./images/XR_ELBOW/Negative/patient05926/study1_negativ
-e/image1.png used on input line 757.
-(pdftex.def)             Requested size: 169.63333pt x 256.95937pt.
-
-<./images/XR_ELBOW/Negative/patient05926/study1_negative/image2.png, id=208, 51
-3.92pt x 453.695pt>
-File: ./images/XR_ELBOW/Negative/patient05926/study1_negative/image2.png Graphi
-c file (type png)
-
-<use ./images/XR_ELBOW/Negative/patient05926/study1_negative/image2.png>
-Package pdftex.def Info: ./images/XR_ELBOW/Negative/patient05926/study1_negativ
-e/image2.png used on input line 760.
-(pdftex.def)             Requested size: 256.95937pt x 226.84694pt.
-
-Overfull \hbox (81.19267pt too wide) in paragraph at lines 757--761
- [][][] 
- []
-
-[45 <./images/XR_ELBOW/Negative/patient05926/study1_negative/image1.png (PNG co
-py)> <./images/XR_ELBOW/Negative/patient05926/study1_negative/image2.png (PNG c
-opy)>]
-<./images/XR_FINGER/Positive/patient00234/study1_positive/image1.png, id=212, 1
-27.47626pt x 513.92pt>
-File: ./images/XR_FINGER/Positive/patient00234/study1_positive/image1.png Graph
-ic file (type png)
-
-<use ./images/XR_FINGER/Positive/patient00234/study1_positive/image1.png>
-Package pdftex.def Info: ./images/XR_FINGER/Positive/patient00234/study1_positi
-ve/image1.png used on input line 772.
-(pdftex.def)             Requested size: 63.73796pt x 256.95937pt.
-
-<./images/XR_FINGER/Positive/patient00234/study1_positive/image2.png, id=213, 1
-60.6pt x 513.92pt>
-File: ./images/XR_FINGER/Positive/patient00234/study1_positive/image2.png Graph
-ic file (type png)
-
-<use ./images/XR_FINGER/Positive/patient00234/study1_positive/image2.png>
-Package pdftex.def Info: ./images/XR_FINGER/Positive/patient00234/study1_positi
-ve/image2.png used on input line 775.
-(pdftex.def)             Requested size: 80.29979pt x 256.95937pt.
-
-<./images/XR_FINGER/Positive/patient00234/study1_positive/image3.png, id=214, 1
-27.47626pt x 513.92pt>
-File: ./images/XR_FINGER/Positive/patient00234/study1_positive/image3.png Graph
-ic file (type png)
-
-<use ./images/XR_FINGER/Positive/patient00234/study1_positive/image3.png>
-Package pdftex.def Info: ./images/XR_FINGER/Positive/patient00234/study1_positi
-ve/image3.png used on input line 778.
-(pdftex.def)             Requested size: 63.73796pt x 256.95937pt.
-
-[46 <./images/XR_FINGER/Positive/patient00234/study1_positive/image1.png (PNG c
-opy)> <./images/XR_FINGER/Positive/patient00234/study1_positive/image2.png (PNG
- copy)> <./images/XR_FINGER/Positive/patient00234/study1_positive/image3.png (P
-NG copy)>]
-<./images/XR_HAND/Positive/patient09836/study1_positive/image1.png, id=218, 397
-.485pt x 513.92pt>
-File: ./images/XR_HAND/Positive/patient09836/study1_positive/image1.png Graphic
- file (type png)
-
-<use ./images/XR_HAND/Positive/patient09836/study1_positive/image1.png>
-Package pdftex.def Info: ./images/XR_HAND/Positive/patient09836/study1_positive
-/image1.png used on input line 790.
-(pdftex.def)             Requested size: 158.99118pt x 205.56435pt.
-
-<./images/XR_HAND/Positive/patient09836/study1_positive/image2.png, id=219, 395
-.4775pt x 513.92pt>
-File: ./images/XR_HAND/Positive/patient09836/study1_positive/image2.png Graphic
- file (type png)
-
-<use ./images/XR_HAND/Positive/patient09836/study1_positive/image2.png>
-Package pdftex.def Info: ./images/XR_HAND/Positive/patient09836/study1_positive
-/image2.png used on input line 793.
-(pdftex.def)             Requested size: 158.18819pt x 205.56435pt.
-
-<./images/XR_HAND/Positive/patient09836/study1_positive/image3.png, id=220, 396
-.48125pt x 513.92pt>
-File: ./images/XR_HAND/Positive/patient09836/study1_positive/image3.png Graphic
- file (type png)
-
-<use ./images/XR_HAND/Positive/patient09836/study1_positive/image3.png>
-Package pdftex.def Info: ./images/XR_HAND/Positive/patient09836/study1_positive
-/image3.png used on input line 797.
-(pdftex.def)             Requested size: 158.58968pt x 205.56435pt.
-
-[47 <./images/XR_HAND/Positive/patient09836/study1_positive/image1.png (PNG cop
-y)> <./images/XR_HAND/Positive/patient09836/study1_positive/image2.png (PNG cop
-y)> <./images/XR_HAND/Positive/patient09836/study1_positive/image3.png (PNG cop
-y)>]
-<./images/XR_HUMERUS/Negative/patient11225/study1_negative/image1.png, id=225, 
-421.575pt x 513.92pt>
-File: ./images/XR_HUMERUS/Negative/patient11225/study1_negative/image1.png Grap
-hic file (type png)
-
-<use ./images/XR_HUMERUS/Negative/patient11225/study1_negative/image1.png>
-Package pdftex.def Info: ./images/XR_HUMERUS/Negative/patient11225/study1_negat
-ive/image1.png used on input line 809.
-(pdftex.def)             Requested size: 210.78697pt x 256.95937pt.
-
-<./images/XR_HUMERUS/Negative/patient11225/study1_negative/image2.png, id=226, 
-421.575pt x 513.92pt>
-File: ./images/XR_HUMERUS/Negative/patient11225/study1_negative/image2.png Grap
-hic file (type png)
-
-<use ./images/XR_HUMERUS/Negative/patient11225/study1_negative/image2.png>
-Package pdftex.def Info: ./images/XR_HUMERUS/Negative/patient11225/study1_negat
-ive/image2.png used on input line 812.
-(pdftex.def)             Requested size: 210.78697pt x 256.95937pt.
-
-Overfull \hbox (76.17392pt too wide) in paragraph at lines 809--813
- [][][] 
- []
-
-[48 <./images/XR_HUMERUS/Negative/patient11225/study1_negative/image1.png (PNG 
-copy)> <./images/XR_HUMERUS/Negative/patient11225/study1_negative/image2.png (P
-NG copy)>]
-<./images/XR_FOREARM/Positive/patient11417/study1_positive/image1.png, id=230, 
-513.92pt x 202.7575pt>
-File: ./images/XR_FOREARM/Positive/patient11417/study1_positive/image1.png Grap
-hic file (type png)
-
-<use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image1.png>
-Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
-ive/image1.png used on input line 824.
-(pdftex.def)             Requested size: 256.95937pt x 101.3785pt.
-
-<./images/XR_FOREARM/Positive/patient11417/study1_positive/image2.png, id=231, 
-513.92pt x 215.80624pt>
-File: ./images/XR_FOREARM/Positive/patient11417/study1_positive/image2.png Grap
-hic file (type png)
-
-<use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image2.png>
-Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
-ive/image2.png used on input line 828.
-(pdftex.def)             Requested size: 256.95937pt x 107.90285pt.
-
-<./images/XR_FOREARM/Positive/patient11417/study1_positive/image3.png, id=232, 
-204.765pt x 513.92pt>
-File: ./images/XR_FOREARM/Positive/patient11417/study1_positive/image3.png Grap
-hic file (type png)
-
-<use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image3.png>
-Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
-ive/image3.png used on input line 832.
-(pdftex.def)             Requested size: 81.90454pt x 205.56435pt.
-
-<./images/XR_FOREARM/Positive/patient11417/study1_positive/image4.png, id=233, 
-205.76875pt x 513.92pt>
-File: ./images/XR_FOREARM/Positive/patient11417/study1_positive/image4.png Grap
-hic file (type png)
-
-<use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image4.png>
-Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
-ive/image4.png used on input line 835.
-(pdftex.def)             Requested size: 82.30603pt x 205.56435pt.
-
-[49 <./images/XR_FOREARM/Positive/patient11417/study1_positive/image1.png (PNG 
-copy)> <./images/XR_FOREARM/Positive/patient11417/study1_positive/image2.png (P
-NG copy)> <./images/XR_FOREARM/Positive/patient11417/study1_positive/image3.png
- (PNG copy)> <./images/XR_FOREARM/Positive/patient11417/study1_positive/image4.
-png (PNG copy)>]
-<./images/XR_SHOULDER/Positive/patient00001/study1_positive/image1.png, id=237,
- 381.425pt x 513.92pt>
-File: ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image1.png Gra
-phic file (type png)
-
-<use ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image1.png>
-Package pdftex.def Info: ./images/XR_SHOULDER/Positive/patient00001/study1_posi
-tive/image1.png used on input line 847.
-(pdftex.def)             Requested size: 190.71202pt x 256.95937pt.
-
-<./images/XR_SHOULDER/Positive/patient00001/study1_positive/image2.png, id=238,
- 304.13625pt x 513.92pt>
-File: ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image2.png Gra
-phic file (type png)
-
-<use ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image2.png>
-Package pdftex.def Info: ./images/XR_SHOULDER/Positive/patient00001/study1_posi
-tive/image2.png used on input line 850.
-(pdftex.def)             Requested size: 152.06775pt x 256.95937pt.
-
-<./images/XR_SHOULDER/Positive/patient00001/study1_positive/image3.png, id=239,
- 513.92pt x 411.5375pt>
-File: ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image3.png Gra
-phic file (type png)
-
-<use ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image3.png>
-Package pdftex.def Info: ./images/XR_SHOULDER/Positive/patient00001/study1_posi
-tive/image3.png used on input line 854.
-(pdftex.def)             Requested size: 256.95937pt x 205.76825pt.
-
-[50 <./images/XR_SHOULDER/Positive/patient00001/study1_positive/image1.png (PNG
- copy)> <./images/XR_SHOULDER/Positive/patient00001/study1_positive/image2.png 
-(PNG copy)> <./images/XR_SHOULDER/Positive/patient00001/study1_positive/image3.
-png (PNG copy)>]
-<./images/XR_WRIST/Positive/patient01521/study1_positive/image1.png, id=243, 33
-8.26375pt x 513.92pt>
-File: ./images/XR_WRIST/Positive/patient01521/study1_positive/image1.png Graphi
-c file (type png)
-
-<use ./images/XR_WRIST/Positive/patient01521/study1_positive/image1.png>
-Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
-e/image1.png used on input line 866.
-(pdftex.def)             Requested size: 135.30309pt x 205.56435pt.
-
-<./images/XR_WRIST/Positive/patient01521/study1_positive/image2.png, id=244, 51
-3.92pt x 420.57124pt>
-File: ./images/XR_WRIST/Positive/patient01521/study1_positive/image2.png Graphi
-c file (type png)
-
-<use ./images/XR_WRIST/Positive/patient01521/study1_positive/image2.png>
-Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
-e/image2.png used on input line 869.
-(pdftex.def)             Requested size: 205.56435pt x 168.22551pt.
-
-<./images/XR_WRIST/Positive/patient01521/study1_positive/image3.png, id=245, 33
-6.25626pt x 513.92pt>
-File: ./images/XR_WRIST/Positive/patient01521/study1_positive/image3.png Graphi
-c file (type png)
-
-<use ./images/XR_WRIST/Positive/patient01521/study1_positive/image3.png>
-Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
-e/image3.png used on input line 873.
-(pdftex.def)             Requested size: 134.5001pt x 205.56435pt.
-
-<./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png, id=246, 33
-7.26pt x 513.92pt>
-File: ./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png Graphi
-c file (type png)
-
-<use ./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png>
-Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
-e/image4.png used on input line 876.
-(pdftex.def)             Requested size: 134.9016pt x 205.56435pt.
-
-[51 <./images/XR_WRIST/Positive/patient01521/study1_positive/image1.png (PNG co
-py)> <./images/XR_WRIST/Positive/patient01521/study1_positive/image2.png (PNG c
-opy)> <./images/XR_WRIST/Positive/patient01521/study1_positive/image3.png (PNG 
-copy)> <./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png (PNG
- copy)>]
-<./images/MURA-Breakdowns/StudiesByPart.PNG, id=250, 298.11375pt x 160.34906pt>
+[31] [32]
+<./images/MURA-Breakdowns/StudiesByPart.PNG, id=169, 298.11375pt x 160.34906pt>
 File: ./images/MURA-Breakdowns/StudiesByPart.PNG Graphic file (type png)
 <use ./images/MURA-Breakdowns/StudiesByPart.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/StudiesByPart.PNG used on inp
-ut line 892.
+ut line 572.
 (pdftex.def)             Requested size: 208.67819pt x 112.24356pt.
 
-<./images/MURA-Breakdowns/StudiesByPart_Percentages.PNG, id=251, 253.69781pt x 
+<./images/MURA-Breakdowns/StudiesByPart_Percentages.PNG, id=170, 253.69781pt x 
 160.34906pt>
 File: ./images/MURA-Breakdowns/StudiesByPart_Percentages.PNG Graphic file (type
  png)
  <use ./images/MURA-Breakdowns/StudiesByPart_Percentages.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/StudiesByPart_Percentages.PNG
- used on input line 896.
+ used on input line 576.
 (pdftex.def)             Requested size: 177.58725pt x 112.24356pt.
 
-Overfull \hbox (40.86542pt too wide) in paragraph at lines 892--897
+Overfull \hbox (40.86542pt too wide) in paragraph at lines 572--577
  [][][] 
  []
 
 
-<./images/MURA-Breakdowns/ImagesByPart.PNG, id=252, 297.36093pt x 159.59625pt>
+<./images/MURA-Breakdowns/ImagesByPart.PNG, id=171, 297.36093pt x 159.59625pt>
 File: ./images/MURA-Breakdowns/ImagesByPart.PNG Graphic file (type png)
 
 <use ./images/MURA-Breakdowns/ImagesByPart.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/ImagesByPart.PNG used on inpu
-t line 908.
+t line 588.
 (pdftex.def)             Requested size: 208.15123pt x 111.7166pt.
 
-<./images/MURA-Breakdowns/ImagesByPart_Percentages.PNG, id=253, 252.945pt x 160
+<./images/MURA-Breakdowns/ImagesByPart_Percentages.PNG, id=172, 252.945pt x 160
 .34906pt>
 File: ./images/MURA-Breakdowns/ImagesByPart_Percentages.PNG Graphic file (type 
 png)
  <use ./images/MURA-Breakdowns/ImagesByPart_Percentages.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/ImagesByPart_Percentages.PNG 
-used on input line 912.
+used on input line 592.
 (pdftex.def)             Requested size: 177.06029pt x 112.24356pt.
 
-<./images/MURA-Breakdowns/ImagesPerStudy.PNG, id=254, 304.88907pt x 160.34906pt
+<./images/MURA-Breakdowns/ImagesPerStudy.PNG, id=173, 304.88907pt x 160.34906pt
 >
 File: ./images/MURA-Breakdowns/ImagesPerStudy.PNG Graphic file (type png)
  <use ./images/MURA-Breakdowns/ImagesPerStudy.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/ImagesPerStudy.PNG used on in
-put line 917.
+put line 597.
 (pdftex.def)             Requested size: 213.42088pt x 112.24356pt.
 
-Overfull \hbox (39.8115pt too wide) in paragraph at lines 908--918
+Overfull \hbox (39.8115pt too wide) in paragraph at lines 588--598
  [][][]  
  []
 
-[52 <./images/MURA-Breakdowns/StudiesByPart.PNG> <./images/MURA-Breakdowns/Stud
+[33 <./images/MURA-Breakdowns/StudiesByPart.PNG> <./images/MURA-Breakdowns/Stud
 iesByPart_Percentages.PNG>]
-<./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG, id=260, 322.95656pt x 11
+<./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG, id=179, 322.95656pt x 11
 8.94438pt>
 File: ./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG Graphic file (type p
 ng)
  <use ./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG u
-sed on input line 931.
+sed on input line 611.
 (pdftex.def)             Requested size: 226.06804pt x 83.26048pt.
- [53 <./images/MURA-Breakdowns/ImagesByPart.PNG> <./images/MURA-Breakdowns/Imag
+ [34 <./images/MURA-Breakdowns/ImagesByPart.PNG> <./images/MURA-Breakdowns/Imag
 esByPart_Percentages.PNG> <./images/MURA-Breakdowns/ImagesPerStudy.PNG>]
-<./images/MURA-Breakdowns/PartCoOccurence.PNG, id=268, 460.72125pt x 146.04562p
+<./images/MURA-Breakdowns/PartCoOccurence.PNG, id=187, 460.72125pt x 146.04562p
 t>
 File: ./images/MURA-Breakdowns/PartCoOccurence.PNG Graphic file (type png)
  <use ./images/MURA-Breakdowns/PartCoOccurence.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/PartCoOccurence.PNG used on i
-nput line 941.
+nput line 621.
 (pdftex.def)             Requested size: 322.50267pt x 102.23122pt.
 
-<./images/MURA-Breakdowns/PartCoOccurence_Percentages.PNG, id=269, 456.95718pt 
+<./images/MURA-Breakdowns/PartCoOccurence_Percentages.PNG, id=188, 456.95718pt 
 x 131.74219pt>
 File: ./images/MURA-Breakdowns/PartCoOccurence_Percentages.PNG Graphic file (ty
 pe png)
  <use ./images/MURA-Breakdowns/PartCoOccurence_Percentages.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/PartCoOccurence_Percentages.P
-NG used on input line 946.
+NG used on input line 626.
 (pdftex.def)             Requested size: 319.86784pt x 92.21889pt.
 
-[54 <./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG> <./images/MURA-Break
+[35 <./images/MURA-Breakdowns/PatientsByNumberOfSites.PNG> <./images/MURA-Break
 downs/PartCoOccurence.PNG> <./images/MURA-Breakdowns/PartCoOccurence_Percentage
 s.PNG>]
-<./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG, id=276, 179.16937pt x 82.
+<./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG, id=195, 179.16937pt x 82.
 05656pt>
 File: ./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG Graphic file (type pn
 g)
  <use ./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG us
-ed on input line 960.
+ed on input line 640.
 (pdftex.def)             Requested size: 125.4177pt x 57.4392pt.
 
-<./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG, id=277, 318.43968pt x 24
+<./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG, id=196, 318.43968pt x 24
 8.42813pt>
 File: ./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG Graphic file (type p
 ng)
  <use ./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG u
-sed on input line 969.
+sed on input line 649.
 (pdftex.def)             Requested size: 222.90625pt x 173.8985pt.
- [55 <./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG>]
-<./images/MURA-Breakdowns/StudyOutcomesByRole.PNG, id=282, 264.99pt x 145.29282
+ [36 <./images/MURA-Breakdowns/NumbersOfStudiesBySite.PNG>]
+<./images/MURA-Breakdowns/StudyOutcomesByRole.PNG, id=201, 264.99pt x 145.29282
 pt>
 File: ./images/MURA-Breakdowns/StudyOutcomesByRole.PNG Graphic file (type png)
  <use ./images/MURA-Breakdowns/StudyOutcomesByRole.PNG>
 Package pdftex.def Info: ./images/MURA-Breakdowns/StudyOutcomesByRole.PNG used 
-on input line 979.
+on input line 659.
 (pdftex.def)             Requested size: 185.49173pt x 101.70427pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 985--991
+Underfull \hbox (badness 10000) in paragraph at lines 665--671
 
  []
 
-[56 <./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG> <./images/MURA-Break
-downs/StudyOutcomesByRole.PNG>] [57]
-Underfull \hbox (badness 10000) in paragraph at lines 998--1003
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1005--1014
+[37 <./images/MURA-Breakdowns/ConsecutiveStudyResults.PNG> <./images/MURA-Break
+downs/StudyOutcomesByRole.PNG>] [38]
+Underfull \hbox (badness 10000) in paragraph at lines 678--683
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1005--1014
+Underfull \hbox (badness 10000) in paragraph at lines 685--694
 
  []
 
-[58] <./images/SimpleBaselineModel.PNG, id=294, 201.00093pt x 206.27063pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 685--694
+
+ []
+
+[39] <./images/SimpleBaselineModel.PNG, id=213, 201.00093pt x 206.27063pt>
 File: ./images/SimpleBaselineModel.PNG Graphic file (type png)
 
 <use ./images/SimpleBaselineModel.PNG>
-Package pdftex.def Info: ./images/SimpleBaselineModel.PNG used on input line 10
-21.
+Package pdftex.def Info: ./images/SimpleBaselineModel.PNG used on input line 70
+1.
 (pdftex.def)             Requested size: 140.69968pt x 144.38844pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1032
+Underfull \hbox (badness 10000) in paragraph at lines 706--712
 
  []
 
-[59 <./images/SimpleBaselineModel.PNG>]
-<./images/SimpleBaselineModel_Shallower.PNG, id=300, 197.23688pt x 165.61874pt>
+[40 <./images/SimpleBaselineModel.PNG>]
+<./images/SimpleBaselineModel_Shallower.PNG, id=219, 197.23688pt x 165.61874pt>
 File: ./images/SimpleBaselineModel_Shallower.PNG Graphic file (type png)
 <use ./images/SimpleBaselineModel_Shallower.PNG>
 Package pdftex.def Info: ./images/SimpleBaselineModel_Shallower.PNG used on inp
-ut line 1043.
+ut line 723.
 (pdftex.def)             Requested size: 138.06485pt x 115.93231pt.
 
-<./images/SimpleBaselineModel_Deeper.PNG, id=301, 233.37187pt x 239.39438pt>
+<./images/SimpleBaselineModel_Deeper.PNG, id=220, 233.37187pt x 239.39438pt>
 File: ./images/SimpleBaselineModel_Deeper.PNG Graphic file (type png)
 
 <use ./images/SimpleBaselineModel_Deeper.PNG>
 Package pdftex.def Info: ./images/SimpleBaselineModel_Deeper.PNG used on input 
-line 1046.
+line 726.
 (pdftex.def)             Requested size: 163.35919pt x 167.5749pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1051--1057
+Underfull \hbox (badness 10000) in paragraph at lines 731--737
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1067
+Underfull \hbox (badness 10000) in paragraph at lines 738--747
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1067
+Underfull \hbox (badness 10000) in paragraph at lines 738--747
 
  []
 
-[60 <./images/SimpleBaselineModel_Shallower.PNG> <./images/SimpleBaselineModel_
+[41 <./images/SimpleBaselineModel_Shallower.PNG> <./images/SimpleBaselineModel_
 Deeper.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 1074--1079
+Underfull \hbox (badness 10000) in paragraph at lines 754--759
 
  []
 
-[61] [62]
-<./images/mura-authors-results.PNG, id=313, 402.75468pt x 115.93312pt>
+[42] [43]
+<./images/mura-authors-results.PNG, id=233, 402.75468pt x 115.93312pt>
 File: ./images/mura-authors-results.PNG Graphic file (type png)
 
 <use ./images/mura-authors-results.PNG>
-Package pdftex.def Info: ./images/mura-authors-results.PNG used on input line 1
-098.
+Package pdftex.def Info: ./images/mura-authors-results.PNG used on input line 7
+78.
 (pdftex.def)             Requested size: 322.20418pt x 92.74661pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1087--1102
+Underfull \hbox (badness 10000) in paragraph at lines 767--782
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1087--1102
+Underfull \hbox (badness 10000) in paragraph at lines 767--782
 
  []
 
-[63 <./images/mura-authors-results.PNG>]
-<mura-leaderboard-2018-8-30.PNG, id=318, 429.10312pt x 359.09157pt>
+[44 <./images/mura-authors-results.PNG>]
+<mura-leaderboard-2018-8-30.PNG, id=238, 429.10312pt x 359.09157pt>
 File: mura-leaderboard-2018-8-30.PNG Graphic file (type png)
 
 <use mura-leaderboard-2018-8-30.PNG>
-Package pdftex.def Info: mura-leaderboard-2018-8-30.PNG used on input line 1108
-.
+Package pdftex.def Info: mura-leaderboard-2018-8-30.PNG used on input line 788.
+
 (pdftex.def)             Requested size: 214.55103pt x 179.54533pt.
- [64 <./mura-leaderboard-2018-8-30.PNG>]
-<./images/Results/SimpleBaseline-Small-is-48-48/acc_vanilla.PNG, id=323, 517.93
+ [45 <./mura-leaderboard-2018-8-30.PNG>]
+<./images/Results/SimpleBaseline-Small-is-48-48/acc_vanilla.PNG, id=243, 517.93
 5pt x 163.3603pt>
 File: ./images/Results/SimpleBaseline-Small-is-48-48/acc_vanilla.PNG Graphic fi
 le (type png)
 
 <use ./images/Results/SimpleBaseline-Small-is-48-48/acc_vanilla.PNG>
 Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/acc_van
-illa.PNG used on input line 1122.
+illa.PNG used on input line 802.
 (pdftex.def)             Requested size: 310.76338pt x 98.01692pt.
 
-<./images/Results/SimpleBaseline-Small-is-48-48/loss_vanilla.PNG, id=324, 521.6
+<./images/Results/SimpleBaseline-Small-is-48-48/loss_vanilla.PNG, id=244, 521.6
 9907pt x 164.86594pt>
 File: ./images/Results/SimpleBaseline-Small-is-48-48/loss_vanilla.PNG Graphic f
 ile (type png)
 
 <use ./images/Results/SimpleBaseline-Small-is-48-48/loss_vanilla.PNG>
 Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/loss_va
-nilla.PNG used on input line 1126.
+nilla.PNG used on input line 806.
 (pdftex.def)             Requested size: 313.02185pt x 98.9203pt.
 
-<./images/Results/SimpleBaseline-Small-is-48-48/roc_curve_vanilla.PNG, id=325, 
+<./images/Results/SimpleBaseline-Small-is-48-48/roc_curve_vanilla.PNG, id=245, 
 313.9228pt x 215.30438pt>
 File: ./images/Results/SimpleBaseline-Small-is-48-48/roc_curve_vanilla.PNG Grap
 hic file (type png)
 
 <use ./images/Results/SimpleBaseline-Small-is-48-48/roc_curve_vanilla.PNG>
 Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/roc_cur
-ve_vanilla.PNG used on input line 1141.
+ve_vanilla.PNG used on input line 821.
 (pdftex.def)             Requested size: 188.35512pt x 129.18361pt.
 
-<./images/Results/SimpleBaseline-Small-is-48-48/kappa_by_site_vanilla.PNG, id=3
-26, 188.20313pt x 176.15813pt>
+<./images/Results/SimpleBaseline-Small-is-48-48/kappa_by_site_vanilla.PNG, id=2
+46, 188.20313pt x 176.15813pt>
 File: ./images/Results/SimpleBaseline-Small-is-48-48/kappa_by_site_vanilla.PNG 
 Graphic file (type png)
 
 <use ./images/Results/SimpleBaseline-Small-is-48-48/kappa_by_site_vanilla.PNG>
 Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/kappa_b
-y_site_vanilla.PNG used on input line 1144.
+y_site_vanilla.PNG used on input line 824.
 (pdftex.def)             Requested size: 112.92273pt x 105.69568pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1131--1148
+Underfull \hbox (badness 10000) in paragraph at lines 811--828
 
  []
 
-[65 <./images/Results/SimpleBaseline-Small-is-48-48/acc_vanilla.PNG> <./images/
-Results/SimpleBaseline-Small-is-48-48/loss_vanilla.PNG>] [66 <./images/Results/
-SimpleBaseline-Small-is-48-48/roc_curve_vanilla.PNG> <./images/Results/SimpleBa
-seline-Small-is-48-48/kappa_by_site_vanilla.PNG>] [67]
-Underfull \hbox (badness 10000) in paragraph at lines 1177--1191
+[46 <./images/Results/SimpleBaseline-Small-is-48-48/acc_vanilla.PNG> <./images/
+Results/SimpleBaseline-Small-is-48-48/loss_vanilla.PNG>]
+<./images/Results/SimpleBaseline-Small-is-48-48/acc_BN.PNG, id=253, 514.92375pt
+ x 164.86594pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/acc_BN.PNG Graphic file (t
+ype png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/acc_BN.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/acc_BN.
+PNG used on input line 838.
+(pdftex.def)             Requested size: 257.46124pt x 82.43275pt.
+
+<./images/Results/SimpleBaseline-Small-is-48-48/loss_BN.PNG, id=254, 520.19344p
+t x 164.86594pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/loss_BN.PNG Graphic file (
+type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/loss_BN.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/loss_BN
+.PNG used on input line 842.
+(pdftex.def)             Requested size: 260.09607pt x 82.43275pt.
+
+<./images/Results/SimpleBaseline-Small-is-48-48/acc_dropout.PNG, id=255, 516.42
+938pt x 164.86594pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/acc_dropout.PNG Graphic fi
+le (type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/acc_dropout.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/acc_dro
+pout.PNG used on input line 857.
+(pdftex.def)             Requested size: 258.21405pt x 82.43275pt.
+
+<./images/Results/SimpleBaseline-Small-is-48-48/loss_dropout.PNG, id=256, 516.4
+2938pt x 169.38281pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/loss_dropout.PNG Graphic f
+ile (type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/loss_dropout.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/loss_dr
+opout.PNG used on input line 861.
+(pdftex.def)             Requested size: 258.21405pt x 84.6912pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 847--865
+
+ []
+
+[47 <./images/Results/SimpleBaseline-Small-is-48-48/roc_curve_vanilla.PNG> <./i
+mages/Results/SimpleBaseline-Small-is-48-48/kappa_by_site_vanilla.PNG> <./image
+s/Results/SimpleBaseline-Small-is-48-48/acc_BN.PNG> <./images/Results/SimpleBas
+eline-Small-is-48-48/loss_BN.PNG>]
+<./images/Results/SimpleBaseline-Small-is-48-48/acc_learnrate_plateau.PNG, id=2
+64, 520.94624pt x 164.11313pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/acc_learnrate_plateau.PNG 
+Graphic file (type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/acc_learnrate_plateau.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/acc_lea
+rnrate_plateau.PNG used on input line 875.
+(pdftex.def)             Requested size: 260.47249pt x 82.05635pt.
+
+<./images/Results/SimpleBaseline-Small-is-48-48/loss_learnrate_plateau.PNG, id=
+265, 520.19344pt x 167.87718pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/loss_learnrate_plateau.PNG
+ Graphic file (type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/loss_learnrate_plateau.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/loss_le
+arnrate_plateau.PNG used on input line 879.
+(pdftex.def)             Requested size: 260.09607pt x 83.93839pt.
+[48 <./images/Results/SimpleBaseline-Small-is-48-48/acc_dropout.PNG> <./images/
+Results/SimpleBaseline-Small-is-48-48/loss_dropout.PNG>]
+<./images/Results/SimpleBaseline-Small-is-48-48/loss_weight_initialisation.PNG,
+ id=271, 523.9575pt x 165.61874pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/loss_weight_initialisation
+.PNG Graphic file (type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/loss_weight_initialisation.
+PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/loss_we
+ight_initialisation.PNG used on input line 893.
+(pdftex.def)             Requested size: 261.9781pt x 82.80916pt.
+File: ./images/Results/SimpleBaseline-Small-is-48-48/loss_weight_initialisation
+.PNG Graphic file (type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/loss_weight_initialisation.
+PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/loss_we
+ight_initialisation.PNG used on input line 897.
+(pdftex.def)             Requested size: 261.9781pt x 82.80916pt.
+ [49 <./images/Results/SimpleBaseline-Small-is-48-48/acc_learnrate_plateau.PNG>
+ <./images/Results/SimpleBaseline-Small-is-48-48/loss_learnrate_plateau.PNG>]
+<./images/Results/SimpleBaseline-Small-is-48-48/acc_vanilla_rerun.PNG, id=277, 
+517.18219pt x 165.61874pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/acc_vanilla_rerun.PNG Grap
+hic file (type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/acc_vanilla_rerun.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/acc_van
+illa_rerun.PNG used on input line 912.
+(pdftex.def)             Requested size: 258.59045pt x 82.80916pt.
+
+<./images/Results/SimpleBaseline-Small-is-48-48/loss_vanilla_rerun.PNG, id=278,
+ 520.19344pt x 165.61874pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/loss_vanilla_rerun.PNG Gra
+phic file (type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/loss_vanilla_rerun.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/loss_va
+nilla_rerun.PNG used on input line 916.
+(pdftex.def)             Requested size: 260.09607pt x 82.80916pt.
+
+[50 <./images/Results/SimpleBaseline-Small-is-48-48/loss_weight_initialisation.
+PNG>]
+<./images/Results/SimpleBaseline-Medium-is-48-48/acc.PNG, id=283, 519.44063pt x
+ 166.37157pt>
+File: ./images/Results/SimpleBaseline-Medium-is-48-48/acc.PNG Graphic file (typ
+e png)
+ <use ./images/Results/SimpleBaseline-Medium-is-48-48/acc.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Medium-is-48-48/acc.PN
+G used on input line 930.
+(pdftex.def)             Requested size: 259.71968pt x 83.18556pt.
+
+<./images/Results/SimpleBaseline-Medium-is-48-48/loss.PNG, id=284, 520.94624pt 
+x 167.87718pt>
+File: ./images/Results/SimpleBaseline-Medium-is-48-48/loss.PNG Graphic file (ty
+pe png)
+ <use ./images/Results/SimpleBaseline-Medium-is-48-48/loss.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Medium-is-48-48/loss.P
+NG used on input line 934.
+(pdftex.def)             Requested size: 260.47249pt x 83.93839pt.
+
+[51 <./images/Results/SimpleBaseline-Small-is-48-48/acc_vanilla_rerun.PNG> <./i
+mages/Results/SimpleBaseline-Small-is-48-48/loss_vanilla_rerun.PNG>]
+<./images/Results/SimpleBaseline-Small-is-48-48/acc_alt_structures.PNG, id=290,
+ 518.6878pt x 165.61874pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/acc_alt_structures.PNG Gra
+phic file (type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/acc_alt_structures.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/acc_alt
+_structures.PNG used on input line 949.
+(pdftex.def)             Requested size: 207.47144pt x 66.2463pt.
+
+<./images/Results/SimpleBaseline-Small-is-48-48/loss_alt_structures.PNG, id=291
+, 514.92375pt x 164.11313pt>
+File: ./images/Results/SimpleBaseline-Small-is-48-48/loss_alt_structures.PNG Gr
+aphic file (type png)
+
+<use ./images/Results/SimpleBaseline-Small-is-48-48/loss_alt_structures.PNG>
+Package pdftex.def Info: ./images/Results/SimpleBaseline-Small-is-48-48/loss_al
+t_structures.PNG used on input line 953.
+(pdftex.def)             Requested size: 205.96585pt x 65.64407pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 939--957
+
+ []
+
+[52 <./images/Results/SimpleBaseline-Medium-is-48-48/acc.PNG> <./images/Results
+/SimpleBaseline-Medium-is-48-48/loss.PNG> <./images/Results/SimpleBaseline-Smal
+l-is-48-48/acc_alt_structures.PNG> <./images/Results/SimpleBaseline-Small-is-48
+-48/loss_alt_structures.PNG>]
+<./images/Results/VGG16/acc.PNG, id=300, 520.94624pt x 167.12437pt>
+File: ./images/Results/VGG16/acc.PNG Graphic file (type png)
+
+<use ./images/Results/VGG16/acc.PNG>
+Package pdftex.def Info: ./images/Results/VGG16/acc.PNG used on input line 969.
+
+(pdftex.def)             Requested size: 312.57016pt x 100.27538pt.
+
+<./images/Results/VGG16/loss.PNG, id=301, 517.935pt x 164.86594pt>
+File: ./images/Results/VGG16/loss.PNG Graphic file (type png)
+
+<use ./images/Results/VGG16/loss.PNG>
+Package pdftex.def Info: ./images/Results/VGG16/loss.PNG used on input line 973
+.
+(pdftex.def)             Requested size: 310.76338pt x 98.9203pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 978--988
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1177--1191
+Underfull \hbox (badness 10000) in paragraph at lines 978--988
+
+ []
+
+[53 <./images/Results/VGG16/acc.PNG> <./images/Results/VGG16/loss.PNG>]
+[54]
+<./images/Results/Inception-ResNet-v2/acc.PNG, id=310, 519.44063pt x 170.88844p
+t>
+File: ./images/Results/Inception-ResNet-v2/acc.PNG Graphic file (type png)
+ <use ./images/Results/Inception-ResNet-v2/acc.PNG>
+Package pdftex.def Info: ./images/Results/Inception-ResNet-v2/acc.PNG used on i
+nput line 996.
+(pdftex.def)             Requested size: 311.66678pt x 102.53384pt.
+
+<./images/Results/Inception-ResNet-v2/loss.PNG, id=311, 524.71031pt x 168.63pt>
+File: ./images/Results/Inception-ResNet-v2/loss.PNG Graphic file (type png)
+<use ./images/Results/Inception-ResNet-v2/loss.PNG>
+Package pdftex.def Info: ./images/Results/Inception-ResNet-v2/loss.PNG used on 
+input line 1000.
+(pdftex.def)             Requested size: 314.8286pt x 101.17877pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1005--1011
+
+ []
+
+[55 <./images/Results/Inception-ResNet-v2/acc.PNG> <./images/Results/Inception-
+ResNet-v2/loss.PNG>]
+<./images/roc_curves_final.png, id=317, 319.94531pt x 280.04625pt>
+File: ./images/roc_curves_final.png Graphic file (type png)
+
+<use ./images/roc_curves_final.png>
+Package pdftex.def Info: ./images/roc_curves_final.png used on input line 1016.
+
+(pdftex.def)             Requested size: 255.95659pt x 224.0373pt.
+
+<./images/studywise_final.PNG, id=318, 409.53pt x 163.3603pt>
+File: ./images/studywise_final.PNG Graphic file (type png)
+
+<use ./images/studywise_final.PNG>
+Package pdftex.def Info: ./images/studywise_final.PNG used on input line 1029.
+(pdftex.def)             Requested size: 327.62444pt x 130.6884pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1033
+
+ []
+
+[56 <./images/roc_curves_final.png>] [57 <./images/studywise_final.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1056
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1177--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1056
 
  []
 
-[68] [69] [70] (./dissertation.bbl
+
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1056
+
+ []
+
+[58] [59] [60]
+Underfull \hbox (badness 10000) in paragraph at lines 1073--1086
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1073--1086
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1073--1086
+
+ []
+
+[61] (./dissertation.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 11--14
 []\OT1/cmr/m/n/10.95 ``Artificial neu-ral net-work.'' $\OT1/cmtt/m/n/10.95 http
 s : / / en . wikipedia . org / wiki /
@@ -1298,109 +1214,435 @@ mr/m/n/10.95 , 2018.  Com-mit:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--39
-[]\OT1/cmr/m/n/10.95 ``Keras doc-u-men-ta-tion.'' $\OT1/cmtt/m/n/10.95 https : 
-/ / keras . io / layers /
- []
-
-
-Underfull \hbox (badness 4479) in paragraph at lines 45--48
+Underfull \hbox (badness 4479) in paragraph at lines 41--44
 []\OT1/cmr/m/n/10.95 ``Receiver op-er-at-ing char-ac-ter-is-tic.'' $\OT1/cmtt/m
 /n/10.95 https : / / en . wikipedia . org /
  []
 
-[71
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 60--64
+Underfull \hbox (badness 10000) in paragraph at lines 56--60
 \OT1/cmtt/m/n/10.95 videantis . com / deep-[]learning-[]in-[]five-[]and-[]a-[]h
 alf-[]minutes .
  []
 
+[62
 
-Underfull \hbox (badness 2744) in paragraph at lines 98--102
+]
+Underfull \hbox (badness 2744) in paragraph at lines 90--94
 []\OT1/cmr/m/n/10.95 L. Oakden-Rayner, ``Ex-plor-ing the chestxray14 dataset: p
 rob-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--102
+Underfull \hbox (badness 10000) in paragraph at lines 90--94
 \OT1/cmr/m/n/10.95 lems.'' $\OT1/cmtt/m/n/10.95 https : / / lukeoakdenrayner . 
 wordpress . com / 2017 / 12 / 18 /
  []
 
 
-Underfull \hbox (badness 2080) in paragraph at lines 98--102
+Underfull \hbox (badness 2080) in paragraph at lines 90--94
 \OT1/cmtt/m/n/10.95 the-[]chestxray14-[]dataset-[]problems/$\OT1/cmr/m/n/10.95 
 , 2017.  [On-line; ac-cessed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--107
+Underfull \hbox (badness 10000) in paragraph at lines 96--99
 []\OT1/cmr/m/n/10.95 ``Bilinear in-ter-po-la-tion.'' $\OT1/cmtt/m/n/10.95 https
  : / / en . wikipedia . org / wiki /
  []
 
-) [72] [73
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
+[]\OT1/cmr/m/n/10.95 ``Keras doc-u-men-ta-tion.'' $\OT1/cmtt/m/n/10.95 https : 
+/ / keras . io / layers /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--115
+[]\OT1/cmr/m/n/10.95 F. Chol-let, ``Build-ing pow-er-ful im-age clas-si-fi-ca-t
+ion mod-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--115
+\OT1/cmr/m/n/10.95 els us-ing very lit-tle data.'' $\OT1/cmtt/m/n/10.95 https :
+ / / blog . keras . io /
+ []
+
+
+Overfull \hbox (63.16782pt too wide) in paragraph at lines 110--115
+\OT1/cmtt/m/n/10.95 building-[]powerful-[]image-[]classification-[]models-[]usi
+ng-[]very-[]little-[]data .
+ []
+
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 117--121
+[]\OT1/cmr/m/n/10.95 A. Alemi, ``Im-prov-ing in-cep-tion and im-age clas-si-fi-
+ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--121
+\OT1/cmr/m/n/10.95 tion in ten-sor-flow.'' $\OT1/cmtt/m/n/10.95 https : / / ai 
+. googleblog . com / 2016 / 08 /
+ []
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 117--121
+\OT1/cmtt/m/n/10.95 improving-[]inception-[]and-[]image . html$\OT1/cmr/m/n/10.
+95 , 2016.  [On-line; ac-cessed
+ []
+
+) [64]
+Underfull \hbox (badness 10000) in paragraph at lines 1098--1107
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1098--1107
+
+ []
+
+[65
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1218--1227
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1218--1227
-
- []
-
-[74]
-Overfull \hbox (70.68227pt too wide) in paragraph at lines 1240--1241
+Overfull \hbox (70.68227pt too wide) in paragraph at lines 1120--1121
 []\OT1/cmr/m/n/10.95 results - con-tains the im-ages[]summary.csv pro-duced by 
 00[]create[]images[]summary.py.
  []
 
 
-Overfull \hbox (5.3776pt too wide) in paragraph at lines 1246--1247
+Overfull \hbox (5.3776pt too wide) in paragraph at lines 1134--1135
 \OT1/cmr/m/n/10.95 im-ages[]summary.csv, which is cre-ated by 00[]create[]image
 s[]summary.py.
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 1247--1248
+Underfull \hbox (badness 1668) in paragraph at lines 1135--1136
 \OT1/cmr/m/n/10.95 v1.1 with re-sized ver-sions of the raw im-age files (cre-at
 ed by
  []
 
 
-Overfull \hbox (27.86365pt too wide) in paragraph at lines 1247--1248
+Overfull \hbox (27.86365pt too wide) in paragraph at lines 1135--1136
 \OT1/cmr/m/n/10.95 cate the di-men-sions of the new re-sized im-ages, e.g. ./da
 ta/processed/resized-
  []
 
-
-Overfull \hbox (103.12473pt too wide) in paragraph at lines 1251--1262
-\OT1/cmr/m/n/10.95 found on the teach-ing server (teach-ing.cs.rhul.ac.uk) here
-: /rmt/nas/home/pgt/meac055/MURA/ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1251--1262
+[66]
+Underfull \hbox (badness 10000) in paragraph at lines 1153--1168
 
  []
 
-[75] [76] (./dissertation.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1153--1168
+
+ []
+
+[67] [68] [69]
+Underfull \hbox (badness 10000) in paragraph at lines 1239--1245
+
+ []
+
+[70] [71]
+Underfull \hbox (badness 10000) in paragraph at lines 1259--1265
+
+ []
+
+[72] [73]
+Underfull \hbox (badness 10000) in paragraph at lines 1291--1305
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1291--1305
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1291--1305
+
+ []
+
+[74] [75] <./images/vgg16_original.png, id=385, 501.875pt x 929.4725pt>
+File: ./images/vgg16_original.png Graphic file (type png)
+
+<use ./images/vgg16_original.png>
+Package pdftex.def Info: ./images/vgg16_original.png used on input line 1314.
+(pdftex.def)             Requested size: 200.74643pt x 371.78242pt.
+
+<./images/IRNV2.png, id=386, 642.4pt x 403.5075pt>
+File: ./images/IRNV2.png Graphic file (type png)
+ <use ./images/IRNV2.png>
+Package pdftex.def Info: ./images/IRNV2.png used on input line 1323.
+(pdftex.def)             Requested size: 321.19922pt x 201.75325pt.
+
+<./images/InceptionResNet.PNG, id=387, 271.76532pt x 246.1697pt>
+File: ./images/InceptionResNet.PNG Graphic file (type png)
+
+<use ./images/InceptionResNet.PNG>
+Package pdftex.def Info: ./images/InceptionResNet.PNG used on input line 1332.
+(pdftex.def)             Requested size: 190.23442pt x 172.3176pt.
+ [76 <./images/vgg16_original.png>] [77 <./images/IRNV2.png> <./images/Inceptio
+nResNet.PNG>]
+<./images/XR_ELBOW/Negative/patient05926/study1_negative/image1.png, id=397, 33
+9.2675pt x 513.92pt>
+File: ./images/XR_ELBOW/Negative/patient05926/study1_negative/image1.png Graphi
+c file (type png)
+
+<use ./images/XR_ELBOW/Negative/patient05926/study1_negative/image1.png>
+Package pdftex.def Info: ./images/XR_ELBOW/Negative/patient05926/study1_negativ
+e/image1.png used on input line 1343.
+(pdftex.def)             Requested size: 169.63333pt x 256.95937pt.
+
+<./images/XR_ELBOW/Negative/patient05926/study1_negative/image2.png, id=398, 51
+3.92pt x 453.695pt>
+File: ./images/XR_ELBOW/Negative/patient05926/study1_negative/image2.png Graphi
+c file (type png)
+
+<use ./images/XR_ELBOW/Negative/patient05926/study1_negative/image2.png>
+Package pdftex.def Info: ./images/XR_ELBOW/Negative/patient05926/study1_negativ
+e/image2.png used on input line 1346.
+(pdftex.def)             Requested size: 256.95937pt x 226.84694pt.
+
+Overfull \hbox (81.19267pt too wide) in paragraph at lines 1343--1347
+ [][][] 
+ []
+
+[78 <./images/XR_ELBOW/Negative/patient05926/study1_negative/image1.png (PNG co
+py)> <./images/XR_ELBOW/Negative/patient05926/study1_negative/image2.png (PNG c
+opy)>]
+<./images/XR_FINGER/Positive/patient00234/study1_positive/image1.png, id=402, 1
+27.47626pt x 513.92pt>
+File: ./images/XR_FINGER/Positive/patient00234/study1_positive/image1.png Graph
+ic file (type png)
+
+<use ./images/XR_FINGER/Positive/patient00234/study1_positive/image1.png>
+Package pdftex.def Info: ./images/XR_FINGER/Positive/patient00234/study1_positi
+ve/image1.png used on input line 1358.
+(pdftex.def)             Requested size: 63.73796pt x 256.95937pt.
+
+<./images/XR_FINGER/Positive/patient00234/study1_positive/image2.png, id=403, 1
+60.6pt x 513.92pt>
+File: ./images/XR_FINGER/Positive/patient00234/study1_positive/image2.png Graph
+ic file (type png)
+
+<use ./images/XR_FINGER/Positive/patient00234/study1_positive/image2.png>
+Package pdftex.def Info: ./images/XR_FINGER/Positive/patient00234/study1_positi
+ve/image2.png used on input line 1361.
+(pdftex.def)             Requested size: 80.29979pt x 256.95937pt.
+
+<./images/XR_FINGER/Positive/patient00234/study1_positive/image3.png, id=404, 1
+27.47626pt x 513.92pt>
+File: ./images/XR_FINGER/Positive/patient00234/study1_positive/image3.png Graph
+ic file (type png)
+
+<use ./images/XR_FINGER/Positive/patient00234/study1_positive/image3.png>
+Package pdftex.def Info: ./images/XR_FINGER/Positive/patient00234/study1_positi
+ve/image3.png used on input line 1364.
+(pdftex.def)             Requested size: 63.73796pt x 256.95937pt.
+
+[79 <./images/XR_FINGER/Positive/patient00234/study1_positive/image1.png (PNG c
+opy)> <./images/XR_FINGER/Positive/patient00234/study1_positive/image2.png (PNG
+ copy)> <./images/XR_FINGER/Positive/patient00234/study1_positive/image3.png (P
+NG copy)>]
+<./images/XR_HAND/Positive/patient09836/study1_positive/image1.png, id=408, 397
+.485pt x 513.92pt>
+File: ./images/XR_HAND/Positive/patient09836/study1_positive/image1.png Graphic
+ file (type png)
+
+<use ./images/XR_HAND/Positive/patient09836/study1_positive/image1.png>
+Package pdftex.def Info: ./images/XR_HAND/Positive/patient09836/study1_positive
+/image1.png used on input line 1376.
+(pdftex.def)             Requested size: 158.99118pt x 205.56435pt.
+
+<./images/XR_HAND/Positive/patient09836/study1_positive/image2.png, id=409, 395
+.4775pt x 513.92pt>
+File: ./images/XR_HAND/Positive/patient09836/study1_positive/image2.png Graphic
+ file (type png)
+
+<use ./images/XR_HAND/Positive/patient09836/study1_positive/image2.png>
+Package pdftex.def Info: ./images/XR_HAND/Positive/patient09836/study1_positive
+/image2.png used on input line 1379.
+(pdftex.def)             Requested size: 158.18819pt x 205.56435pt.
+
+<./images/XR_HAND/Positive/patient09836/study1_positive/image3.png, id=410, 396
+.48125pt x 513.92pt>
+File: ./images/XR_HAND/Positive/patient09836/study1_positive/image3.png Graphic
+ file (type png)
+
+<use ./images/XR_HAND/Positive/patient09836/study1_positive/image3.png>
+Package pdftex.def Info: ./images/XR_HAND/Positive/patient09836/study1_positive
+/image3.png used on input line 1383.
+(pdftex.def)             Requested size: 158.58968pt x 205.56435pt.
+
+[80 <./images/XR_HAND/Positive/patient09836/study1_positive/image1.png (PNG cop
+y)> <./images/XR_HAND/Positive/patient09836/study1_positive/image2.png (PNG cop
+y)> <./images/XR_HAND/Positive/patient09836/study1_positive/image3.png (PNG cop
+y)>]
+<./images/XR_HUMERUS/Negative/patient11225/study1_negative/image1.png, id=414, 
+421.575pt x 513.92pt>
+File: ./images/XR_HUMERUS/Negative/patient11225/study1_negative/image1.png Grap
+hic file (type png)
+
+<use ./images/XR_HUMERUS/Negative/patient11225/study1_negative/image1.png>
+Package pdftex.def Info: ./images/XR_HUMERUS/Negative/patient11225/study1_negat
+ive/image1.png used on input line 1395.
+(pdftex.def)             Requested size: 210.78697pt x 256.95937pt.
+
+<./images/XR_HUMERUS/Negative/patient11225/study1_negative/image2.png, id=415, 
+421.575pt x 513.92pt>
+File: ./images/XR_HUMERUS/Negative/patient11225/study1_negative/image2.png Grap
+hic file (type png)
+
+<use ./images/XR_HUMERUS/Negative/patient11225/study1_negative/image2.png>
+Package pdftex.def Info: ./images/XR_HUMERUS/Negative/patient11225/study1_negat
+ive/image2.png used on input line 1398.
+(pdftex.def)             Requested size: 210.78697pt x 256.95937pt.
+
+Overfull \hbox (76.17392pt too wide) in paragraph at lines 1395--1399
+ [][][] 
+ []
+
+[81 <./images/XR_HUMERUS/Negative/patient11225/study1_negative/image1.png (PNG 
+copy)> <./images/XR_HUMERUS/Negative/patient11225/study1_negative/image2.png (P
+NG copy)>]
+<./images/XR_FOREARM/Positive/patient11417/study1_positive/image1.png, id=419, 
+513.92pt x 202.7575pt>
+File: ./images/XR_FOREARM/Positive/patient11417/study1_positive/image1.png Grap
+hic file (type png)
+
+<use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image1.png>
+Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
+ive/image1.png used on input line 1410.
+(pdftex.def)             Requested size: 256.95937pt x 101.3785pt.
+
+<./images/XR_FOREARM/Positive/patient11417/study1_positive/image2.png, id=420, 
+513.92pt x 215.80624pt>
+File: ./images/XR_FOREARM/Positive/patient11417/study1_positive/image2.png Grap
+hic file (type png)
+
+<use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image2.png>
+Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
+ive/image2.png used on input line 1414.
+(pdftex.def)             Requested size: 256.95937pt x 107.90285pt.
+
+<./images/XR_FOREARM/Positive/patient11417/study1_positive/image3.png, id=421, 
+204.765pt x 513.92pt>
+File: ./images/XR_FOREARM/Positive/patient11417/study1_positive/image3.png Grap
+hic file (type png)
+
+<use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image3.png>
+Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
+ive/image3.png used on input line 1418.
+(pdftex.def)             Requested size: 81.90454pt x 205.56435pt.
+
+<./images/XR_FOREARM/Positive/patient11417/study1_positive/image4.png, id=422, 
+205.76875pt x 513.92pt>
+File: ./images/XR_FOREARM/Positive/patient11417/study1_positive/image4.png Grap
+hic file (type png)
+
+<use ./images/XR_FOREARM/Positive/patient11417/study1_positive/image4.png>
+Package pdftex.def Info: ./images/XR_FOREARM/Positive/patient11417/study1_posit
+ive/image4.png used on input line 1421.
+(pdftex.def)             Requested size: 82.30603pt x 205.56435pt.
+
+[82 <./images/XR_FOREARM/Positive/patient11417/study1_positive/image1.png (PNG 
+copy)> <./images/XR_FOREARM/Positive/patient11417/study1_positive/image2.png (P
+NG copy)> <./images/XR_FOREARM/Positive/patient11417/study1_positive/image3.png
+ (PNG copy)> <./images/XR_FOREARM/Positive/patient11417/study1_positive/image4.
+png (PNG copy)>]
+<./images/XR_SHOULDER/Positive/patient00001/study1_positive/image1.png, id=427,
+ 381.425pt x 513.92pt>
+File: ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image1.png Gra
+phic file (type png)
+
+<use ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image1.png>
+Package pdftex.def Info: ./images/XR_SHOULDER/Positive/patient00001/study1_posi
+tive/image1.png used on input line 1433.
+(pdftex.def)             Requested size: 190.71202pt x 256.95937pt.
+
+<./images/XR_SHOULDER/Positive/patient00001/study1_positive/image2.png, id=428,
+ 304.13625pt x 513.92pt>
+File: ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image2.png Gra
+phic file (type png)
+
+<use ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image2.png>
+Package pdftex.def Info: ./images/XR_SHOULDER/Positive/patient00001/study1_posi
+tive/image2.png used on input line 1436.
+(pdftex.def)             Requested size: 152.06775pt x 256.95937pt.
+
+<./images/XR_SHOULDER/Positive/patient00001/study1_positive/image3.png, id=429,
+ 513.92pt x 411.5375pt>
+File: ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image3.png Gra
+phic file (type png)
+
+<use ./images/XR_SHOULDER/Positive/patient00001/study1_positive/image3.png>
+Package pdftex.def Info: ./images/XR_SHOULDER/Positive/patient00001/study1_posi
+tive/image3.png used on input line 1440.
+(pdftex.def)             Requested size: 256.95937pt x 205.76825pt.
+
+[83 <./images/XR_SHOULDER/Positive/patient00001/study1_positive/image1.png (PNG
+ copy)> <./images/XR_SHOULDER/Positive/patient00001/study1_positive/image2.png 
+(PNG copy)> <./images/XR_SHOULDER/Positive/patient00001/study1_positive/image3.
+png (PNG copy)>]
+<./images/XR_WRIST/Positive/patient01521/study1_positive/image1.png, id=433, 33
+8.26375pt x 513.92pt>
+File: ./images/XR_WRIST/Positive/patient01521/study1_positive/image1.png Graphi
+c file (type png)
+
+<use ./images/XR_WRIST/Positive/patient01521/study1_positive/image1.png>
+Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
+e/image1.png used on input line 1452.
+(pdftex.def)             Requested size: 135.30309pt x 205.56435pt.
+
+<./images/XR_WRIST/Positive/patient01521/study1_positive/image2.png, id=434, 51
+3.92pt x 420.57124pt>
+File: ./images/XR_WRIST/Positive/patient01521/study1_positive/image2.png Graphi
+c file (type png)
+
+<use ./images/XR_WRIST/Positive/patient01521/study1_positive/image2.png>
+Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
+e/image2.png used on input line 1455.
+(pdftex.def)             Requested size: 205.56435pt x 168.22551pt.
+
+<./images/XR_WRIST/Positive/patient01521/study1_positive/image3.png, id=435, 33
+6.25626pt x 513.92pt>
+File: ./images/XR_WRIST/Positive/patient01521/study1_positive/image3.png Graphi
+c file (type png)
+
+<use ./images/XR_WRIST/Positive/patient01521/study1_positive/image3.png>
+Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
+e/image3.png used on input line 1459.
+(pdftex.def)             Requested size: 134.5001pt x 205.56435pt.
+
+<./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png, id=436, 33
+7.26pt x 513.92pt>
+File: ./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png Graphi
+c file (type png)
+
+<use ./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png>
+Package pdftex.def Info: ./images/XR_WRIST/Positive/patient01521/study1_positiv
+e/image4.png used on input line 1462.
+(pdftex.def)             Requested size: 134.9016pt x 205.56435pt.
+
+[84 <./images/XR_WRIST/Positive/patient01521/study1_positive/image1.png (PNG co
+py)> <./images/XR_WRIST/Positive/patient01521/study1_positive/image2.png (PNG c
+opy)> <./images/XR_WRIST/Positive/patient01521/study1_positive/image3.png (PNG 
+copy)> <./images/XR_WRIST/Positive/patient01521/study1_positive/image4.png (PNG
+ copy)>] (./dissertation.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4389 strings out of 494953
- 74325 string characters out of 6180977
- 128118 words of memory out of 5000000
- 7519 multiletter control sequences out of 15000+600000
+ 4558 strings out of 494953
+ 81042 string characters out of 6180977
+ 128909 words of memory out of 5000000
+ 7665 multiletter control sequences out of 15000+600000
  16237 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,11n,49p,1615b,391s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,11n,49p,1377b,391s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
@@ -1421,10 +1663,10 @@ fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb>
-Output written on dissertation.pdf (84 pages, 2240854 bytes).
+Output written on dissertation.pdf (93 pages, 4180431 bytes).
 PDF statistics:
- 440 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
+ 510 PDF objects out of 1000 (max. 8388607)
+ 271 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 256 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 361 words of extra memory for PDF output out of 10000 (max. 10000000)
 
